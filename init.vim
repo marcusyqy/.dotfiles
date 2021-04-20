@@ -2,6 +2,7 @@
 call plug#begin('~/.vim/plugged')
 
 "Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'kabouzeid/nvim-lspinstall'
 Plug 'neovim/nvim-lspconfig'
 "Plug 'scrooloose/nerdtree'
 "Plug 'tsony-tsonev/nerdtree-git-plugin'
@@ -34,12 +35,3 @@ set shiftwidth =2
 "set relative number 
 set rnu
 
-lua <<EOF
-require'nvim_lsp'.ccls.setup{
-  init_options = {
-	    highlight = {
-			      lsRanges = true;
-						    }
-								  }
-									}
-									EOF
