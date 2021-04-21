@@ -21,5 +21,6 @@
                }
             }
         }
-    }
+    },
+	"diagnostic.checkCurrentLine": true
 } 
