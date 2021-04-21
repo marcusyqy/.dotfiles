@@ -42,15 +42,25 @@ Plug 'morhetz/gruvbox'
 " Initialize plugin system
 call plug#end()
 
-colorscheme gruvbox
-
-set smarttab
-set cindent
-set tabstop=4
-set shiftwidth =4
-
 "set ctrl-t to file dir
 map<silent> <C-t> :NERDTreeFocus<CR>
+colorscheme gruvbox
+
+filetype plugin indent on " required
+syntax on
+set colorcolumn=80
+set background=dark
+highlight ColorColumn ctermbg=0 guibg=lightgrey
+set number
+set nowrap
+set smartcase
+set hlsearch
+set noerrorbells
+set tabstop=4
+set softtabstop =4
+set expandtab
+set smartindent
+
 "set relative number 
 set rnu
 
