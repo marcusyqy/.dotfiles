@@ -1,7 +1,6 @@
 set nocompatible "be iMproved
 filetype off "required
 
-
 " Specify a directory for plugins
 call plug#begin('~/.vim/plugged')
 
@@ -35,10 +34,6 @@ Plug 'ctrlpvim/ctrlp.vim' " fuzzy find files
 "Color theme install
 Plug 'morhetz/gruvbox'
 
-"Plug 'HerringtonDarkholme/yats.vim' " TS Syntax
-
-
-
 " Initialize plugin system
 call plug#end()
 
@@ -60,8 +55,12 @@ set tabstop=4
 set softtabstop =4
 set expandtab
 set smartindent
+set shiftwidth =4
+set cursorline
+set hls is
 
 "set relative number 
 set rnu
+
 
 
