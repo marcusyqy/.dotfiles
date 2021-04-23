@@ -1,10 +1,12 @@
 {
+    "diagnostic.checkCurrentLine": true,
     "languageserver": {
         "ccls": {
             "command": "ccls",
             "filetypes": [
                 "c",
                 "cpp",
+                "c++",
                 "objc",
                 "objcpp"
             ],
@@ -18,9 +20,17 @@
             "initializationOptions": {
                 "cache": {
                     "directory": "/tmp/ccls"
-               }
+                }
             }
         }
     },
-	"diagnostic.checkCurrentLine": true
-} 
+    "coc.preferences.formatOnSaveFiletypes": [
+        "json",
+        "cpp",
+        "h",
+        "c",
+        "hpp",
+        "tpp",
+        "vim"
+    ]
+}
