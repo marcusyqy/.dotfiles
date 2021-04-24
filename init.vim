@@ -1,6 +1,6 @@
 
-set nocompatible "be iMproved
-filetype off "required
+"set nocompatible "be iMproved
+"filetype off "required
 
 " Specify a directory for plugins
 call plug#begin('~/.vim/plugged')
@@ -30,10 +30,8 @@ Plug 'airblade/vim-gitgutter'
 Plug 'ctrlpvim/ctrlp.vim' " fuzzy find files
 Plug 'scrooloose/nerdcommenter'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
-"Plug 'christoomey/vim-tmux-navigator'
 
 "Color theme install
-"Plug 'morhetz/gruvbox'
 Plug 'gruvbox-community/gruvbox'
 Plug 'octol/vim-cpp-enhanced-highlight'
 
@@ -45,8 +43,8 @@ colorscheme gruvbox
 highlight Normal guibg=none
 
 filetype plugin indent on " required
-syntax on
-set colorcolumn=80
+"syntax on
+"set colorcolumn=80
 "highlight ColorColumn ctermbg=0 guibg=lightgrey
 set background=light
 
@@ -55,8 +53,6 @@ set number
 "set relative number
 set rnu
 set nowrap
-set smartcase
-set ignorecase
 "set hlsearch
 set noerrorbells
 set tabstop=4
@@ -65,37 +61,14 @@ set expandtab
 set smartindent
 set shiftwidth =4
 set cursorline
-set hls is
-
-set exrc
-set guicursor=
-set noswapfile
-set undodir =
-set undofile
-set incsearch
-set termguicolors
+"set hls is
 
 "set cursor to be 8 off from the bottom/top
 set scrolloff=8
 set nohlsearch
 set hidden
 set signcolumn=yes
-
-let mapleader = " "
-nnoremap <leader>ps <cmd>lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})<cr>
-
-" Find files using Telescope command-line sugar.
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-nnoremap <leader>fb <cmd>Telescope buffers<cr>
-nnoremap <leader>fh <cmd>Telescope help_tags<cr>
-
-" " Using lua functions
-nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
-nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
-nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
-nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
-
+"
 " Set internal encoding of vim, not needed on neovim, since coc.nvim using some
 " unicode characters in the file autoload/float.vim
 set encoding=utf-8
@@ -119,12 +92,23 @@ set shortmess+=c
 
 " Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved.
-if has("patch-8.1.1564")
-  " Recently vim can merge signcolumn and number column into one
-  set signcolumn=number
-else
-  set signcolumn=yes
-endif
+set signcolumn=yes
+set termguicolors
+
+let mapleader = " "
+nnoremap <leader>ps <cmd>lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})<cr>
+
+" Find files using Telescope command-line sugar.
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
+" " Using lua functions
+nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
+nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
+nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
+nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
@@ -275,9 +259,5 @@ augroup MARCUS_KEYBINDS
     autocmd!
     autocmd BufWritePre * :call TrimWhiteSpace()
 augroup END
-
-
-
-
 
 
