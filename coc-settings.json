@@ -1,6 +1,7 @@
 {
-    "coc.preferences.noselect": false,
     "diagnostic.checkCurrentLine": true,
+    "suggest.noselect": false,
+    "suggest.keepCompleteopt": false,
     "coc.preferences.formatOnSaveFiletypes": [
         "json",
         "cpp",
