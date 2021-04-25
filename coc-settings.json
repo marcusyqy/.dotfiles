@@ -1,15 +1,34 @@
 {
-    "diagnostic.checkCurrentLine": true,
-    "suggest.noselect": false,
-    "suggest.keepCompleteopt": false,
-    "coc.preferences.formatOnSaveFiletypes": [
-        "json",
-        "cpp",
-        "h",
-        "c",
-        "hpp",
-        "tpp",
-        "vim"
-    ],
-    "clangd.path": "C:\\Users\\Marcus\\AppData\\Local\\coc\\extensions\\coc-clangd-data\\install\\12.0.0\\clangd_12.0.0\\bin\\clangd.exe"
+  "languageserver": {
+    "ccls": {
+      "command": "ccls",
+      "filetypes": ["c", "cpp", "c++", "objc", "objcpp"],
+      "rootPatterns": [
+        ".ccls",
+        "compile_commands.json",
+        ".vim/",
+        ".git/",
+        ".hg/"
+      ],
+      "initializationOptions": {
+        "cache": {
+          "directory": "/tmp/ccls"
+        }
+      }
+    }
+  },
+  "diagnostic.checkCurrentLine": true,
+  "suggest.noselect": false,
+  "suggest.keepCompleteopt": false,
+  "suggest.autoTrigger": "always",
+  "coc.preferences.formatOnSaveFiletypes": [
+    "json",
+    "cpp",
+    "h",
+    "c",
+    "hpp",
+    "tpp",
+    "vim"
+  ],
+  "clangd.path": "C:\\Users\\Marcus\\AppData\\Local\\coc\\extensions\\coc-clangd-data\\install\\12.0.0\\clangd_12.0.0\\bin\\clangd.exe"
 }

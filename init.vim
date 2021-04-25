@@ -35,6 +35,7 @@ Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'gruvbox-community/gruvbox'
 Plug 'octol/vim-cpp-enhanced-highlight'
 
+Plug 'rhysd/vim-clang-format'
 " Initialize plugin system
 call plug#end()
 
@@ -73,7 +74,6 @@ set signcolumn=yes
 let g:coc_global_extensions = [
   \ 'coc-snippets',
   \ 'coc-pairs',
-  \ 'coc-clangd',
   \ 'coc-eslint',
   \ 'coc-prettier',
   \ 'coc-json',
@@ -103,6 +103,9 @@ set termguicolors
 
 let mapleader = " "
 nnoremap <leader>ps <cmd>lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})<cr>
+
+"for formatting of c++ code (?)
+nnoremap <Leader>f :<C-u>ClangFormat<CR>
 
 " Find files using Telescope command-line sugar.
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
