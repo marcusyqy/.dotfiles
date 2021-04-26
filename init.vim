@@ -7,9 +7,11 @@ call plug#begin('~/.vim/plugged')
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+
 ""lsp stuff
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-"
+Plug 'jackguo380/vim-lsp-cxx-highlight'
+
 "Set git respos
 Plug 'tpope/vim-fugitive'
 
@@ -33,8 +35,9 @@ Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
 "Color theme install
 Plug 'gruvbox-community/gruvbox'
-Plug 'octol/vim-cpp-enhanced-highlight'
+"Plug 'octol/vim-cpp-enhanced-highlight'
 
+Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'rhysd/vim-clang-format'
 " Initialize plugin system
 call plug#end()
@@ -42,6 +45,10 @@ call plug#end()
 "theme - here
 colorscheme gruvbox
 highlight Normal guibg=none
+
+let g:clang_format#code_style="google"
+let g:clang_format#auto_format=1
+let g:clang_format#auto_format_on_insert_leave=1
 
 filetype plugin indent on " required
 "syntax on
@@ -79,6 +86,11 @@ let g:coc_global_extensions = [
   \ 'coc-json',
   \ ]
 
+" c++ syntax highlighting
+let g:cpp_class_scope_highlight = 1
+let g:cpp_member_variable_highlight = 1
+let g:cpp_class_decl_highlight = 1
+
 " TextEdit might fail if hidden is not set.
 set hidden
 
@@ -104,8 +116,9 @@ set termguicolors
 let mapleader = " "
 nnoremap <leader>ps <cmd>lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})<cr>
 
-"for formatting of c++ code (?)
-nnoremap <Leader>f :<C-u>ClangFormat<CR>
+autocmd FileType c,cpp,objc nnoremap <Leader>f :<C-u>ClangFormat<CR>
+autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
+nmap <Leader>C :ClangFormatAutoToggle<CR>
 
 " Find files using Telescope command-line sugar.
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
@@ -132,7 +145,6 @@ augroup MARCUS_KEYBINDS
     autocmd!
     autocmd BufWritePre * :call TrimWhiteSpace()
 augroup END
-
 
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
@@ -182,8 +194,8 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 nmap <leader>rn <Plug>(coc-rename)
 
 " Remap for format selected region
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
+"xmap <leader>f  <Plug>(coc-format-selected)
+"nmap <leader>f  <Plug>(coc-format-selected)
 
 augroup mygroup
   autocmd!
@@ -237,3 +249,4 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
+let g:neovide_refresh_rate=140

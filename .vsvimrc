@@ -1,0 +1,50 @@
+let mapleader = " "
+nmap <C-O> :vsc View.NavigateBackward<CR>
+nmap <C-I> :vsc View.NavigateForward<CR>
+nmap <gd> :vsc Edit.GoToDefinition<CR>
+" backspace in Visual mode deletes selection
+vnoremap <BS> d
+
+if has("clipboard")
+    " CTRL-X and SHIFT-Del are Cut
+    vnoremap <C-X> "+x
+    vnoremap <S-Del> "+x
+
+    " CTRL-C and CTRL-Insert are Copy
+    vnoremap <C-C> "+y
+    vnoremap <C-Insert> "+y
+
+    " CTRL-V and SHIFT-Insert are Paste
+    map <C-V>		"+gP
+    map <S-Insert>		"+gP
+
+    cmap <C-V>		<C-R>+
+    cmap <S-Insert>		<C-R>+
+endif
+
+
+" CTRL-Tab is Next window
+noremap <C-Tab> <C-W>w
+inoremap <C-Tab> <C-O><C-W>w
+cnoremap <C-Tab> <C-C><C-W>w
+onoremap <C-Tab> <C-C><C-W>w
+nmap gr :vsc Edit.FindAllReferences<CR>
+nmap gp :vsc Edit.PeekDefinition<CR>
+
+" break out of the tyranny of text! Navigate by method
+nnoremap <leader>m :vsc Edit.NextMethod<cr>
+nnoremap <leader>M :vsc Edit.PreviousMethod<cr>
+
+nnoremap R :vsc Refactor.Rename<cr>
+
+" jump between compilation errors
+nnoremap <leader>e :vsc View.NextError<cr>
+nnoremap <leader>E :vsc View.PreviousError<cr>
+
+" testing and debugging
+nnoremap <leader>b :vsc Debug.ToggleBreakpoint<cr>
+nnoremap <leader>r :vsc TestExplorer.RunAllTestsInContext<cr>
+nnoremap <leader>R :vsc TestExplorer.DebugAllTestsInContext<cr>
+
+" open the change parameter window, a bit fake because it's not a text-object
+nnoremap cia :vsc Refactor.ReorderParameters<cr>
