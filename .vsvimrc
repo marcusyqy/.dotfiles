@@ -17,7 +17,7 @@ nnoremap <space>m :vsc Edit.NextMethod<cr>
 nnoremap <space>M :vsc Edit.PreviousMethod<cr>
 
 nnoremap <space> f :vsc Edit.FormatDocument<cr>
-nnoremap <R> :vsc Refactor.Rename<cr>
+nnoremap R :vsc Refactor.Rename<cr>
 " testing and debugging
 nnoremap <space>r :vsc TestExplorer.RunAllTestsInContext<cr>
 nnoremap <space>R :vsc TestExplorer.DebugAllTestsInContext<cr>
