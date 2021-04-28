@@ -44,3 +44,5 @@ vnoremap <space>u :vsc Edit.UncommentSelection<cr>
 vnoremap <space>c :vsc Edit.CommentSelection<cr>
 snoremap <space>u :vsc Edit.UncommentSelection<cr>
 snoremap <space>c :vsc Edit.CommentSelection<cr>
+
+set scrolloff=8
