@@ -4,13 +4,19 @@
 
 " Specify a directory for plugins
 call plug#begin('~/.vim/plugged')
+Plug 'altercation/vim-colors-solarized'
+
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
 ""lsp stuff
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'jackguo380/vim-lsp-cxx-highlight'
+"Plug 'octol/vim-cpp-enhanced-highlight'
 
 "Set git respos
 Plug 'tpope/vim-fugitive'
@@ -20,10 +26,6 @@ Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
-"TODO(MARCUS) needs to set for neovide - Guifont
-"Actually works for Neovide - not sure why;
-"CaskaydiaCove Nerd Font Book needed (need nerd font pack to be set on
-"terminal)
 Plug 'ryanoasis/vim-devicons'
 "give squeegly lines
 Plug 'airblade/vim-gitgutter'
@@ -38,24 +40,29 @@ Plug 'gruvbox-community/gruvbox'
 "Plug 'octol/vim-cpp-enhanced-highlight'
 
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
-Plug 'rhysd/vim-clang-format'
+"Plug 'rhysd/vim-clang-format'
+
+Plug 'nathanaelkane/vim-indent-guides'
+
 " Initialize plugin system
 call plug#end()
 
 "theme - here
+"colorscheme solarized
+let g:gruvbox_italics=1
 colorscheme gruvbox
-highlight Normal guibg=none
+"highlight Normal guibg=none
 
-let g:clang_format#code_style="google"
-let g:clang_format#auto_format=1
-let g:clang_format#auto_format_on_insert_leave=1
+"let g:clang_format#code_style="google"
+"let g:clang_format#auto_format=1
+"let g:clang_format#auto_format_on_insert_leave=1
 
 filetype plugin indent on " required
 "syntax on
 "set colorcolumn=80
 "highlight ColorColumn ctermbg=0 guibg=lightgrey
-set background=light
-"set background=dark
+"set background=light
+set background=dark
 
 set updatetime=300
 set number
@@ -75,7 +82,6 @@ set smarttab
 "set cursor to be 8 off from the bottom/top
 set scrolloff=8
 set nohlsearch
-set hidden
 set signcolumn=yes
 
 let g:coc_global_extensions = [
@@ -85,6 +91,8 @@ let g:coc_global_extensions = [
   \ 'coc-prettier',
   \ 'coc-json',
   \ ]
+
+let g:lsp_cxx_hl_use_text_props = 1
 
 " c++ syntax highlighting
 let g:cpp_class_scope_highlight = 1
@@ -112,6 +120,7 @@ set shortmess+=c
 " diagnostics appear/become resolved.
 set signcolumn=yes
 set termguicolors
+
 
 let mapleader = " "
 nnoremap <leader>ps <cmd>lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})<cr>
@@ -146,6 +155,7 @@ augroup MARCUS_KEYBINDS
     autocmd BufWritePre * :call TrimWhiteSpace()
 augroup END
 
+verbose imap <tab>
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
 inoremap <silent><expr> <TAB>
@@ -249,4 +259,40 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
-let g:neovide_refresh_rate=140
+" Airline
+let g:airline_powerline_fonts = 1
+let g:airline_section_z = ' %{strftime("%-I:%M %p")}'
+let g:airline_section_warning = ''
+"let g:airline#extensions#tabline#enabled = 1
+
+nmap <Tab> >>
+nmap <S-Tab> <<
+
+" Create default mappings
+let g:NERDCreateDefaultMappings = 1
+
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+
+" Set a language to use its alternate delimiters by default
+let g:NERDAltDelims_java = 1
+
+" Add your own custom formats or override the defaults
+let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
+
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+
+" Enable NERDCommenterToggle to check all selected lines is commented or not
+let g:NERDToggleCheckAllLines = 1
+
+"let g:indent_guides_enable_on_vim_startup =1

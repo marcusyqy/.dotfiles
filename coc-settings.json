@@ -27,7 +27,13 @@
   },
   "diagnostic.checkCurrentLine": true,
   "suggest.noselect": false,
-  "suggest.keepCompleteopt": false,
-  "suggest.autoTrigger": "always",
-  "coc.preferences.formatOnSaveFiletypes": ["json", "vim"]
+  "coc.preferences.formatOnSaveFiletypes": [
+    "json",
+    "vim",
+    "cpp",
+    "hpp",
+    "c",
+    "h",
+    "tpp"
+  ]
 }
