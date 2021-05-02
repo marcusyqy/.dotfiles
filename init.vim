@@ -49,6 +49,8 @@ Plug 'nathanaelkane/vim-indent-guides'
 " Initialize plugin system
 call plug#end()
 
+let g:CtrlSpaceDefaultMappingKey = "<C-space> "
+
 "theme - here
 "colorscheme solarized
 let g:gruvbox_italics=1
@@ -57,7 +59,6 @@ colorscheme gruvbox
 
 let g:clang_format#code_style="google"
 let g:clang_format#auto_format=1
-let g:clang_format#auto_format_on_insert_leave=1
 
 filetype plugin indent on " required
 "syntax on
@@ -73,11 +74,6 @@ set rnu
 set nowrap
 "set hlsearch
 set noerrorbells
-set tabstop=4
-set softtabstop =4
-set expandtab
-set smartindent
-set shiftwidth =4
 set cursorline
 "set hls is
 set smarttab
@@ -86,12 +82,19 @@ set scrolloff=8
 set nohlsearch
 set signcolumn=yes
 
+set tabstop=4
+set softtabstop =4
+set expandtab
+set smartindent
+set shiftwidth =4
+
+"  \ 'coc-pairs',
+"  \ 'coc-eslint',
+"  \ 'coc-prettier',
 let g:coc_global_extensions = [
   \ 'coc-snippets',
-  \ 'coc-pairs',
-  \ 'coc-eslint',
-  \ 'coc-prettier',
   \ 'coc-json',
+  \ 'coc-clangd'
   \ ]
 
 let g:lsp_cxx_hl_use_text_props = 1
@@ -158,6 +161,7 @@ augroup MARCUS_KEYBINDS
 augroup END
 
 verbose imap <tab>
+"
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
 inoremap <silent><expr> <TAB>
@@ -270,6 +274,12 @@ let g:airline_section_warning = ''
 nmap <Tab> >>
 nmap <S-Tab> <<
 
+vmap <Tab> >>
+vmap <S-Tab> <<
+
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
 " Create default mappings
 let g:NERDCreateDefaultMappings = 1
 
@@ -302,3 +312,5 @@ let delimitMate_expand_cr = 1
 imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<Plug>delimitMateCR"
 
 nmap <leader>; A;<esc>
+
+nmap <leader>ko :CocCommand clangd.switchSourceHeader

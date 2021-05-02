@@ -1,31 +1,12 @@
 {
-  "languageserver": {
-    "ccls": {
-      "command": "ccls",
-      "args": ["--log-file=/tmp/ccls.log", "-v=1"],
-      "filetypes": ["c", "cpp", "c++", "objc", "objcpp"],
-      "rootPatterns": [
-        ".ccls",
-        "compile_commands.json",
-        ".vim/",
-        ".git/",
-        ".hg/"
-      ],
-      "initializationOptions": {
-        "cache": {
-          "directory": "/tmp/ccls"
-        },
-        "client": {
-          "snippetSupport": true
-        },
-        "index": {
-          "onChange": true
-        },
-        "highlight": { "lsRanges": true }
-      }
-    }
-  },
   "diagnostic.checkCurrentLine": true,
   "suggest.noselect": false,
-  "coc.preferences.formatOnSaveFiletypes": ["json", "vim"]
+  "coc.preferences.formatOnSaveFiletypes": ["json", "vim"],
+  "clangd.path": "C:\\Users\\Marcus\\AppData\\Local\\coc\\extensions\\coc-clangd-data\\install\\12.0.0\\clangd_12.0.0\\bin\\clangd.exe",
+  "clangd.enabled": true,
+  "clangd.disableCompletion": false,
+  "clangd.disableDiagnostics": false,
+  "clangd.disableSnippetCompletion": false,
+  "clangd.fallbackFlags": ["-std=c++17"],
+  "clangd.semanticHighlighting": true
 }
