@@ -311,6 +311,7 @@ let g:NERDToggleCheckAllLines = 1
 let delimitMate_expand_cr = 1
 imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<Plug>delimitMateCR"
 
+"refer to nerdcommenter for commenting keybinds
 nmap <leader>; A;<esc>
 
 nmap <leader>ko :CocCommand clangd.switchSourceHeader
@@ -350,9 +351,11 @@ nnoremap <silent> <leader>bl :BufferOrderByLanguage<CR>
 " :BarbarEnable - enables barbar (enabled by default)
 " :BarbarDisable - very bad command, should never be used
 
+imap <C-v> <esc>"+p
+vmap <C-v> <esc>"+p
+
 " neovide settings (gui)
 set guifont=CaskaydiaCove\ Nerd\ Font:h15:b
-imap <silent> <C-v> <esc>"+p
 let g:neovide_refresh_rate=140
 let g:neovide_transparency=0.9
 let g:neovide_cursor_animation_length=0.15
