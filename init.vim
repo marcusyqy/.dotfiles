@@ -13,6 +13,8 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
+Plug 'Raimondi/delimitMate'
+
 ""lsp stuff
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'jackguo380/vim-lsp-cxx-highlight'
@@ -40,7 +42,7 @@ Plug 'gruvbox-community/gruvbox'
 "Plug 'octol/vim-cpp-enhanced-highlight'
 
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
-"Plug 'rhysd/vim-clang-format'
+Plug 'rhysd/vim-clang-format'
 
 Plug 'nathanaelkane/vim-indent-guides'
 
@@ -53,14 +55,14 @@ let g:gruvbox_italics=1
 colorscheme gruvbox
 "highlight Normal guibg=none
 
-"let g:clang_format#code_style="google"
-"let g:clang_format#auto_format=1
-"let g:clang_format#auto_format_on_insert_leave=1
+let g:clang_format#code_style="google"
+let g:clang_format#auto_format=1
+let g:clang_format#auto_format_on_insert_leave=1
 
 filetype plugin indent on " required
 "syntax on
 "set colorcolumn=80
-"highlight ColorColumn ctermbg=0 guibg=lightgrey
+highlight ColorColumn ctermbg=0 guibg=lightgrey
 "set background=light
 set background=dark
 
@@ -295,4 +297,8 @@ let g:NERDTrimTrailingWhitespace = 1
 " Enable NERDCommenterToggle to check all selected lines is commented or not
 let g:NERDToggleCheckAllLines = 1
 
-"let g:indent_guides_enable_on_vim_startup =1
+" delimitMate
+let delimitMate_expand_cr = 1
+imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<Plug>delimitMateCR"
+
+nmap <leader>; A;<esc>
