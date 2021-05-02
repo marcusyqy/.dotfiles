@@ -1,6 +1,7 @@
 "place this document in ~  
 :set nonumber
 :set relativenumber
+:set number
 
 nmap <C-O> :vsc View.NavigateBackward<CR>
 nmap <C-I> :vsc View.NavigateForward<CR>
@@ -49,5 +50,8 @@ snoremap <space>c :vsc Edit.CommentSelection<cr>
 
 set scrolloff=8
 
-nmap <tab> >> <cr>
-nmap <s-tab> << <cr>
+vmap <tab> >>
+vmap <s-tab> <<
+
+nmap <tab> >>
+nmap <s-tab> <<

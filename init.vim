@@ -132,6 +132,7 @@ nnoremap <leader>ps <cmd>lua require('telescope.builtin').grep_string({ search =
 
 autocmd FileType c,cpp,objc nnoremap <Leader>f :<C-u>ClangFormat<CR>
 autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
+
 nmap <Leader>C :ClangFormatAutoToggle<CR>
 
 " Find files using Telescope command-line sugar.
@@ -335,6 +336,7 @@ nnoremap <silent>    <A-8> :BufferGoto 8<CR>
 nnoremap <silent>    <A-9> :BufferLast<CR>
 " Close buffer
 nnoremap <silent>    <A-c> :BufferClose<CR>
+nnoremap <silent>    <A-C> :BufferClose!<CR>
 " Wipeout buffer
 "                          :BufferWipeout<CR>
 " Close commands
