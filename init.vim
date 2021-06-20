@@ -1,6 +1,6 @@
 
-"set nocompatible "be iMproved
-"filetype off "required
+set nocompatible "be iMproved
+filetype off "required
 
 " Specify a directory for plugins
 call plug#begin('~/.vim/plugged')
@@ -9,6 +9,7 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-fzy-native.nvim'
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -38,7 +39,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
 "Color theme install
-Plug 'gruvbox-community/gruvbox'
+Plug 'morhetz/gruvbox'
 "Plug 'octol/vim-cpp-enhanced-highlight'
 
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
@@ -47,7 +48,9 @@ Plug 'rhysd/vim-clang-format'
 Plug 'nathanaelkane/vim-indent-guides'
 
 Plug 'kyazdani42/nvim-web-devicons'
-Plug 'romgrk/barbar.nvim'
+"Plug 'romgrk/barbar.nvim'
+
+Plug 'theprimeagen/vim-be-good'
 
 " Initialize plugin system
 call plug#end()
@@ -55,19 +58,20 @@ call plug#end()
 "theme - here
 syntax enable
 set background=dark
-"set background=light
 colorscheme gruvbox
 highlight Normal guibg=none
 
 set termguicolors
 
 let g:clang_format#code_style="google"
-let g:clang_format#auto_format=1
+let g:clang_format#auto_format=0
 
 filetype plugin indent on " required
 "syntax on
-set colorcolumn=80
-highlight ColorColumn ctermbg=0 guibg=lightgrey
+"set colorcolumn=80
+"highlight ColorColumn ctermbg=0 guibg=lightgrey
+"
+
 
 set updatetime=300
 set number
@@ -86,9 +90,10 @@ set signcolumn=yes
 
 set tabstop=4
 set softtabstop =4
-set expandtab
+"set expandtab
 set smartindent
 set shiftwidth =4
+set list
 
 "  \ 'coc-pairs',
 "  \ 'coc-eslint',
@@ -128,24 +133,29 @@ set shortmess+=c
 set signcolumn=yes
 
 let mapleader = " "
-nnoremap <leader>ps <cmd>lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})<cr>
 
 autocmd FileType c,cpp,objc nnoremap <Leader>f :<C-u>ClangFormat<CR>
 autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
 
 nmap <Leader>C :ClangFormatAutoToggle<CR>
 
+lua require('telescope').load_extension('fzy_native')
+
 " Find files using Telescope command-line sugar.
+nnoremap <leader>fo <cmd>Telescope file_browser<cr>
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+nnoremap <leader>fd <cmd>Telescope search_dirs<cr>
+nnoremap <leader>fe <cmd>Telescope grep_open_files<cr>
+
 
 " " Using lua functions
-nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
-nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
-nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
-nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
+"nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
+"nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
+"nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
+"nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 
 "set ctrl-n to file dir
 nnoremap<silent> <C-n> :NERDTreeFocus<cr>
@@ -169,6 +179,7 @@ inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
+
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! s:check_back_space() abort
@@ -270,7 +281,8 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 let g:airline_powerline_fonts = 1
 let g:airline_section_z = ' %{strftime("%-I:%M %p")}'
 let g:airline_section_warning = ''
-"let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
+
 
 nmap <Tab> >>
 nmap <S-Tab> <<
@@ -319,27 +331,27 @@ nmap <leader>ko :CocCommand clangd.switchSourceHeader
 
 " BAR BAR Settings
 " Move to previous/next
-nnoremap <silent>    <A-,> :BufferPrevious<CR>
-nnoremap <silent>    <A-.> :BufferNext<CR>
+"nnoremap <silent>    <A-,> :BufferPrevious<CR>
+"nnoremap <silent>    <A-.> :BufferNext<CR>
 " Re-order to previous/next
-nnoremap <silent>    <A-<> :BufferMovePrevious<CR>
-nnoremap <silent>    <A->> :BufferMoveNext<CR>
+"nnoremap <silent>    <A-<> :BufferMovePrevious<CR>
+"nnoremap <silent>    <A->> :BufferMoveNext<CR>
 " Goto buffer in position...
-nnoremap <silent>    <A-1> :BufferGoto 1<CR>
-nnoremap <silent>    <A-2> :BufferGoto 2<CR>
-nnoremap <silent>    <A-3> :BufferGoto 3<CR>
-nnoremap <silent>    <A-4> :BufferGoto 4<CR>
-nnoremap <silent>    <A-5> :BufferGoto 5<CR>
-nnoremap <silent>    <A-6> :BufferGoto 6<CR>
-nnoremap <silent>    <A-7> :BufferGoto 7<CR>
-nnoremap <silent>    <A-8> :BufferGoto 8<CR>
-nnoremap <silent>    <A-9> :BufferLast<CR>
-" Close buffer
-nnoremap <silent>    <A-c> :BufferClose<CR>
-nnoremap <silent>    <A-C> :BufferClose!<CR>
-" Wipeout buffer
-"                          :BufferWipeout<CR>
-" Close commands
+"nnoremap <silent>    <A-1> :BufferGoto 1<CR>
+"nnoremap <silent>    <A-2> :BufferGoto 2<CR>
+"nnoremap <silent>    <A-3> :BufferGoto 3<CR>
+"nnoremap <silent>    <A-4> :BufferGoto 4<CR>
+"nnoremap <silent>    <A-5> :BufferGoto 5<CR>
+"nnoremap <silent>    <A-6> :BufferGoto 6<CR>
+"nnoremap <silent>    <A-7> :BufferGoto 7<CR>
+"nnoremap <silent>    <A-8> :BufferGoto 8<CR>
+"nnoremap <silent>    <A-9> :BufferLast<CR>
+"" Close buffer
+"nnoremap <silent>    <A-c> :BufferClose<CR>
+"nnoremap <silent>    <A-C> :BufferClose!<CR>
+"" Wipeout buffer
+""                          :BufferWipeout<CR>
+"" Close commands
 "                          :BufferCloseAllButCurrent<CR>
 "                          :BufferCloseBuffersLeft<CR>
 "                          :BufferCloseBuffersRight<CR>
@@ -363,3 +375,13 @@ let g:neovide_transparency=0.9
 let g:neovide_cursor_animation_length=0.15
 let g:neovide_cursor_trail_length=0.4
 let g:neovide_cursor_antialiasing=v:true
+
+
+nnoremap <leader>-= :e! ~/AppData/Local/nvim/init.vim<CR>
+
+nnoremap <leader>y "+y
+vnoremap <leader>y "+y
+nnoremap <leader>Y gg"+yG
+
+inoremap <C-c> <esc>
+
