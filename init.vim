@@ -4,7 +4,7 @@ filetype off "required
 
 " Specify a directory for plugins
 call plug#begin('~/.vim/plugged')
-Plug 'altercation/vim-colors-solarized'
+Plug 'overcache/NeoSolarized'
 
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
@@ -39,8 +39,8 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
 "Color theme install
-Plug 'morhetz/gruvbox'
-"Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'gruvbox-community/gruvbox'
+Plug 'octol/vim-cpp-enhanced-highlight'
 
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'rhysd/vim-clang-format'
@@ -58,7 +58,7 @@ call plug#end()
 "theme - here
 syntax enable
 set background=dark
-colorscheme gruvbox
+colorscheme NeoSolarized
 highlight Normal guibg=none
 
 set termguicolors
@@ -71,7 +71,6 @@ filetype plugin indent on " required
 "set colorcolumn=80
 "highlight ColorColumn ctermbg=0 guibg=lightgrey
 "
-
 
 set updatetime=300
 set number
@@ -101,6 +100,9 @@ set list
 let g:coc_global_extensions = [
   \ 'coc-snippets',
   \ 'coc-json',
+  \ 'coc-html',
+  \ 'coc-tsserver',
+  \ 'coc-css',
   \ 'coc-clangd'
   \ ]
 
@@ -159,6 +161,7 @@ nnoremap <leader>fe <cmd>Telescope grep_open_files<cr>
 
 "set ctrl-n to file dir
 nnoremap<silent> <C-n> :NERDTreeFocus<cr>
+
 "nice removing of whitespaces!
 fun! TrimWhiteSpace()
     let l:save = winsaveview()
@@ -189,7 +192,7 @@ endfunction
 
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
-
+"
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
 " Coc only does snippet and additional edit on confirm.
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
@@ -283,13 +286,6 @@ let g:airline_section_z = ' %{strftime("%-I:%M %p")}'
 let g:airline_section_warning = ''
 let g:airline#extensions#tabline#enabled = 1
 
-
-nmap <Tab> >>
-nmap <S-Tab> <<
-
-vmap <Tab> >>
-vmap <S-Tab> <<
-
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
@@ -325,63 +321,23 @@ let delimitMate_expand_cr = 1
 imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<Plug>delimitMateCR"
 
 "refer to nerdcommenter for commenting keybinds
-nmap <leader>; A;<esc>
-
 nmap <leader>ko :CocCommand clangd.switchSourceHeader
 
-" BAR BAR Settings
-" Move to previous/next
-"nnoremap <silent>    <A-,> :BufferPrevious<CR>
-"nnoremap <silent>    <A-.> :BufferNext<CR>
-" Re-order to previous/next
-"nnoremap <silent>    <A-<> :BufferMovePrevious<CR>
-"nnoremap <silent>    <A->> :BufferMoveNext<CR>
-" Goto buffer in position...
-"nnoremap <silent>    <A-1> :BufferGoto 1<CR>
-"nnoremap <silent>    <A-2> :BufferGoto 2<CR>
-"nnoremap <silent>    <A-3> :BufferGoto 3<CR>
-"nnoremap <silent>    <A-4> :BufferGoto 4<CR>
-"nnoremap <silent>    <A-5> :BufferGoto 5<CR>
-"nnoremap <silent>    <A-6> :BufferGoto 6<CR>
-"nnoremap <silent>    <A-7> :BufferGoto 7<CR>
-"nnoremap <silent>    <A-8> :BufferGoto 8<CR>
-"nnoremap <silent>    <A-9> :BufferLast<CR>
-"" Close buffer
-"nnoremap <silent>    <A-c> :BufferClose<CR>
-"nnoremap <silent>    <A-C> :BufferClose!<CR>
-"" Wipeout buffer
-""                          :BufferWipeout<CR>
-"" Close commands
-"                          :BufferCloseAllButCurrent<CR>
-"                          :BufferCloseBuffersLeft<CR>
-"                          :BufferCloseBuffersRight<CR>
-" Magic buffer-picking mode
-nnoremap <silent> <C-s>    :BufferPick<CR>
-" Sort automatically by...
-nnoremap <silent> <leader>bd :BufferOrderByDirectory<CR>
-nnoremap <silent> <leader>bl :BufferOrderByLanguage<CR>
-
-" Other:
-" :BarbarEnable - enables barbar (enabled by default)
-" :BarbarDisable - very bad command, should never be used
-
-imap <C-v> <esc>"+p
-vmap <C-v> <esc>"+p
-
-" neovide settings (gui)
-set guifont=CaskaydiaCove\ Nerd\ Font:h15:b
-let g:neovide_refresh_rate=140
-let g:neovide_transparency=0.9
-let g:neovide_cursor_animation_length=0.15
-let g:neovide_cursor_trail_length=0.4
-let g:neovide_cursor_antialiasing=v:true
-
-
 nnoremap <leader>-= :e! ~/AppData/Local/nvim/init.vim<CR>
+
+vnoremap <leader>p "_dP
 
 nnoremap <leader>y "+y
 vnoremap <leader>y "+y
 nnoremap <leader>Y gg"+yG
 
 inoremap <C-c> <esc>
+
+set mouse=a
+
+nnoremap <tab> >>
+nnoremap <s-tab> <<
+
+vnoremap <tab> >
+vnoremap <s-tab> <
 
