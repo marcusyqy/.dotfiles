@@ -1,111 +1,29 @@
+"init vim here
+autocmd!
 
-set nocompatible "be iMproved
 filetype off "required
 
-" Specify a directory for plugins
-call plug#begin('~/.vim/plugged')
-Plug 'overcache/NeoSolarized'
+" run sets vim scripts
+runtime ./sets.vim
 
-Plug 'nvim-lua/popup.nvim'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
-Plug 'nvim-telescope/telescope-fzy-native.nvim'
+" load plugins
+runtime ./plug.vim
 
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-
-Plug 'Raimondi/delimitMate'
-
-""lsp stuff
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'jackguo380/vim-lsp-cxx-highlight'
-"Plug 'octol/vim-cpp-enhanced-highlight'
-
-"Set git respos
-Plug 'tpope/vim-fugitive'
-
-"For file explorer
-Plug 'preservim/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-
-Plug 'ryanoasis/vim-devicons'
-"give squeegly lines
-Plug 'airblade/vim-gitgutter'
-
-"ctrl-p to find path files
-Plug 'ctrlpvim/ctrlp.vim' " fuzzy find files
-Plug 'scrooloose/nerdcommenter'
-Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
-
-"Color theme install
-Plug 'gruvbox-community/gruvbox'
-Plug 'octol/vim-cpp-enhanced-highlight'
-
-Plug 'Shougo/vimproc.vim', {'do' : 'make'}
-Plug 'rhysd/vim-clang-format'
-
-Plug 'nathanaelkane/vim-indent-guides'
-
-Plug 'kyazdani42/nvim-web-devicons'
-"Plug 'romgrk/barbar.nvim'
-
-Plug 'theprimeagen/vim-be-good'
-
-" Initialize plugin system
-call plug#end()
+let mapleader = " "
 
 "theme - here
 syntax enable
-set background=dark
 colorscheme NeoSolarized
 highlight Normal guibg=none
-
-set termguicolors
 
 let g:clang_format#code_style="google"
 let g:clang_format#auto_format=0
 
 filetype plugin indent on " required
-"syntax on
-"set colorcolumn=80
-"highlight ColorColumn ctermbg=0 guibg=lightgrey
-"
 
-set updatetime=300
-set number
-"set relative number
-set rnu
-set nowrap
-"set hlsearch
-set noerrorbells
-set cursorline
-"set hls is
-set smarttab
-"set cursor to be 8 off from the bottom/top
-set scrolloff=8
-set nohlsearch
-set signcolumn=yes
+runtime ./coc.vim
 
-set tabstop=4
-set softtabstop =4
-"set expandtab
-set smartindent
-set shiftwidth =4
-set list
-
-"  \ 'coc-pairs',
-"  \ 'coc-eslint',
-"  \ 'coc-prettier',
-let g:coc_global_extensions = [
-  \ 'coc-snippets',
-  \ 'coc-json',
-  \ 'coc-html',
-  \ 'coc-tsserver',
-  \ 'coc-css',
-  \ 'coc-clangd'
-  \ ]
-
+syntax on
 let g:lsp_cxx_hl_use_text_props = 1
 
 " c++ syntax highlighting
@@ -113,66 +31,16 @@ let g:cpp_class_scope_highlight = 1
 let g:cpp_member_variable_highlight = 1
 let g:cpp_class_decl_highlight = 1
 
-" TextEdit might fail if hidden is not set.
-set hidden
-
-" Some servers have issues with backup files, see #649.
-set nobackup
-set nowritebackup
-
-" Give more space for displaying messages.
-set cmdheight=2
-
-" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
-" delays and poor user experience.
-set updatetime=300
-
-" Don't pass messages to |ins-completion-menu|.
-set shortmess+=c
-
-" Always show the signcolumn, otherwise it would shift the text each time
-" diagnostics appear/become resolved.
-set signcolumn=yes
-
-let mapleader = " "
-
 autocmd FileType c,cpp,objc nnoremap <Leader>f :<C-u>ClangFormat<CR>
 autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
 
 nmap <Leader>C :ClangFormatAutoToggle<CR>
 
-lua require('telescope').load_extension('fzy_native')
-
-" Find files using Telescope command-line sugar.
-nnoremap <leader>fo <cmd>Telescope file_browser<cr>
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-nnoremap <leader>fb <cmd>Telescope buffers<cr>
-nnoremap <leader>fh <cmd>Telescope help_tags<cr>
-nnoremap <leader>fd <cmd>Telescope search_dirs<cr>
-nnoremap <leader>fe <cmd>Telescope grep_open_files<cr>
-
-
-" " Using lua functions
-"nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
-"nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
-"nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
-"nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
+runtime ./telescope.vim
 
 "set ctrl-n to file dir
 nnoremap<silent> <C-n> :NERDTreeFocus<cr>
 
-"nice removing of whitespaces!
-fun! TrimWhiteSpace()
-    let l:save = winsaveview()
-    keeppatterns %s/\s\+$//e
-    call winrestview(l:save)
-endfun
-
-augroup MARCUS_KEYBINDS
-    autocmd!
-    autocmd BufWritePre * :call TrimWhiteSpace()
-augroup END
 
 verbose imap <tab>
 "
@@ -323,21 +191,4 @@ imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<Plug>delimitMateCR"
 "refer to nerdcommenter for commenting keybinds
 nmap <leader>ko :CocCommand clangd.switchSourceHeader
 
-nnoremap <leader>-= :e! ~/AppData/Local/nvim/init.vim<CR>
-
-vnoremap <leader>p "_dP
-
-nnoremap <leader>y "+y
-vnoremap <leader>y "+y
-nnoremap <leader>Y gg"+yG
-
-inoremap <C-c> <esc>
-
-set mouse=a
-
-nnoremap <tab> >>
-nnoremap <s-tab> <<
-
-vnoremap <tab> >
-vnoremap <s-tab> <
-
+runtime ./custom.vim
