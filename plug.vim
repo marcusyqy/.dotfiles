@@ -31,7 +31,6 @@ Plug 'ryanoasis/vim-devicons'
 "give squeegly lines
 Plug 'airblade/vim-gitgutter'
 
-"ctrl-p to find path files
 Plug 'scrooloose/nerdcommenter'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 

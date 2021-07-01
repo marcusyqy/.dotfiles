@@ -1,7 +1,10 @@
 "init vim here
-autocmd!
+
+"autocmd!
+syntax on
 
 filetype off "required
+syntax enable
 
 " run sets vim scripts
 runtime ./sets.vim
@@ -11,25 +14,21 @@ runtime ./plug.vim
 
 let mapleader = " "
 
-"theme - here
-syntax enable
-colorscheme NeoSolarized
-highlight Normal guibg=none
+runtime ./colors.vim
 
 let g:clang_format#code_style="google"
 let g:clang_format#auto_format=0
 
-filetype plugin indent on " required
+"filetype plugin indent on " required
 
 runtime ./coc.vim
 
-syntax on
-let g:lsp_cxx_hl_use_text_props = 1
+"let g:lsp_cxx_hl_use_text_props = 1
 
 " c++ syntax highlighting
-let g:cpp_class_scope_highlight = 1
-let g:cpp_member_variable_highlight = 1
-let g:cpp_class_decl_highlight = 1
+"let g:cpp_class_scope_highlight = 1
+"let g:cpp_member_variable_highlight = 1
+"let g:cpp_class_decl_highlight = 1
 
 autocmd FileType c,cpp,objc nnoremap <Leader>f :<C-u>ClangFormat<CR>
 autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>

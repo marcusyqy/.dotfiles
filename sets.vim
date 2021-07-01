@@ -1,12 +1,12 @@
 
 "" set values here
-set exrc
+"set exrc
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
 set updatetime=300
 
-set nocompatible "be iMproved
+"set nocompatible "be iMproved
 set hidden
 set rnu
 set nu
@@ -33,8 +33,6 @@ set nobackup
 set undodir=~/.vim/undodir
 set undofile
 set incsearch
-set termguicolors
-set colorcolumn=80
 
 " Some servers have issues with backup files, see #649.
 set nowritebackup
@@ -43,6 +41,8 @@ set cmdheight=2
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
 
-highlight ColorColumn ctermbg=0 guibg=lightgrey
-set background=dark
+" if you want to have 80 line limit
+"set colorcolumn=80
 
+
+set termguicolors
