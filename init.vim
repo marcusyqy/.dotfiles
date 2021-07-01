@@ -14,29 +14,34 @@ runtime ./plug.vim
 
 let mapleader = " "
 
-runtime ./colors.vim
-
 let g:clang_format#code_style="google"
 let g:clang_format#auto_format=0
 
-"filetype plugin indent on " required
-
-runtime ./coc.vim
+" Airline
+let g:airline_powerline_fonts = 1
+let g:airline_section_z = ' %{strftime("%-I:%M %p")}'
+let g:airline_section_warning = ''
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'default'
 
 "let g:lsp_cxx_hl_use_text_props = 1
-
 " c++ syntax highlighting
 "let g:cpp_class_scope_highlight = 1
 "let g:cpp_member_variable_highlight = 1
 "let g:cpp_class_decl_highlight = 1
 
+"filetype plugin indent on " required
+
+runtime ./colors.vim
+runtime ./coc.vim
+
+runtime ./telescope.vim
+runtime ./lazygit.vim
+
 autocmd FileType c,cpp,objc nnoremap <Leader>f :<C-u>ClangFormat<CR>
 autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
 
 nmap <Leader>C :ClangFormatAutoToggle<CR>
-
-runtime ./telescope.vim
-runtime ./lazygit.vim
 
 "set ctrl-n to file dir
 nnoremap<silent> <C-n> :NERDTreeFocus<cr>
@@ -147,12 +152,6 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
-
-" Airline
-let g:airline_powerline_fonts = 1
-let g:airline_section_z = ' %{strftime("%-I:%M %p")}'
-let g:airline_section_warning = ''
-let g:airline#extensions#tabline#enabled = 1
 
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"

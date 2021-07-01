@@ -54,7 +54,7 @@ endfun
 
 call ColorMyPencils()
 
-" Vim with me
+"can set colors with these remaps but should i ?
 nnoremap <leader>cmp :call ColorMyPencils()<CR>
 nnoremap <leader>ccs :let g:marcus_colorscheme =
 
