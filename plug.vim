@@ -20,6 +20,7 @@ Plug 'jackguo380/vim-lsp-cxx-highlight'
 
 "Set git respos
 Plug 'tpope/vim-fugitive'
+Plug 'kdheepak/lazygit.nvim'
 
 "For file explorer
 Plug 'preservim/nerdtree'

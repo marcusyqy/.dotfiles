@@ -36,6 +36,7 @@ autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
 nmap <Leader>C :ClangFormatAutoToggle<CR>
 
 runtime ./telescope.vim
+runtime ./lazygit.vim
 
 "set ctrl-n to file dir
 nnoremap<silent> <C-n> :NERDTreeFocus<cr>
