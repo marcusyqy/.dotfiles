@@ -47,6 +47,7 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'kyazdani42/nvim-web-devicons'
 
 Plug 'theprimeagen/vim-be-good'
+Plug 'tjdevries/cyclist.vim'
 
 " Initialize plugin system
 call plug#end()

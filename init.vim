@@ -24,6 +24,17 @@ let g:airline_section_warning = ''
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'default'
 
+"Cycle.vim
+call cyclist#add_listchar_option_set('limited', {
+        \ 'eol': '↲',
+        \ 'tab': '» ',
+        \ 'trail': '·',
+        \ 'extends': '<',
+        \ 'precedes': '>',
+        \ 'conceal': '┊',
+        \ 'nbsp': '␣',
+        \ })
+
 "let g:lsp_cxx_hl_use_text_props = 1
 " c++ syntax highlighting
 "let g:cpp_class_scope_highlight = 1
@@ -191,3 +202,4 @@ imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<Plug>delimitMateCR"
 nmap <leader>ko :CocCommand clangd.switchSourceHeader
 
 runtime ./custom.vim
+
