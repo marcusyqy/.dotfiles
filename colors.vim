@@ -1,27 +1,11 @@
 
-"theme - here
-"set background=dark
-"let g:gruvbox_contrast_dark = 'hard'
-"colorscheme NeoSolarized
-
-"highlight ColorColumn ctermbg=0 guibg=grey
-"highlight Normal guifg=none guibg=none ctermbg=none guisp=none
-"highlight ColorColumn ctermbg=0 guibg=grey
-"hi SignColumn guibg=none
-"hi CursorLineNR guibg=None
-"highlight Normal guibg=none
-""highlight LineNr guifg=#ff8659
-""highlight LineNr guifg=#aed75f
-"highlight LineNr guifg=#5eacd3
-"highlight netrwDir guifg=#5eacd3
-"highlight qfFileName guifg=#aed75f
-"hi TelescopeBorder guifg=#5eacd
-
-
-
-
-"let g:airline_theme='solarized'
 let g:marcus_colorscheme = "gruvbox"
+set winblend=0
+set wildoptions=pum
+set pumblend=5
+
+let g:neosolarized_termtrans=1
+
 fun! ColorMyPencils()
     let g:gruvbox_contrast_dark = 'hard'
     if exists('+termguicolors')
@@ -34,7 +18,6 @@ fun! ColorMyPencils()
     if has('nvim')
         call luaeval('vim.cmd("colorscheme " .. _A[1])', [g:marcus_colorscheme])
     else
-        " TODO: What the way to use g:theprimeagen_colorscheme
         colorscheme gruvbox
     endif
 
@@ -43,18 +26,13 @@ fun! ColorMyPencils()
     hi CursorLineNR guibg=none
     "hi CursorLine guibg=none
     highlight Normal guibg=none
-    " highlight LineNr guifg=#ff8659
-    " highlight LineNr guifg=#aed75f
+    "highlight LineNr guifg=#ff8659
+    "highlight LineNr guifg=#aed75f
     highlight LineNr guifg=#5eacd3
     highlight netrwDir guifg=#5eacd3
     highlight qfFileName guifg=#aed75f
     hi TelescopeBorder guifg=#5eacd
-
 endfun
 
 call ColorMyPencils()
-
-"can set colors with these remaps but should i ?
-nnoremap <leader>cmp :call ColorMyPencils()<CR>
-nnoremap <leader>ccs :let g:marcus_colorscheme =
 

@@ -33,6 +33,7 @@ set nobackup
 set undodir=~/.vim/undodir
 set undofile
 set incsearch
+set expandtab
 
 " Some servers have issues with backup files, see #649.
 set nowritebackup
@@ -46,3 +47,9 @@ set shortmess+=c
 
 
 set termguicolors
+
+"use system clip board
+set clipboard+=unnamedplus
+
+set ai "Auto indent
+set si "Smart indent

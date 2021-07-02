@@ -1,3 +1,4 @@
+if !exists('g:loaded_telescope') | finish | endif
 
 lua require('telescope').load_extension('fzy_native')
 
