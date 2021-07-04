@@ -49,6 +49,7 @@ for _, lsp in ipairs(servers) do
   }
 end
 
+
 require'completion'.on_attach(client, bufnr)
 protocol.CompletionItemKind = {
     '', -- Text
@@ -80,3 +81,4 @@ protocol.CompletionItemKind = {
 
 --require'lspconfig'.clangd.setup{}
 EOF
+

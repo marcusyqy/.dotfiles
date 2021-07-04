@@ -28,6 +28,7 @@ if has("nvim")
     Plug 'tjdevries/cyclist.vim'
 endif
 
+Plug 'preservim/nerdcommenter'
 Plug 'theprimeagen/vim-be-good'
 Plug 'groenewege/vim-less', { 'for': 'less' }
 Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
