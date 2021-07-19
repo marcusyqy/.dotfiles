@@ -27,10 +27,25 @@ nmap <C-a> gg<S-v>G
 nmap <C-s> <cmd>w<cr>
 
 "resizing windows
-nmap <C-w><left> <C-w><
-nmap <C-w><right> <C-w>>
-nmap <C-w><up> <C-w>+
-nmap <C-w><down> <C-w>-
+nmap <c-w><left> <c-w><
+nmap <c-w><right> <c-w>>
+nmap <c-w><up> <c-w>+
+nmap <c-w><down> <c-w>-
+
+"resizing windows
+nmap <c-a-left> <c-w><
+nmap <c-a-right> <c-w>>
+nmap <c-a-up> <c-w>+
+nmap <c-a-down> <c-w>-
+
+"changing windows
+nmap <a-left> <c-w>h
+nmap <a-right> <c-w>l
+nmap <a-up> <c-w>k
+nmap <a-down> <c-w>j
+
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
 
 "nice removing of whitespaces!
 fun! TrimWhiteSpace()
