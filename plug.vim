@@ -26,7 +26,6 @@ if has("nvim")
     Plug 'nvim-telescope/telescope.nvim'
     Plug 'nvim-telescope/telescope-fzy-native.nvim'
     Plug 'tjdevries/cyclist.vim'
-    Plug 'Shatur/neovim-session-manager'
 endif
 
 Plug 'preservim/nerdcommenter'

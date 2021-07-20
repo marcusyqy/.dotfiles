@@ -1,7 +1,6 @@
 if !exists('g:loaded_telescope') | finish | endif
 
 lua require('telescope').load_extension('fzy_native')
-lua require('telescope').load_extension('session_manager')
 
 nnoremap <leader>ps <cmd>lua require('telescope.builtin').grep_string({ search = vim.fn.input("Find For > ")})<cr>
 " Find files using Telescope command-line sugar.
@@ -12,8 +11,6 @@ nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 nnoremap <leader>fd <cmd>Telescope search_dirs<cr>
 nnoremap <leader>fe <cmd>Telescope grep_open_files<cr>
-nnoremap <leader>fsl <cmd>Telescope session_manager load<cr>
-nnoremap <leader>fsd <cmd>Telescope session_manager discard_and_load<cr>
 nnoremap <leader>fgf <cmd>Telescope git_files<cr>
 nnoremap <leader>fgc <cmd>Telescope git_commits<cr>
 
