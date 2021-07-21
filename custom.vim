@@ -39,10 +39,10 @@ nmap <c-a-up> <c-w>+
 nmap <c-a-down> <c-w>-
 
 "changing windows
-nmap <a-left> <c-w>h
-nmap <a-right> <c-w>l
-nmap <a-up> <c-w>k
-nmap <a-down> <c-w>j
+nmap <c-left> <c-w>h
+nmap <c-right> <c-w>l
+nmap <c-up> <c-w>k
+nmap <c-down> <c-w>j
 
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
