@@ -8,7 +8,6 @@ Plug 'gruvbox-community/gruvbox'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'cohama/lexima.vim'
-Plug 'kdheepak/lazygit.nvim'
 "
 if has("nvim")
     Plug 'hoob3rt/lualine.nvim'
