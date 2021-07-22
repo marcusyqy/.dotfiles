@@ -22,3 +22,6 @@ runtime ./cycle.vim
 runtime ./lazygit.vim
 runtime ./custom.vim
 
+
+runtime ./git.vim
+
