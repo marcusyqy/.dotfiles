@@ -31,7 +31,7 @@ Plug 'preservim/nerdcommenter'
 Plug 'theprimeagen/vim-be-good'
 Plug 'groenewege/vim-less', { 'for': 'less' }
 Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
-
+Plug 'evanleck/vim-svelte', {'branch': 'main'}
 
 " Initialize plugin system
 call plug#end()

@@ -47,6 +47,7 @@ nmap <c-down> <c-w>j
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
+
 "nice removing of whitespaces!
 fun! TrimWhiteSpace()
     let l:save = winsaveview()
@@ -58,3 +59,6 @@ augroup AUTO_REMOVE_WHITESPACE_MARCUS
     autocmd!
     autocmd BufWritePre * :call TrimWhiteSpace()
 augroup END
+
+
+let g:svelte_preprocessors = ['typescript']
