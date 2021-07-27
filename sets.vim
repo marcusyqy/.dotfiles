@@ -53,3 +53,5 @@ set clipboard+=unnamedplus
 
 set ai "Auto indent
 set si "Smart indent
+
+set mouse=a
