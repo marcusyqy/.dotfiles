@@ -62,3 +62,6 @@ augroup END
 
 
 let g:svelte_preprocessors = ['typescript']
+
+"removing the weird binding that doesn't let me go forward
+unmap <C-i>
