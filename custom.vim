@@ -39,9 +39,6 @@ nmap <c-right> <c-w>l
 nmap <c-up> <c-w>k
 nmap <c-down> <c-w>j
 
-vnoremap J :m '>+1<CR>gv=gv
-vnoremap K :m '<-2<CR>gv=gv
-
 
 "nice removing of whitespaces!
 fun! TrimWhiteSpace()
@@ -65,3 +62,31 @@ nnoremap <s-tab> <<
 
 vnoremap <tab> >
 vnoremap <s-tab> <
+
+"make Y behave
+nnoremap Y y$
+
+"center cursor
+nnoremap n nzzzv
+nnoremap N Nzzzv
+nnoremap J mzJ`v
+
+"undo breakpoints
+inoremap , ,<c-g>u
+inoremap . .<c-g>u
+inoremap ! !<c-g>u
+inoremap ? ?<c-g>u
+inoremap - -<c-g>u
+inoremap ( (<c-g>u
+inoremap [ [<c-g>u
+
+nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
+nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
+
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+inoremap <C-k> <esc>:m .-2<CR>==a
+inoremap <C-j> <esc>:m .+1<CR>==a
+nnoremap <leader>j :m .+1<CR>==
+nnoremap <leader>k :m .-2<CR>==
+
