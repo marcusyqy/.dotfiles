@@ -11,11 +11,6 @@ nnoremap <leader>Y gg"+yG
 
 inoremap <C-c> <esc>
 
-nnoremap <tab> >>
-nnoremap <s-tab> <<
-
-vnoremap <tab> >
-vnoremap <s-tab> <
 
 nmap <leader>ss :split<Return><C-w>w
 nmap <leader>sv :vsplit<Return><C-w>w
@@ -64,4 +59,9 @@ augroup END
 let g:svelte_preprocessors = ['typescript']
 
 "removing the weird binding that doesn't let me go forward
-unmap <C-i>
+
+nnoremap <tab> >>
+nnoremap <s-tab> <<
+
+vnoremap <tab> >
+vnoremap <s-tab> <
