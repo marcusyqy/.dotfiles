@@ -42,7 +42,7 @@ end
 local servers = { "cmake", "clangd", "tsserver", "svelte" }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
-    on_attach = on_attach,
+    on_attach = require'completion'.on_attach,
     flags = {
       debounce_text_changes = 150,
     }
