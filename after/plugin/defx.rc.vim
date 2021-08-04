@@ -4,7 +4,7 @@ if !exists('g:loaded_defx') | finish | endif
 "cnoreabbrev sf Defx -listed -new
 "      \ -columns=indent:mark:icon:icons:filename:git:size
 "      \ -buffer-name=tab`tabpagenr()`<CR>
-nnoremap <silent><C-A-n> :<C-u>Defx -listed -resume -show_ignored_files
+nnoremap <silent><C-n> :<C-u>Defx -listed -resume -show_ignored_files
       \ -columns=indent:mark:icon:icons:filename:git:size
       \ -buffer-name=tab`tabpagenr()`
       \ `expand('%:p:h')` -search=`expand('%:p')`<CR>
