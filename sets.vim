@@ -51,6 +51,8 @@ set termguicolors
 
 "use system clip board
 set clipboard+=unnamedplus
+"for vsvim
+" set clipboard=unnamed
 
 set ai "Auto indent
 set si "Smart indent
