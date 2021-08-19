@@ -13,6 +13,7 @@ lua require('telescope').load_extension('fzy_native')
 "
 lua << EOF
 local actions = require('telescope.actions')
+require'telescope'.load_extension('project')
 
 function git_branch_private()
     require'telescope.builtin'.git_branches({ attach_mappings = function(_, map)
@@ -37,6 +38,7 @@ nnoremap <leader>fe <cmd>Telescope grep_open_files<cr>
 nnoremap <leader>fgf <cmd>Telescope git_files<cr>
 nnoremap <leader>fgc <cmd>Telescope git_commits<cr>
 nnoremap <leader>fgb <cmd>lua git_branch_private()<cr>
+nnoremap <leader>pp <cmd>lua require'telescope'.extensions.project.project{}<cr>
 
 if has('win32')
     nnoremap <leader>-= <cmd>Telescope find_files cwd=~/AppData/Local/nvim<CR>

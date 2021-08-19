@@ -25,7 +25,8 @@ set tabstop=4
 set softtabstop =4
 set smartindent
 set shiftwidth =4
-set list
+"set list
+set nolist
 set ignorecase
 set expandtab
 set smartcase
@@ -57,4 +58,4 @@ set clipboard+=unnamedplus
 set ai "Auto indent
 set si "Smart indent
 
-"set mouse=a
+set mouse=a
