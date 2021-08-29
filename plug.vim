@@ -24,7 +24,7 @@ if has("nvim")
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
     Plug 'nvim-telescope/telescope-fzy-native.nvim'
-    Plug 'tjdevries/cyclist.vim'
+    "Plug 'tjdevries/cyclist.vim'
     Plug 'norcalli/nvim-colorizer.lua'   "Plug 'pwntester/octo.nvim'
     Plug 'nvim-telescope/telescope-project.nvim'
     Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
