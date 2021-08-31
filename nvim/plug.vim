@@ -8,6 +8,8 @@ endif
 autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
   \| PlugInstall --sync | source $MYVIMRC
 \| endif
+
+
 " Specify a directory for plugins
 call plug#begin('~/.vim/plugged')
 
