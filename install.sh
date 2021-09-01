@@ -1,3 +1,4 @@
+#!/bin/sh
 
 install_vim_config() {
     rm -rf ~/.config/nvim
@@ -14,7 +15,13 @@ install_zsh_config() {
     cp $DOTFILES/zsh/.zshrc ~/.zshrc
 }
 
+install_fish_config() {
+    rm -rf ~/.config/fish
+    cp -r $DOTFILES/fish/ ~/.config/fish
+}
+
 
 install_vim_config
 install_tmux_config
-install_zsh_config
+install_fish_config
+#install_zsh_config
