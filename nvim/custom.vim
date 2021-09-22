@@ -17,10 +17,6 @@ nmap <leader>sv :vsplit<Return><C-w>w
 
 nmap <leader>te :tabedit
 
-nmap <C-a> gg<S-v>G
-
-nmap <C-s> <cmd>w<cr>
-
 "resizing windows
 nmap <c-w><left> <c-w><
 nmap <c-w><right> <c-w>>
