@@ -1,5 +1,5 @@
 
-let g:marcus_colorscheme = "nord"
+let g:marcus_colorscheme = "gruvbox"
 set winblend=0
 set wildoptions=pum
 set pumblend=5

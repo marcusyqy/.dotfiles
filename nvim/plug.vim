@@ -43,6 +43,7 @@ if has("nvim")
     Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 endif
 
+Plug 'martinda/Jenkinsfile-vim-syntax'
 Plug 'rmagatti/auto-session'
 Plug 'preservim/nerdcommenter'
 Plug 'theprimeagen/vim-be-good'
