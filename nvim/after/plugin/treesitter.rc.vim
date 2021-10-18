@@ -14,7 +14,7 @@ require'nvim-treesitter.configs'.setup {
     disable = {},
   },
   ensure_installed = {
-    "lua",
+    --"lua",
     "tsx",
     "toml",
     "fish",
