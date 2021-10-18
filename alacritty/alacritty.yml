@@ -19,8 +19,8 @@ window:
   # Specified in number of columns/lines, not pixels. If both are zero this
   # setting is ignored.
   dimensions:
-    columns: 100
-    lines: 85
+    columns: 0
+    lines: 0
 
   # Window padding (changes require restart)
   #
@@ -52,7 +52,7 @@ window:
   #
   # Values for `startup_mode` (macOS only):
   #   - SimpleFullscreen
-  startup_mode: Windowed
+  startup_mode: Maximized
 
 scrolling:
   # maximum number of lines in the scrollback buffer. Specifying '0' will
@@ -66,16 +66,16 @@ scrolling:
 # Font configuration (changes require restart)
 font:
   normal:
-    family: Hack NF
+    family: Hack Nerd Font Mono
     style: Regular
   bold:
-    family: Hack NF
+    family: Hack Nerd Font Mono
     style: Bold
   italic:
-    family: Hack NF
+    family: Hack Nerd Font Mono
     style: Italic
   bold_italic:
-    family: Hack NF
+    family: Hack Nerd Font Mono
     style: Bold Italic
 
   # Point size of the font
@@ -176,7 +176,7 @@ bell:
   duration: 0
 
 # Background opacity
-background_opacity: 1.0
+background_opacity: 0.9
 
 # Key bindings
 #
@@ -436,4 +436,4 @@ debug:
   ref_test: false
 
 
-# vim: nospell
+                                                    # vim: nospell

@@ -12,7 +12,7 @@ install_tmux_config() {
 
 install_alacritty_config() {
     rm -rf ~/.config/alacritty
-    cp $DOTFILES/alacritty ~/.config/alacritty
+    cp -r $DOTFILES/alacritty ~/.config/alacritty
 }
 
 install_zsh_config() {
@@ -28,5 +28,6 @@ install_fish_config() {
 
 install_vim_config
 install_tmux_config
-install_fish_config
+#install_fish_config
 #install_zsh_config
+install_alacritty_config
