@@ -2,7 +2,7 @@
 #!/bin/sh
 install_vim_config() {
     rm -rf ~/.config/nvim
-    mkdir -p ~/.config/nvim && cp -r $DOTFILES/nvim/ ~/.config/nvim
+    cp -r $DOTFILES/nvim/ ~/.config/nvim
 }
 
 install_tmux_config() {
@@ -12,7 +12,7 @@ install_tmux_config() {
 
 install_alacritty_config() {
     rm -rf ~/.config/alacritty
-    mkdir -p ~/.config/alacritty && cp -r $DOTFILES/alacritty ~/.config/alacritty
+    cp -r $DOTFILES/alacritty ~/.config/alacritty
 }
 
 install_zsh_config() {
