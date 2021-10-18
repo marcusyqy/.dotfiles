@@ -10,6 +10,11 @@ install_tmux_config() {
     cp $DOTFILES/tmux/.tmux.conf ~/.tmux.conf
 }
 
+install_alacritty_config() {
+    rm -rf ~/.config/alacritty
+    cp $DOTFILES/alacritty ~/.config/alacritty
+}
+
 install_zsh_config() {
     rm ~/.zshrc
     cp $DOTFILES/zsh/.zshrc ~/.zshrc

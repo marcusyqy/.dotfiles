@@ -1,0 +1,130 @@
+env:
+  # TERM variable
+  #
+  # This value is used to set the `$TERM` environment variable for
+  # each instance of Alacritty. If it is not present, alacritty will
+  # check the local terminfo database and use 'alacritty' if it is
+  # available, otherwise 'xterm-256color' is used.
+  TERM: xterm-256color
+
+window:
+    dynamic_padding: false
+    decorations: full
+    padding:
+       x: 0
+       y: 0
+
+font:
+  normal:
+    family: Hack NF
+    style: Regular
+  bold:
+    family: Hack NF
+    style: Bold
+  italic:
+    family: Hack NF
+    style: Italic
+  bold_italic:
+    family: Hack NF
+    style: Bold Italic
+  size: 12.0
+
+  #background_opacity: 0.90
+
+# Colors (Gruvbox Dark)
+colors:
+  bright:
+    black: '#7f7061'
+    blue: '#719586'
+    cyan: '#7db669'
+    green: '#aab01e'
+    magenta: '#c77089'
+    red: '#f73028'
+    white: '#e6d4a3'
+    yellow: '#f7b125'
+  cursor:
+    cursor: '#e6d4a3'
+    text: '#1e1e1e'
+  normal:
+    black: '#1e1e1e'
+    blue: '#377375'
+    cyan: '#578e57'
+    green: '#868715'
+    magenta: '#a04b73'
+    red: '#be0f17'
+    white: '#978771'
+    yellow: '#cc881a'
+  primary:
+    background: '#1e1e1e'
+    foreground: '#e6d4a3'
+  selection:
+    background: '#e6d4a3'
+    text: '#534a42'
+
+
+# Colors (Builtin Solarized Dark)
+#colors:
+#  bright:
+#    black: '#002b36'
+#    blue: '#839496'
+#    cyan: '#93a1a1'
+#    green: '#586e75'
+#    magenta: '#6c71c4'
+#    red: '#cb4b16'
+#    white: '#fdf6e3'
+#    yellow: '#657b83'
+#  cursor:
+#    cursor: '#839496'
+#    text: '#073642'
+#  normal:
+#    black: '#073642'
+#    blue: '#268bd2'
+#    cyan: '#2aa198'
+#    green: '#859900'
+#    magenta: '#d33682'
+#    red: '#dc322f'
+#    white: '#eee8d5'
+#    yellow: '#b58900'
+#  primary:
+#    background: '#002b36'
+#    foreground: '#839496'
+#  selection:
+#    background: '#073642'
+#    text: '#93a1a1'
+
+# Colors (Solarized Dark - Patched)
+#colors:
+#  bright:
+#    black: '#475b62'
+#    blue: '#708284'
+#    cyan: '#819090'
+#    green: '#475b62'
+#    magenta: '#5956ba'
+#    red: '#bd3613'
+#    white: '#fcf4dc'
+#    yellow: '#536870'
+#  cursor:
+#    cursor: '#708284'
+#    text: '#002831'
+#  normal:
+#    black: '#002831'
+#    blue: '#2176c7'
+#    cyan: '#259286'
+#    green: '#738a05'
+#    magenta: '#c61c6f'
+#    red: '#d11c24'
+#    white: '#eae3cb'
+#    yellow: '#a57706'
+#  primary:
+#    background: '#001e27'
+#    foreground: '#708284'
+#  selection:
+#    background: '#002831'
+#    text: '#819090'
+
+visual_bell:
+    animation: EaseOutExpo
+    duration: 0
+
+    #shell:
+    #program: /bin/fish
