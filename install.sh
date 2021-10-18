@@ -36,6 +36,21 @@ install_i3_config() {
     cp $DOTFILES/i3/config ~/.config/i3/config
 }
 
+install_polybar_config() {
+    rm -rf ~/.config/polybar
+    cp -r $DOTFILES/polybar ~/.config/polybar
+}
+
+install_rofi_config() {
+    rm -rf ~/.config/rofi
+    cp -r $DOTFILES/rofi ~/.config/rofi
+}
+
+install_wallpapers_config() {
+    rm -rf ~/wallpapers
+    cp -r $DOTFILES/wallpapers ~/wallpapers
+}
+
 
 install_vim_config
 install_tmux_config
@@ -43,3 +58,6 @@ install_tmux_config
 install_zsh_config
 install_alacritty_config
 install_i3_config
+install_polybar_config
+install_rofi_config
+install_wallpapers_config

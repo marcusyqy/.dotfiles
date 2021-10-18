@@ -46,7 +46,8 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+#bindsym $mod+d exec --no-startup-id dmenu_run
+#i3-dmenu-desktop
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
@@ -179,3 +180,14 @@ bar {
         status_command i3status
         tray_output primary
 }
+
+#Gaps inner/outer
+# gaps top 30
+# gaps bottom 5
+# gaps inner 5
+
+#Rofi
+bindsym $mod+d exec rofi -show run -opacity "90" -columns 1 -font "MesloLGS NF 9"
+
+#feh
+exec_always feh --bg-fill ~/wallpapers/archgru.png
