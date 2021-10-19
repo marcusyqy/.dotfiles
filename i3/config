@@ -243,3 +243,6 @@ bindsym $mod+space exec rofi -show run -opacity "90" -columns 1 -font "Hack Nerd
 #feh
 #exec_always feh --bg-fill ~/wallpapers/wallpapers.sh
 exec_always sh ~/wallpapers/scripts/wallpaper.sh
+
+# shadows and transitions with compton
+exec --no-startup-id compton --config ~/.config/compton.conf -b

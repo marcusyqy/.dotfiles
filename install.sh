@@ -51,6 +51,11 @@ install_wallpapers_config() {
     cp -r $DOTFILES/wallpapers ~/wallpapers
 }
 
+install_compton_config() {
+    rm ~/.config/compton.conf
+    cp $DOTFILES/compton/compton.conf ~/.config/compton.conf
+}
+
 
 install_vim_config
 install_tmux_config
@@ -61,3 +66,5 @@ install_i3_config
 install_polybar_config
 install_rofi_config
 install_wallpapers_config
+install_compton_config
+
