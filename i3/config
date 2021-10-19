@@ -237,8 +237,8 @@ gaps outer 20
 gaps inner 10
 
 #Rofi
-bindsym $mod+d exec rofi -show run -opacity "90" -columns 1 -font "Hack Nerd Font Mono 10"
-bindsym $mod+space exec rofi -show run -opacity "90" -columns 1 -font "Hack Nerd Font Mono 10"
+bindsym $mod+d exec rofi -show run -opacity "90" -columns 1 -font "Hack Nerd Font Mono 14"
+bindsym $mod+space exec rofi -show run -opacity "90" -columns 1 -font "Hack Nerd Font Mono 14"
 
 #feh
 #exec_always feh --bg-fill ~/wallpapers/wallpapers.sh
