@@ -56,6 +56,10 @@ install_compton_config() {
     cp $DOTFILES/compton/compton.conf ~/.config/compton.conf
 }
 
+install_screenlayout_config() {
+    rm -rf ~/.screenlayout
+    cp -r $DOTFILES/.screenlayout ~/.screenlayout
+}
 
 install_vim_config
 install_tmux_config
@@ -67,4 +71,5 @@ install_polybar_config
 install_rofi_config
 install_wallpapers_config
 install_compton_config
+install_screenlayout_config
 
