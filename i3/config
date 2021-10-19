@@ -36,7 +36,7 @@ for_window [class="^.*"] border pixel 2
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-exec ~/.screenlayout/screenlayout.sh
+exec sh ~/.screenlayout/screenlayout.sh
 
 # start a terminal
 # bindsym $mod+Return exec i3-sensible-terminal
@@ -240,9 +240,10 @@ gaps inner 10
 bindsym $mod+d exec rofi -show run -opacity "90" -columns 1 -font "Hack Nerd Font Mono 14"
 bindsym $mod+space exec rofi -show run -opacity "90" -columns 1 -font "Hack Nerd Font Mono 14"
 
-#feh
-#exec_always feh --bg-fill ~/wallpapers/wallpapers.sh
-exec_always sh ~/wallpapers/scripts/wallpaper.sh
 
 # shadows and transitions with compton
 exec --no-startup-id compton --config ~/.config/compton.conf -b
+
+#feh
+#exec_always feh --bg-fill ~/wallpapers/wallpapers.sh
+exec_always sh ~/wallpapers/scripts/wallpaper.sh
