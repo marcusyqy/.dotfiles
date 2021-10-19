@@ -1,3 +1,3 @@
 #!/bin/sh
 
-feh --bg-fill ~/wallpapers/archgru.png
+feh --randomize --bg-fill ~/wallpapers/
