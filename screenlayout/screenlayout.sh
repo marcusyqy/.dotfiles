@@ -11,7 +11,7 @@ else
 fi
 
 echo 'Calling feh for desktop wallpaper'
-sh ~/wallpapers/wallpapers.sh
+sh ~/wallpapers/scripts/wallpapers.sh
 echo 'Running polybar'
 polybar top &
 echo 'Done'
