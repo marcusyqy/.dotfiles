@@ -1,5 +1,6 @@
 if !exists('g:loaded_defx') | finish | endif
 
+finish
 " Define mappings
 "cnoreabbrev sf Defx -listed -new
 "      \ -columns=indent:mark:icon:icons:filename:git:size

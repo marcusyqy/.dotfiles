@@ -18,8 +18,15 @@ Plug 'tpope/vim-rhubarb'
 Plug 'cohama/lexima.vim'
 
 Plug 'hoob3rt/lualine.nvim'
-Plug 'kristijanhusak/defx-git'
-Plug 'kristijanhusak/defx-icons'
+
+" nvim-tree
+Plug 'kyazdani42/nvim-web-devicons' " for file icons
+Plug 'kyazdani42/nvim-tree.lua'
+
+" defx
+" Plug 'kristijanhusak/defx-git'
+" Plug 'kristijanhusak/defx-icons'
+
 Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'neovim/nvim-lspconfig'
 Plug 'glepnir/lspsaga.nvim'
@@ -29,11 +36,11 @@ Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate All' }
-Plug 'kyazdani42/nvim-web-devicons'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
+
 "Plug 'tjdevries/cyclist.vim'
 Plug 'norcalli/nvim-colorizer.lua'   "Plug 'pwntester/octo.nvim'
 Plug 'nvim-telescope/telescope-project.nvim'
