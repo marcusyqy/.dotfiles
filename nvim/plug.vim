@@ -16,30 +16,30 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'cohama/lexima.vim'
-"
-if has("nvim")
-    Plug 'hoob3rt/lualine.nvim'
-    Plug 'kristijanhusak/defx-git'
-    Plug 'kristijanhusak/defx-icons'
-    Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
-    Plug 'neovim/nvim-lspconfig'
-    Plug 'glepnir/lspsaga.nvim'
-    Plug 'folke/lsp-colors.nvim'
+
+Plug 'hoob3rt/lualine.nvim'
+Plug 'kristijanhusak/defx-git'
+Plug 'kristijanhusak/defx-icons'
+Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'neovim/nvim-lspconfig'
+Plug 'glepnir/lspsaga.nvim'
+Plug 'folke/lsp-colors.nvim'
 "    Plug 'nvim-lua/completion-nvim'
-    Plug 'hrsh7th/cmp-nvim-lsp'
-    Plug 'hrsh7th/cmp-buffer'
-    Plug 'hrsh7th/nvim-cmp'
-    Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate All' }
-    Plug 'kyazdani42/nvim-web-devicons'
-    Plug 'nvim-lua/popup.nvim'
-    Plug 'nvim-lua/plenary.nvim'
-    Plug 'nvim-telescope/telescope.nvim'
-    Plug 'nvim-telescope/telescope-fzy-native.nvim'
-    "Plug 'tjdevries/cyclist.vim'
-    Plug 'norcalli/nvim-colorizer.lua'   "Plug 'pwntester/octo.nvim'
-    Plug 'nvim-telescope/telescope-project.nvim'
-    Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
-endif
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate All' }
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-fzy-native.nvim'
+"Plug 'tjdevries/cyclist.vim'
+Plug 'norcalli/nvim-colorizer.lua'   "Plug 'pwntester/octo.nvim'
+Plug 'nvim-telescope/telescope-project.nvim'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+Plug 'saadparwaiz1/cmp_luasnip'
+Plug 'L3MON4D3/LuaSnip'
 
 Plug 'martinda/Jenkinsfile-vim-syntax'
 Plug 'rmagatti/auto-session'
