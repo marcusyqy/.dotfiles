@@ -65,7 +65,7 @@ require'nvim-tree'.setup {
   -- hijack netrw window on startup
   hijack_netrw        = true,
   -- open the tee when running this setup function
-  open_on_setup       = true,
+  open_on_setup       = false,
   -- will not open on setup if the filetype is in this list
   ignore_ft_on_setup  = {},
   -- closes neovim automatically when the tree is the last **WINDOW** in the view
@@ -120,7 +120,7 @@ require'nvim-tree'.setup {
     -- side of the tree, can be one of 'left' | 'right' | 'top' | 'bottom'
     side = 'left',
     -- if true the tree will resize itself after opening a file
-    auto_resize = false,
+    auto_resize = true,
     mappings = {
       -- custom only false will merge the list with the default mappings
       -- if true, it will only use your list to set the mappings
