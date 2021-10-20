@@ -1,8 +1,29 @@
+" function! PlugLoaded(name)
+"     return (
+"         \ has_key(g:plugs, a:name) &&
+"         \ isdirectory(g:plugs[a:name].dir) &&
+"         \ stridx(&rtp, g:plugs[a:name].dir) >= 0)
+" endfunction
+"
+" if !PlugLoaded("nvim-tree.lua")
+"     echo("nvim-tree not loaded!!")
+"     finish
+" endif
+
 lua << EOF
+
+local status, lfs = pcall(require, "nvim-tree")
+if(not status) then
+    --lfs exists, so use it.
+    print("does not have nvim-tree!")
+    return
+end
 -- following options are the default
 
 -- default mappings
 
+
+local tree_cb = require'nvim-tree.config'.nvim_tree_callback
 local list = {
   { key = {"<CR>", "o", "<2-LeftMouse>"}, cb = tree_cb("edit") },
   { key = {"<2-RightMouse>", "O"},        cb = tree_cb("cd") },
@@ -110,7 +131,6 @@ require'nvim-tree'.setup {
   }
 }
 
-local tree_cb = require'nvim-tree.config'.nvim_tree_callback
 
 EOF
 
