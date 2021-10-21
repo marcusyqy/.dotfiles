@@ -5,3 +5,12 @@ HandleLidSwitch=ignore
 HandleLidSwitchExternalPower=ignore
 HandleLidSwitchDocked=ignore
 ```
+
+###Prerequisites
+- dunst
+- feh
+- i3-gaps
+- oh-my-zsh
+- vim-plug
+- xrandr
+- gnome-screenshot
