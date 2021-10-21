@@ -137,6 +137,7 @@ bindsym $mod+shift+8 move container to workspace 8
 bindsym $mod+shift+9 move container to workspace 9
 bindsym $mod+shift+0 move container to workspace 10
 
+
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -206,6 +207,9 @@ mode "$mode_gaps_i" {
 
 
 bindsym $mod+r mode "resize"
+
+#interactive screenshot by pressing printscreen
+bindsym --release Print exec gnome-screenshot -a
 
 # set scrolling for mx master and logitech
 #exec xinput set-prop 13 324 0
