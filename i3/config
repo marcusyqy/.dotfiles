@@ -85,7 +85,7 @@ bindsym $mod+z split h
 bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
+#bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
@@ -221,9 +221,13 @@ exec xinput set-prop "pointer:Logitech MX Master 3" "libinput Natural Scrolling 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-       status_command i3status
-       tray_output primary
+    mode hide
+    status_command i3status
+    tray_output primary
 }
+
+bindsym $mod+f bar mode toggle
+#bind $mod+m bar mode toggle
 
 #exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 # Restart polybar
