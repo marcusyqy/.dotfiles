@@ -84,8 +84,6 @@ bindsym $mod+z split h
 # split in vertical orientation
 bindsym $mod+v split v
 
-# enter fullscreen mode for the focused container
-#bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
@@ -227,7 +225,8 @@ bar {
 }
 
 bindsym $mod+f bar mode toggle
-#bind $mod+m bar mode toggle
+# enter fullscreen mode for the focused container
+bindsym $mod+Control+f fullscreen toggle
 
 #exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 # Restart polybar
