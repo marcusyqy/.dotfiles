@@ -253,4 +253,4 @@ exec --no-startup-id compton --config ~/.config/compton.conf -b
 
 #feh
 #exec_always feh --bg-fill ~/wallpapers/wallpapers.sh
-exec_always sh ~/wallpapers/scripts/wallpaper.sh
+exec_always --no-startup-id sh ~/wallpapers/scripts/wallpaper.sh
