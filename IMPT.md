@@ -14,3 +14,4 @@ HandleLidSwitchDocked=ignore
 - vim-plug
 - xrandr
 - gnome-screenshot
+- pavucontrol

@@ -33,7 +33,9 @@ install_fish_config() {
 install_i3_config() {
     #[ -d "~/.config/fish" ] &&
     rm ~/.config/i3/config
+    rm ~/.config/i3status/config
     cp $DOTFILES/i3/config ~/.config/i3/config
+    cp $DOTFILES/i3status/config ~/.config/i3status/config
 }
 
 install_polybar_config() {

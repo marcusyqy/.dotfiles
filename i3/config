@@ -247,6 +247,19 @@ gaps inner 10
 bindsym $mod+d exec rofi -show run -opacity "90" -columns 1 -font "Hack Nerd Font Mono 14"
 bindsym $mod+space exec rofi -show run -opacity "90" -columns 1 -font "Hack Nerd Font Mono 14"
 
+# Network manager
+exec --no-startup-id nm-applet
+
+# FKeys
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+#
+# # Sreen brightness controls
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+
 
 # shadows and transitions with compton
 exec --no-startup-id compton --config ~/.config/compton.conf -b
@@ -254,3 +267,11 @@ exec --no-startup-id compton --config ~/.config/compton.conf -b
 #feh
 #exec_always feh --bg-fill ~/wallpapers/wallpapers.sh
 exec_always --no-startup-id sh ~/wallpapers/scripts/wallpaper.sh
+exec --no-startup-id xset -dpms
+exec --no-startup-id xset s off
+
+#always start applicatons
+exec --no-startup-id i3-msg 'workspace 1; exec brave-browser' #1 for brave
+exec --no-startup-id i3-msg 'workspace 2; exec alacritty; workspace 1' #2 for alacritty/terminal
+exec --no-startup-id i3-msg 'workspace 8; exec slack; workspace 1' #8 for slack
+exec --no-startup-id i3-msg 'workspace 9; exec spotify; workspace 1' #9 for spotify
