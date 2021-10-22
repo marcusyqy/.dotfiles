@@ -1,4 +1,4 @@
-###Laptop Lid Closure without sleep
+## Laptop Lid Closure without sleep
 Edit /etc/systemd/logind.conf with root controls and edit these following settings
 ```
 HandleLidSwitch=ignore
@@ -6,7 +6,7 @@ HandleLidSwitchExternalPower=ignore
 HandleLidSwitchDocked=ignore
 ```
 
-###Prerequisites
+## Prerequisites
 - dunst
 - feh
 - i3-gaps
@@ -15,3 +15,15 @@ HandleLidSwitchDocked=ignore
 - xrandr
 - gnome-screenshot
 - pavucontrol
+
+
+## Use dunst
+Dunst
+- edit dunst config file
+```
+sudo vim /etc/xdg/dunst/dunstrc
+```
+- reload dunst file
+```
+killall dunst;notify-send hello-world.
+```
