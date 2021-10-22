@@ -207,7 +207,7 @@ mode "$mode_gaps_i" {
 bindsym $mod+r mode "resize"
 
 #interactive screenshot by pressing printscreen
-bindsym --release Print exec gnome-screenshot -a
+bindsym --release Print exec gnome-screenshot -i
 
 # set scrolling for mx master and logitech
 #exec xinput set-prop 13 324 0
