@@ -19,10 +19,7 @@ HandleLidSwitchDocked=ignore
 
 ## Use dunst
 Dunst
-- edit dunst config file
-```
-sudo vim /etc/xdg/dunst/dunstrc
-```
+- install should put in  ~/.config/dunst/dunstrc
 - reload dunst file
 ```
 killall dunst;notify-send hello-world.
