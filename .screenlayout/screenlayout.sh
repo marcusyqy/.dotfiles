@@ -18,4 +18,4 @@ echo 'Done'
 
 # Welcome back notification/startup sound
 echo 'Sending notification'
-notify-send "Bentornato $(whoami)"
+notify-send "Welcome $(whoami)"
