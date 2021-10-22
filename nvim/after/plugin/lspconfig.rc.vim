@@ -8,7 +8,7 @@ lua << EOF
 -- luasnip setup
 local luasnip = require 'luasnip'
 -- Setup nvim-cmp.
-local cmp = require'cmp'
+local cmp = require 'cmp'
 
 cmp.setup({
     snippet = {
@@ -65,7 +65,10 @@ cmp.setup({
         -- For ultisnips user.
         -- { name = 'ultisnips' },
 
-        { name = 'buffer' },
+        { name = 'buffer', keyword_length = 4 },
+
+        -- for paths
+        { name = 'path' },
     }
 })
 local nvim_lsp = require('lspconfig')
