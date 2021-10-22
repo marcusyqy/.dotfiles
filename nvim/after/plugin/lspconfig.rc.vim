@@ -9,6 +9,52 @@ lua << EOF
 local luasnip = require 'luasnip'
 -- Setup nvim-cmp.
 local cmp = require 'cmp'
+local lspkind = require('lspkind')
+
+lspkind.init({
+    -- enables text annotations
+    --
+    -- default: true
+    with_text = true,
+
+    -- default symbol map
+    -- can be either 'default' (requires nerd-fonts font) or
+    -- 'codicons' for codicon preset (requires vscode-codicons font)
+    --
+    -- default: 'default'
+    preset = 'codicons',
+
+    -- override preset symbols
+    --
+    -- default: {}
+    symbol_map = {
+      Text = "",
+      Method = "",
+      Function = "",
+      Constructor = "",
+      Field = "ﰠ",
+      Variable = "",
+      Class = "ﴯ",
+      Interface = "",
+      Module = "",
+      Property = "ﰠ",
+      Unit = "塞",
+      Value = "",
+      Enum = "",
+      Keyword = "",
+      Snippet = "",
+      Color = "",
+      File = "",
+      Reference = "",
+      Folder = "",
+      EnumMember = "",
+      Constant = "",
+      Struct = "",
+      Event = "",
+      Operator = "",
+      TypeParameter = ""
+    },
+})
 
 cmp.setup({
     snippet = {
@@ -58,6 +104,7 @@ cmp.setup({
 
         -- For vsnip user.
         -- { name = 'vsnip' },
+        { name = 'nvim_lua' },
 
         -- For luasnip user.
         { name = 'luasnip' },
@@ -69,8 +116,22 @@ cmp.setup({
         -- { name = 'ultisnips' },
 
         { name = 'buffer', keyword_length = 4 },
+    },
+    formatting = {
+        format = lspkind.cmp_format({with_text = true, menu = ({
+        buffer = "[buffer]",
+        nvim_lsp = "[LSP]",
+        nvim_lua = "[api]",
+        luasnip = "[snippets]",
+        path = "[path]"
+        })})
+    },
+    experimental = {
+        native_menu = false,
+        ghost_text = true,
     }
 })
+
 local nvim_lsp = require('lspconfig')
 local protocol = require'vim.lsp.protocol'
 
@@ -116,37 +177,34 @@ for _, lsp in ipairs(servers) do
   }
 end
 
-
-
 --require'completion'.on_attach(client, bufnr)
-protocol.CompletionItemKind = {
-    '', -- Text
-    '', -- Method
-    '', -- Function
-    '', -- Constructor
-    '', -- Field
-    '', -- Variable
-    '', -- Class
-    'ﰮ', -- Interface
-    '', -- Module
-    '', -- Property
-    '', -- Unit
-    '', -- Value
-    '', -- Enum
-    '', -- Keyword
-    '﬌', -- Snippet
-    '', -- Color
-    '', -- File
-    '', -- Reference
-    '', -- Folder
-    '', -- EnumMember
-    '', -- Constant
-    '', -- Struct
-    '', -- Event
-    'ﬦ', -- Operator
-    '', -- TypeParameter
-  }
+-- protocol.CompletionItemKind = {
+--     '', -- Text
+--     '', -- Method
+--     '', -- Function
+--     '', -- Constructor
+--     '', -- Field
+--     '', -- Variable
+--     '', -- Class
+--     'ﰮ', -- Interface
+--     '', -- Module
+--     '', -- Property
+--     '', -- Unit
+--     '', -- Value
+--     '', -- Enum
+--     '', -- Keyword
+--     '﬌', -- Snippet
+--     '', -- Color
+--     '', -- File
+--     '', -- Reference
+--     '', -- Folder
+--     '', -- EnumMember
+--     '', -- Constant
+--     '', -- Struct
+--     '', -- Event
+--     'ﬦ', -- Operator
+--     '', -- TypeParameter
+--   }
 
---require'lspconfig'.clangd.setup{}
 EOF
 
