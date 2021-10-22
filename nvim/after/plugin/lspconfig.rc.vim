@@ -62,13 +62,13 @@ cmp.setup({
         -- For luasnip user.
         { name = 'luasnip' },
 
+        -- for paths
+        { name = 'path' },
+
         -- For ultisnips user.
         -- { name = 'ultisnips' },
 
         { name = 'buffer', keyword_length = 4 },
-
-        -- for paths
-        { name = 'path' },
     }
 })
 local nvim_lsp = require('lspconfig')
