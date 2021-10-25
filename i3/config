@@ -271,7 +271,7 @@ exec --no-startup-id xset -dpms
 exec --no-startup-id xset s off
 
 #always start applicatons
+exec --no-startup-id i3-msg 'workspace 2; exec alacritty' #2 for alacritty/terminal
+exec --no-startup-id i3-msg 'workspace 8; exec slack' #8 for slack
+exec --no-startup-id i3-msg 'workspace 9; exec spotify' #9 for spotify
 exec --no-startup-id i3-msg 'workspace 1; exec brave-browser' #1 for brave
-exec --no-startup-id i3-msg 'workspace 2; exec alacritty; workspace 1' #2 for alacritty/terminal
-exec --no-startup-id i3-msg 'workspace 8; exec slack; workspace 1' #8 for slack
-exec --no-startup-id i3-msg 'workspace 9; exec spotify; workspace 1' #9 for spotify
