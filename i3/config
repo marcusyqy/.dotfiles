@@ -250,6 +250,9 @@ bindsym $mod+space exec rofi -show run -opacity "90" -columns 1 -font "Hack Nerd
 # Network manager
 exec --no-startup-id nm-applet
 
+# Bluetooth manager
+exec --no-startup-id blueman-applet
+
 # FKeys
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
