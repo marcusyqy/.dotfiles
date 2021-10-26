@@ -279,7 +279,7 @@ exec --no-startup-id i3-msg exec slack #8 for slack
 exec --no-startup-id i3-msg exec spotify #9 for spotify
 exec --no-startup-id i3-msg exec brave-browser #1 for brave
 
-for_window [class="alacritty"] move container to workspace 1
-for_window [class="brave-browser"] move container to workspace 2
-for_window [class="slack"] move container to workspace 8
-for_window [class="spotify"] move container to workspace 9
+assign [class="alacritty"] 1
+assign [class="brave-browser"] 2
+assign [class="slack"] 8
+assign [class="spotify"] 9
