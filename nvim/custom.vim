@@ -52,9 +52,11 @@ augroup END
 let g:svelte_preprocessors = ['typescript']
 
 "removing the weird binding that doesn't let me go forward
+noremap <c-t> <c-i>
 
 nnoremap <tab> >>
 nnoremap <s-tab> <<
+
 
 vnoremap <tab> >
 vnoremap <s-tab> <
