@@ -2,39 +2,11 @@
 " this file contains the custom behaviour that marcus wants to have for his
 " vim configurations
 
-
 vnoremap <leader>p "_dP
 
 nnoremap <leader>y "+y
 vnoremap <leader>y "+y
 nnoremap <leader>Y gg"+yG
-
-inoremap <C-c> <esc>
-
-
-nmap <leader>ss :split<Return><C-w>w
-nmap <leader>sv :vsplit<Return><C-w>w
-
-nmap <leader>te :tabedit
-
-"resizing windows
-nmap <c-w><left> <c-w><
-nmap <c-w><right> <c-w>>
-nmap <c-w><up> <c-w>+
-nmap <c-w><down> <c-w>-
-
-"resizing windows
-nmap <c-a-left> <c-w><
-nmap <c-a-right> <c-w>>
-nmap <c-a-up> <c-w>+
-nmap <c-a-down> <c-w>-
-
-"changing windows
-nmap <c-left> <c-w>h
-nmap <c-right> <c-w>l
-nmap <c-up> <c-w>k
-nmap <c-down> <c-w>j
-
 
 "nice removing of whitespaces!
 fun! TrimWhiteSpace()
@@ -87,4 +59,6 @@ inoremap <C-k> <esc>:m .-2<CR>==a
 inoremap <C-j> <esc>:m .+1<CR>==a
 " nnoremap <leader>j :m .+1<CR>==
 " nnoremap <leader>k :m .-2<CR>==
+
+
 
