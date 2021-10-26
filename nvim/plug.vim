@@ -17,7 +17,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'cohama/lexima.vim'
 
-Plug 'hoob3rt/lualine.nvim'
+Plug 'nvim-lualine/lualine.nvim'
 
 " nvim-tree
 Plug 'kyazdani42/nvim-web-devicons' " for file icons

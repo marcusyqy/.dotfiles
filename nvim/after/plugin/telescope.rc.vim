@@ -2,15 +2,14 @@ if !exists('g:loaded_telescope') | finish | endif
 
 lua require('telescope').load_extension('fzy_native')
 
-
-
 " " Using lua functions
 "nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
 "nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
 "nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
 "nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 "
-"
+
+
 lua << EOF
 local actions = require('telescope.actions')
 require'telescope'.load_extension('project')
@@ -27,7 +26,7 @@ EOF
 
 nnoremap <leader>ps <cmd>lua require('telescope.builtin').grep_string({ search = vim.fn.input("Find For > ")})<cr>
 " Find files using Telescope command-line sugar.
-nnoremap <c-p> <cmd>Telescope find_files<cr>
+nnoremap <c-p> <cmd>Telescope find_files prompt_prefix=🔍<cr>
 " nnoremap <c-n> <cmd>Telescope git_files<cr>
 nnoremap <leader>ff <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
