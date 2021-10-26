@@ -27,6 +27,7 @@ runtime ./custom.vim
 
 
 runtime ./git.vim
+runtime ./navigation.vim
 
 lua << EOF
 local opts = {
@@ -49,3 +50,4 @@ set guioptions-=m  "remove menu bar
 set guioptions-=T  "remove toolbar
 set guioptions-=r  "remove right-hand scroll bar
 set guioptions-=L  "remove left-hand scroll bar
+
