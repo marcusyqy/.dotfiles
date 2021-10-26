@@ -86,4 +86,3 @@ inoremap <C-j> <esc>:m .+1<CR>==a
 nnoremap <leader>j :m .+1<CR>==
 nnoremap <leader>k :m .-2<CR>==
 
-nnoremap <c-u> <c-i>
