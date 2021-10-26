@@ -7,7 +7,7 @@ nnoremap <C-j> :cprev<CR>zz
 nnoremap <leader>k :lnext<CR>zz
 nnoremap <leader>j :lprev<CR>zz
 nnoremap <C-q> :call ToggleQFList(1)<CR>
-nnoremap <leader>q :call ToggleQFList(0)<CR>
+" nnoremap <leader>q :call ToggleQFList(0)<CR>
 
 let g:marcusyqy_qf_l = 0
 let g:marcusyqy_qf_g = 0
