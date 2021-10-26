@@ -61,9 +61,9 @@ local list = {
 
 require'nvim-tree'.setup {
   -- disables netrw completely
-  disable_netrw       = true,
+  disable_netrw       = false,
   -- hijack netrw window on startup
-  hijack_netrw        = true,
+  hijack_netrw        = false,
   -- open the tee when running this setup function
   open_on_setup       = false,
   -- will not open on setup if the filetype is in this list
@@ -75,9 +75,9 @@ require'nvim-tree'.setup {
   -- hijacks new directory buffers when they are opened.
   update_to_buf_dir   = {
     -- enable the feature
-    enable = true,
+    enable = false,
     -- allow to open the tree if it was previously closed
-    auto_open = true,
+    auto_open = false,
   },
   -- hijack the cursor in the tree to put it at the start of the filename
   hijack_cursor       = false,
