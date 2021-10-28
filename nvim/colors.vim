@@ -1,9 +1,10 @@
 
-let g:marcus_colorscheme = "gruvbox"
+let g:marcus_colorscheme = "material"
 set winblend=0
 set wildoptions=pum
 set pumblend=5
 
+let g:material_style = 'darker'
 let g:neosolarized_termtrans=1
 
 fun! ColorMyPencils()

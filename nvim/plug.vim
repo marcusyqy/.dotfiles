@@ -12,6 +12,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'overcache/NeoSolarized'
 Plug 'gruvbox-community/gruvbox'
 Plug 'arcticicestudio/nord-vim'
+Plug 'marko-cerovac/material.nvim'
 
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
