@@ -8,11 +8,8 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 " Specify a directory for plugins
 call plug#begin('~/.vim/plugged')
 
-"themes
-Plug 'overcache/NeoSolarized'
+"themes { only need gruvbox :D }
 Plug 'gruvbox-community/gruvbox'
-Plug 'arcticicestudio/nord-vim'
-Plug 'marko-cerovac/material.nvim'
 
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
