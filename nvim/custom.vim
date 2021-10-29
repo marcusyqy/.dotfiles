@@ -26,7 +26,6 @@ let g:svelte_preprocessors = ['typescript']
 "removing the weird binding that doesn't let me go forward
 noremap <c-t> <c-i>
 
-"inoremap <tab> >>
 inoremap <s-tab> <C-D>
 
 vnoremap <tab> >
