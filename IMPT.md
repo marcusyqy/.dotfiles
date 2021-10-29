@@ -15,6 +15,7 @@ HandleLidSwitchDocked=ignore
 - xrandr
 - gnome-screenshot
 - pavucontrol
+- picom
 
 
 ## Use dunst

@@ -229,6 +229,7 @@ bindsym $mod+f bar mode toggle
 bindsym $mod+Control+f fullscreen toggle
 
 #exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+#exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 # Restart polybar
 # bindsym $mod+Shift+p exec --no-startup-id "killall polybar"
 # bindsym $mod+Ctrl+p exec --no-startup-id "polybar top &"
