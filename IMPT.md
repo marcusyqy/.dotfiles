@@ -34,3 +34,18 @@ killall dunst;notify-send hello-world.
 ## Input devices
 - xinput // show number of devices
 - xinput list-props {device_name/device_id} // show properties
+
+## Screen brightness light
+1)
+```
+sudo apt install light
+```
+2)
+```
+sudo chmod +s /usr/bin/light
+```
+3) Add to i3 config:
+```
+bindsym XF86MonBrightnessUp exec light -A 1 # increase screen brightness
+bindsym XF86MonBrightnessDown exec light -U 1 # decrease screen brightness
+```

@@ -213,8 +213,9 @@ bindsym --release Print exec gnome-screenshot -i
 #exec xinput set-prop 13 324 0
 #exec xinput set-prop 22 324 0
 #Logitech G Pro Logitech MX Master 3
-exec xinput set-prop "pointer:Logitech G Pro" "libinput Natural Scrolling Enabled" 0
+exec xinput set-prop "pointer:Logitech G Pro " "libinput Natural Scrolling Enabled" 0
 exec xinput set-prop "pointer:Logitech MX Master 3" "libinput Natural Scrolling Enabled" 0
+exec xinput set-prop "UNIW0001:00 093A:1336 Touchpad" "libinput Natural Scrolling Enabled" 1
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -261,9 +262,12 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #d
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 #
 # # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+# bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
+# bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
 
+# # Sreen brightness controls
+bindsym XF86MonBrightnessUp exec light -A 1 # increase screen brightness
+bindsym XF86MonBrightnessDown exec light -U 1 # decrease screen brightness
 
 # shadows and transitions with compton
 #exec --no-startup-id compton --config ~/.config/compton.conf -b
@@ -275,9 +279,12 @@ exec --no-startup-id picom
 # exec --no-startup-id xset -dpms
 # exec --no-startup-id xset s off
 #
+#
+
+exec_always --no-startup-id sh ~/wallpapers/scripts/wallpaper.sh
+exec --no-startup-id xset -dpms
+exec --no-startup-id xset s off
+
 # #always start applicatons
-exec --no-startup-id i3-msg "workspace 2; exec alacritty; workspace 1" #2 for alacritty/terminal
-exec --no-startup-id i3-msg "workspace 8; exec slack; workspace 1" #8 for slack
-exec --no-startup-id i3-msg "workspace 9; exec spotify; workspace 1" #9 for spotify
-exec --no-startup-id i3-msg "workspace 1; exec brave-browser; workspace 1" #1 for brave
+exec --no-startup-id slack
 
