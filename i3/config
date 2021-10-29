@@ -269,13 +269,13 @@ exec --no-startup-id compton --config ~/.config/compton.conf -b
 
 #feh
 #exec_always feh --bg-fill ~/wallpapers/wallpapers.sh
-exec_always --no-startup-id sh ~/wallpapers/scripts/wallpaper.sh
-exec --no-startup-id xset -dpms
-exec --no-startup-id xset s off
-
-#always start applicatons
-exec --no-startup-id i3-msg "workspace 2; exec alacritty; workspace 1" #2 for alacritty/terminal
-exec --no-startup-id i3-msg "workspace 8; exec slack; workspace 1" #8 for slack
-exec --no-startup-id i3-msg "workspace 9; exec spotify; workspace 1" #9 for spotify
-exec --no-startup-id i3-msg "workspace 1; exec brave-browser; workspace 1" #1 for brave
+# exec_always --no-startup-id sh ~/wallpapers/scripts/wallpaper.sh
+# exec --no-startup-id xset -dpms
+# exec --no-startup-id xset s off
+#
+# #always start applicatons
+# exec --no-startup-id i3-msg "workspace 2; exec alacritty; workspace 1" #2 for alacritty/terminal
+# exec --no-startup-id i3-msg "workspace 8; exec slack; workspace 1" #8 for slack
+# exec --no-startup-id i3-msg "workspace 9; exec spotify; workspace 1" #9 for spotify
+# exec --no-startup-id i3-msg "workspace 1; exec brave-browser; workspace 1" #1 for brave
 
