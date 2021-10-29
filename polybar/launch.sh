@@ -1,5 +1,11 @@
-#!/usr/bin/env sh
+#!/usr/bin/sh
 
-killall -q polybar
-while pgrep -x polybar >/dev/null; do sleep 1; done
-polybar bar --config=~/.config/polybar/config
+dir="$HOME/.config/polybar"
+
+launch_bar() {
+  killall polybar
+  while pgrep polybar; do killall polybar; done
+  polybar -q main -c "$dir/config.ini"
+}
+
+launch_bar
