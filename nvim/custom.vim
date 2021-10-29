@@ -28,8 +28,8 @@ noremap <c-t> <c-i>
 
 inoremap <s-tab> <C-D>
 
-vnoremap <tab> >
-vnoremap <s-tab> <
+vnoremap <tab> >gv
+vnoremap <s-tab> <gv
 
 "make Y behave
 nnoremap Y y$
