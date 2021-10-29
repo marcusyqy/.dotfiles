@@ -288,3 +288,5 @@ exec --no-startup-id xset s off
 # #always start applicatons
 exec --no-startup-id slack
 
+# maps capslock to esc for other laptops :)
+exec --no-startup-id setxkbmap -option caps:escape
