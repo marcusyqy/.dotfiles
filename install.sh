@@ -68,6 +68,11 @@ install_dunst_config() {
     cp -r $DOTFILES/dunst ~/.config/dunst
 }
 
+install_picom_config() {
+    rm  ~/.config/picom.conf
+    cp $DOTFILES/picom/picom.conf ~/.config/picom.conf
+}
+
 install_vim_config
 install_tmux_config
 #install_fish_config
@@ -80,4 +85,5 @@ install_wallpapers_config
 install_compton_config
 install_screenlayout_config
 install_dunst_config
+install_picom_config
 

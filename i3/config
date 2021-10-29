@@ -265,7 +265,8 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightne
 
 
 # shadows and transitions with compton
-exec --no-startup-id compton --config ~/.config/compton.conf -b
+#exec --no-startup-id compton --config ~/.config/compton.conf -b
+exec --no-startup-id picom
 
 #feh
 #exec_always feh --bg-fill ~/wallpapers/wallpapers.sh
@@ -274,8 +275,8 @@ exec --no-startup-id compton --config ~/.config/compton.conf -b
 # exec --no-startup-id xset s off
 #
 # #always start applicatons
-# exec --no-startup-id i3-msg "workspace 2; exec alacritty; workspace 1" #2 for alacritty/terminal
-# exec --no-startup-id i3-msg "workspace 8; exec slack; workspace 1" #8 for slack
-# exec --no-startup-id i3-msg "workspace 9; exec spotify; workspace 1" #9 for spotify
-# exec --no-startup-id i3-msg "workspace 1; exec brave-browser; workspace 1" #1 for brave
+exec --no-startup-id i3-msg "workspace 2; exec alacritty; workspace 1" #2 for alacritty/terminal
+exec --no-startup-id i3-msg "workspace 8; exec slack; workspace 1" #8 for slack
+exec --no-startup-id i3-msg "workspace 9; exec spotify; workspace 1" #9 for spotify
+exec --no-startup-id i3-msg "workspace 1; exec brave-browser; workspace 1" #1 for brave
 
