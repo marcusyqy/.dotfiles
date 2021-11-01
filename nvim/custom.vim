@@ -29,6 +29,12 @@ inoremap <s-tab> <C-D>
 vnoremap <tab> >gv
 vnoremap <s-tab> <gv
 
+nnoremap <up> <cmd>tabnew<CR>
+nnoremap <down> <cmd>tabclose<CR>
+
+nnoremap <left> <cmd>tabp<CR>
+nnoremap <right> <cmd>tabn<CR>
+
 "make Y behave
 nnoremap Y y$
 
