@@ -29,9 +29,6 @@ inoremap <s-tab> <C-D>
 vnoremap <tab> >gv
 vnoremap <s-tab> <gv
 
-nnoremap <up> <cmd>bnext<CR>
-nnoremap <down> <cmd>bprev<CR>
-
 nnoremap <left> <cmd>tabp<CR>
 nnoremap <right> <cmd>tabn<CR>
 
