@@ -8,7 +8,6 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 " Specify a directory for plugins
 call plug#begin('~/.vim/plugged')
 
-"themes { only need gruvbox :D }
 Plug 'gruvbox-community/gruvbox'
 
 Plug 'tpope/vim-fugitive'
@@ -25,7 +24,8 @@ Plug 'onsails/lspkind-nvim'
 
 Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'neovim/nvim-lspconfig'
-"Plug 'glepnir/lspsaga.nvim'
+
+" cmp
 Plug 'folke/lsp-colors.nvim'
 Plug 'hrsh7th/cmp-nvim-lua'
 Plug 'hrsh7th/cmp-nvim-lsp'
@@ -39,7 +39,6 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
 
-"Plug 'tjdevries/cyclist.vim'
 Plug 'norcalli/nvim-colorizer.lua'   "Plug 'pwntester/octo.nvim'
 Plug 'nvim-telescope/telescope-project.nvim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
@@ -49,7 +48,7 @@ Plug 'L3MON4D3/LuaSnip'
 Plug 'martinda/Jenkinsfile-vim-syntax'
 Plug 'rmagatti/auto-session'
 Plug 'preservim/nerdcommenter'
-Plug 'theprimeagen/vim-be-good'
+Plug 'theprimeagen/harpoon'
 Plug 'groenewege/vim-less', { 'for': 'less' }
 Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
 Plug 'evanleck/vim-svelte', {'branch': 'main'}
