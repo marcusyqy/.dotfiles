@@ -46,7 +46,7 @@ Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'L3MON4D3/LuaSnip'
 
 Plug 'martinda/Jenkinsfile-vim-syntax'
-Plug 'rmagatti/auto-session'
+" Plug 'rmagatti/auto-session'
 Plug 'preservim/nerdcommenter'
 Plug 'theprimeagen/harpoon'
 Plug 'groenewege/vim-less', { 'for': 'less' }
