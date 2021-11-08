@@ -1,10 +1,10 @@
-" local status, lfs = pcall(require, "harpoon")
-" if(not status) then
-"     --lfs exists, so use it.
-"     print("does not have nvim-tree!")
-"     return
-" end
 lua << EOF
+local status, lfs = pcall(require, "harpoon")
+if(not status) then
+    --lfs exists, so use it.
+    print("does not have harpoon!")
+    return
+end
 
 require("harpoon").setup({
     global_settings = {
