@@ -16,6 +16,7 @@ HandleLidSwitchDocked=ignore
 - gnome-screenshot
 - pavucontrol
 - picom
+- homebrew(install latest lazygit)
 
 
 ## Use dunst
