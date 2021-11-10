@@ -10,8 +10,12 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'gruvbox-community/gruvbox'
 
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
+
+"this auto closes parenthesis
 Plug 'cohama/lexima.vim'
 
 Plug 'nvim-lualine/lualine.nvim'
@@ -22,7 +26,6 @@ Plug 'kyazdani42/nvim-tree.lua'
 
 Plug 'onsails/lspkind-nvim'
 
-Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'neovim/nvim-lspconfig'
 
 " cmp
@@ -52,6 +55,7 @@ Plug 'theprimeagen/harpoon'
 Plug 'groenewege/vim-less', { 'for': 'less' }
 Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
 Plug 'evanleck/vim-svelte', {'branch': 'main'}
+
 
 " Initialize plugin system
 call plug#end()
