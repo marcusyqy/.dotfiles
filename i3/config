@@ -248,7 +248,7 @@ gaps inner 10
 
 #Rofi
 bindsym $mod+d exec rofi -show run -opacity "90" -columns 1 -font "Hack Nerd Font Mono 14"
-bindsym $mod+space exec rofi -show run -opacity "90" -columns 1 -font "Hack Nerd Font Mono 14"
+# bindsym $mod+space exec rofi -show run -opacity "90" -columns 1 -font "Hack Nerd Font Mono 14"
 
 # Network manager
 exec --no-startup-id nm-applet
