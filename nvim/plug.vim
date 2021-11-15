@@ -44,7 +44,6 @@ Plug 'nvim-telescope/telescope-fzy-native.nvim'
 
 Plug 'norcalli/nvim-colorizer.lua'   "Plug 'pwntester/octo.nvim'
 Plug 'nvim-telescope/telescope-project.nvim'
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'L3MON4D3/LuaSnip'
 

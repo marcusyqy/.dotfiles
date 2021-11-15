@@ -11,8 +11,11 @@ lua require('telescope').load_extension('fzy_native')
 
 
 lua << EOF
+
 local actions = require('telescope.actions')
 require'telescope'.load_extension('project')
+
+
 
 function git_branch_private()
     require'telescope.builtin'.git_branches({ attach_mappings = function(_, map)
