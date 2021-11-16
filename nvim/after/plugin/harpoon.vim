@@ -24,4 +24,6 @@ nnoremap <leader>hh :lua require("harpoon.ui").nav_file(1)<CR>
 nnoremap <leader>hj :lua require("harpoon.ui").nav_file(2)<CR>
 nnoremap <leader>hk :lua require("harpoon.ui").nav_file(3)<CR>
 nnoremap <leader>hl :lua require("harpoon.ui").nav_file(4)<CR>
+nnoremap <leader>h; :lua require("harpoon.ui").nav_file(5)<CR>
+nnoremap <leader>h' :lua require("harpoon.ui").nav_file(6)<CR>
 
