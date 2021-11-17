@@ -110,3 +110,5 @@ alias l='ls -CF'
 
 export TERM="xterm-256color"
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+docker exec --detach-keys='ctrl-z,z' -ti foo /bin/bash
