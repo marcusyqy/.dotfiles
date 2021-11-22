@@ -51,3 +51,4 @@ set guioptions-=T  "remove toolbar
 set guioptions-=r  "remove right-hand scroll bar
 set guioptions-=L  "remove left-hand scroll bar
 
+let g:autoclose_vim_commentmode = 1
