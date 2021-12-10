@@ -11,7 +11,7 @@ set guicursor=
 set hidden
 set rnu
 set nu
-set nowrap
+" set nowrap
 set cursorline
 set noerrorbells
 set smarttab

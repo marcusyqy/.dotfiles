@@ -56,7 +56,8 @@ Plug 'groenewege/vim-less', { 'for': 'less' }
 Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
 Plug 'evanleck/vim-svelte', {'branch': 'main'}
 
-
+"gitlens
+Plug 'APZelos/blamer.nvim'
 " Initialize plugin system
 call plug#end()
 
