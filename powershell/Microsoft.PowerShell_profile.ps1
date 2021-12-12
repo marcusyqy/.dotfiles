@@ -1,6 +1,5 @@
-Import-Module posh-git
-Import-Module oh-my-posh
-Set-PoshPrompt -Theme robbyrussel
+# Import-Module posh-git
+# Import-Module oh-my-posh
 Set-Alias vim nvim
 Set-Alias vi nvim
 Set-Alias gvim nvim-qt
@@ -8,6 +7,7 @@ Set-Alias neovide neovide.exe
 Set-Alias quit exit
 Set-Alias vima alacritty
 Set-Alias lzg lazygit
+Set-Alias ll ls
 
 Import-Module PSReadLine
 
@@ -22,8 +22,14 @@ Set-PSReadLineKeyHandler -Key DownArrow -Function HistorySearchForward
 Set-PSReadLineOption -ShowToolTips
 Set-PSReadLineOption -PredictionSource History
 
+# PSReadLine
+Set-PSReadLineOption -EditMode Emacs
+Set-PSReadLineOption -BellStyle None
+Set-PSReadLineKeyHandler -Chord 'Ctrl+d' -Function DeleteChar
+Set-PSReadLineOption -PredictionSource History
+
 function init_msvc_env {
-    pushd 'C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\Common7\Tools'
+    pushd 'C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\Tools'
     cmd /c "VsDevCmd.bat&set" |
     foreach {
       if ($_ -match "=") {
@@ -43,3 +49,11 @@ $ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
 if (Test-Path($ChocolateyProfile)) {
   Import-Module "$ChocolateyProfile"
 }
+# "`nNew-Alias which get-command" | add-content $profile
+function which ($command) {
+  Get-Command -Name $command -ErrorAction SilentlyContinue |
+    Select-Object -ExpandProperty Path -ErrorAction SilentlyContinue
+}
+
+# init_msvc_env
+oh-my-posh --init --shell pwsh --config ~\AppData\Local\Programs\oh-my-posh\themes\spaceship.omp.json | Invoke-Expression

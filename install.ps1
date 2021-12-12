@@ -5,6 +5,7 @@ function update_vim {
 }
 
 function update_ps {
+    New-Item -Force -Type File $PROFILE
     Copy-Item -Force powershell/Microsoft.PowerShell_profile.ps1 $PROFILE
 }
 
