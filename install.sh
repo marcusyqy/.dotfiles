@@ -18,6 +18,12 @@ install_alacritty_config() {
     cp -r $DOTFILES/alacritty ~/.config/alacritty
 }
 
+install_kitty_config() {
+    #[ -d "~/.config/alacritty" ] &&
+    rm -rf ~/.config/kitty
+    cp -r $DOTFILES/kitty ~/.config/kitty
+}
+
 install_zsh_config() {
     #[ -f "~/.zshrc" ] &&
     rm ~/.zshrc

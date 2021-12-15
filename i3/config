@@ -167,41 +167,41 @@ new_float none
 client.focused $bc $bc $bc $borc
 
 # Gaps
-gaps inner 20
-gaps outer 15
-bindsym $mod+g mode "$mode_gaps"
+# gaps inner 20
+# gaps outer 15
+# bindsym $mod+g mode "$mode_gaps"
 
 # Gaps settings mode
-set $mode_gaps Gaps: (e) esterni, (i) interni
-set $mode_gaps_e Gaps Esterni: +|-|0
-set $mode_gaps_i Gaps Interni: +|-|0
+# set $mode_gaps Gaps: (e) esterni, (i) interni
+# set $mode_gaps_e Gaps Esterni: +|-|0
+# set $mode_gaps_i Gaps Interni: +|-|0
 
 
-mode "$mode_gaps" {
-	bindsym e	mode "$mode_gaps_e"
-	bindsym i 	mode "$mode_gaps_i"
-	bindsym Return	mode "default"
-	bindsym Escape	mode "default"
-	bindsym plus	gaps outer all plus 5
-	bindsym minus	gaps outer all minus 5
-	bindsym 0	gaps outer all set 5
-}
-
-mode "$mode_gaps_e" {
-	bindsym plus	gaps outer all plus 5
-	bindsym minus	gaps outer all minus 5
-	bindsym 0	gaps outer all set 5
-	bindsym Return	mode "default"
-	bindsym Escape	mode "default"
-}
-
-mode "$mode_gaps_i" {
-	bindsym plus	gaps inner all plus 5
-	bindsym minus	gaps inner all minus 5
-	bindsym 0	gaps inner all set 10
-	bindsym Return	mode "default"
-	bindsym Escape	mode "default"
-}
+# mode "$mode_gaps" {
+#     bindsym e	mode "$mode_gaps_e"
+#     bindsym i 	mode "$mode_gaps_i"
+#     bindsym Return	mode "default"
+#     bindsym Escape	mode "default"
+#     bindsym plus	gaps outer all plus 5
+#     bindsym minus	gaps outer all minus 5
+#     bindsym 0	gaps outer all set 5
+# }
+#
+# mode "$mode_gaps_e" {
+#     bindsym plus	gaps outer all plus 5
+#     bindsym minus	gaps outer all minus 5
+#     bindsym 0	gaps outer all set 5
+#     bindsym Return	mode "default"
+#     bindsym Escape	mode "default"
+# }
+#
+# mode "$mode_gaps_i" {
+#     bindsym plus	gaps inner all plus 5
+#     bindsym minus	gaps inner all minus 5
+#     bindsym 0	gaps inner all set 10
+#     bindsym Return	mode "default"
+#     bindsym Escape	mode "default"
+# }
 
 
 bindsym $mod+r mode "resize"
@@ -242,8 +242,8 @@ new_window pixel 2
 client.focused #ebdbb2 #ebdbb2 #ebdbb2 #ebdbb2
 
 #Gaps inner/outer
-gaps outer 20
-gaps inner 10
+# gaps outer 20
+# gaps inner 10
 
 #Rofi
 bindsym $mod+d exec rofi -show run -opacity "90" -columns 1 -font "Hack Nerd Font Mono 14"
