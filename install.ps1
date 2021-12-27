@@ -11,7 +11,7 @@ function update_ps {
 
 function update_alacritty {
     New-Item -Force -Type Directory $env:APPDATA/alacritty
-    Copy-Item -Force -Recurse alacritty/* $env:APPDATA/alacritty
+    Copy-Item -Force alacritty/alacritty1.yml $env:APPDATA/alacritty/alacritty.yml
 }
 
 update_vim
