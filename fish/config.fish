@@ -15,3 +15,6 @@ alias la 'ls -A'
 alias l 'ls -CF'
 
 starship init fish | source
+
+# set up rust env variables
+set -Up fish_user_paths ~/.cargo/bin
