@@ -81,8 +81,8 @@ install_picom_config() {
 
 install_vim_config
 install_tmux_config
-#install_fish_config
-install_zsh_config
+install_fish_config
+#install_zsh_config
 install_alacritty_config
 install_i3_config
 install_polybar_config
