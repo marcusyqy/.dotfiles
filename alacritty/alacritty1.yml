@@ -438,4 +438,4 @@ debug:
 
                                                     # vim: nospell
 shell:
-  program: pwsh
+  program: wsl
