@@ -9,6 +9,8 @@ Set-Alias vima alacritty
 Set-Alias lzg lazygit
 Set-Alias ll ls
 
+$work = 'D:\work'
+
 Import-Module PSReadLine
 
 # Shows navigable menu of all options when hitting Tab
