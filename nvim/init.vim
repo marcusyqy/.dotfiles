@@ -3,9 +3,6 @@
 "autocmd!
 syntax on
 
-
-let g:python_host_prog="/usr/bin/python2"
-let g:python3_host_prog="/usr/bin/python3"
 filetype off "required
 syntax enable
 
@@ -43,12 +40,6 @@ local opts = {
 require('auto-session').setup(opts)
 EOF
 
-set guifont=Hack\ NF:h16
-let g:neovide_refresh_rate=140
-let g:neovide_transparency=0.95
-set guioptions-=m  "remove menu bar
-set guioptions-=T  "remove toolbar
-set guioptions-=r  "remove right-hand scroll bar
-set guioptions-=L  "remove left-hand scroll bar
 
+runtime ./gui.vim
 let g:autoclose_vim_commentmode = 1

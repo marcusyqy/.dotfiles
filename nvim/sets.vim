@@ -6,6 +6,7 @@
 " delays and poor user experience.
 set updatetime=300
 set guicursor=
+set t_Co=256
 
 "set nocompatible "be iMproved
 set hidden
@@ -46,7 +47,6 @@ set shortmess+=c
 
 " if you want to have 80 line limit
 "set colorcolumn=80
-
 
 set termguicolors
 

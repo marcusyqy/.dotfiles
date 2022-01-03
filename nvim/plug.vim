@@ -9,6 +9,7 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 call plug#begin('~/.vim/plugged')
 
 Plug 'gruvbox-community/gruvbox'
+Plug 'eddyekofo94/gruvbox-flat.nvim'
 
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
@@ -16,8 +17,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 
 "this auto closes parenthesis
-" Plug 'spf13/vim-autoclose'
-"Plug 'cohama/lexima.vim'
+Plug 'spf13/vim-autoclose'
+" Plug 'cohama/lexima.vim'
 
 Plug 'nvim-lualine/lualine.nvim'
 
@@ -58,6 +59,8 @@ Plug 'evanleck/vim-svelte', {'branch': 'main'}
 
 "gitlens
 Plug 'APZelos/blamer.nvim'
+
+Plug 'stevearc/dressing.nvim'
 " Initialize plugin system
 call plug#end()
 
