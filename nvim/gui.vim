@@ -37,6 +37,7 @@ else
     endfunction
 endif
 
-nnoremap <down> :call FontSizeMinus()<CR>
-nnoremap <up> :call FontSizePlus()<CR>
-
+if exists("g:neovide")
+    nnoremap <down> :call FontSizeMinus()<CR>
+    nnoremap <up> :call FontSizePlus()<CR>
+endif
