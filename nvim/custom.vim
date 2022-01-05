@@ -32,6 +32,16 @@ vnoremap <s-tab> <gv
 nnoremap <left> <cmd>tabp<CR>
 nnoremap <right> <cmd>tabn<CR>
 
+nnoremap <c-left> <c-w>h
+nnoremap <c-right> <c-w>l
+nnoremap <c-up> <c-w>k
+nnoremap <c-down> <c-w>j
+
+nnoremap <c-s-left> <C-w><
+nnoremap <c-s-right> <C-w>>
+nnoremap <c-s-up> <C-w>+
+nnoremap <c-s-down> <C-w>-
+
 "make Y behave
 nnoremap Y y$
 
