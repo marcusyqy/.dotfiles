@@ -27,6 +27,7 @@ require'nvim-treesitter.configs'.setup {
     "scss",
     "c",
     "dockerfile",
+    "rust",
     "cpp"
   },
 }
