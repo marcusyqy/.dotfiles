@@ -42,4 +42,5 @@ EOF
 
 
 runtime ./gui.vim
-let g:autoclose_vim_commentmode = 1
+" let g:autoclose_vim_commentmode = 1
+"

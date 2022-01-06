@@ -8,6 +8,7 @@ Set-Alias quit exit
 Set-Alias vima alacritty
 Set-Alias lzg lazygit
 Set-Alias ll ls
+Set-Alias grep rg
 
 $work = 'D:\work'
 

@@ -161,15 +161,28 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { "clangd", "tsserver", "svelte" }
+
+local servers = { "clangd", "svelte" }
 for _, lsp in ipairs(servers) do
-  nvim_lsp[lsp].setup {
+    nvim_lsp[lsp].setup {
+        on_attach = on_attach,
+        capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+        flags = {
+            debounce_text_changes = 150,
+        }
+    }
+
+nvim_lsp.tsserver.setup ({
     on_attach = on_attach,
     capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
     flags = {
       debounce_text_changes = 150,
+    },
+    filetypes = {
+        "typescript", "typescriptreact", "typescript.tsx"
     }
-  }
+})
+
 
 nvim_lsp.rust_analyzer.setup({
     on_attach=on_attach,
