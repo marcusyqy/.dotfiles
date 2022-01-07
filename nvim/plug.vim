@@ -17,8 +17,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 
 "this auto closes parenthesis
-Plug 'spf13/vim-autoclose'
-"Plug 'cohama/lexima.vim'
+" Plug 'spf13/vim-autoclose'
+Plug 'cohama/lexima.vim'
 
 Plug 'nvim-lualine/lualine.nvim'
 
