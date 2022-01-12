@@ -8,6 +8,9 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 " Specify a directory for plugins
 call plug#begin('~/.vim/plugged')
 
+" for discord :)
+Plug 'andweeb/presence.nvim'
+
 Plug 'gruvbox-community/gruvbox'
 Plug 'eddyekofo94/gruvbox-flat.nvim'
 

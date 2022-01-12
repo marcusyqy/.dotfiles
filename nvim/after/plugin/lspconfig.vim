@@ -110,7 +110,7 @@ cmp.setup({
         -- For ultisnips user.
         -- { name = 'ultisnips' },
 
-        { name = 'buffer', keyword_length = 4 },
+        { name = 'buffer', keyword_length = 5 },
     },
     formatting = {
         format = lspkind.cmp_format({with_text = true, menu = ({
@@ -166,18 +166,12 @@ local servers = { "clangd", "svelte" }
 for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup {
         on_attach = on_attach,
-        capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
-        flags = {
-            debounce_text_changes = 150,
-        }
+        capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
     }
 
 nvim_lsp.tsserver.setup ({
     on_attach = on_attach,
     capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
-    flags = {
-      debounce_text_changes = 150,
-    },
     filetypes = {
         "typescript", "typescriptreact", "typescript.tsx"
     }
