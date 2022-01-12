@@ -1,16 +1,15 @@
 if !exists('g:loaded_telescope') | finish | endif
 
-lua require('telescope').load_extension('fzy_native')
-
-" " Using lua functions
-"nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
-"nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
-"nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
-"nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
-"
-
-
 lua << EOF
+require("telescope").setup {}
+
+require('telescope').load_extension('fzy_native')
+require("telescope").load_extension("file_browser")
+require('telescope').load_extension('project')
+
+
+
+
 
 local actions = require('telescope.actions')
 
@@ -31,7 +30,6 @@ local actions = require('telescope.actions')
 -- } -- telescope setup
 
 
-require'telescope'.load_extension('project')
 
 function git_branch_private()
     require'telescope.builtin'.git_branches({ attach_mappings = function(_, map)
@@ -42,6 +40,11 @@ function git_branch_private()
     end
 EOF
 "
+" " Using lua functions
+"nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
+"nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
+"nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
+"nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 
 nnoremap <leader>ps <cmd>lua require('telescope.builtin').grep_string({ search = vim.fn.input("Find For > ")})<cr>
 " Find files using Telescope command-line sugar.

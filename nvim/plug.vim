@@ -66,5 +66,8 @@ Plug 'APZelos/blamer.nvim'
 
 Plug 'stevearc/dressing.nvim'
 " Initialize plugin system
+Plug 'nvim-telescope/telescope-file-browser.nvim'
+Plug 'tanvirtin/vgit.nvim'
+
 call plug#end()
 
