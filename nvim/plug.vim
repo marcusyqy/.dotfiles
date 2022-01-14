@@ -62,12 +62,17 @@ Plug 'evanleck/vim-svelte', {'branch': 'main'}
 
 Plug 'sbdchd/neoformat'
 "gitlens
-Plug 'APZelos/blamer.nvim'
+"Plug 'APZelos/blamer.nvim'
 
 Plug 'stevearc/dressing.nvim'
 " Initialize plugin system
 Plug 'nvim-telescope/telescope-file-browser.nvim'
 Plug 'tanvirtin/vgit.nvim'
+
+"debugging
+Plug 'simrat39/rust-tools.nvim'
+Plug 'mfussenegger/nvim-dap'
+Plug 'rcarriga/nvim-dap-ui'
 
 call plug#end()
 
