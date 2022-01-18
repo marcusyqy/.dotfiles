@@ -12,7 +12,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'andweeb/presence.nvim'
 
 Plug 'gruvbox-community/gruvbox'
-Plug 'eddyekofo94/gruvbox-flat.nvim'
+Plug 'overcache/NeoSolarized'
 
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
@@ -21,7 +21,8 @@ Plug 'tpope/vim-rhubarb'
 
 "this auto closes parenthesis
 " Plug 'spf13/vim-autoclose'
-Plug 'cohama/lexima.vim'
+"Plug 'cohama/lexima.vim'
+Plug 'windwp/nvim-autopairs'
 
 Plug 'nvim-lualine/lualine.nvim'
 

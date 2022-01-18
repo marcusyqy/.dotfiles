@@ -1,12 +1,15 @@
-
-let g:marcus_colorscheme = "gruvbox"
 set winblend=0
 set wildoptions=pum
 set pumblend=5
 
-" let g:neosolarized_termtrans=1
+" runtime ./themes/NeoSolarized.vim
+let g:marcus_colorscheme = "NeoSolarized"
+
+
+" Use NeoSolarized
 
 fun! ColorMyPencils()
+    let g:neosolarized_termtrans=1
     let g:gruvbox_contrast_dark = 'hard'
     if exists('+termguicolors')
         let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
