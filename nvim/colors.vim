@@ -8,6 +8,7 @@ let g:marcus_colorscheme = "NeoSolarized"
 
 " Use NeoSolarized
 
+
 fun! ColorMyPencils()
     let g:neosolarized_termtrans=1
     let g:gruvbox_contrast_dark = 'hard'
@@ -36,11 +37,8 @@ fun! ColorMyPencils()
     highlight qfFileName guifg=#aed75f
     hi TelescopeBorder guifg=#5eacd
 
-    if exists('g:neovide')
-        highlight Normal guibg=#2A2827
-    else
-        highlight Normal guibg=none
-    endif
+    highlight Normal guibg=none
 endfun
+
 call ColorMyPencils()
 
