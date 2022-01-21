@@ -14,8 +14,15 @@ function update_alacritty {
     Copy-Item -Force alacritty/alacritty-win.yml $env:APPDATA/alacritty/alacritty.yml
 }
 
+function update_workspacer {
+    New-Item -Force -Type File ~/.workspacer/workspacer.config.csx
+    Copy-Item -Force workspacer/workspacer.config.csx ~/.workspacer/workspacer.config.csx
+
+}
+
 update_vim
 update_ps
 update_alacritty
+update_workspacer
 
 
