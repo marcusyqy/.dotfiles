@@ -3,7 +3,7 @@ set wildoptions=pum
 set pumblend=5
 
 " runtime ./themes/NeoSolarized.vim
-let g:marcus_colorscheme = "NeoSolarized"
+let g:marcus_colorscheme = "gruvbox"
 
 
 " Use NeoSolarized

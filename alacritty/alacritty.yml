@@ -27,8 +27,8 @@ window:
   # Blank space added around the window in pixels. This padding is not scaled by
   # DPI and the specified value is always added at both opposing sides.
   padding:
-    x: 20
-    y: 20
+    x: 10
+    y: 10
 
   # Spread additional padding evenly around the terminal content.
   dynamic_padding: false
@@ -64,22 +64,22 @@ scrolling:
   multiplier: 3
 
 # Font configuration (changes require restart)
-font:
-  normal:
-    family: JetBrainsMono Nerd Font Mono
-    style: Regular
-  bold:
-    family: JetBrainsMono Nerd Font Mono
-    style: Bold
-  italic:
-    family: JetBrainsMono Nerd Font Mono
-    style: Italic
-  bold_italic:
-    family: JetBrainsMono Nerd Font Mono
-    style: Bold Italic
+# font:
+#   normal:
+#     family: JetBrainsMono Nerd Font Mono
+#     style: Regular
+#   bold:
+#     family: JetBrainsMono Nerd Font Mono
+#     style: Bold
+#   italic:
+#     family: JetBrainsMono Nerd Font Mono
+#     style: Italic
+#   bold_italic:
+#     family: JetBrainsMono Nerd Font Mono
+#     style: Bold Italic
 
   # Point size of the font
-  size: 11.0
+  size: 12.0
 
   # Offset is the extra space around each character. offset.y can be thought of
   # as modifying the linespacing, and offset.x as modifying the letter spacing.
@@ -176,7 +176,7 @@ bell:
   duration: 0
 
 # Background opacity
-background_opacity: 1.00
+background_opacity: 0.8
 
 # Key bindings
 #

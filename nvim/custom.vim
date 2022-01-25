@@ -49,7 +49,9 @@ nnoremap Y y$
 nnoremap n nzzzv
 nnoremap N Nzzzv
 nnoremap J mzJ`v
-noremap <c-c> <esc>
+
+nnoremap <c-c> <esc>
+vnoremap <c-c> <esc>
 
 "undo breakpoints
 inoremap , ,<c-g>u
