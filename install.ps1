@@ -20,7 +20,14 @@ function update_workspacer {
 
 }
 
+function update_vs {
+    New-Item -Force -Type File ~/.vsvimrc
+    Copy-Item -Force vs/.vsvimrc ~/.vsvimrc
+
+}
+
 update_vim
+update_vs
 update_ps
 update_alacritty
 update_workspacer

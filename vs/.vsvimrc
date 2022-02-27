@@ -1,0 +1,93 @@
+
+let mapleader = " "
+"set nocompatible "be iMproved
+set rnu
+set nu
+set nowrap
+set cursorline
+set scrolloff=8
+set nohlsearch
+
+set list
+"set nolist
+set ignorecase
+set expandtab
+set smartcase
+
+set incsearch
+set expandtab
+
+
+"for vsvim
+set clipboard=unnamed
+
+set ai "Auto indent
+
+vnoremap <leader>p "_dP
+
+nnoremap <leader>y "+y
+vnoremap <leader>y "+y
+nnoremap <leader>Y gg"+yG
+
+"removing the weird binding that doesn't let me go forward
+"inoremap <s-tab> <C-D>
+
+vnoremap <tab> >gv
+vnoremap <s-tab> <gv
+
+nnoremap <c-left> <c-w>h
+nnoremap <c-right> <c-w>l
+nnoremap <c-up> <c-w>k
+nnoremap <c-down> <c-w>j
+
+nnoremap <c-s-left> <C-w><
+nnoremap <c-s-right> <C-w>>
+nnoremap <c-s-up> <C-w>+
+nnoremap <c-s-down> <C-w>-
+
+"make Y behave
+nnoremap Y y$
+
+"center cursor
+nnoremap n nzzzv
+nnoremap N Nzzzv
+nnoremap J mzJ`v
+
+nnoremap <c-c> <esc>
+vnoremap <c-c> <esc>
+
+"undo breakpoints
+inoremap , ,<c-g>u
+inoremap . .<c-g>u
+inoremap ! !<c-g>u
+inoremap ? ?<c-g>u
+inoremap - -<c-g>u
+inoremap ( (<c-g>u
+inoremap [ [<c-g>u
+
+nnoremap <a-j> <a-down>
+nnoremap <a-k> <a-up>
+
+vnoremap <a-j> <a-down>
+vnoremap <a-k> <a-up>
+
+inoremap <C-k> <a-down>
+inoremap <C-j> <a-up>
+
+" vs stuff
+"nnoremap <left> <cmd>tabp<CR>
+"nnoremap <right> <cmd>tabn<CR>
+nnoremap <c-p> :vsc Edit.GoToAll<CR>
+nnoremap <leader>ff :vsc Edit.GoToFile<CR>
+nnoremap <leader>ff :vsc Edit.GoToFile<CR>
+
+nnoremap <leader>cc :vsc Edit.CommentSelection<CR>
+nnoremap <leader>cu :vsc Edit.UncommentSelection<CR>
+vnoremap <leader>cc :vsc Edit.CommentSelection<CR>
+vnoremap <leader>cu :vsc Edit.UncommentSelection<CR>
+
+nnoremap <leader>gd :vsc Edit.GoToImplementation<CR>
+nnoremap <leader>gr :vsc Edit.FindAllReferences<CR>
+
+nnoremap <leader>rn :vsc Refactor.Rename<cr>
+nnoremap <leader>rn :vsc Refactor.CreateDefinition<cr>
