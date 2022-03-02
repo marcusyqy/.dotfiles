@@ -75,10 +75,10 @@ inoremap <C-k> <a-down>
 inoremap <C-j> <a-up>
 
 " vs stuff
-"nnoremap <left> <cmd>tabp<CR>
-"nnoremap <right> <cmd>tabn<CR>
+nnoremap <left> <c-s-tab>
+nnoremap <right> <c-tab>
+
 nnoremap <c-p> :vsc Edit.GoToAll<CR>
-nnoremap <leader>ff :vsc Edit.GoToFile<CR>
 nnoremap <leader>ff :vsc Edit.GoToFile<CR>
 
 nnoremap <leader>cc :vsc Edit.CommentSelection<CR>
@@ -86,8 +86,12 @@ nnoremap <leader>cu :vsc Edit.UncommentSelection<CR>
 vnoremap <leader>cc :vsc Edit.CommentSelection<CR>
 vnoremap <leader>cu :vsc Edit.UncommentSelection<CR>
 
-nnoremap <leader>gd :vsc Edit.GoToImplementation<CR>
+nnoremap <leader>gd :vsc Edit.GoToDefinition<CR>
 nnoremap <leader>gr :vsc Edit.FindAllReferences<CR>
 
 nnoremap <leader>rn :vsc Refactor.Rename<cr>
-nnoremap <leader>rn :vsc Refactor.CreateDefinition<cr>
+nnoremap <c-t> :vsc EditorContextMenus.CodeWindow.ToggleHeaderCodeFile
+nnoremap <c-space> <c-a-space>
+nnoremap <c-/> <c-s-/>
+
+set rnu
