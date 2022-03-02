@@ -89,9 +89,13 @@ vnoremap <leader>cu :vsc Edit.UncommentSelection<CR>
 nnoremap <leader>gd :vsc Edit.GoToDefinition<CR>
 nnoremap <leader>gr :vsc Edit.FindAllReferences<CR>
 
-nnoremap <leader>rn :vsc Refactor.Rename<cr>
-nnoremap <c-t> :vsc EditorContextMenus.CodeWindow.ToggleHeaderCodeFile
+nnoremap <leader>rn :vsc Refactor.Rename<CR>
+nnoremap <c-t> :vsc EditorContextMenus.CodeWindow.ToggleHeaderCodeFile<CR>
 nnoremap <c-space> <c-a-space>
 nnoremap <c-/> <c-s-/>
+
+" Feels more symmetrical on ortholinear layouts.
+nnoremap & ^
+inoremap <C-BS> <C-W>
 
 set rnu
