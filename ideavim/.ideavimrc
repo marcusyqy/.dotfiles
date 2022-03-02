@@ -211,3 +211,5 @@ inoremap <C-j> <esc>:m .+1<CR>==a
 " Feels more symmetrical on ortholinear layouts.
 nnoremap & ^
 inoremap <C-BS> <C-W>
+
+nmap <c-z> :action ToggleDistractionFreeMode<CR>:set rnu<CR>
