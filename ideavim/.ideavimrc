@@ -101,32 +101,38 @@ let mapleader = " "
 map s <Action>(SelectIn)
 " Perhaps a bit useless compared to search anything.
 "map s <Action>(GotoSymbol)
-map <Leader>s <Action>(FileStructurePopup)
-map <Leader>S <Action>(StructuralSearchActions)
+nmap <Leader>s <Action>(FileStructurePopup)
+nmap <Leader>S <Action>(StructuralSearchActions)
+
+nmap <c-.> <Action>(ShowIntentionActions)
+
+map <leader>gi <Action>(ImplementMethods)
+
 " Perhaps just use the Idea shortcut Ctrl-Alt-B
 " Alt + N, then m (through the menu bar) also seems to work, but it is
 " non-unique.
-nnoremap <Leader>gd <Action>(GotoImplementation)
+nmap <Leader>gd <Action>(GotoImplementation)
+nmap <c-t> <Action>(GotoRelated)
 "map <Leader>m <Action>(GotoImplementation)
 "map <Leader>d <Action>(GotoImplementation)
 " Jump to next/previous error, show error description
 " https://stackoverflow.com/questions/13346245/keyboard-shortcut-to-display-error-in-intellij
-map <Leader>e <Action>(ShowErrorDescription)
+nmap <Leader>e <Action>(ShowErrorDescription)
 " Alt + F7 in idea.
 " Find usages in file is Ctrl + F7.
 " Alt + E, then F, then U (through the menu bar) also seems to work fine.
-map <Leader>fu <Action>(FindUsages)
-map <Leader>gfu <Action>(HighlightUsagesInFile)
+nmap <Leader>fu <Action>(FindUsages)
+nmap <Leader>gfu <Action>(HighlightUsagesInFile)
 
 " Alt + Insert in idea.
-map <Leader>g <Action>(Generate)
+nmap <Leader>gg <Action>(Generate)
 " F12
-map <Leader>w <Action>(HideAllWindows)
-map <Leader>W <Action>(JumpToLastWindow)
+nmap <Leader>w <Action>(HideAllWindows)
+nmap <Leader>W <Action>(JumpToLastWindow)
 " Possibly redundant given "Run Anything" DoubleCtrl
-map <Leader>r <Action>(ChooseRunConfiguration)
-map <Leader>R <Action>(Refactorings.QuickListPopupAction)
-map <Leader>a <Action>(AnalyzeActionsPopup)
+nmap <Leader>r <Action>(ChooseRunConfiguration)
+nmap <Leader>R <Action>(Refactorings.QuickListPopupAction)
+nmap <Leader>a <Action>(AnalyzeActionsPopup)
 
 nmap <c-s-i> <Action>(GotoNextError)
 nmap <c-s-o> <Action>(GotoPreviousError)
@@ -194,21 +200,14 @@ nnoremap n nzzzv
 nnoremap N Nzzzv
 nnoremap J mzJ`v
 
-"undo breakpoints inoremap , ,<c-g>u
-inoremap . .<c-g>u
-inoremap ! !<c-g>u
-inoremap ? ?<c-g>u
-inoremap - -<c-g>u
-inoremap ( (<c-g>u
-inoremap [ [<c-g>u
-
-nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
-nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
+" nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
+" nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
 
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 inoremap <C-k> <esc>:m .-2<CR>==a
 inoremap <C-j> <esc>:m .+1<CR>==a
+
 " Feels more symmetrical on ortholinear layouts.
 nnoremap & ^
 inoremap <C-BS> <C-W>
