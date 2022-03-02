@@ -26,7 +26,14 @@ function update_vs {
 
 }
 
+function update_ideavim {
+    New-Item -Force -Type File ~/.ideavimrc
+    Copy-Item -Force ideavim/.ideavimrc ~/.ideavimrc
+
+}
+
 update_vim
+update_ideavim
 update_vs
 update_ps
 update_alacritty
