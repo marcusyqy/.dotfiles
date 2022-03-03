@@ -72,15 +72,18 @@ let mapleader = " "
 " map <Leader>r :action RenameElement<CR>
 " Ctrl + F12 in idea.
 " map <Leader>s Action(FileStructurePopup)
-map s <Action>(SelectIn)
+nmap s <Action>(SelectIn)
 " Perhaps a bit useless compared to search anything.
 "map s <Action>(GotoSymbol)
 nmap <Leader>s <Action>(FileStructurePopup)
 nmap <Leader>S <Action>(StructuralSearchActions)
 
 nmap <c-.> <Action>(ShowIntentionActions)
+vmap <c-.> <Action>(ShowIntentionActions)
+imap <c-.> <Action>(ShowIntentionActions)
 
-map <leader>gi <Action>(ImplementMethods)
+nmap <leader>gi <Action>(ImplementMethods)
+vmap <leader>gi <Action>(ImplementMethods)
 
 " Perhaps just use the Idea shortcut Ctrl-Alt-B
 " Alt + N, then m (through the menu bar) also seems to work, but it is
@@ -176,10 +179,14 @@ nnoremap J mzJ`v
 " nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
 " nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
 
-vnoremap J :m '>+1<CR>gv=gv
-vnoremap K :m '<-2<CR>gv=gv
-inoremap <C-k> <esc>:m .-2<CR>==a
-inoremap <C-j> <esc>:m .+1<CR>==a
+vmap J <Action>(MoveLineDown)
+vmap K <Action>(MoveLineUp)
+
+imap <c-j> <Action>(MoveLineDown)
+imap <c-k> <Action>(MoveLineUp)
+
+nmap <c-j> <Action>(MoveLineDown)
+nmap <c-k> <Action>(MoveLineUp)
 
 " Feels more symmetrical on ortholinear layouts.
 nnoremap & ^

@@ -176,7 +176,7 @@ bell:
   duration: 0
 
 # Background opacity
-background_opacity: 1.00
+background_opacity: 0.50
 
 # Key bindings
 #
@@ -438,4 +438,4 @@ debug:
 
                                                     # vim: nospell
 shell:
-  program: wsl
+  program: pwsh
