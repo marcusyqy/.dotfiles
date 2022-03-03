@@ -4,6 +4,11 @@ set number
 " https://superuser.com/questions/622898/how-to-turn-off-the-bell-sound-in-intellij
 " https://stackoverflow.com/questions/63386803/how-to-turn-off-a-bell-in-intellij-idea
 set visualbell
+set incsearch
+set nohlsearch
+
+set scrolloff=8
+set list
 
 " https://github.com/JetBrains/ideavim/blob/master/doc/emulated-plugins.md
 set surround
@@ -36,37 +41,6 @@ set vim-paragraph-motion
 set textobj-indent
 
 set exchange
-
-" remember to assing to Vim the following shortcuts!
-" C-h
-" C-l
-" C-o
-" C-i
-" C-v
-" C-w Vim uses it to switch windows, the IDE behaviour is mapped to C-k instead
-" C-k
-" C-m Enter alternative
-" C-[ A great Esc key alternative! In the ide, moves caret to code block start.
-" C-] Go to definition. In the ide, moves caret to code block end.
-
-" consider NOT assigning to Vim the following shortcuts:
-" C-e recent files popup window is very useful
-" C-b find occurrences in file popup
-" C-u go to super method
-" C-q info popup
-" C-j We already have j in Vim, better use it for Insert Live Template
-" C-n class search
-
-" unsure about assigning to Vim or to IDE
-" C-f find or move forward?
-" C-r replace or redo?
-" C-y
-" C-c We already have C-[, don't we?
-" C-p kind of not very used withou C-n
-" C-s doesn't seem very useful in Vim
-" C-t update project in IDEA, something something tag stack in Vim
-" C-a I don't use it that much in Vim
-" C-x same as above
 
 " https://github.com/JetBrains/ideavim/wiki/sethandler
 " To be able to say 'same as regular Idea behaviour, but only on insert mode'.
@@ -112,12 +86,15 @@ map <leader>gi <Action>(ImplementMethods)
 " Alt + N, then m (through the menu bar) also seems to work, but it is
 " non-unique.
 nmap <Leader>gd <Action>(GotoImplementation)
+
+" swap between both files
 nmap <c-t> <Action>(GotoRelated)
 "map <Leader>m <Action>(GotoImplementation)
 "map <Leader>d <Action>(GotoImplementation)
 " Jump to next/previous error, show error description
 " https://stackoverflow.com/questions/13346245/keyboard-shortcut-to-display-error-in-intellij
-nmap <Leader>e <Action>(ShowErrorDescription)
+nmap <Leader>gh <Action>(ShowErrorDescription)
+
 " Alt + F7 in idea.
 " Find usages in file is Ctrl + F7.
 " Alt + E, then F, then U (through the menu bar) also seems to work fine.
@@ -126,17 +103,13 @@ nmap <Leader>gfu <Action>(HighlightUsagesInFile)
 
 " Alt + Insert in idea.
 nmap <Leader>gg <Action>(Generate)
+
 " F12
 nmap <Leader>w <Action>(HideAllWindows)
 nmap <Leader>W <Action>(JumpToLastWindow)
-" Possibly redundant given "Run Anything" DoubleCtrl
-nmap <Leader>r <Action>(ChooseRunConfiguration)
-nmap <Leader>R <Action>(Refactorings.QuickListPopupAction)
-nmap <Leader>a <Action>(AnalyzeActionsPopup)
 
-nmap <c-s-i> <Action>(GotoNextError)
-nmap <c-s-o> <Action>(GotoPreviousError)
-nmap <leader>gh <Action>(GotoRelated)
+nmap [ <Action>(GotoNextError)
+nmap ] <Action>(GotoPreviousError)
 
 
 " The default C-o and C-i behaviours have certain inconsistencies with
@@ -213,3 +186,17 @@ nnoremap & ^
 inoremap <C-BS> <C-W>
 
 nmap <c-z> :action ToggleDistractionFreeMode<CR>:set rnu<CR>
+
+"build and run configs
+" Possibly redundant given "Run Anything" DoubleCtrl
+nmap <Leader>rc <Action>(ChooseRunConfiguration)
+nmap <leader>rr <Action>(Run)
+
+nmap <Leader>R <Action>(Refactorings.QuickListPopupAction)
+nmap <Leader>a <Action>(AnalyzeActionsPopup)
+
+nmap <Leader>bm <Action>(BuildMenu)
+nmap <leader>bc <Action>(ChooseActiveBuildConfiguration)
+
+nmap<c-p> <Action>(ProjectViewPopupMenu)
+
