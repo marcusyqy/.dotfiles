@@ -71,6 +71,8 @@ Plug 'nvim-telescope/telescope-file-browser.nvim'
 Plug 'tanvirtin/vgit.nvim'
 
 Plug 'derekwyatt/vim-fswitch'
+
+
 "debugging
 " Plug 'simrat39/rust-tools.nvim'
 " Plug 'mfussenegger/nvim-dap'

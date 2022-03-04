@@ -2,10 +2,8 @@
 # Import-Module oh-my-posh
 Set-Alias vim nvim
 Set-Alias vi nvim
-Set-Alias gvim nvim-qt
-Set-Alias neovide neovide.exe
 Set-Alias quit exit
-Set-Alias vima alacritty
+Set-Alias alc alacritty
 Set-Alias lzg lazygit
 Set-Alias ll ls
 Set-Alias grep rg
