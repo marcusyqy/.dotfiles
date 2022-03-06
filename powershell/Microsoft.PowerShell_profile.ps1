@@ -29,14 +29,33 @@ Set-PSReadLineOption -BellStyle None
 Set-PSReadLineKeyHandler -Chord 'Ctrl+d' -Function DeleteChar
 Set-PSReadLineOption -PredictionSource History
 
+function Invoke-Environment {
+    param
+    (
+        # Any cmd shell command, normally a configuration batch file.
+        [Parameter(Mandatory=$true)]
+        [string] $Command
+    )
+
+    $Command = "`"" + $Command + "`""
+    cmd /c "$Command > nul 2>&1 && set" | . { process {
+        if ($_ -match '^([^=]+)=(.*)') {
+            [System.Environment]::SetEnvironmentVariable($matches[1], $matches[2])
+        }
+    }}
+
+}
+
 function init_msvc_env {
-    pushd 'C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\Tools'
-    cmd /c "VsDevCmd.bat&set" |
-    foreach {
-      if ($_ -match "=") {
-        $v = $_.split("="); set-item -force -path "ENV:\$($v[0])"  -value "$($v[1])"
-      }
-    }
+    # pushd 'C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\Tools'
+    pushd 'C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build'
+    Invoke-Environment ./vcvars64.bat
+    # cmd /c "VsDevCmd.bat&set" |
+    # foreach {
+    #   if ($_ -match "=") {
+    #     $v = $_.split("="); set-item -force -path "ENV:\$($v[0])"  -value "$($v[1])"
+    #   }
+    # }
     popd
     Write-Host "`nVisual Studio 2019 Command Prompt variables set." -ForegroundColor Yellow
 }
