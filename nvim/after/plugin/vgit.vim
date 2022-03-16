@@ -1,1 +1,1 @@
-lua require('vgit').setup()
+"lua require('vgit').setup()
