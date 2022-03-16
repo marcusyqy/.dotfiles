@@ -67,8 +67,8 @@ nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
 
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
-inoremap <C-k> <esc>:m .-2<CR>==a
-inoremap <C-j> <esc>:m .+1<CR>==a
+" inoremap <C-k> <esc>:m .-2<CR>==a
+" inoremap <C-j> <esc>:m .+1<CR>==a
 " nnoremap <leader>j :m .+1<CR>==
 " nnoremap <leader>k :m .-2<CR>==
 
