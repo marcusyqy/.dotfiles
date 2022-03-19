@@ -32,7 +32,13 @@ function update_ideavim {
 
 }
 
+function update_wez_term {
+    New-Item -Force -Type File "C:/Program Files/WezTerm/wezterm.lua"
+    Copy-Item -Force wez/wezterm.lua "C:/Program Files/WezTerm/wezterm.lua"
+}
+
 update_vim
+update_wez_term
 update_ideavim
 update_vs
 update_ps

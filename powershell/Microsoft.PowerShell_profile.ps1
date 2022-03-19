@@ -8,6 +8,7 @@ Set-Alias lzg lazygit
 Set-Alias ll ls
 Set-Alias grep rg
 
+$env:TERM='xterm-256color'
 $work = 'D:\work'
 
 Import-Module PSReadLine
