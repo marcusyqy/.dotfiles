@@ -1,7 +1,7 @@
 -- this is comment:)
 local wezterm = require 'wezterm';
 return {
-  font_size = 13.3,
+  font_size = 16,
   line_height = 1.0,
   font_shaper = "Harfbuzz",  -- "Allsorts"
   font_rasterizer = "FreeType",

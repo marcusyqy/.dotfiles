@@ -6,7 +6,7 @@ require("telescope").setup {}
 require('telescope').load_extension('fzy_native')
 require("telescope").load_extension("file_browser")
 require('telescope').load_extension('project')
-
+require('telescope').load_extension('lazygit')
 
 
 
@@ -61,6 +61,10 @@ nnoremap <leader>fgf <cmd>Telescope git_files<cr>
 nnoremap <leader>fgc <cmd>Telescope git_commits<cr>
 nnoremap <leader>fgb <cmd>lua git_branch_private()<cr>
 nnoremap <leader>pp <cmd>lua require'telescope'.extensions.project.project{}<cr>
+
+autocmd BufEnter * :lua require('lazygit.utils').project_root_dir()
+" setup mapping to call :LazyGit
+nnoremap <leader>lza <cmd>lua require("telescope").extensions.lazygit.lazygit()<CR>
 
 if has('win32')
     nnoremap <leader>-= <cmd>Telescope find_files cwd=~/AppData/Local/nvim<CR>
