@@ -79,5 +79,8 @@ Plug 'kdheepak/lazygit.nvim'
 " Plug 'mfussenegger/nvim-dap'
 " Plug 'rcarriga/nvim-dap-ui'
 
+" for todo comments
+Plug 'folke/todo-comments.nvim'
+
 call plug#end()
 
