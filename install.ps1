@@ -1,5 +1,6 @@
 
 function update_vim {
+    Remove-Item '~/AppData/Local/nvim' -Recurse
     New-Item -Force -Type Directory ~/AppData/Local/nvim
     Copy-Item -Force -Recurse nvim/* ~/AppData/Local/nvim/
 }
