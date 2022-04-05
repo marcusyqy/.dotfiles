@@ -81,6 +81,5 @@ Plug 'tjdevries/cyclist.vim'
 " Plug 'simrat39/rust-tools.nvim'
 " Plug 'mfussenegger/nvim-dap'
 " Plug 'rcarriga/nvim-dap-ui'
-
 call plug#end()
 
