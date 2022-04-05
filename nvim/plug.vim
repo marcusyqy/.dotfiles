@@ -76,6 +76,19 @@ Plug 'kdheepak/lazygit.nvim'
 " for list
 Plug 'tjdevries/cyclist.vim'
 
+" for running stuff easily
+" install asynctasks
+Plug 'skywind3000/asynctasks.vim'
+Plug 'skywind3000/asyncrun.vim'
+
+" install telescope
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+
+" install this integration
+Plug 'GustavoKatel/telescope-asynctasks.nvim'
+Plug 'voldikss/vim-floaterm'
 
 "debugging
 " Plug 'simrat39/rust-tools.nvim'

@@ -7,6 +7,8 @@ require('telescope').load_extension('fzy_native')
 require("telescope").load_extension("file_browser")
 require('telescope').load_extension('project')
 require('telescope').load_extension('lazygit')
+-- Fuzzy find over current tasks
+require('telescope').load_extension('asynctasks')
 
 
 
@@ -61,6 +63,9 @@ nnoremap <leader>fgf <cmd>Telescope git_files<cr>
 nnoremap <leader>fgc <cmd>Telescope git_commits<cr>
 nnoremap <leader>fgb <cmd>lua git_branch_private()<cr>
 nnoremap <leader>pp <cmd>lua require'telescope'.extensions.project.project{}<cr>
+
+"test for building
+nnoremap <leader>bh <cmd>lua require('telescope').extensions.asynctasks.all()<cr>
 
 autocmd BufEnter * :lua require('lazygit.utils').project_root_dir()
 " setup mapping to call :LazyGit

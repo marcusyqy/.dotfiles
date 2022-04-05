@@ -14,7 +14,7 @@ call cyclist#add_listchar_option_set('limited', {
         \ 'nbsp': '␣',
         \ })
 
-call cyclist#add_listchar_option_set('busy', {
+call cyclist#add_listchar_option_set('default', {
         \ 'eol': '↲',
         \ 'tab': '»·',
         \ 'space': '␣',
@@ -25,5 +25,5 @@ call cyclist#add_listchar_option_set('busy', {
         \ 'nbsp': '☠',
         \ })
 
-call cyclist#activate_listchars('busy')
+" call cyclist#activate_listchars('busy')
 nmap <leader>cyn <Plug>CyclistNext
