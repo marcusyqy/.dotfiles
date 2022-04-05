@@ -73,6 +73,9 @@ Plug 'nvim-telescope/telescope-file-browser.nvim'
 Plug 'derekwyatt/vim-fswitch'
 Plug 'kdheepak/lazygit.nvim'
 
+" for list
+Plug 'tjdevries/cyclist.vim'
+
 
 "debugging
 " Plug 'simrat39/rust-tools.nvim'
