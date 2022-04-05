@@ -4,6 +4,15 @@ if !get(g:, 'loaded_cyclist', v:false)
   finish
 endif
 
+" set listchars=eol:↲
+" set listchars=tab:»·
+" set listchars=space:␣
+" set listchars=trail:-
+" set listchars=extends:☛
+" set listchars=precedes:☚
+" set listchars=conceal:┊
+" set listchars=nbsp:☠
+
 call cyclist#add_listchar_option_set('limited', {
         \ 'eol': '↲',
         \ 'tab': '» ',
@@ -14,7 +23,7 @@ call cyclist#add_listchar_option_set('limited', {
         \ 'nbsp': '␣',
         \ })
 
-call cyclist#add_listchar_option_set('default', {
+call cyclist#add_listchar_option_set('busy', {
         \ 'eol': '↲',
         \ 'tab': '»·',
         \ 'space': '␣',
@@ -25,5 +34,5 @@ call cyclist#add_listchar_option_set('default', {
         \ 'nbsp': '☠',
         \ })
 
-" call cyclist#activate_listchars('busy')
+silent! call cyclist#activate_listchars('busy')
 nmap <leader>cyn <Plug>CyclistNext

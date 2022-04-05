@@ -72,7 +72,6 @@ vnoremap K :m '<-2<CR>gv=gv
 " nnoremap <leader>j :m .+1<CR>==
 " nnoremap <leader>k :m .-2<CR>==
 
-" Feels more symmetrical on ortholinear layouts.
-nnoremap & ^
+" testing out this on a split keyboard feels weird
 inoremap <C-BS> <C-W>
 
