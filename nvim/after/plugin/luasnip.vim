@@ -1,10 +1,16 @@
 lua << EOF
 
-if vim.g.snippets ~= "luasnip" then
-  return
-end
+-- if vim.g.snippets ~= "luasnip" then
+--   return
+-- end
 
 local ls = require "luasnip"
+
+ls.snippets = {
+    all = {
+        ls.parser.parse_snippet("atask", "[$1]\ncommand=$2\noutput=terminal"),
+        },
+    }
 
 -- <c-k> is my expansion key
 -- this will expand the current item or jump to the next item within the snippet.
@@ -29,9 +35,6 @@ vim.keymap.set("i", "<c-l>", function()
     ls.change_choice(1)
   end
 end)
-
--- shorcut to source my luasnips file again, which will reload my snippets
-vim.keymap.set("n", "<leader><leader>s", "<cmd>source ~/.config/nvim/after/plugin/luasnip.lua<CR>")
 
 EOF
 

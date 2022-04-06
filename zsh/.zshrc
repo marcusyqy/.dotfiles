@@ -113,3 +113,5 @@ export TERM="xterm-256color"
 
 eval "$(~/homebrew/bin/brew shellenv)"
 source $HOME/.cargo/bin
+
+export PATH=$PATH:/usr/local/go/bin
