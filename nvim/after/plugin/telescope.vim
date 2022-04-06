@@ -65,7 +65,8 @@ nnoremap <leader>fgb <cmd>lua git_branch_private()<cr>
 nnoremap <leader>pp <cmd>lua require'telescope'.extensions.project.project{}<cr>
 
 "test for building
-nnoremap <leader>bh <cmd>lua require('telescope').extensions.asynctasks.all()<cr>
+nnoremap <leader>to <cmd>lua require('telescope').extensions.asynctasks.all()<cr>
+nnoremap <leader>te <cmd>e .tasks<cr>
 
 autocmd BufEnter * :lua require('lazygit.utils').project_root_dir()
 " setup mapping to call :LazyGit
