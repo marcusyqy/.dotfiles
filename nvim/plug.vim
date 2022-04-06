@@ -50,8 +50,8 @@ Plug 'nvim-telescope/telescope-fzy-native.nvim'
 
 Plug 'norcalli/nvim-colorizer.lua'   "Plug 'pwntester/octo.nvim'
 Plug 'nvim-telescope/telescope-project.nvim'
-Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'L3MON4D3/LuaSnip'
+Plug 'saadparwaiz1/cmp_luasnip'
 
 Plug 'martinda/Jenkinsfile-vim-syntax'
 Plug 'rmagatti/auto-session'
