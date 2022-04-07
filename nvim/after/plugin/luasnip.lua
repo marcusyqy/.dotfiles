@@ -45,12 +45,13 @@ ls.config.set_config({
 	ext_base_prio = 300,
 	-- minimal increase in priority.
 	ext_prio_increase = 1,
-	enable_autosnippets = true,
+	-- should try this out first
+    enable_autosnippets = true,
 })
 
 ls.add_snippets(
     "all", {
-        s("astsk", fmt("[{1}]\ncommand={2}\noutput={3}",{
+        s("asynctask", fmt("[{1}]\ncommand={2}\noutput={3}",{
             i(1,"cmd-name"),
             i(2,"cmd"),
             c(3,{t("terminal"),t("quickfix")})
@@ -58,14 +59,13 @@ ls.add_snippets(
         )
     }
 )
+
 -- ls.snippets = {
 --     all = {
 --         ls.parser.parse_snippet("atask", "[$1]\ncommand=$2\noutput=terminal"),
 --     },
 -- }
 
-local keymap = vim.api.nvim_set_keymap
-local opts = { noremap = true, silent = true }
 
 local function prequire(...)
 local status, lib = pcall(require, ...)
@@ -112,15 +112,13 @@ _G.s_tab_complete = function()
     return ""
 end
 
-
-
+local opts = { noremap = true, silent = true }
 vim.api.nvim_set_keymap("i", "<c-k>", "v:lua.tab_complete()", {expr = true})
 vim.api.nvim_set_keymap("s", "<c-k>", "v:lua.tab_complete()", {expr = true})
 vim.api.nvim_set_keymap("i", "<c-j>", "v:lua.s_tab_complete()", {expr = true})
 vim.api.nvim_set_keymap("s", "<c-j>", "v:lua.s_tab_complete()", {expr = true})
 vim.api.nvim_set_keymap("i", "<c-e>", "<Plug>luasnip-next-choice", {})
 vim.api.nvim_set_keymap("s", "<c-e>", "<Plug>luasnip-next-choice", {})
-
 
 -- <c-k> is my expansion key
 --
