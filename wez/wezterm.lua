@@ -14,5 +14,25 @@ return {
               -- BlinkingBar, SteadyUnderline, BlinkingUnderline
     scrollback_lines = 12000,
     selection_word_boundary = " \t\n[]\"'`(),.;:",  -- Default: " \t\n{}[]()\"'`"
-    term = "wezterm"
+    term = "wezterm",
+    mouse_bindings = {
+        -- Bind 'Up' event of CTRL-Click to open hyperlinks
+        {
+          event={Up={streak=1, button="Left"}},
+          mods="CTRL",
+          action="OpenLinkAtMouseCursor",
+        },
+        -- Disable the 'Down' event of CTRL-Click to avoid weird program behaviors
+        {
+          event={Down={streak=1, button="Left"}},
+          mods="CTRL",
+          action="Nop",
+        },
+        -- remove copy on select feature
+        {
+          event={Up={streak=1, button="Left"}},
+          mods="NONE",
+          action="Nop",
+        },
+  }
 }
