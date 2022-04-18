@@ -9,8 +9,8 @@ Set-Alias ll ls
 Set-Alias grep rg
 
 $env:TERM='xterm-256color'
-$work = 'D:\work'
-$shrek = 'D:\work\repo\Shrek'
+$work = 'C:\work'
+$shrek = 'C:\work\repo\Shrek'
 $dot_files='~/.dotfiles'
 
 Import-Module PSReadLine
