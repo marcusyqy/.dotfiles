@@ -275,7 +275,7 @@ bindsym XF86MonBrightnessDown exec light -U 1 # decrease screen brightness
 
 # shadows and transitions with compton
 #exec --no-startup-id compton --config ~/.config/compton.conf -b
-exec --no-startup-id picom
+exec --no-startup-id compton
 
 #feh
 #exec_always feh --bg-fill ~/wallpapers/wallpapers.sh
@@ -291,3 +291,4 @@ exec --no-startup-id xset s off
 
 # maps capslock to esc for other laptops :)
 exec --no-startup-id setxkbmap -option caps:escape
+
