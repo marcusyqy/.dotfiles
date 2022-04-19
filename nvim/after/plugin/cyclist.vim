@@ -36,3 +36,5 @@ call cyclist#add_listchar_option_set('busy', {
 
 silent! call cyclist#activate_listchars('busy')
 nmap <leader>cyn <Plug>CyclistNext
+
+set nolist

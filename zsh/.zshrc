@@ -111,7 +111,10 @@ alias l='ls -CF'
 export TERM="xterm-256color"
 # eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
-eval "$(~/homebrew/bin/brew shellenv)"
+# eval "$(~/homebrew/bin/brew shellenv)"
 source $HOME/.cargo/bin
 
-export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:/usr/local/go/bin # put in go install bin
+export PATH=$PATH:$HOME/go/bin # put in go installation path
+
+
