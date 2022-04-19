@@ -78,6 +78,7 @@ scrolling:
 #     family: JetBrainsMono Nerd Font Mono
 #     style: Bold Italic
 
+font:
   # Point size of the font
   size: 16.0
 
