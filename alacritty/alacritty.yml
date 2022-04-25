@@ -63,22 +63,21 @@ scrolling:
   # scrollback is enabled (history > 0).
   multiplier: 3
 
-# Font configuration (changes require restart)
-# font:
-#   normal:
-#     family: JetBrainsMono Nerd Font Mono
-#     style: Regular
-#   bold:
-#     family: JetBrainsMono Nerd Font Mono
-#     style: Bold
-#   italic:
-#     family: JetBrainsMono Nerd Font Mono
-#     style: Italic
-#   bold_italic:
-#     family: JetBrainsMono Nerd Font Mono
-#     style: Bold Italic
-
+  #Font configuration (changes require restart)
 font:
+  normal:
+    family: Hack Nerd Font Mono
+    style: Regular
+  bold:
+    family: Hack Nerd Font Mono
+    style: Bold
+  italic:
+    family: Hack Nerd Font Mono
+    style: Italic
+  bold_italic:
+    family: Hack Nerd Font Mono
+    style: Bold Italic
+
   # Point size of the font
   size: 14.0
 
