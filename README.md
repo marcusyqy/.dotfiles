@@ -53,3 +53,11 @@ sudo chmod +s /usr/bin/light
 bindsym XF86MonBrightnessUp exec light -A 1 # increase screen brightness
 bindsym XF86MonBrightnessDown exec light -U 1 # decrease screen brightness
 ```
+
+## Audio gui
+1) install dep
+sudo apt-get install pulseaudio pavucontrol
+
+2) run
+pavucontrol
+
