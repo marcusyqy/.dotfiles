@@ -49,22 +49,22 @@ ls.config.set_config({
     enable_autosnippets = true,
 })
 
--- ls.add_snippets(
---     "all", {
---         s("asynctask", fmt("[{1}]\ncommand={2}\noutput={3}",{
---             i(1,"cmd-name"),
---             i(2,"cmd"),
---             c(3,{t("terminal"),t("quickfix")})
---             })
---         )
---     }
--- )
+ls.add_snippets(
+    "all", {
+        s("asynctask", fmt("[{1}]\ncommand={2}\noutput={3}",{
+            i(1,"cmd-name"),
+            i(2,"cmd"),
+            c(3,{t("terminal"),t("quickfix")})
+            })
+        )
+    }
+)
 
-ls.snippets = {
-    all = {
-        ls.parser.parse_snippet("asynctask", "[$1]\ncommand=$2\noutput=$3"),
-    },
-}
+-- ls.snippets = {
+--     all = {
+--         ls.parser.parse_snippet("asynctask", "[$1]\ncommand=$2\noutput=$3"),
+--     },
+-- }
 
 -- ls.snippets = {
 --     all = {
