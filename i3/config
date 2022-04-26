@@ -37,8 +37,7 @@ for_window [class="^.*"] border pixel 2
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# exec_always sh ~/.screenlayout/default.sh
-exec_always sh ~/.screenlayout/screenlayout.sh
+exec sh ~/.screenlayout/screenlayout.sh
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
@@ -210,7 +209,7 @@ client.focused $bc $bc $bc $borc
 bindsym $mod+r mode "resize"
 
 #interactive screenshot by pressing printscreen
-bindsym --release Print exec gnome-screenshot -i
+bindsym --release Print exec gnome-screenshot -a -i
 
 # set scrolling for mx master and logitech
 #exec xinput set-prop 13 324 0
@@ -230,7 +229,7 @@ bar {
 
 }
 
-bindsym $mod+p exec sh ~/.screenlayout/default.sh
+bindsym $mod+p exec sh ~/.screenlayout/screenlayout.sh
 
 bindsym $mod+f fullscreen toggle
 bindsym $mod+Control+f bar mode toggle

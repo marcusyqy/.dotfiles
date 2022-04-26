@@ -4,11 +4,11 @@ is_any_wide_screen=xrandr | grep " connected " | grep -v "eDP-1" | awk '{print$1
 sleep .1
 if [ -z $is_any_wide_screen ]
 then
-  echo 'DP-0 connected, restoring layout'
-  xrandr --output $(xrandr | grep " connected " | grep -v "eDP-1" | awk '{print$1}') --primary --mode 3440x1440 --pos 0x0 --rate 144.0 --rotate normal --output eDP-1 --off
+    echo 'No DP-0/DP-1 detected, reverting to laptop display'
+    sh ~/.screenlayout/default.sh
 else
-  echo 'No DP-0/DP-1 detected, reverting to laptop display'
-  sh default.sh
+    echo 'DP-0 connected, restoring layout'
+    xrandr --output $(xrandr | grep " connected " | grep -v "eDP-1" | awk '{print$1}') --primary --mode 3440x1440 --pos 0x0 --rate 144.0 --rotate normal --output eDP-1 --off
   #xrandr --output DP-1 --off --output HDMI-1 --off --output eDP-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-2 --off
 fi
 
