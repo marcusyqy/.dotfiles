@@ -406,6 +406,8 @@ cursor:
   # window is not focused.
   unfocused_hollow: true
 
+  blinking: Off
+
 # dynamic_title: false
 
 # Live config reload (changes require restart)

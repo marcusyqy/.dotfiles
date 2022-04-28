@@ -118,4 +118,3 @@ source $HOME/.cargo/bin
 export PATH=$PATH:/usr/local/go/bin # put in go install bin
 export PATH=$PATH:$HOME/go/bin # put in go installation path
 
-export AWS_PROFILE=233
