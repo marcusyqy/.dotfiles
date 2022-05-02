@@ -22,6 +22,9 @@ window:
     columns: 0
     lines: 0
 
+
+      # Background opacity
+  opacity: 1.00
   # Window padding (changes require restart)
   #
   # Blank space added around the window in pixels. This padding is not scaled by
@@ -175,8 +178,6 @@ bell:
   color: '0xffffff'
   duration: 0
 
-# Background opacity
-background_opacity: 1.00
 
 # Key bindings
 #
