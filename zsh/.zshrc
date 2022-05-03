@@ -117,4 +117,5 @@ source $HOME/.cargo/bin
 
 export PATH=$PATH:/usr/local/go/bin # put in go install bin
 export PATH=$PATH:$HOME/go/bin # put in go installation path
+export PATH=$PATH:$HOME/.local/bin # put in go installation path
 
