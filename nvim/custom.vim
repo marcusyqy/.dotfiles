@@ -29,18 +29,23 @@ inoremap <s-tab> <C-D>
 vnoremap <tab> >gv
 vnoremap <s-tab> <gv
 
-nnoremap <left> <cmd>tabp<CR>
-nnoremap <right> <cmd>tabn<CR>
+nnoremap <c-left> <cmd>tabp<CR>
+nnoremap <c-right> <cmd>tabn<CR>
 
-nnoremap <c-left> <c-w>h
-nnoremap <c-right> <c-w>l
-nnoremap <c-up> <c-w>k
-nnoremap <c-down> <c-w>j
+nnoremap <left> <c-w>h
+nnoremap <right> <c-w>l
+nnoremap <up> <c-w>k
+nnoremap <down> <c-w>j
 
-nnoremap <c-s-left> <C-w><
-nnoremap <c-s-right> <C-w>>
-nnoremap <c-s-up> <C-w>+
-nnoremap <c-s-down> <C-w>-
+nnoremap <s-left> <C-w><
+nnoremap <s-right> <C-w>>
+nnoremap <s-up> <C-w>+
+nnoremap <s-down> <C-w>-
+
+nnoremap <PageUp> <c-u>
+nnoremap <PageDown> <c-d>
+nnoremap <Home> ^
+nnoremap <End> $
 
 "make Y behave
 nnoremap Y y$
