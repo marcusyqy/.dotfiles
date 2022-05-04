@@ -83,6 +83,7 @@ install_tmux_config
 # install_fish_config
 install_zsh_config
 install_alacritty_config
+install_kitty_config
 install_i3_config
 install_polybar_config
 install_rofi_config
