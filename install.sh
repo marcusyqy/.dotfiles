@@ -11,6 +11,12 @@ install_tmux_config() {
     cp $DOTFILES/tmux/.tmux.conf ~/.tmux.conf
 }
 
+install_fonts() {
+    #[ -f "~/.tmux.conf" ] &&
+    rm -rf ~/.fonts
+    cp -r $DOTFILES/.fonts ~/.fonts
+}
+
 install_alacritty_config() {
     #[ -d "~/.config/alacritty" ] &&
     rm -rf ~/.config/alacritty
@@ -92,4 +98,4 @@ install_compton_config
 install_screenlayout_config
 install_dunst_config
 install_picom_config
-
+install_fonts
