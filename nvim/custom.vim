@@ -32,6 +32,9 @@ vnoremap <s-tab> <gv
 nnoremap <c-left> <cmd>tabp<CR>
 nnoremap <c-right> <cmd>tabn<CR>
 
+nnoremap <c-m> <cmd>tabp<CR>
+nnoremap <c-,> <cmd>tabn<CR>
+
 nnoremap <left> <c-w>h
 nnoremap <right> <c-w>l
 nnoremap <up> <c-w>k
