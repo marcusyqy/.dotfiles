@@ -109,7 +109,12 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
-export TERM="xterm-256color"
+if [ -z TMUX ]; then
+    export TERM="xterm-256color"
+else
+    export TERM="screen-256color"
+fi
+
 # eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # eval "$(~/homebrew/bin/brew shellenv)"

@@ -45,11 +45,6 @@ nnoremap <s-right> <C-w>>
 nnoremap <s-up> <C-w>+
 nnoremap <s-down> <C-w>-
 
-nnoremap <PageUp> <c-u>
-nnoremap <PageDown> <c-d>
-nnoremap <Home> ^
-nnoremap <End> $
-
 "make Y behave
 nnoremap Y y$
 
