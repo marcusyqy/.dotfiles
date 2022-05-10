@@ -61,3 +61,6 @@ sudo apt-get install pulseaudio pavucontrol
 2) run
 pavucontrol
 
+### git best practices
+git config --global pull.rebase true
+
