@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+#export PATH=$HOME/bin:/usr/local/bin:$PATH
 #
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
@@ -109,10 +109,8 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
-if [ -z TMUX ]; then
+if [ -n TMUX ]; then
     export TERM="xterm-256color"
-else
-    export TERM="screen-256color"
 fi
 
 # eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
