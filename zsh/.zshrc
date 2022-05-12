@@ -109,8 +109,10 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
+printf '\x1b[<u\x1b[<u'
+
 if [ -n TMUX ]; then
-    export TERM="xterm-256color"
+    export PROMPT_COMMAND="printf '\ePtmux;\e\e[<u\e\\'"
 fi
 
 # eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
