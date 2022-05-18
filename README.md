@@ -64,3 +64,10 @@ pavucontrol
 ### git best practices
 git config --global pull.rebase true
 
+##Swapping control and caps lock
+To change capslock to ctrl for your current session, type:
+`setxkbmap -option ctrl:nocaps`
+
+To make it permanent, put it in your ~/.xinitrc. Alternately, if you have root access, then edit /etc/default/keyboard and add:
+
+`XKBOPTIONS="ctrl:nocaps"`

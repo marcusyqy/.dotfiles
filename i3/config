@@ -210,7 +210,8 @@ client.focused $bc $bc $bc $borc
 bindsym $mod+r mode "resize"
 
 #interactive screenshot by pressing printscreen
-bindsym --release Print exec gnome-screenshot -a -i
+bindsym --release Print exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
+bindsym --release Shift+Print exec gnome-screenshot -a -i
 
 # set scrolling for mx master and logitech
 #exec xinput set-prop 13 324 0
@@ -293,4 +294,5 @@ exec --no-startup-id xset -dpms
 exec --no-startup-id xset s off
 
 # maps capslock to esc for other laptops :)
-exec --no-startup-id setxkbmap -layout us -option ctrl:nocaps
+exec --no-startup-id setxkbmap -option ctrl:nocaps
+
