@@ -29,16 +29,8 @@ inoremap <s-tab> <C-D>
 vnoremap <tab> >gv
 vnoremap <s-tab> <gv
 
-nnoremap <c-left> <cmd>tabp<CR>
-nnoremap <c-right> <cmd>tabn<CR>
-
-nnoremap <c-m> <cmd>tabp<CR>
-nnoremap <c-,> <cmd>tabn<CR>
-
-nnoremap <left> <c-w>h
-nnoremap <right> <c-w>l
-nnoremap <up> <c-w>k
-nnoremap <down> <c-w>j
+nnoremap <leader>tn <cmd>tabnext<cr>
+nnoremap <leader>tp <cmd>tabprev<cr>
 
 nnoremap <s-left> <C-w><
 nnoremap <s-right> <C-w>>
