@@ -1,4 +1,5 @@
 #!/bin/sh
 
-feh --bg-fill --randomize ~/wallpapers/images/
-#feh --bg-fill ~/wallpapers/images/ign_rick.png
+
+feh --bg-fill ~/wallpapers/images/bbMc2YH.jpg
+# feh --bg-fill --randomize ~/wallpapers/images/
