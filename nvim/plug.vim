@@ -22,7 +22,7 @@ Plug 'tpope/vim-rhubarb'
 "this auto closes parenthesis
 " Plug 'spf13/vim-autoclose'
 "Plug 'cohama/lexima.vim'
-Plug 'windwp/nvim-autopairs'
+" Plug 'windwp/nvim-autopairs'
 
 Plug 'nvim-lualine/lualine.nvim'
 
