@@ -2,7 +2,6 @@ set winblend=0
 set wildoptions=pum
 set pumblend=5
 
-" runtime ./themes/NeoSolarized.vim
 let g:marcus_colorscheme = "gruvbox"
 
 
@@ -36,6 +35,7 @@ fun! ColorMyPencils()
     highlight netrwDir guifg=#5eacd3
     highlight qfFileName guifg=#aed75f
     hi TelescopeBorder guifg=#5eacd
+
 
     highlight Normal guibg=none
 endfun

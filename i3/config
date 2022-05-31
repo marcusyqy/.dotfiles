@@ -294,5 +294,7 @@ exec --no-startup-id xset -dpms
 exec --no-startup-id xset s off
 
 # maps capslock to esc for other laptops :)
-exec --no-startup-id setxkbmap -option ctrl:nocaps
+# exec --no-startup-id setxkbmap -option esc:nocaps
+exec --no-startup-id setxkbmap -option caps:escape
+
 

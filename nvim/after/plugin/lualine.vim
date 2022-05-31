@@ -7,7 +7,7 @@ if (not status) then return end
 lualine.setup {
   options = {
     icons_enabled = true,
-    theme = 'gruvbox',
+    theme = 'gruvbox-material',
     section_separators = {'', ''},
     component_separators = {'', ''},
     disabled_filetypes = {}
