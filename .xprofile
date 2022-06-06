@@ -1,1 +1,1 @@
-sh ~/.dotfiles/input/start.sh > /dev/null
+sh ~/.dotfiles/input/start.sh > /dev/null 2>&1
