@@ -84,6 +84,11 @@ install_picom_config() {
     cp $DOTFILES/picom/picom.conf ~/.config/picom.conf
 }
 
+install_profile_config() {
+    rm  ~/.xprofile
+    cp $DOTFILES/.xprofile ~/.xprofile
+}
+
 install_vim_config
 install_tmux_config
 # install_fish_config
@@ -99,3 +104,4 @@ install_screenlayout_config
 install_dunst_config
 install_picom_config
 install_fonts
+install_profile_config

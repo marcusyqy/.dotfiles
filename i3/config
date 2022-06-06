@@ -213,18 +213,7 @@ bindsym $mod+r mode "resize"
 bindsym --release Print exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
 bindsym --release Shift+Print exec gnome-screenshot -a -i
 
-# set scrolling for mx master and logitech
-#exec xinput set-prop 13 324 0
-#exec xinput set-prop 22 324 0
-#Logitech G Pro Logitech MX Master 3
-exec xinput set-prop "pointer:Logitech G Pro " "libinput Natural Scrolling Enabled" 0
-exec xinput set-prop "pointer:Logitech MX Master 3" "libinput Natural Scrolling Enabled" 0
-exec xinput set-prop "UNIW0001:00 093A:1336 Touchpad" "libinput Natural Scrolling Enabled" 1
-exec xinput set-prop "Synaptics TM3512-010" "libinput Natural Scrolling Enabled" 1
-exec xinput set-prop "ELAN1200:00 04F3:3066 Touchpad" "libinput Natural Scrolling Enabled" 1
-
-exec xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Tapping Enabled" 1
-exec xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Natural Scrolling Enabled" 1
+exec sh ~/.dotfiles/input/start.sh
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -291,12 +280,8 @@ exec --no-startup-id compton
 # exec --no-startup-id xset -dpms
 # exec --no-startup-id xset s off
 #
-#
 
 exec_always --no-startup-id sh ~/wallpapers/scripts/wallpaper.sh
 exec --no-startup-id xset -dpms
 exec --no-startup-id xset s off
-
-exec setxkbmap -option ctrl:nocaps
-
 

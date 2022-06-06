@@ -1,0 +1,1 @@
+sh ~/.dotfiles/input/start.sh > /dev/null
