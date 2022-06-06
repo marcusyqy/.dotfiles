@@ -26,6 +26,8 @@ local has_fdo, freedesktop = pcall(require, "freedesktop")
 local batteryarc_widget = require("awesome-wm-widgets.batteryarc-widget.batteryarc")
 local volume_widget = require('awesome-wm-widgets.volume-widget.volume')
 local logout_menu_widget = require("awesome-wm-widgets.logout-menu-widget.logout-menu")
+local cpu_widget = require("awesome-wm-widgets.cpu-widget.cpu-widget")
+local ram_widget = require("awesome-wm-widgets.ram-widget.ram-widget")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -237,6 +239,12 @@ awful.screen.connect_for_each_screen(function(s)
         s.mytasklist, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
+            ram_widget(),
+            cpu_widget({
+                width = 70,
+                step_width = 2,
+                step_spacing = 0,
+                color = '#434c5e'}),
             mykeyboardlayout,
             volume_widget(),
             wibox.widget.systray(),
