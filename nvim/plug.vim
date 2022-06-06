@@ -89,6 +89,8 @@ Plug 'nvim-telescope/telescope.nvim'
 " install this integration
 Plug 'GustavoKatel/telescope-asynctasks.nvim'
 Plug 'voldikss/vim-floaterm'
+Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+Plug 'ayu-theme/ayu-vim' " or other package manager
 
 "debugging
 " Plug 'simrat39/rust-tools.nvim'

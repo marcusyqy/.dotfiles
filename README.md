@@ -71,3 +71,10 @@ To change capslock to ctrl for your current session, type:
 To make it permanent, put it in your ~/.xinitrc. Alternately, if you have root access, then edit /etc/default/keyboard and add:
 
 `XKBOPTIONS="ctrl:nocaps"`
+setxkbmap -query
+
+#switch to dvorak
+alias asdf='setxkbmap dvorak'
+
+#switch to us qwerty
+alias aoeu='setxkbmap us'

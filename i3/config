@@ -297,4 +297,6 @@ exec_always --no-startup-id sh ~/wallpapers/scripts/wallpaper.sh
 exec --no-startup-id xset -dpms
 exec --no-startup-id xset s off
 
+exec setxkbmap -option ctrl:nocaps
+
 

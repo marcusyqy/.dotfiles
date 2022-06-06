@@ -2,6 +2,7 @@ set winblend=0
 set wildoptions=pum
 set pumblend=5
 
+let ayucolor="mirage" " for mirage version of theme
 let g:marcus_colorscheme = "gruvbox"
 
 

@@ -1,1 +1,13 @@
+
+configuration {
+	display-drun:    "Activate";
+	display-run:     "Execute";
+	show-icons:      true;
+	sidebar-mode:    true;
+}
+
 @theme "/usr/share/rofi/themes/gruvbox-dark.rasi"
+
+* {
+	font:            "JetBrainsMono Nerd Font Mono 14";
+}
