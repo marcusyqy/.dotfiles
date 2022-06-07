@@ -658,5 +658,5 @@ end)
 -- spawn onces
 awful.spawn.once("nm-applet")
 awful.spawn.once("blueman-applet")
-awful.spawn.once("(kill $(pgrep compton) &> /dev/null) && compton")
+awful.spawn.with_shell("kill $(pgrep compton) && compton")
 awful.spawn.with_shell("sh ~/.dotfiles/scripts/linux/screen-no-timeout.sh")

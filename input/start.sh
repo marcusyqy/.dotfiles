@@ -1,5 +1,4 @@
 #!/bin/sh
-
 xinput set-prop "pointer:Logitech G Pro " "libinput Natural Scrolling Enabled" 0
 xinput set-prop "pointer:Logitech MX Master 3" "libinput Natural Scrolling Enabled" 0
 xinput set-prop "UNIW0001:00 093A:1336 Touchpad" "libinput Natural Scrolling Enabled" 1
