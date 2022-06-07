@@ -621,4 +621,5 @@ end)
 -- spawn onces
 awful.spawn.once("nm-applet")
 awful.spawn.once("blueman-applet")
-awful.spawn.with_shell("compton")
+awful.spawn.once("compton")
+awful.spawn.with_shell("sh ~/.dotfiles/scripts/linux/screen-no-timeout.sh")

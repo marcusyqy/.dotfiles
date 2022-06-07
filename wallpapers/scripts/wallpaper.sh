@@ -1,5 +1,5 @@
 #!/bin/sh
 
-
-feh --bg-fill ~/wallpapers/images/ZAGrhVj.jpg
+sh ~/.fehbg
+# feh --bg-fill ~/wallpapers/images/agFJkFJ.jpg
 # feh --bg-fill --randomize ~/wallpapers/images/
