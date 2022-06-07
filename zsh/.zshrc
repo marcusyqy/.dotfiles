@@ -120,6 +120,7 @@ export PATH=$PATH:/usr/local/go/bin # put in go install bin
 export PATH=$PATH:$HOME/go/bin # put in go installation path
 export PATH=$PATH:$HOME/.local/bin # put in go installation path
 export PATH=$PATH:$HOME/.local/kitty.app/bin/
+export PATH=$PATH:$HOME/lua-language-server/bin/
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

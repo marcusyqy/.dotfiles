@@ -6,11 +6,11 @@
 --]]
 
 --[[
-  VARIABLES  
+  VARIABLES
 ]]
 -- these can be observed from 'nmcli device'
-local device_ethernet   = "enp0s31f6"
-local device_wifi       = "wlp2s0"
+-- local device_ethernet   = "enp0s31f6"
+local device_wifi       = "wlp0s20f3"
 
 local gears = require("gears")
 local lain  = require("lain")
@@ -214,7 +214,7 @@ if theme.machine_name == 'XPS 13 9380' then
     theme.tempfile = '/sys/devices/virtual/thermal/thermal_zone10/temp'
 else
     theme.tempfile = '/sys/devices/virtual/thermal/thermal_zone0/temp'
-end     
+end
 local temp = lain.widget.temp({
     tempfile = theme.tempfile,
     settings = function()
@@ -259,7 +259,7 @@ local bat = lain.widget.bat({
 -- local volicon = wibox.widget.imagebox(theme.widget_vol)
 -- theme.volume = lain.widget.pulse {
 --     settings = function()
---         vlevel = volume_now.left .. "-" .. volume_now.right .. "% | " .. volume_now.device .. " " .. vole 
+--         vlevel = volume_now.left .. "-" .. volume_now.right .. "% | " .. volume_now.device .. " " .. vole
 --         if tonumber(volume_now.left) == nil or tonumber(volume_now.left) == nil then
 --             volicon:set_image(theme.widget_vol_no)
 --             vlevel = ""
@@ -285,14 +285,14 @@ local net = lain.widget.net({
     eth_state = "on",
     settings = function()
         -- device strings can be seen with 'nmcli device'
-        local eth0 = net_now.devices[device_ethernet]
-        if eth0 then
-            if eth0.ethernet then
-                ethicon:set_image(theme.wired)
-            else
-                ethicon:set_image()
-            end
-        end
+        -- local eth0 = net_now.devices[device_ethernet]
+        -- if eth0 then
+        --     if eth0.ethernet then
+        --         ethicon:set_image(theme.wired)
+        --     else
+        --         ethicon:set_image()
+        --     end
+        -- end
 
         local wlan0 = net_now.devices[device_wifi]
         if wlan0 then
