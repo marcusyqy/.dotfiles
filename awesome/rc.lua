@@ -30,16 +30,6 @@ local logout_menu_widget = require("awesome-wm-widgets.logout-menu-widget.logout
 local cpu_widget = require("awesome-wm-widgets.cpu-widget.cpu-widget")
 local ram_widget = require("awesome-wm-widgets.ram-widget.ram-widget")
 
-local orig = naughty.notify
-naughty.notify = function(args)
-    local orig_run = args.run
-    args.run = function()
-        orig_run()
-        awful.client.urgent.jumpto()
-    end
-    orig(args)
-end
-
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -159,19 +149,19 @@ local mybatterywidget = battery_widget {
 
 local getCharge = function(state)
     if state == 0 then
-        return "(UNKNOWN)"
+        return "(😪)"
     elseif state == 1 then
-        return "(CHARGING)"
+        return "(⚡)"
     elseif state == 2 then
-        return ""
+        return "(🔋)"
     elseif state == 3 then
-        return "(EMPTY)"
+        return "(🤬)"
     elseif state == 4 then
-        return "(FULLY CHARGED)"
+        return "(🥳)"
     elseif state == 5 then
-        return "(PENDING CHARGE)"
+        return "(⏳)"
     elseif state == 6 then
-        return "(PENDING DISCHARGE)"
+        return "(⌛)"
     end
 end
 
@@ -191,7 +181,7 @@ end
 -- When UPower updates the battery status, the widget is notified
 -- and calls a signal you need to connect to:
 mybatterywidget:connect_signal('upower::update', function (widget, device)
-    widget.markup = string.format('<span color=\"'.. getColor(device.state, device.percentage) ..'\">[Bat' .. getCharge(device.state) .. ': %3d', device.percentage) .. '%]</span>'
+    widget.markup = string.format('<span color=\"'.. getColor(device.state, device.percentage) ..'\">['.. getCharge(device.state) ..':%3d', device.percentage) .. '%]</span>'
 end)
 
 
