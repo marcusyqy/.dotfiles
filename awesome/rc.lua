@@ -57,7 +57,7 @@ end
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
 -- beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
-beautiful.init(gears.filesystem.get_configuration_dir() .. "theme.lua")
+beautiful.init(gears.filesystem.get_configuration_dir() .. "theme/default/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "x-terminal-emulator"
@@ -268,9 +268,11 @@ root.buttons(gears.table.join(
 
 -- {{{ Key bindings
 globalkeys = gears.table.join(
-    awful.key({}, "XF86AudioRaiseVolume", function() volume_widget:inc(5) end),
-    awful.key({}, "XF86AudioLowerVolume", function() volume_widget:dec(5) end),
-    awful.key({}, "XF86AudioMute", function() volume_widget:toggle() end),
+    awful.key({}, "XF86AudioRaiseVolume", function() volume_widget:inc(5) end,{description="inc audio", group="awesome"}),
+    awful.key({}, "XF86AudioLowerVolume", function() volume_widget:dec(5) end,{description="dec audio", group="awesome"}),
+    awful.key({}, "XF86AudioMute", function() volume_widget:toggle() end, {description="mute audio", group="awesome"}),
+    awful.key({}, "Print", function() awful.spawn.with_shell("maim --select | xclip -selection clipboard -t image/png") end, {description="clip screenshot", group="awesome"}),
+    awful.key({"Shift"}, "Print", function() awful.spawn.with_shell("gnome-screenshot -a -i") end, {description="gnome-screenshot", group="awesome"}),
     awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
               {description="show help", group="awesome"}),
     awful.key({ modkey,           }, "Left",   awful.tag.viewprev,
