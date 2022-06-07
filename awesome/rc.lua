@@ -24,7 +24,7 @@ local debian = require("debian.menu")
 local has_fdo, freedesktop = pcall(require, "freedesktop")
 
 -- local battery_widget = require("battery-widget")
-local batteryarc_widget = require("awesome-wm-widgets.batteryarc-widget.batteryarc")
+-- local batteryarc_widget = require("awesome-wm-widgets.batteryarc-widget.batteryarc")
 local volume_widget = require('awesome-wm-widgets.volume-widget.volume')
 local logout_menu_widget = require("awesome-wm-widgets.logout-menu-widget.logout-menu")
 local cpu_widget = require("awesome-wm-widgets.cpu-widget.cpu-widget")
@@ -32,12 +32,12 @@ local ram_widget = require("awesome-wm-widgets.ram-widget.ram-widget")
 
 local orig = naughty.notify
 naughty.notify = function(args)
-    local notification = orig(args)
-    notification.run = function()
-        args.run()
-        -- awful.client.urgent.jumpto()
+    local orig_run = args.run
+    args.run = function()
+        orig_run()
+        awful.client.urgent.jumpto()
     end
-    return notification
+    orig(args)
 end
 
 -- {{{ Error handling
@@ -175,10 +175,23 @@ local getCharge = function(state)
     end
 end
 
+local getColor = function(state , percentage)
+    if state == 0 or state == 3 then
+        return "Grey"
+    elseif state == 1 then -- charging
+        return "#1ae430"
+    elseif percentage < 20 then
+        return "#Ff0004"
+    elseif percentage < 60 then
+        return "Yellow"
+    else return "1ae430"
+    end
+end
+
 -- When UPower updates the battery status, the widget is notified
 -- and calls a signal you need to connect to:
 mybatterywidget:connect_signal('upower::update', function (widget, device)
-    widget.text = string.format('[Bat' .. getCharge(device.state) .. ': %3d', device.percentage) .. '%]'
+    widget.markup = string.format('<span color=\"'.. getColor(device.state, device.percentage) ..'\">[Bat' .. getCharge(device.state) .. ': %3d', device.percentage) .. '%]</span>'
 end)
 
 
