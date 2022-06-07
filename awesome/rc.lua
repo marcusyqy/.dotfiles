@@ -30,6 +30,16 @@ local logout_menu_widget = require("awesome-wm-widgets.logout-menu-widget.logout
 local cpu_widget = require("awesome-wm-widgets.cpu-widget.cpu-widget")
 local ram_widget = require("awesome-wm-widgets.ram-widget.ram-widget")
 
+local orig = naughty.notify
+naughty.notify = function(args)
+    local notification = orig(args)
+    notification.run = function()
+        args.run()
+        -- awful.client.urgent.jumpto()
+    end
+    return notification
+end
+
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -655,7 +665,8 @@ end)
 -- }}}
 --
 --
--- spawn onces
+
+-- spawn
 awful.spawn.once("nm-applet")
 awful.spawn.once("blueman-applet")
 awful.spawn.with_shell("kill $(pgrep compton) && compton")
