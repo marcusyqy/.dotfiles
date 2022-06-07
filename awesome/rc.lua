@@ -23,7 +23,7 @@ require("awful.hotkeys_popup.keys")
 local debian = require("debian.menu")
 local has_fdo, freedesktop = pcall(require, "freedesktop")
 
--- local battery_widget = require("awesome-wm-widgets.battery-widget.battery")
+-- local battery_widget = require("battery-widget")
 local batteryarc_widget = require("awesome-wm-widgets.batteryarc-widget.batteryarc")
 local volume_widget = require('awesome-wm-widgets.volume-widget.volume')
 local logout_menu_widget = require("awesome-wm-widgets.logout-menu-widget.logout-menu")
@@ -83,7 +83,7 @@ awful.layout.layouts = {
     -- awful.layout.suit.fair.horizontal,
     -- awful.layout.suit.spiral,
     -- awful.layout.suit.spiral.dwindle,
-    -- awful.layout.suit.max,
+    awful.layout.suit.max,
     -- awful.layout.suit.max.fullscreen,
     -- awful.layout.suit.magnifier,
     -- awful.layout.suit.corner.nw,
@@ -135,6 +135,42 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 -- {{{ Wibar
 -- Create a textclock widget
 mytextclock = wibox.widget.textclock()
+-- Load the module:
+local battery_widget = require 'awesome-battery_widget'
+
+-- Create the battery widget:
+local mybatterywidget = battery_widget {
+    screen = screen,
+    use_display_device = true,
+    widget_template = wibox.widget.textbox,
+    instant_update = true,
+}
+
+
+local getCharge = function(state)
+    if state == 0 then
+        return "(UNKNOWN)"
+    elseif state == 1 then
+        return "(CHARGING)"
+    elseif state == 2 then
+        return ""
+    elseif state == 3 then
+        return "(EMPTY)"
+    elseif state == 4 then
+        return "(FULLY CHARGED)"
+    elseif state == 5 then
+        return "(PENDING CHARGE)"
+    elseif state == 6 then
+        return "(PENDING DISCHARGE)"
+    end
+end
+
+-- When UPower updates the battery status, the widget is notified
+-- and calls a signal you need to connect to:
+mybatterywidget:connect_signal('upower::update', function (widget, device)
+    widget.text = string.format('[Bat' .. getCharge(device.state) .. ': %3d', device.percentage) .. '%]'
+end)
+
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
@@ -250,9 +286,7 @@ awful.screen.connect_for_each_screen(function(s)
             volume_widget(),
             wibox.widget.systray(),
             mytextclock,
-            batteryarc_widget({
-                show_current_level = true,
-                arc_thickness = 1,}),
+            mybatterywidget,
             logout_menu_widget(),
         },
     }
@@ -624,5 +658,5 @@ end)
 -- spawn onces
 awful.spawn.once("nm-applet")
 awful.spawn.once("blueman-applet")
-awful.spawn.once("compton")
+awful.spawn.once("(kill $(pgrep compton) &> /dev/null) && compton")
 awful.spawn.with_shell("sh ~/.dotfiles/scripts/linux/screen-no-timeout.sh")

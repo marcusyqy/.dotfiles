@@ -159,8 +159,8 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-
-local servers = { "clangd", "svelte", "cssls", "tailwindcss", "gopls" }
+-- "cssls", "tailwindcss",
+local servers = { "clangd", "svelte", "gopls" }
 for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup {
         on_attach = on_attach,
@@ -184,16 +184,14 @@ nvim_lsp.sumneko_lua.setup {
       },
       diagnostics = {
         -- Get the language server to recognize the `vim` global
-        globals = {'vim', "awesome", "use", "client", "root"},
+        globals = {'vim', "use", "client", "root", "awesome"},
       },
       workspace = {
         -- Make the server aware of Neovim runtime files
-        -- library = vim.api.nvim_get_runtime_file("", true),
+        --library = vim.api.nvim_get_runtime_file("", true),
         library = {
             ['/usr/share/nvim/runtime/lua'] = true,
-
             ['/usr/share/nvim/runtime/lua/lsp'] = true,
-
             ['/usr/share/awesome/lib'] = true
         },
       },

@@ -9,5 +9,5 @@ configuration {
 @theme "/usr/share/rofi/themes/gruvbox-dark.rasi"
 
 * {
-	font:            "JetBrainsMono Nerd Font Mono 14";
+	font:            "JetBrainsMono Nerd Font Mono 12";
 }
