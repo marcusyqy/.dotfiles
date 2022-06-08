@@ -149,7 +149,9 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
   buf_set_keymap('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
   buf_set_keymap('n', '<leader>rr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-  buf_set_keymap('n', '<leader>gh', '<cmd>lua vim.diagnostic.open_float(0, { scope = "line", border = "single" })<CR>', opts)
+  buf_set_keymap('n', '<leader>gh', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
+  buf_set_keymap('v', '<leader>gh', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
+  --buf_set_keymap('n', '<leader>gh', '<cmd>lua vim.diagnostic.open_float(0, { scope = "line", border = "single" })<CR>', opts)
   buf_set_keymap('n', '[', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
   buf_set_keymap('n', ']', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
   buf_set_keymap('n', '<leader>vq', '<cmd>lua vim.diagnostic.set_loclist()<CR>', opts)
@@ -176,31 +178,32 @@ nvim_lsp.tsserver.setup ({
 })
 
 nvim_lsp.sumneko_lua.setup {
-  settings = {
-    Lua = {
-      runtime = {
-        -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-        version = 'LuaJIT',
-      },
-      diagnostics = {
-        -- Get the language server to recognize the `vim` global
-        globals = {'vim', "use", "client", "root", "awesome"},
-      },
-      workspace = {
-        -- Make the server aware of Neovim runtime files
-        --library = vim.api.nvim_get_runtime_file("", true),
-        library = {
-            ['/usr/share/nvim/runtime/lua'] = true,
-            ['/usr/share/nvim/runtime/lua/lsp'] = true,
-            ['/usr/share/awesome/lib'] = true
+    on_attach=on_attach,
+    settings = {
+        Lua = {
+            runtime = {
+                -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+                version = 'LuaJIT',
+            },
+            diagnostics = {
+                -- Get the language server to recognize the `vim` global
+                globals = {'vim', "use", "client", "root", "awesome"},
+            },
+            workspace = {
+                -- Make the server aware of Neovim runtime files
+                --library = vim.api.nvim_get_runtime_file("", true),
+                library = {
+                    ['/usr/share/nvim/runtime/lua'] = true,
+                    ['/usr/share/nvim/runtime/lua/lsp'] = true,
+                    ['/usr/share/awesome/lib'] = true
+                },
+            },
+            -- Do not send telemetry data containing a randomized but unique identifier
+            telemetry = {
+                enable = false,
+            },
         },
-      },
-      -- Do not send telemetry data containing a randomized but unique identifier
-      telemetry = {
-        enable = false,
-      },
     },
-  },
 }
 
 nvim_lsp.rust_analyzer.setup({

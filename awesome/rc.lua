@@ -141,47 +141,57 @@ local battery_widget = require 'awesome-battery_widget'
 -- Create the battery widget:
 local mybatterywidget = battery_widget {
     screen = screen,
-    use_display_device = true,
+    device_path='/org/freedesktop/UPower/devices/battery_BAT0', -- should use this
+    -- use_display_device = true,
     widget_template = wibox.widget.textbox,
     instant_update = true,
 }
 
 
-local getCharge = function(state)
-    if state == 0 then
-        return "(😪)"
-    elseif state == 1 then
-        return "(⚡)"
-    elseif state == 2 then
-        return "(🔋)"
-    elseif state == 3 then
-        return "(🤬)"
-    elseif state == 4 then
-        return "(🥳)"
-    elseif state == 5 then
-        return "(⏳)"
-    elseif state == 6 then
-        return "(⌛)"
-    end
-end
-
-local getColor = function(state , percentage)
-    if state == 0 or state == 3 then
-        return "Grey"
-    elseif state == 1 then -- charging
-        return "#1ae430"
-    elseif percentage < 20 then
-        return "#Ff0004"
-    elseif percentage < 60 then
-        return "Yellow"
-    else return "1ae430"
-    end
-end
-
 -- When UPower updates the battery status, the widget is notified
 -- and calls a signal you need to connect to:
 mybatterywidget:connect_signal('upower::update', function (widget, device)
-    widget.markup = string.format('<span color=\"'.. getColor(device.state, device.percentage) ..'\">['.. getCharge(device.state) ..':%3d', device.percentage) .. '%]</span>'
+
+    local getCharge = function(state)
+        if state == 0 then
+            return "(😪)"
+        elseif state == 1 then
+            return "(⚡)"
+        elseif state == 2 then
+            return "(🔋)"
+        elseif state == 3 then
+            return "(🤬)"
+        elseif state == 4 then
+            return "(🥳)"
+        elseif state == 5 then
+            return "(⏳)"
+        elseif state == 6 then
+            return "(⌛)"
+        end
+    end
+
+    local getColor = function(state , percentage)
+        if state == 0 or state == 3 then
+            return "#AAAAAA"
+        elseif state == 1 then -- charging
+            return "#1AE430"
+        elseif percentage < 20 then
+            return "#FF0004"
+        elseif percentage < 60 then
+            return "Yellow"
+        else return "#1AE430"  -- this should satisfy even fully charged because it will be > 60
+        end
+    end
+
+    local getText = function (state, percentage)
+        if state == 0 then -- unknown
+            return '<span color=\"' .. getColor(state, percentage) .. '\">['.. getCharge(state) ..':-UNK-]</span>'
+        else
+            return string.format('<span color=\"' .. getColor(state, percentage) .. '\">['.. getCharge(state) ..':%3d', percentage) .. '%]</span>'
+        end
+    end
+
+    widget.markup = getText(device.state, device.percentage)
 end)
 
 
@@ -675,3 +685,4 @@ awful.spawn.once("nm-applet")
 awful.spawn.once("blueman-applet")
 awful.spawn.with_shell("kill $(pgrep compton) && compton")
 awful.spawn.with_shell("sh ~/.dotfiles/scripts/linux/screen-no-timeout.sh")
+awful.spawn.with_shell("sh ~/.dotfiles/.screenlayout/custom.sh")

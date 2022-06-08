@@ -43,3 +43,10 @@ EOF
 runtime ./gui.vim
 " let g:autoclose_vim_commentmode = 1
 "
+" thank you
+fun! EmptyRegisters()
+let regs=split('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/-"', '\zs')
+for r in regs
+    call setreg(r, [])
+endfor
+endfun

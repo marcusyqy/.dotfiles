@@ -2,25 +2,6 @@
 " this file contains the custom behaviour that marcus wants to have for his
 " vim configurations
 
-vnoremap <leader>p "_dP
-
-nnoremap <leader>y "+y
-vnoremap <leader>y "+y
-nnoremap <leader>Y gg"+yG
-
-"nice removing of whitespaces!
-fun! TrimWhiteSpace()
-    let l:save = winsaveview()
-    keeppatterns %s/\s\+$//e
-    call winrestview(l:save)
-endfun
-
-augroup AUTO_REMOVE_WHITESPACE_MARCUS
-    autocmd!
-    autocmd BufWritePre * :call TrimWhiteSpace()
-augroup END
-
-
 let g:svelte_preprocessors = ['typescript']
 
 "removing the weird binding that doesn't let me go forward
@@ -37,26 +18,32 @@ nnoremap <s-right> <C-w>>
 nnoremap <s-up> <C-w>+
 nnoremap <s-down> <C-w>-
 
+vnoremap <leader>p "_dP
+
 "make Y behave
 nnoremap Y y$
+
+" yank to buffer
+nnoremap <leader>y "+y
+vnoremap <leader>y "+y
+nmap <leader>Y "+Y
 
 "center cursor
 nnoremap n nzzzv
 nnoremap N Nzzzv
 nnoremap J mzJ`v
 
-nnoremap <c-c> <esc>
-vnoremap <c-c> <esc>
+inoremap <c-c> <esc>
 
 "undo breakpoints
-inoremap , ,<c-g>u
-inoremap . .<c-g>u
-inoremap ! !<c-g>u
-inoremap ? ?<c-g>u
-inoremap - -<c-g>u
-inoremap ( (<c-g>u
-inoremap [ [<c-g>u
-
+" inoremap , ,<c-g>u
+" inoremap . .<c-g>u
+" inoremap ! !<c-g>u
+" inoremap ? ?<c-g>u
+" inoremap - -<c-g>u
+" inoremap ( (<c-g>u
+" inoremap [ [<c-g>u
+"
 nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
 nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
 
@@ -67,6 +54,15 @@ vnoremap K :m '<-2<CR>gv=gv
 " nnoremap <leader>j :m .+1<CR>==
 " nnoremap <leader>k :m .-2<CR>==
 
-" testing out this on a split keyboard feels weird
-inoremap <C-BS> <C-W>
 
+"nice removing of whitespaces!
+fun! TrimWhiteSpace()
+    let l:save = winsaveview()
+    keeppatterns %s/\s\+$//e
+    call winrestview(l:save)
+endfun
+
+augroup AUTO_REMOVE_WHITESPACE_MARCUS
+    autocmd!
+    autocmd BufWritePre * :call TrimWhiteSpace()
+augroup END
