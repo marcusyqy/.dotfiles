@@ -51,7 +51,7 @@ set shortmess+=c
 set termguicolors
 
 "use system clip board
-set clipboard+=unnamedplus
+" set clipboard+=unnamedplus
 "for vsvim
 " set clipboard=unnamed
 

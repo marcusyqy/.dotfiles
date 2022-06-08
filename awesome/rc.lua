@@ -130,11 +130,11 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 -- }}}
 
 -- Keyboard map indicator and switcher
-mykeyboardlayout = awful.widget.keyboardlayout()
+-- mykeyboardlayout = awful.widget.keyboardlayout()
 
 -- {{{ Wibar
 -- Create a textclock widget
-mytextclock = wibox.widget.textclock()
+mytextclock = wibox.widget.textclock('-<b><span color=\"White\">%a %b %d %I:%M%P</span></b>-')
 -- Load the module:
 local battery_widget = require 'awesome-battery_widget'
 
@@ -295,7 +295,7 @@ awful.screen.connect_for_each_screen(function(s)
                 step_width = 2,
                 step_spacing = 0,
                 color = '#434c5e'}),
-            mykeyboardlayout,
+            -- mykeyboardlayout,
             volume_widget(),
             wibox.widget.systray(),
             mytextclock,

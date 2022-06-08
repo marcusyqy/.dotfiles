@@ -14,9 +14,6 @@ fi
 
 echo 'Calling feh for desktop wallpaper'
 sh ~/wallpapers/scripts/wallpaper.sh
-echo 'Running polybar'
-polybar top &
-echo 'Done'
 
 # Welcome back notification/startup sound
 echo 'Sending notification'
