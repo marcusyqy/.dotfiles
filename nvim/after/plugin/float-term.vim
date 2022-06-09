@@ -7,7 +7,7 @@ nnoremap <C-t> :FloatermToggle<CR>
 tnoremap <C-t> <C-\><C-n>:FloatermToggle<CR>
 
 "new terminal in tab
-nnoremap <leader>tt :tabnew<CR>:term<CR>
+nnoremap <leader>tt :tabnew<CR>:term<CR>a
 
 "new
 nnoremap <leader>tk :FloatermNew<CR>
