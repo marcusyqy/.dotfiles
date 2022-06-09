@@ -30,6 +30,11 @@ local logout_menu_widget = require("awesome-wm-widgets.logout-menu-widget.logout
 local cpu_widget = require("awesome-wm-widgets.cpu-widget.cpu-widget")
 local ram_widget = require("awesome-wm-widgets.ram-widget.ram-widget")
 
+local awesome = assert(awesome)
+local client = assert(client)
+local root = assert(root)
+local screen = assert(screen)
+
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
