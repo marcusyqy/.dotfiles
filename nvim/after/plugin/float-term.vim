@@ -1,21 +1,28 @@
+#maybe map vim esc too
+tnoremap <c-[> <c-\><c-n>
+tnoremap <esc> <c-\><c-n>
+
 "toggle
 nnoremap <C-t> :FloatermToggle<CR>
 tnoremap <C-t> <C-\><C-n>:FloatermToggle<CR>
 
+"new terminal in tab
+nnoremap <leader>tt :tabnew<CR>:term<CR>
+
 "new
-nnoremap <leader>ftk :FloatermNew<CR>
+nnoremap <leader>tk :FloatermNew<CR>
 tnoremap <C-k> <C-\><C-n>:FloatermNew<CR>
 
 "next
-nnoremap <leader>fth :FloatermNext<CR>
+nnoremap <leader>th :FloatermNext<CR>
 tnoremap <C-h> <C-\><C-n>:FloatermNext<CR>
 
 "kill
-nnoremap <leader>ftj :FloatermKill<CR>
+nnoremap <leader>tj :FloatermKill<CR>
 tnoremap <C-j> <C-\><C-n>:FloatermKill<CR>
 
 "prev
-nnoremap <leader>ftl :FloatermPrev<CR>
+nnoremap <leader>tl :FloatermPrev<CR>
 tnoremap <C-l> <C-\><C-n>:FloatermPrev<CR>
 
 
