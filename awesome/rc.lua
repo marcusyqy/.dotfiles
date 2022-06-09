@@ -697,3 +697,8 @@ awful.spawn.once("blueman-applet")
 awful.spawn.with_shell("sh ~/.dotfiles/scripts/linux/picom-start.sh")
 awful.spawn.with_shell("sh ~/.dotfiles/scripts/linux/screen-no-timeout.sh")
 awful.spawn.with_shell("sh ~/.dotfiles/.screenlayout/custom.sh")
+
+
+awful.spawn.once("brave-browser",  { screen = 1, tag = "1" })
+awful.spawn.once(terminal,  { screen = 1, tag = "2" })
+awful.spawn.once("slack",  { screen = 1, tag = "3" })
