@@ -70,7 +70,6 @@ Plug 'stevearc/dressing.nvim'
 Plug 'nvim-telescope/telescope-file-browser.nvim'
 "Plug 'tanvirtin/vgit.nvim' " for gitlens blame
 
-Plug 'derekwyatt/vim-fswitch'
 Plug 'kdheepak/lazygit.nvim'
 
 " for list
