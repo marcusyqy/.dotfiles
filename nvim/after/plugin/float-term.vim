@@ -1,4 +1,4 @@
-#maybe map vim esc too
+"maybe map vim esc too
 tnoremap <c-[> <c-\><c-n>
 tnoremap <esc> <c-\><c-n>
 
