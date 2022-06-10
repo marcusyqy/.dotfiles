@@ -11,10 +11,9 @@
 
 set $mod Mod1
 
-
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:monospace 12
+font pango:monospace 8
 
 # GET DEM BORDERS OUT OF HEREc:w
 #
@@ -37,24 +36,21 @@ for_window [class="^.*"] border pixel 2
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-exec sh ~/.screenlayout/screenlayout.sh
+# Window borders
+new_window none
+new_float none
+
+# colors
+#class                 border  backgr. text    indicator child_border
+client.focused         #535d6c #535d6c #535d6c #535d6c
+client.unfocused       #222222 #222222 #222222 #222222
+client.focused_inactive       #222222 #222222 #222222 #222222
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 
-#bindsym $mod+Return exec alacritty
-
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+x exec i3lock --color=000000
-
-# start dmenu (a program launcher)
-#bindsym $mod+d exec --no-startup-id dmenu_run
-#i3-dmenu-desktop
-
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-# bindsym $mod+d exec--no-startup-id i3-dmenu-desktop
 
 # change focus
 bindsym $mod+h focus left
@@ -87,7 +83,6 @@ bindsym $mod+z split h
 # split in vertical orientation
 bindsym $mod+v split v
 
-
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
@@ -97,22 +92,10 @@ bindsym $mod+e layout toggle split
 bindsym $mod+Shift+space floating toggle
 
 # focus the parent container
-bindsym $mod+a focus parent
+bindsym $mod+p focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
-
-# switch to workspace
-#bindsym $mod+1 workspace 1
-#bindsym $mod+2 workspace 2
-#bindsym $mod+3 workspace 3
-#bindsym $mod+4 workspace 4
-#bindsym $mod+5 workspace 5
-#bindsym $mod+6 workspace 6
-#bindsym $mod+7 workspace 7
-#bindsym $mod+8 workspace 8
-#bindsym $mod+9 workspace 9
-#bindsym $mod+0 workspace 10
 
 # switch to workspace
 bindsym $mod+1 workspace 1
@@ -137,7 +120,6 @@ bindsym $mod+shift+7 move container to workspace 7
 bindsym $mod+shift+8 move container to workspace 8
 bindsym $mod+shift+9 move container to workspace 9
 bindsym $mod+shift+0 move container to workspace 10
-
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -164,104 +146,44 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
-# Window borders
-new_window none
-new_float none
-client.focused $bc $bc $bc $borc
-
-# Gaps
-# gaps inner 20
-# gaps outer 15
-# bindsym $mod+g mode "$mode_gaps"
-
-# Gaps settings mode
-# set $mode_gaps Gaps: (e) esterni, (i) interni
-# set $mode_gaps_e Gaps Esterni: +|-|0
-# set $mode_gaps_i Gaps Interni: +|-|0
-
-
-# mode "$mode_gaps" {
-#     bindsym e	mode "$mode_gaps_e"
-#     bindsym i 	mode "$mode_gaps_i"
-#     bindsym Return	mode "default"
-#     bindsym Escape	mode "default"
-#     bindsym plus	gaps outer all plus 5
-#     bindsym minus	gaps outer all minus 5
-#     bindsym 0	gaps outer all set 5
-# }
-#
-# mode "$mode_gaps_e" {
-#     bindsym plus	gaps outer all plus 5
-#     bindsym minus	gaps outer all minus 5
-#     bindsym 0	gaps outer all set 5
-#     bindsym Return	mode "default"
-#     bindsym Escape	mode "default"
-# }
-#
-# mode "$mode_gaps_i" {
-#     bindsym plus	gaps inner all plus 5
-#     bindsym minus	gaps inner all minus 5
-#     bindsym 0	gaps inner all set 10
-#     bindsym Return	mode "default"
-#     bindsym Escape	mode "default"
-# }
-
 
 bindsym $mod+r mode "resize"
 
-#interactive screenshot by pressing printscreen
+# interactive screenshot by pressing printscreen
 bindsym --release Print exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
 bindsym --release Shift+Print exec gnome-screenshot -a -i
 
-exec sh ~/.dotfiles/input/start.sh
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
     status_command i3status
     tray_output primary
-
 }
 
-bindsym $mod+p exec sh ~/.screenlayout/screenlayout.sh
+bindsym $mod+i exec sh ~/.screenlayout/screenlayout.sh
 
 bindsym $mod+f fullscreen toggle
 bindsym $mod+Control+f bar mode toggle
-# enter fullscreen mode for the focused container
-
-#exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-#exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-# Restart polybar
-# bindsym $mod+Shift+p exec --no-startup-id "killall polybar"
-# bindsym $mod+Ctrl+p exec --no-startup-id "polybar top &"
 
 #Delete windows border
 for_window [class="^.*"] border pixel 2
 new_window pixel 2
 
-client.focused #ebdbb2 #ebdbb2 #ebdbb2 #ebdbb2
 
 #Gaps inner/outer
-# gaps outer 20
-# gaps inner 10
+gaps outer 7
+gaps inner 7
 
 #Rofi
-bindsym $mod+space exec rofi -show run -opacity "90" -columns 1 -font "JetBrainsMono Nerd Font Mono 14"
-bindsym $mod+d exec rofi -show run -opacity "90" -columns 1 -font "JetBrainsMono Nerd Font Mono 14"
-# bindsym $mod+space exec rofi -show run -opacity "90" -columns 1 -font "Hack Nerd Font Mono 14"
+bindsym $mod+space exec "rofi -combi-modi window,drun -show combi -modi combi"
+bindsym $mod+d exec "rofi -combi-modi window,drun -show combi -modi combi"
 
-# Network manager
-exec --no-startup-id nm-applet
-
-# Bluetooth manager
-exec --no-startup-id blueman-applet
-
-# FKeys
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% #increase sound volume
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% #decrease sound volume
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle # mute sound
-#
+
 # # Sreen brightness controls
 # bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
 # bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
@@ -270,18 +192,23 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 bindsym XF86MonBrightnessUp exec light -A 1 # increase screen brightness
 bindsym XF86MonBrightnessDown exec light -U 1 # decrease screen brightness
 
-# shadows and transitions with compton
-#exec --no-startup-id compton --config ~/.config/compton.conf -b
-exec --no-startup-id compton
 
-#feh
-#exec_always feh --bg-fill ~/wallpapers/wallpapers.sh
-# exec_always --no-startup-id sh ~/wallpapers/scripts/wallpaper.sh
+#=================CUSTOM EXECS===================================
+# custom inputs (should be in .xprofile)
+# exec sh ~/.dotfiles/input/start.sh
+
+# Network manager
+exec --no-startup-id nm-applet
+
+# Bluetooth manager
+exec --no-startup-id blueman-applet
+
+exec --no-startup-id sh ~/.screenlayout/custom.sh && sh ~/wallpapers/scripts/wallpaper.sh
+
+# forever display on
+exec --no-startup-id sh ~/.dotfiles/scripts/linux/screen-no-timeout.sh
 # exec --no-startup-id xset -dpms
 # exec --no-startup-id xset s off
-#
 
-exec_always --no-startup-id sh ~/wallpapers/scripts/wallpaper.sh
-exec --no-startup-id xset -dpms
-exec --no-startup-id xset s off
-
+# picom
+exec --no-startup-id sh ~/.dotfiles/scripts/linux/picom-start.sh

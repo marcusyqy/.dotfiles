@@ -79,11 +79,11 @@ modkey = "Mod1"
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
-    awful.layout.suit.tile,
+    -- awful.layout.suit.tile,
     awful.layout.suit.tile.left,
     -- awful.layout.suit.tile.bottom,
     -- awful.layout.suit.tile.top,
-    awful.layout.suit.floating,
+    -- awful.layout.suit.floating,
     -- awful.layout.suit.fair,
     -- awful.layout.suit.fair.horizontal,
     -- awful.layout.suit.spiral,
@@ -315,7 +315,10 @@ awful.screen.connect_for_each_screen(function(s)
             wibox.widget.systray(),
             mytextclock,
             mybatterywidget,
-            logout_menu_widget(),
+            logout_menu_widget(
+            {
+                onlock = function() awful.spawn.with_shell("i3lock --color=000000") end
+            }),
         },
     }
 end)

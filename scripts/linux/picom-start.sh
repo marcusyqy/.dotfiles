@@ -5,4 +5,4 @@ then
     kill $(pgrep picom)
 fi
 
-picom -b
+picom

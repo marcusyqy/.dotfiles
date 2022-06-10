@@ -3,4 +3,4 @@ if ! [ -z $exist_compton ]
 then
     kill $(pgrep compton)
 fi
-compton -b
+compton
