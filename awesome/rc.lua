@@ -29,6 +29,7 @@ local volume_widget = require('awesome-wm-widgets.volume-widget.volume')
 local logout_menu_widget = require("awesome-wm-widgets.logout-menu-widget.logout-menu")
 local cpu_widget = require("awesome-wm-widgets.cpu-widget.cpu-widget")
 local ram_widget = require("awesome-wm-widgets.ram-widget.ram-widget")
+local fs_widget = require("awesome-wm-widgets.fs-widget.fs-widget")
 
 local awesome = assert(awesome)
 local client = assert(client)
@@ -139,7 +140,8 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 
 -- {{{ Wibar
 -- Create a textclock widget
-mytextclock = wibox.widget.textclock('-<b><span color=\"White\">%a %b %d %I:%M%P</span></b>-')
+mytextclock = wibox.widget.textclock('-<b><span color=\"White\">📅 %a %b %d %I:%M%P</span></b>-')
+
 -- Load the module:
 local battery_widget = require 'awesome-battery_widget'
 
@@ -304,6 +306,7 @@ awful.screen.connect_for_each_screen(function(s)
         s.mytasklist, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
+            fs_widget(),
             ram_widget(),
             cpu_widget({
                 width = 70,

@@ -5,9 +5,7 @@ set pumblend=5
 let ayucolor="mirage" " for mirage version of theme
 let g:marcus_colorscheme = "gruvbox"
 
-
 " Use NeoSolarized
-
 
 fun! ColorMyPencils()
     let g:neosolarized_termtrans=1
