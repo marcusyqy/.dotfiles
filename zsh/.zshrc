@@ -110,13 +110,13 @@ alias la='ls -A'
 alias l='ls -CF'
 
 alias g='git'
+alias gs='git status'
 alias gc='git commit'
 alias gf='git fetch'
 alias gp='git pull'
 alias gP='git push'
-alias t="tmux"
-alias .df="cd ~/.dotfiles"
-alias e="nvim"
+alias t='tmux'
+alias .df='cd ~/.dotfiles'
 
 
 # eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
