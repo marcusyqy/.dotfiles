@@ -101,6 +101,7 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
 alias lzg="lazygit"
 alias lzd="lazydocker"
 
@@ -118,10 +119,6 @@ alias gP='git push'
 alias t='tmux'
 alias .df='cd ~/.dotfiles'
 
-
-# eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-
-# eval "$(~/homebrew/bin/brew shellenv)"
 source $HOME/.cargo/bin
 
 export PATH=$PATH:/usr/local/go/bin # put in go install bin

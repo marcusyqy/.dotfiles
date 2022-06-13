@@ -48,12 +48,12 @@ EOF
 "nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
 "nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 
-nnoremap <leader>ps <cmd>lua require('telescope.builtin').grep_string({ search = vim.fn.input("Find For > ")})<cr>
+nnoremap <leader>rg <cmd>lua require('telescope.builtin').grep_string({ search = vim.fn.input("Find For > ")})<cr>
 " Find files using Telescope command-line sugar.
 " nnoremap <c-n> <cmd>Telescope git_files<cr>
 nnoremap <c-p> <cmd>lua require('telescope.builtin').git_files()<cr>
 nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
-nnoremap <leader>pg <cmd>Telescope live_grep<cr>
+nnoremap <leader>erg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>ft <cmd>Telescope file_browser<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
@@ -62,7 +62,7 @@ nnoremap <leader>fe <cmd>Telescope grep_open_files<cr>
 nnoremap <leader>fgf <cmd>Telescope git_files<cr>
 nnoremap <leader>fgc <cmd>Telescope git_commits<cr>
 nnoremap <leader>fgb <cmd>lua git_branch_private()<cr>
-nnoremap <leader>pp <cmd>lua require'telescope'.extensions.project.project{}<cr>
+" nnoremap <leader>pp <cmd>lua require'telescope'.extensions.project.project{}<cr>
 
 "test for building
 nnoremap <leader>to <cmd>lua require('telescope').extensions.asynctasks.all()<cr>

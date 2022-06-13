@@ -18,7 +18,8 @@ nnoremap <s-right> <C-w>>
 nnoremap <s-up> <C-w>+
 nnoremap <s-down> <C-w>-
 
-vnoremap <leader>p "_dP
+vnoremap <leader>p "_dp
+vnoremap <leader>P "_dP
 
 "make Y behave
 nnoremap Y y$
