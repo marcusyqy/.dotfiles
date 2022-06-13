@@ -1,4 +1,4 @@
--- If LuaRocks is installed, make sure that packages installed through it are
+-- If LuaRocks is installed, make sure that packages installed through it areawesome
 -- found (e.g. lgi). If LuaRocks is not installed, do nothing.
 pcall(require, "luarocks.loader")
 
@@ -30,11 +30,17 @@ local logout_menu_widget = require("awesome-wm-widgets.logout-menu-widget.logout
 local cpu_widget = require("awesome-wm-widgets.cpu-widget.cpu-widget")
 local ram_widget = require("awesome-wm-widgets.ram-widget.ram-widget")
 local fs_widget = require("awesome-wm-widgets.fs-widget.fs-widget")
+local logout_popup = require("awesome-wm-widgets.logout-popup-widget.logout-popup")
 
 local awesome = assert(awesome)
 local client = assert(client)
 local root = assert(root)
 local screen = assert(screen)
+
+
+local onlock = function ()
+    awful.spawn.with_shell("i3lock --color=000000")
+end
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -202,6 +208,7 @@ mybatterywidget:connect_signal('upower::update', function (widget, device)
 end)
 
 
+
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
                     awful.button({ }, 1, function(t) t:view_only() end),
@@ -320,7 +327,7 @@ awful.screen.connect_for_each_screen(function(s)
             mybatterywidget,
             logout_menu_widget(
             {
-                onlock = function() awful.spawn.with_shell("i3lock --color=000000") end
+                onlock = onlock
             }),
         },
     }
@@ -393,7 +400,7 @@ globalkeys = gears.table.join(
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
               {description = "open a terminal", group = "launcher"}),
-    awful.key({ modkey, "Control" }, "r", awesome.restart,
+    awful.key({ modkey, "Shift" }, "r", awesome.restart,
               {description = "reload awesome", group = "awesome"}),
     -- awful.key({ modkey, "Shift"   }, "q", awesome.quit,
     --           {description = "quit awesome", group = "awesome"}),
@@ -411,6 +418,10 @@ globalkeys = gears.table.join(
               {description = "decrease the number of columns", group = "layout"}),
     awful.key({ modkey,           }, "0", function () awful.layout.inc( 1)                end,
               {description = "select next", group = "layout"}),
+    awful.key({ modkey,  "Shift"  }, "0", function () logout_popup.launch({
+        icon_size = 25, icon_margin = 10,
+        onlock = onlock,
+    }) end, {description = "Show logout screen", group = "custom"}),
     awful.key({ modkey, "Control" }, "n",
               function ()
                   local c = awful.client.restore()
