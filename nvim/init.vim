@@ -6,21 +6,21 @@ syntax on
 filetype off "required
 syntax enable
 
-" run sets vim scripts
-runtime ./sets.vim
-
 " load plugins
 runtime ./plug.vim
 
 let mapleader = " "
 
+" run sets vim scripts
+runtime ./sets.vim
+
+
+
 let g:lsp_cxx_hl_use_text_props = 1
 
 runtime ./colors.vim
 
-runtime ./lazygit.vim
 runtime ./custom.vim
-
 
 runtime ./git.vim
 runtime ./navigation.vim
@@ -39,11 +39,6 @@ local opts = {
 require('auto-session').setup(opts)
 EOF
 
-
-runtime ./gui.vim
-" let g:autoclose_vim_commentmode = 1
-"
-" thank you
 fun! EmptyRegisters()
 let regs=split('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/-"', '\zs')
 for r in regs
