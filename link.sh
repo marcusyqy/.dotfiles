@@ -12,12 +12,6 @@ link_tmux() {
     ln -s $DOTFILES/tmux/.tmux.conf $tmuxconfig
 }
 
-link_fonts() {
-    fontsconfig="$HOME/.fonts"
-    rm -rf $fontsconfig
-    ln -s $DOTFILES/.fonts $fontsconfig
-}
-
 link_kitty() {
     #[ -d "~/.config/alacritty" ] &&
     kittyconfig="$HOME/.config/kitty"
@@ -85,7 +79,6 @@ link_awesomewm() {
 
 link_nvim
 link_tmux
-link_fonts
 link_kitty
 link_zsh
 link_i3
