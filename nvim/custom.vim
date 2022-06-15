@@ -10,9 +10,6 @@ inoremap <s-tab> <C-D>
 vnoremap <tab> >gv
 vnoremap <s-tab> <gv
 
-nnoremap <leader>tn <cmd>tabnext<cr>
-nnoremap <leader>tp <cmd>tabprev<cr>
-
 nnoremap <s-left> <C-w><
 nnoremap <s-right> <C-w>>
 nnoremap <s-up> <C-w>+
