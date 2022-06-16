@@ -131,7 +131,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# #switch to dvorak
-# alias asdf='setxkbmap dvorak'
-# #switch to us qwerty
-# alias aoeu='setxkbmap us'
+#switch to dvorak
+alias asdf='setxkbmap dvorak'
+#switch to us qwerty
+alias aoeu='setxkbmap us'

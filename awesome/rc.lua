@@ -142,7 +142,7 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 -- }}}
 
 -- Keyboard map indicator and switcher
--- mykeyboardlayout = awful.widget.keyboardlayout()
+mykeyboardlayout = awful.widget.keyboardlayout()
 
 -- {{{ Wibar
 -- Create a textclock widget
@@ -313,6 +313,7 @@ awful.screen.connect_for_each_screen(function(s)
         s.mytasklist, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
+            mykeyboardlayout,
             fs_widget(),
             ram_widget(),
             cpu_widget({
@@ -320,7 +321,6 @@ awful.screen.connect_for_each_screen(function(s)
                 step_width = 2,
                 step_spacing = 0,
                 color = '#434c5e'}),
-            -- mykeyboardlayout,
             volume_widget(),
             wibox.widget.systray(),
             mytextclock,
@@ -378,12 +378,10 @@ globalkeys = gears.table.join(
               {description = "swap with next client by index", group = "client"}),
     awful.key({ modkey, "Shift"   }, "k", function () awful.client.swap.byidx( -1)    end,
               {description = "swap with previous client by index", group = "client"}),
-    awful.key({ modkey, "Control" }, "j", function () awful.screen.focus_relative( 1) end,
-              {description = "focus the next screen", group = "screen"}),
-    awful.key({ modkey, "Control" }, "k", function () awful.screen.focus_relative(-1) end,
-              {description = "focus the previous screen", group = "screen"}),
     awful.key({ modkey }, "w", function () awful.screen.focus_relative( 1) end,
               {description = "focus the next screen", group = "screen"}),
+    awful.key({ modkey, "Shift" }, "w", function () awful.screen.focus_relative(-1) end,
+              {description = "focus the previous screen", group = "screen"}),
     awful.key({ modkey }, "b", function () awful.screen.focus_relative(-1) end,
               {description = "focus the previous screen", group = "screen"}),
     awful.key({ modkey,           }, "u", awful.client.urgent.jumpto,
