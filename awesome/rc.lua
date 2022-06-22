@@ -149,7 +149,7 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 mytextclock = wibox.widget.textclock('-<b><span color=\"White\">📅 %a %b %d %I:%M%P</span></b>-')
 
 -- Load the module:
-local battery_widget = require 'awesome-battery_widget'
+local battery_widget = require 'awesome-battery-widget'
 
 -- Create the battery widget:
 local mybatterywidget = battery_widget {
