@@ -2,48 +2,39 @@ set winblend=0
 set wildoptions=pum
 set pumblend=5
 
-let ayucolor="mirage" " for mirage version of theme
 let g:marcus_colorscheme = "gruvbox"
 
-" Example config in VimScript
-let g:gruvbox_baby_keyword_style = "italic"
-" Enable telescope theme
-" let g:gruvbox_baby_telescope_theme = 1
-" Enable transparent mode
-let g:gruvbox_baby_transparent_mode = 1
-
 lua << EOF
-
 local catppuccin = require("catppuccin")
 local settings = {
     transparent_background = true,
-term_colors = false,
-styles = {
-	comments = "italic",
-	conditionals = "NONE",
-	loops = "NONE",
-	functions = "bold",
-	keywords = "italic",
-	strings = "NONE",
-	variables = "NONE",
-	numbers = "NONE",
-	booleans = "NONE",
-	properties = "NONE",
-	types = "italic",
-	operators = "NONE",
-},
-integrations = {
-	treesitter = true,
-	native_lsp = {
+    term_colors = false,
+    styles = {
+        comments = "italic",
+        conditionals = "NONE",
+        loops = "NONE",
+        functions = "bold",
+        keywords = "italic",
+        strings = "NONE",
+        variables = "NONE",
+        numbers = "italic",
+        booleans = "italic",
+        properties = "NONE",
+        types = "italic",
+        operators = "NONE",
+    },
+    integrations = {
+        treesitter = true,
+        native_lsp = {
 		enabled = true,
 		virtual_text = {
-			errors = "italic",
+			errors = "bold,italic",
 			hints = "italic",
 			warnings = "italic",
 			information = "italic",
 		},
 		underlines = {
-			errors = "underline",
+			errors = "underlineline",
 			hints = "underline",
 			warnings = "underline",
 			information = "underline",
