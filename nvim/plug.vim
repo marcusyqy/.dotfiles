@@ -87,6 +87,7 @@ Plug 'GustavoKatel/telescope-asynctasks.nvim'
 Plug 'voldikss/vim-floaterm'
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 Plug 'ayu-theme/ayu-vim' " or other package manager
+Plug 'luisiacc/gruvbox-baby', {'branch': 'main'}
 
 "debugging
 " Plug 'simrat39/rust-tools.nvim'

@@ -135,3 +135,5 @@ export NVM_DIR="$HOME/.nvm"
 alias asdf='setxkbmap dvorak'
 #switch to us qwerty
 alias aoeu='setxkbmap us'
+
+alias rscreen="sh ~/.dotfiles/.screenlayout/custom.sh"

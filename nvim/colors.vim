@@ -5,7 +5,13 @@ set pumblend=5
 let ayucolor="mirage" " for mirage version of theme
 let g:marcus_colorscheme = "gruvbox"
 
-" Use NeoSolarized
+" Example config in VimScript
+let g:gruvbox_baby_keyword_style = "italic"
+" Enable telescope theme
+" let g:gruvbox_baby_telescope_theme = 1
+" Enable transparent mode
+let g:gruvbox_baby_transparent_mode = 1
+colorscheme gruvbox-baby
 
 fun! ColorMyPencils()
     let g:neosolarized_termtrans=1
@@ -27,9 +33,9 @@ fun! ColorMyPencils()
     highlight ColorColumn ctermbg=0 guibg=grey
     hi SignColumn guibg=none
     hi CursorLineNR guibg=none
-    "hi CursorLine guibg=none
-    "highlight LineNr guifg=#ff8659
-    "highlight LineNr guifg=#aed75f
+    " "hi CursorLine guibg=none
+    " "highlight LineNr guifg=#ff8659
+    " "highlight LineNr guifg=#aed75f
     highlight LineNr guifg=#5eacd3
     highlight netrwDir guifg=#5eacd3
     highlight qfFileName guifg=#aed75f
@@ -39,5 +45,5 @@ fun! ColorMyPencils()
     highlight Normal guibg=none
 endfun
 
-call ColorMyPencils()
+"call ColorMyPencils()
 
