@@ -620,8 +620,8 @@ awful.rules.rules = {
           "pop-up",       -- e.g. Google Chrome's (detached) Developer Tools.
         }
       }, properties = { floating = true }},
-    { rule = { class = terminal },
-        properties = { opacity = 0.75 } },
+    -- { rule = { class = terminal },
+    --     properties = { opacity = 1.00 } },
     -- Add titlebars to normal clients and dialogs
     { rule_any = {type = { "normal", "dialog" }
       }, properties = { titlebars_enabled = false }
@@ -695,11 +695,11 @@ end)
 
 client.connect_signal("focus", function(c)
     c.border_color = beautiful.border_focus
-    c.opacity = 1.0
+    -- c.opacity = 1.0
 end)
 client.connect_signal("unfocus", function(c)
     c.border_color = beautiful.border_normal
-    c.opacity = 1.0
+    -- c.opacity = 1.0
 end)
 -- }}}
 --
