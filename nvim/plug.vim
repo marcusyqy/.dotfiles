@@ -90,6 +90,7 @@ Plug 'ayu-theme/ayu-vim' " or other package manager
 Plug 'luisiacc/gruvbox-baby', {'branch': 'main'}
 Plug 'catppuccin/nvim', {'as': 'catppuccin'}
 
+Plug 'anuvyklack/keymap-layer.nvim'
 Plug 'anuvyklack/hydra.nvim'
 
 "debugging

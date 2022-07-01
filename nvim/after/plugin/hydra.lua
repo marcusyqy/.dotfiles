@@ -31,6 +31,8 @@ Hydra({
 		{ "q", nil, { exit = true, nowait = true } },
 		{ ";", nil, { exit = true, nowait = true } },
 		{ "<Esc>", nil, { exit = true, nowait = true } },
+		{ "<c-c>", nil, { exit = true, nowait = true } },
+		{ "<c-[>", nil, { exit = true, nowait = true } },
 	},
 })
 
