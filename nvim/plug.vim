@@ -89,6 +89,9 @@ Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 Plug 'ayu-theme/ayu-vim' " or other package manager
 Plug 'luisiacc/gruvbox-baby', {'branch': 'main'}
 Plug 'catppuccin/nvim', {'as': 'catppuccin'}
+
+Plug 'anuvyklack/hydra.nvim'
+
 "debugging
 " Plug 'simrat39/rust-tools.nvim'
 " Plug 'mfussenegger/nvim-dap'
