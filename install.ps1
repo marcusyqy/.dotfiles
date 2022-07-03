@@ -15,11 +15,6 @@ function update_alacritty {
     Copy-Item -Force alacritty/alacritty-win.yml $env:APPDATA/alacritty/alacritty.yml
 }
 
-function update_workspacer {
-    New-Item -Force -Type File ~/.workspacer/workspacer.config.csx
-    Copy-Item -Force workspacer/workspacer.config.csx ~/.workspacer/workspacer.config.csx
-
-}
 
 function update_vs {
     New-Item -Force -Type File ~/.vsvimrc
@@ -33,17 +28,10 @@ function update_ideavim {
 
 }
 
-function update_wez_term {
-    New-Item -Force -Type File "C:/Program Files/WezTerm/wezterm.lua"
-    Copy-Item -Force wez/wezterm.lua "C:/Program Files/WezTerm/wezterm.lua"
-}
-
 update_vim
-update_wez_term
 update_ideavim
 update_vs
 update_ps
 update_alacritty
-update_workspacer
 
 

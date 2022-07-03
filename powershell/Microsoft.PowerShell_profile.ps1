@@ -2,11 +2,13 @@
 # Import-Module oh-my-posh
 Set-Alias vim nvim
 Set-Alias vi nvim
+Set-Alias gvim nvim-qt
 Set-Alias quit exit
 Set-Alias alc alacritty
 Set-Alias lzg lazygit
 Set-Alias ll ls
 Set-Alias grep rg
+Set-Alias g git
 
 $env:TERM='xterm-256color'
 $work = 'C:\work'

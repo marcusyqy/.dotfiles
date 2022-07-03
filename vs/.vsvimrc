@@ -94,6 +94,9 @@ nnoremap <c-t> :vsc EditorContextMenus.CodeWindow.ToggleHeaderCodeFile<CR>
 nnoremap <c-space> <c-a-space>
 nnoremap <c-/> <c-s-/>
 
+nnoremap <c-o> <c-->
+nnoremap <c-i> <c-s-->
+
 " Feels more symmetrical on ortholinear layouts.
 nnoremap & ^
 inoremap <C-BS> <C-W>
