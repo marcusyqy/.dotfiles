@@ -7,7 +7,7 @@ let g:marcus_colorscheme = "gruvbox"
 lua << EOF
 local catppuccin = require("catppuccin")
 local settings = {
-    transparent_background = true,
+    transparent_background = false,
     term_colors = false,
     styles = {
         comments = "italic",
@@ -50,12 +50,12 @@ local settings = {
 	nvimtree = {
 		enabled = true,
 		show_root = false,
-		transparent_panel = true,
+		transparent_panel = false,
 	},
 	neotree = {
 		enabled = false,
 		show_root = false,
-		transparent_panel = true,
+		transparent_panel = false,
 	},
 	which_key = false,
 	indent_blankline = {
