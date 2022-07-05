@@ -370,8 +370,21 @@ globalkeys = gears.table.join(
         end,
         {description = "focus previous by index", group = "client"}
     ),
-    awful.key({ modkey,           }, "e", function () mymainmenu:show() end,
-              {description = "show main menu", group = "awesome"}),
+    awful.key({ modkey,           }, "e", function ()
+        if naughty.is_suspended() then
+            naughty.resume()
+            naughty.destroy_all_notifications()
+            naughty.notify({ preset = naughty.config.presets.normal,
+                             title = "Do not disturb(Off)",
+                             text = "Notification is on again" })
+        else
+            naughty.notify({ preset = naughty.config.presets.normal,
+                             title = "Do not disturb(On)",
+                             text = "Notification is off" })
+            naughty.suspend()
+        end
+    end,
+              {description = "toggle do not disturb", group = "awesome"}),
 
     -- Layout manipulation
     awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end,
