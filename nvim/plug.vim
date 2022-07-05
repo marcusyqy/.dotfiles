@@ -97,7 +97,7 @@ Plug 'Th3Whit3Wolf/one-nvim'
 
 "debugging
 " Plug 'simrat39/rust-tools.nvim'
-" Plug 'mfussenegger/nvim-dap'
-" Plug 'rcarriga/nvim-dap-ui'
+Plug 'mfussenegger/nvim-dap'
+Plug 'rcarriga/nvim-dap-ui'
 call plug#end()
 
