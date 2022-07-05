@@ -81,13 +81,17 @@ local settings = {
 -- configure it
 catppuccin.setup(settings)
 EOF
+let g:tokyonight_lualine_bold=1
+let g:tokyonight_style="night"
 let g:vscode_italic_comment = 1
 " Vim Script
 let g:catppuccin_flavour = "mocha" " latte, frappe, macchiato, mocha
-colorscheme catppuccin
+lua vim.g.one_nvim_transparent_bg = true
 
-" lua vim.g.one_nvim_transparent_bg = true
+colorscheme catppuccin
 " colorscheme one-nvim
+"colorscheme tokyonight
+
 
 fun! ColorMyPencils()
     let g:neosolarized_termtrans=1
