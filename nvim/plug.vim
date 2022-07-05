@@ -93,6 +93,8 @@ Plug 'catppuccin/nvim', {'as': 'catppuccin'}
 Plug 'anuvyklack/keymap-layer.nvim'
 Plug 'anuvyklack/hydra.nvim'
 
+Plug 'Th3Whit3Wolf/one-nvim'
+
 "debugging
 " Plug 'simrat39/rust-tools.nvim'
 " Plug 'mfussenegger/nvim-dap'

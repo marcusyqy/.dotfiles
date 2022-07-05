@@ -81,10 +81,13 @@ local settings = {
 -- configure it
 catppuccin.setup(settings)
 EOF
-
+let g:vscode_italic_comment = 1
 " Vim Script
 let g:catppuccin_flavour = "mocha" " latte, frappe, macchiato, mocha
 colorscheme catppuccin
+
+" lua vim.g.one_nvim_transparent_bg = true
+" colorscheme one-nvim
 
 fun! ColorMyPencils()
     let g:neosolarized_termtrans=1
