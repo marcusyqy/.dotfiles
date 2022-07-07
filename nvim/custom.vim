@@ -32,6 +32,7 @@ nnoremap N Nzzzv
 nnoremap J mzJ`v
 
 inoremap <c-c> <esc>
+noremap <leader>sf <cmd>ClangdSwitchSourceHeader<cr>
 
 "undo breakpoints
 " inoremap , ,<c-g>u

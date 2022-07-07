@@ -67,7 +67,6 @@ Plug 'stevearc/dressing.nvim'
 Plug 'nvim-telescope/telescope-file-browser.nvim'
 "Plug 'tanvirtin/vgit.nvim' " for gitlens blame
 
-Plug 'kdheepak/lazygit.nvim'
 
 " for list
 Plug 'tjdevries/cyclist.vim'

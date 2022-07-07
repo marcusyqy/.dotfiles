@@ -6,7 +6,6 @@ require("telescope").setup {}
 require('telescope').load_extension('fzy_native')
 require("telescope").load_extension("file_browser")
 require('telescope').load_extension('project')
-require('telescope').load_extension('lazygit')
 -- Fuzzy find over current tasks
 require('telescope').load_extension('asynctasks')
 
@@ -67,10 +66,6 @@ nnoremap <leader>fgb <cmd>lua git_branch_private()<cr>
 "test for building
 nnoremap <leader>to <cmd>lua require('telescope').extensions.asynctasks.all()<cr>
 nnoremap <leader>te <cmd>e .tasks<cr>
-
-autocmd BufEnter * :lua require('lazygit.utils').project_root_dir()
-" setup mapping to call :LazyGit
-nnoremap <leader>lza <cmd>lua require("telescope").extensions.lazygit.lazygit()<CR>
 
 if has('win32')
     nnoremap <leader>-= <cmd>Telescope find_files cwd=~/AppData/Local/nvim<CR>
