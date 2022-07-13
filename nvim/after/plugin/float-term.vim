@@ -1,6 +1,5 @@
 "maybe map vim esc too
 tnoremap <c-[> <c-\><c-n>
-tnoremap <esc> <c-\><c-n>
 
 "toggle
 nnoremap <C-t> :FloatermToggle<CR>

@@ -54,6 +54,7 @@ Plug 'martinda/Jenkinsfile-vim-syntax'
 Plug 'rmagatti/auto-session'
 Plug 'preservim/nerdcommenter'
 Plug 'theprimeagen/harpoon'
+Plug 'theprimeagen/git-worktree.nvim'
 Plug 'groenewege/vim-less', { 'for': 'less' }
 Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
 Plug 'evanleck/vim-svelte', {'branch': 'main'}

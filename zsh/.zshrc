@@ -137,3 +137,4 @@ alias asdf='setxkbmap dvorak'
 alias aoeu='setxkbmap us'
 
 alias rscreen="sh ~/.dotfiles/.screenlayout/custom.sh"
+alias luamake=/home/marcus.yong/lua-language-server/3rd/luamake/luamake
