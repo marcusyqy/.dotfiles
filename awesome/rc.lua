@@ -721,6 +721,7 @@ end)
 -- spawn
 awful.spawn.once("nm-applet")
 awful.spawn.once("blueman-applet")
+awful.spawn.once("flameshot")
 awful.spawn.with_shell("sh ~/.dotfiles/scripts/linux/picom-start.sh")
 awful.spawn.with_shell("sh ~/.dotfiles/scripts/linux/screen-no-timeout.sh")
 awful.spawn.with_shell("sh ~/.dotfiles/.screenlayout/custom.sh")
