@@ -32,7 +32,7 @@ local settings = {
 			information = "italic",
 		},
 		underlines = {
-			errors = "underlineline",
+			errors = "underline",
 			hints = "underline",
 			warnings = "underline",
 			information = "underline",
