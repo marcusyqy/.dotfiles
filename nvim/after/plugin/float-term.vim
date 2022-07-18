@@ -1,4 +1,5 @@
 "maybe map vim esc too
+tnoremap <esc> <c-\><c-n>
 tnoremap <c-[> <c-\><c-n>
 
 "toggle
