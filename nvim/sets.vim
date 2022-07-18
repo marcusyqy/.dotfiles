@@ -17,7 +17,8 @@ set cursorline
 set noerrorbells
 set smarttab
 set scrolloff=8
-set nohlsearch
+" set nohlsearch
+set hlsearch
 
 " Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved.
