@@ -78,3 +78,16 @@ alias asdf='setxkbmap dvorak'
 
 #switch to us qwerty
 alias aoeu='setxkbmap us'
+
+## git work trees
+ If your repo is going to make use of Git LFS, at
+ this point you should stop and edit `.bare/config`
+ so that the `[remote "origin"]` section reads as:
+
+ [remote "origin"]
+         url = git@github.com:example/workit.git
+         fetch = +refs/heads/*:refs/remotes/origin/*
+
+ This ensures that new worktrees do not attempt to
+ re-upload every resource on first push.
+
