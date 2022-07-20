@@ -18,6 +18,8 @@ nnoremap <s-down> <C-w>-
 vnoremap <leader>p "_dp
 vnoremap <leader>P "_dP
 
+nnoremap <leader>fy <cmd>let @+=@%<CR>
+
 "make Y behave
 nnoremap Y y$
 
