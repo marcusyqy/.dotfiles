@@ -64,7 +64,7 @@ nnoremap <leader>fgb <cmd>lua git_branch_private()<cr>
 " nnoremap <leader>pp <cmd>lua require'telescope'.extensions.project.project{}<cr>
 
 "test for building
-nnoremap <leader>to <cmd>lua require('telescope').extensions.asynctasks.all()<cr>
+nnoremap <leader>to <cmd>lua require('telescope').extensions.asynctasks.all(require('telescope.themes').get_dropdown({}))<cr>
 nnoremap <leader>te <cmd>e .tasks<cr>
 
 if has('win32')
