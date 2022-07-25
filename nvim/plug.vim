@@ -99,5 +99,6 @@ Plug 'Th3Whit3Wolf/one-nvim'
 " Plug 'simrat39/rust-tools.nvim'
 Plug 'mfussenegger/nvim-dap'
 Plug 'rcarriga/nvim-dap-ui'
+Plug 'glepnir/lspsaga.nvim'
 call plug#end()
 
