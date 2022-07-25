@@ -3,15 +3,16 @@ if !exists('g:loaded_telescope') | finish | endif
 lua << EOF
 require("telescope").setup {}
 
-require('telescope').load_extension('fzy_native')
+require('telescope').load_extension("fzy_native")
 require("telescope").load_extension("file_browser")
-require('telescope').load_extension('project')
+require('telescope').load_extension("project")
 -- Fuzzy find over current tasks
-require('telescope').load_extension('asynctasks')
+require('telescope').load_extension("asynctasks")
+require("telescope").load_extension("git_worktree")
 
 
 
-local actions = require('telescope.actions')
+local actions = require("telescope.actions")
 
 -- require('telescope').setup{
 --   defaults = {
