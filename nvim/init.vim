@@ -9,22 +9,21 @@ syntax enable
 " load plugins
 runtime ./plug.vim
 
-let mapleader = " "
 
 " run sets vim scripts
 runtime ./sets.vim
 
+lua require("marcusyqy.language")
+lua require("marcusyqy.color")
 
-let g:lsp_cxx_hl_use_text_props = 1
+" runtime ./custom.vim
+lua require("marcusyqy.custom")
 
-runtime ./colors.vim
-
-runtime ./custom.vim
-
-runtime ./git.vim
-runtime ./navigation.vim
+lua require("marcusyqy.git")
+lua require("marcusyqy.navigation")
 
 lua << EOF
+
 local opts = {
   log_level = 'info',
   auto_session_enable_last_session = false,
@@ -36,6 +35,7 @@ local opts = {
 }
 
 require('auto-session').setup(opts)
+
 EOF
 
 fun! EmptyRegisters()

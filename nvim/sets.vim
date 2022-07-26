@@ -1,4 +1,5 @@
 
+let mapleader = " "
 "" set values here
 "set exrc
 

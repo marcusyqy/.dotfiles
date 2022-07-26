@@ -8,9 +8,6 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 " Specify a directory for plugins
 call plug#begin('~/.vim/plugged')
 
-Plug 'gruvbox-community/gruvbox'
-Plug 'overcache/NeoSolarized'
-
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-fugitive'
@@ -39,7 +36,7 @@ Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/nvim-cmp'
 
-Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate All' }
+Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
@@ -86,8 +83,8 @@ Plug 'skywind3000/asyncrun.vim'
 Plug 'GustavoKatel/telescope-asynctasks.nvim'
 Plug 'voldikss/vim-floaterm'
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
-Plug 'ayu-theme/ayu-vim' " or other package manager
 Plug 'luisiacc/gruvbox-baby', {'branch': 'main'}
+Plug 'ayu-theme/ayu-vim' " or other package manager
 Plug 'catppuccin/nvim', {'as': 'catppuccin'}
 
 Plug 'anuvyklack/keymap-layer.nvim'
