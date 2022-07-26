@@ -1,14 +1,11 @@
-if !exists('g:lspconfig')
-    finish
-endif
-
-
-lua << EOF
+if not vim.g.lspconfig then
+    return
+end
 
 -- luasnip setup
-local luasnip = require 'luasnip'
+local luasnip = require('luasnip')
 -- Setup nvim-cmp.
-local cmp = require 'cmp'
+local cmp = require('cmp')
 local lspkind = require('lspkind')
 
 lspkind.init({
@@ -311,5 +308,4 @@ end
 -- severity_sort = true
 --}
 --)
-EOF
 

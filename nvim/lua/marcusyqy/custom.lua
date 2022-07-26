@@ -15,18 +15,19 @@ nnoremap("<s-left>", "<C-w><")
 nnoremap("<s-right>", "<C-w>>")
 nnoremap("<s-up>", "<C-w>+")
 nnoremap("<s-down>", "<C-w>-")
-vnoremap("<leader>p", vimfn([["_dp]]))
-vnoremap("<leader>P", vimfn([["_dP]]))
+vnoremap("<leader>p", "\"_dp")
+vnoremap("<leader>P", "\"_dP")
 
-nnoremap("<leader>fy", function() vim.cmd([[:let @+=@%<CR>]]) end)
+-- nnoremap("<leader>fy", ":let @+=@%<cr>")
+nnoremap("<leader>fy", vimfn([[let @+=@%]]))
 
 -- make Y behave
 nnoremap("Y", "y$")
 
 -- yank to buffer
-nnoremap("<leader>y", function() vim.cmd([["+y]]) end)
-vnoremap("<leader>y", function() vim.cmd([["+y]]) end)
-nmap("<leader>Y", function() vim.cmd([["+Y]]) end)
+nnoremap("<leader>y", "\"+y")
+vnoremap("<leader>y", "\"+y")
+nmap("<leader>Y", "\"+Y")
 
 -- center cursor
 nnoremap("n", "nzzzv")
@@ -34,7 +35,7 @@ nnoremap("N", "Nzzzv")
 nnoremap("J", "mzJ`v")
 
 inoremap("<c-c>", "<esc>")
-nnoremap("<leader>sf", ":ClangdSwitchSourceHeader<cr>")
+nnoremap("<leader>sf", vimfn([[ClangdSwitchSourceHeader]]))
 
 -- undo breakpoints
 -- inoremap(",", ",<c-g>u")
@@ -45,16 +46,8 @@ nnoremap("<leader>sf", ":ClangdSwitchSourceHeader<cr>")
 -- inoremap("(", "(<c-g>u")
 -- inoremap("[", "[<c-g>u")
 
-nnoremap("<expr> k", function()
-    vim.cmd([[
-        (v:count > 5 ? "m'" . v:count : "") . 'k'
-    ]])
-end)
-nnoremap("<expr> j", function()
-    vim.cmd([[
-        (v:count > 5 ? "m'" . v:count : "") . 'j'
-    ]])
-end)
+nnoremap("<expr> k", "(v:count > 5 ? \"m'\" . v:count : \"\") . 'k'")
+nnoremap("<expr> j", "(v:count > 5 ? \"m'\" . v:count : \"\") . 'j'")
 
 vnoremap("J", ":m '>+1<CR>gv=gv")
 vnoremap("K", ":m '<-2<CR>gv=gv")

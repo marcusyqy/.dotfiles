@@ -7,7 +7,7 @@ require("marcusyqy.custom")
 require("marcusyqy.git")
 require("marcusyqy.keymap")
 require("marcusyqy.navigation")
-require("marcusyqy.sets")
+require("marcusyqy.set")
 
 -- directories
 require("marcusyqy.language")

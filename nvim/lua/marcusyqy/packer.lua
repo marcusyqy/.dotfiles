@@ -33,7 +33,13 @@ return require('packer').startup(function()
         "theprimeagen/harpoon",
         "theprimeagen/git-worktree.nvim",
         "stevearc/dressing.nvim",
-        "nvim-telescope/telescope-file-browser.nvim"
+        "nvim-telescope/telescope-file-browser.nvim",
+        "nvim-telescope/telescope-project.nvim"
+    }
+
+    use {
+        "L3MON4D3/LuaSnip",
+        "saadparwaiz1/cmp_luasnip"
     }
 
     -- status line

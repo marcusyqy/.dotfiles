@@ -1,6 +1,7 @@
-if !exists('g:loaded_telescope') | finish | endif
 
+if !exists('g:loaded_telescope') | finish | endif
 lua << EOF
+
 require("telescope").setup {}
 
 require('telescope').load_extension("fzy_native")
