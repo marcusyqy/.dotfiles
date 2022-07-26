@@ -1,1 +1,1 @@
-require("marcusyqy.statusline.lualine")
+require("marcusyqy.statusline.lualine_default")

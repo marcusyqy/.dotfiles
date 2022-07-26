@@ -43,7 +43,10 @@ return require('packer').startup(function()
     }
 
     -- status line
-    use "nvim-lualine/lualine.nvim"
+    use {
+      'nvim-lualine/lualine.nvim',
+      requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+    }
 
     -- Post-install/update hook with neovim command
     use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
