@@ -108,9 +108,9 @@ return require('packer').startup(function()
 
     -- Use specific branch, dependency and run lua file after load
     --
-    use {
-      'glepnir/galaxyline.nvim', branch = 'main', config = function() require 'statusline' end,
-      requires = {'kyazdani42/nvim-web-devicons'}
-    }
+    -- use {
+    --   'glepnir/galaxyline.nvim', branch = 'main', config = function() require 'statusline' end,
+    --   requires = {'kyazdani42/nvim-web-devicons'}
+    -- }
     --
 end)

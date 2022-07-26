@@ -20,5 +20,8 @@ M.tnoremap = bind("t")
 M.vimfn = function(x)
     return function() vim.cmd(x) end
 end
+M.viml = function(x)
+        vim.api.nvim_command(x)
+    end
 
 return M
