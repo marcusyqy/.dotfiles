@@ -1,0 +1,1 @@
+require("marcusyqy.statusline.galaxyline")
