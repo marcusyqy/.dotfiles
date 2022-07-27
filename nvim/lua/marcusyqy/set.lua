@@ -10,7 +10,7 @@ vim.opt.hidden = true
 vim.opt.relativenumber = true
 vim.opt.nu = true
 vim.opt.wrap = false
-vim.g.hlsearch = true
+vim.opt.hlsearch = false
 
 
 vim.opt.cursorline = true

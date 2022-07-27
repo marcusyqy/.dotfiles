@@ -11,8 +11,6 @@ require('telescope').load_extension("project")
 require('telescope').load_extension("asynctasks")
 require("telescope").load_extension("git_worktree")
 
-
-
 local actions = require("telescope.actions")
 
 -- require('telescope').setup{
