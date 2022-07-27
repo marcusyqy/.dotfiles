@@ -1,9 +1,13 @@
 
-if !exists('g:loaded_telescope') | finish | endif
-lua << EOF
+if not vim.g.loaded_telescope then
+    return
+end
+
+local Remaps = require("marcusyqy.keymap")
+local nnoremap = Remaps.nnoremap
+local vimfn = Remaps.vimfn
 
 require("telescope").setup {}
-
 require('telescope').load_extension("fzy_native")
 require("telescope").load_extension("file_browser")
 require('telescope').load_extension("project")
@@ -108,33 +112,26 @@ function git_branch_private()
         })
     end
 
-EOF
-"
-" " Using lua functions
-"nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
-"nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
-"nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
-"nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
+--
+--  " Using lua functions
+-- nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
+-- nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
+-- nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
+-- nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 
-nnoremap <leader>ps <cmd>lua require('telescope.builtin').grep_string({search = vim.fn.input("Find For > ")})<cr>
-" Find files using Telescope command-line sugar.
-" nnoremap <c-n> <cmd>Telescope git_files<cr>
-nnoremap <c-p> <cmd>lua require('telescope.builtin').git_files()<cr>
-nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
-nnoremap <leader>eps <cmd>lua require('telescope.builtin').live_grep(require('telescope.themes').get_dropdown({}))<cr>
-nnoremap <leader>fb <cmd>Telescope buffers<cr>
-nnoremap <leader>ft <cmd>Telescope file_browser<cr>
-nnoremap <leader>fh <cmd>Telescope help_tags<cr>
-nnoremap <leader>fgc <cmd>lua require('telescope.builtin').git_commits(require('telescope.themes').get_dropdown({}))<cr>
-nnoremap <leader>fgb <cmd>lua git_branch_private()<cr>
-" nnoremap <leader>pp <cmd>lua require'telescope'.extensions.project.project{}<cr>
+nnoremap("<leader>ps", function() require('telescope.builtin').grep_string({search = vim.fn.input("Find For > ")}) end);
 
-"test for building
-nnoremap <leader>to <cmd>lua require('telescope').extensions.asynctasks.all(require('telescope.themes').get_dropdown({previewer=false}))<cr>
-nnoremap <leader>te <cmd>e .tasks<cr>
+-- Find files using Telescope command-line sugar.
+nnoremap("<c-p>", function() require('telescope.builtin').git_files() end)
+nnoremap("<leader>ff", function() require('telescope.builtin').find_files() end)
+nnoremap("<leader>eps", function() require('telescope.builtin').live_grep(require('telescope.themes').get_dropdown({})) end)
+nnoremap("<leader>fb", function() require('telescope.builtin').buffers(require('telescope.themes').get_ivy({})) end)
+nnoremap("<leader>fh", function() require('telescope.builtin').help_tags(require('telescope.themes').get_ivy({})) end)
+nnoremap("<leader>fgc", function() require('telescope.builtin').git_commits(require('telescope.themes').get_dropdown({})) end)
+nnoremap("<leader>fgb", git_branch_private)
+-- nnoremap <leader>pp", <cmd>lua require'telescope'.extensions.project.project{}<cr>
 
-if has('win32')
-    nnoremap <leader>-= <cmd>Telescope find_files cwd=~/AppData/Local/nvim<CR>
-else
-    nnoremap <leader>-= <cmd>Telescope find_files cwd=~/.config/nvim<CR>
-endif
+-- test for building
+nnoremap("<leader>to", function() require('telescope').extensions.asynctasks.all(require('telescope.themes').get_dropdown({previewer=false})) end)
+nnoremap("<leader>te", vimfn([[e .tasks]]))
+
