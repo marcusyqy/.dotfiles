@@ -23,6 +23,9 @@ vim.opt.expandtab = true
 
 vim.opt.autoindent = true
 vim.opt.smartindent = true
+
+-- display chars for tabs and trailing spaces
+vim.opt.listchars="eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:·"
 vim.opt.list = false
 vim.opt.ignorecase = true
 vim.opt.smartcase = true

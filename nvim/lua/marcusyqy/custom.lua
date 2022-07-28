@@ -6,6 +6,13 @@ local inoremap = Remaps.inoremap
 local vnoremap = Remaps.vnoremap
 local vimfn = Remaps.vimfn
 
+-- planck keymaps
+nnoremap("<pageup>", "<c-u>")
+vnoremap("<pageup>", "<c-u>")
+
+nnoremap("<pagedown>", "<c-d>")
+vnoremap("<pagedown>", "<c-d>")
+
 -- removing the weird binding that doesn't let me go forward
 inoremap("<s-tab>", "<C-D>")
 vnoremap("<tab>", ">gv")

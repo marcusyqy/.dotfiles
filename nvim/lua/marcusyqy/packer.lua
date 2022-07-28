@@ -146,6 +146,7 @@ return require('packer').startup(function()
         { "evanleck/vim-svelte", branch = "main"}
     }
 
+    use("APZelos/blamer.nvim")
     -- use {
     --     'numToStr/Comment.nvim',
     --     config = function()
