@@ -146,11 +146,11 @@ return require('packer').startup(function()
         { "evanleck/vim-svelte", branch = "main"}
     }
 
-    -- Use specific branch, dependency and run lua file after load
-    --
     -- use {
-    --   'glepnir/galaxyline.nvim', branch = 'main', config = function() require 'statusline' end,
-    --   requires = {'kyazdani42/nvim-web-devicons'}
+    --     'numToStr/Comment.nvim',
+    --     config = function()
+    --         require('Comment').setup()
+    --     end
     -- }
-    --
+
 end)

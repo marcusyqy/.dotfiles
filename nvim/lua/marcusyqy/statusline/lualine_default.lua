@@ -1,6 +1,19 @@
 local status, lualine = pcall(require, "lualine")
 if (not status) then return end
 
+
+function searchCount()
+    local search = vim.fn.searchcount({maxcount = 0}) -- maxcount = 0 makes the number not be capped at 99
+    local searchCurrent = search.current
+    local searchTotal = search.total
+    if searchCurrent > 0 then
+        return "/"..vim.fn.getreg("/").." ["..searchCurrent.."/"..searchTotal.."]"
+    else
+        return ""
+    end
+end
+
+
 lualine.setup {
     options = {
         icons_enabled = true,
@@ -39,6 +52,8 @@ lualine.setup {
                 update_in_insert = false, -- Update diagnostics in insert mode.
                 always_visible = false,   -- Show diagnostics even if there are none.
             },
+            { searchCount },
+            'tabs',
             "encoding",
             "filetype",
             "fileformat",
