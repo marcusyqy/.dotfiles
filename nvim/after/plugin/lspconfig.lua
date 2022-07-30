@@ -2,6 +2,8 @@ if not vim.g.lspconfig then
     return
 end
 
+vim.opt.completeopt = { "menu", "menuone", "noselect" }
+
 -- luasnip setup
 local luasnip = require('luasnip')
 -- Setup nvim-cmp.
@@ -210,6 +212,9 @@ nvim_lsp.clangd.setup {
         "clangd",
         "--header-insertion=never",
         "--compile-commands-dir=${workspaceFolder}/",
+        "--background-index",
+        "--suggest-missing-includes",
+        "--clang-tidy",
         "--query-driver=/**/*"
     }
 }
