@@ -96,7 +96,13 @@ return require('packer').startup(function()
 
 
     -- Unless you are still migrating, remove the deprecated commands from v1.x
-    vim.g.neo_tree_remove_legacy_commands = 1
+    -- vim.g.neo_tree_remove_legacy_commands = 1
+
+    use {
+        "mrbjarksen/neo-tree-diagnostics.nvim",
+        requires = "nvim-neo-tree/neo-tree.nvim",
+        module = "neo-tree.sources.diagnostics", -- if wanting to lazyload
+    }
 
     use {
       "nvim-neo-tree/neo-tree.nvim",
@@ -147,6 +153,9 @@ return require('packer').startup(function()
     }
 
     use("APZelos/blamer.nvim")
+
+    use("Pocco81/true-zen.nvim")
+
     -- use {
     --     'numToStr/Comment.nvim',
     --     config = function()

@@ -129,6 +129,7 @@ nnoremap("<leader>fb", function() require('telescope.builtin').buffers(require('
 nnoremap("<leader>fh", function() require('telescope.builtin').help_tags(require('telescope.themes').get_ivy({})) end)
 nnoremap("<leader>fgc", function() require('telescope.builtin').git_commits(require('telescope.themes').get_dropdown({})) end)
 nnoremap("<leader>fgb", git_branch_private)
+nnoremap("<leader>cmd", function() require('telescope.builtin').commands() end)
 -- nnoremap <leader>pp", <cmd>lua require'telescope'.extensions.project.project{}<cr>
 
 -- test for building

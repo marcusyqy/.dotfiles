@@ -17,10 +17,32 @@ vim.fn.sign_define("DiagnosticSignHint",
 -- NOTE: this is changed from v1.x, which used the old style of highlight groups
 -- in the form "LspDiagnosticsSignWarning"
 require("neo-tree").setup({
+    sources = {
+        "filesystem",
+        "buffers",
+        "git_status",
+        "diagnostics",
+        -- ...and any additional source
+    },
     close_if_last_window = false, -- Close Neo-tree if it is the last window left in the tab
     popup_border_style = "rounded",
     enable_git_status = true,
     enable_diagnostics = true,
+    diagnostics = {
+       bind_to_cwd = true,
+       diag_sort_function = "severity", -- "severity" means diagnostic items are sorted by severity in addition to their positions.
+                                        -- "position" means diagnostic items are sorted strictly by their positions.
+                                        -- May also be a function.
+       follow_behavior = { -- Behavior when `follow_current_file` is true
+         always_focus_file = false, -- Focus the followed file, even when focus is currently on a diagnostic item belonging to that file.
+         expand_followed = true, -- Ensure the node of the followed file is expanded
+         collapse_others = true, -- Ensure other nodes are collapsed
+       },
+       follow_current_file = true,
+       group_dirs_and_files = true, -- when true, empty folders and files will be grouped together
+       group_empty_dirs = true, -- when true, empty directories will be grouped together
+       show_unloaded = true, -- show diagnostics from unloaded buffers
+     },
     sort_case_insensitive = false, -- used when sorting files and directories in the tree
     sort_function = nil , -- use a custom function for sorting files and directories in the tree
     -- sort_function = function (a,b)
@@ -207,3 +229,5 @@ require("neo-tree").setup({
 nnoremap("<C-n>", vimfn([[Neotree toggle reveal]]))
 nnoremap("<leader><C-n>h", vimfn([[Neotree reveal left]]))
 nnoremap("<leader><C-n>l", vimfn([[Neotree reveal right]]))
+
+nnoremap("<leader>sd", vimfn([[Neotree diagnostics reveal bottom]]))
