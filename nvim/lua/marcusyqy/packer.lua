@@ -156,6 +156,7 @@ return require('packer').startup(function()
 
     use("Pocco81/true-zen.nvim")
 
+    use { 'alvarosevilla95/luatab.nvim', requires='kyazdani42/nvim-web-devicons' }
     -- use {
     --     'numToStr/Comment.nvim',
     --     config = function()
