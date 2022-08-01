@@ -140,10 +140,13 @@ return require('packer').startup(function()
         "onsails/lspkind-nvim",
         "nvim-lua/lsp_extensions.nvim",
         "neovim/nvim-lspconfig",
-        "glepnir/lspsaga.nvim",
         "sbdchd/neoformat"
-
     }
+
+    use({
+        "glepnir/lspsaga.nvim",
+        branch = "main"
+    })
 
     use {
         "martinda/Jenkinsfile-vim-syntax",
