@@ -128,7 +128,8 @@ end, { silent = true })
 nnoremap("gs", require("lspsaga.signaturehelp").signature_help, { silent = true,noremap = true})
 --
 -- preview definition
-nnoremap("gD", require("lspsaga.definition").preview_definition, { silent = true,noremap = true })
+nnoremap("gp", require("lspsaga.definition").preview_definition, { silent = true,noremap = true })
+nnoremap("gr", require("lspsaga.rename").lsp_rename, { silent = true,noremap = true })
 
 -- jump and show diagnostic (try)
 nnoremap("<leader>cd", require("lspsaga.diagnostic").show_line_diagnostics, { silent = true,noremap = true })
