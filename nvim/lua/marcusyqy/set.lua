@@ -10,8 +10,7 @@ vim.opt.hidden = true
 vim.opt.relativenumber = true
 vim.opt.nu = true
 vim.opt.wrap = false
-vim.opt.hlsearch = false
-
+vim.opt.hlsearch = require("marcusyqy.utils.hlsearch").hlsearch -- uses some config
 
 vim.opt.cursorline = true
 vim.opt.signcolumn = "yes"
