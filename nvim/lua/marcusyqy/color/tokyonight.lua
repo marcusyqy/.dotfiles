@@ -15,4 +15,4 @@ vim.g.tokyonight_colors = {
     bg_float = "none"
 }
 
-vim.cmd("colorscheme tokyonight")
+vim.cmd([[colorscheme tokyonight]])

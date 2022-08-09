@@ -139,6 +139,7 @@ return require('packer').startup(function()
     use {
         "onsails/lspkind-nvim",
         "nvim-lua/lsp_extensions.nvim",
+        "williamboman/nvim-lsp-installer",
         "neovim/nvim-lspconfig",
         "sbdchd/neoformat"
     }
@@ -156,8 +157,6 @@ return require('packer').startup(function()
     }
 
     use("APZelos/blamer.nvim")
-
-    use("Pocco81/true-zen.nvim")
 
     use { 'alvarosevilla95/luatab.nvim', requires='kyazdani42/nvim-web-devicons' }
     -- use {

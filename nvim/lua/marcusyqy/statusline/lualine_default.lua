@@ -14,10 +14,11 @@ function searchCount()
 end
 
 
+
 lualine.setup {
     options = {
         icons_enabled = true,
-        theme = 'auto',
+        theme = require("marcusyqy.color").colorscheme,
         component_separators = { left = '', right = ''},
         section_separators = { left = '', right = ''},
         disabled_filetypes = {
