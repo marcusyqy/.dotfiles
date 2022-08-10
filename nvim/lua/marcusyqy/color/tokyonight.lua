@@ -12,7 +12,8 @@ vim.g.tokyonight_hide_inactive_statusline = false-- Enabling this option, will h
 
 -- allow telescope to be transparent
 vim.g.tokyonight_colors = {
-    bg_float = "none"
+    bg_float = "none",
+    border = "orange"
 }
 
 vim.cmd([[colorscheme tokyonight]])
