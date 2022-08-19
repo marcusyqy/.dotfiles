@@ -8,7 +8,7 @@ local nnoremap = Remaps.nnoremap
 local vimfn = Remaps.vimfn
 
 require("telescope").setup {}
-require('telescope').load_extension("fzy_native")
+require('telescope').load_extension("fzf")
 require("telescope").load_extension("file_browser")
 require('telescope').load_extension("project")
 -- Fuzzy find over current tasks
@@ -134,7 +134,16 @@ local options = {
            require('telescope.previewers.utils').job_maker(cmd, bufnr, opts)
        end
    },
-   extensions_list = { "themes", "terms" },
+   extensions_list = { "themes", "terms"},
+   extensions = {
+       fzf = {
+            fuzzy = true,                    -- false will only do exact matching
+            override_generic_sorter = true,  -- override the generic sorter
+            override_file_sorter = true,     -- override the file sorter
+            case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
+                                               -- the default case_mode is "smart_case"
+       }
+  }
 }
 
 require("telescope").setup(options)
@@ -142,13 +151,13 @@ require("telescope").setup(options)
 -- load extensions
 pcall(function()
    for _, ext in ipairs(options.extensions_list) do
-      telescope.load_extension(ext)
+      require("telescope").load_extension(ext)
    end
 end)
 
 
 
-function git_branch_private()
+local function git_branch_private()
     require'telescope.builtin'.git_branches({ attach_mappings = function(_, map)
             map('i', '<c-d>', actions.git_delete_branch)
             map('n', '<c-d>', actions.git_delete_branch)

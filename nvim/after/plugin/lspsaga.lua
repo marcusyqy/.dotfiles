@@ -1,6 +1,7 @@
 local Remap = require("marcusyqy.keymap")
 local nnoremap = Remap.nnoremap
 local vnoremap = Remap.vnoremap
+local vimfn = Remap.vimfn
 
 local saga = require("lspsaga")
 
@@ -9,7 +10,6 @@ local kind = require("lspsaga.lspkind")
 -- kind[type_number][2] = icon -- see lua/lspsaga/lspkind.lua
 
 -- use default config
--- saga.init_lsp_saga()
 
 -- use custom config
 saga.init_lsp_saga({
@@ -106,12 +106,12 @@ saga.init_lsp_saga({
 
 
 
-nnoremap("<leader>rr", require("lspsaga.finder").lsp_finder)
+nnoremap("<leader>rr", vimfn([[Lspsaga lsp_finder]]))
 
-nnoremap("<leader>ca", require("lspsaga.codeaction").code_action, { silent = true,noremap = true })
+nnoremap("<leader>ca", vimfn([[Lspsaga code_action]]), { silent = true,noremap = true })
 vnoremap("<leader>ca", function()
     vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<C-U>", true, false, true))
-    require("lspsaga.codeaction").range_code_action()
+    vimfn([[Lspsaga range_code_action]])
 end, { silent = true,noremap =true })
 
 -- show hover doc and press twice will jumpto hover window
@@ -125,26 +125,18 @@ vim.keymap.set("n", "<C-b>", function()
     require("lspsaga.action").smart_scroll_with_saga(-1)
 end, { silent = true })
 
-nnoremap("gs", require("lspsaga.signaturehelp").signature_help, { silent = true,noremap = true})
+nnoremap("gs",  vimfn([[Lspsaga signature_help]]), { silent = true,noremap = true})
 --
 -- preview definition
-nnoremap("gp", require("lspsaga.definition").preview_definition, { silent = true,noremap = true })
-nnoremap("gr", require("lspsaga.rename").lsp_rename, { silent = true,noremap = true })
+nnoremap("gp", vimfn([[Lspsaga preview_definition]]), { silent = true,noremap = true })
+nnoremap("gr", vimfn([[Lspsaga rename]]), { silent = true,noremap = true })
 
 -- jump and show diagnostic (try)
-nnoremap("<leader>cd", require("lspsaga.diagnostic").show_line_diagnostics, { silent = true,noremap = true })
+nnoremap("<leader>cd", vimfn([[Lspsaga show_line_diagnostics]]), { silent = true,noremap = true })
 
 -- jump diagnostic
-nnoremap("[e", require("lspsaga.diagnostic").goto_prev, { silent = true, noremap =true })
-nnoremap("]e", require("lspsaga.diagnostic").goto_next, { silent = true, noremap =true })
--- or jump to error
-nnoremap("[E", function()
-  require("lspsaga.diagnostic").goto_prev({ severity = vim.diagnostic.severity.ERROR })
-end, { silent = true, noremap = true })
-vim.keymap.set("n", "]E", function()
-  require("lspsaga.diagnostic").goto_next({ severity = vim.diagnostic.severity.ERROR })
-end, { silent = true, noremap = true })
-
+nnoremap("[e", vimfn([[Lspsaga diagnostic_jump_prev]]), { silent = true, noremap =true })
+nnoremap("]e", vimfn([[Lspsaga diagnostic_jump_next]]), { silent = true, noremap =true })
 -- or use command
 
 

@@ -29,7 +29,7 @@ return require('packer').startup(function()
         "nvim-lua/popup.nvim",
         "nvim-lua/plenary.nvim",
         "nvim-telescope/telescope.nvim",
-        "nvim-telescope/telescope-fzy-native.nvim",
+        { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
         "theprimeagen/harpoon",
         "theprimeagen/git-worktree.nvim",
         "stevearc/dressing.nvim",
@@ -145,8 +145,7 @@ return require('packer').startup(function()
     }
 
     use({
-        "glepnir/lspsaga.nvim",
-        branch = "main"
+        "glepnir/lspsaga.nvim", branch = "main" -- , commit="37bb464d55ba068ad14befd048c82cef007cea4d"
     })
 
     use {
