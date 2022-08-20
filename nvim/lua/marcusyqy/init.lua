@@ -1,4 +1,6 @@
 -- init.lua stuff that needs to be done first
+require("marcusyqy.settings")
+
 vim.cmd([[
     syntax on
     filetype off "required

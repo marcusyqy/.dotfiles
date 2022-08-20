@@ -1,4 +1,4 @@
-local is_transparent = not vim.fn.has("win32")
+local is_transparent = require("marcusyqy.settings").transparent_window
 vim.g.tokyonight_transparent_sidebar = is_transparent
 vim.g.tokyonight_transparent = is_transparent -- true
 vim.g.background = "dark"
