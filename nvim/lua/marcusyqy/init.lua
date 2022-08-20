@@ -22,6 +22,7 @@ require("marcusyqy.set")
 require("marcusyqy.color")
 require("marcusyqy.language")
 require("marcusyqy.statusline")
+require("marcusyqy.shell")
 
 -- events
 local augroup = vim.api.nvim_create_augroup
