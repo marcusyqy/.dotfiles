@@ -25,11 +25,16 @@ return require('packer').startup(function()
         "hrsh7th/nvim-cmp"
     }
 
+    if vim.fn.has("win32") then
+        use {"nvim-telescope/telescope-fzy-native.nvim" }
+    else
+        use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+    end
+
     use {
         "nvim-lua/popup.nvim",
         "nvim-lua/plenary.nvim",
         "nvim-telescope/telescope.nvim",
-        { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
         "theprimeagen/harpoon",
         "theprimeagen/git-worktree.nvim",
         "stevearc/dressing.nvim",

@@ -1,5 +1,6 @@
-vim.g.tokyonight_transparent_sidebar = true
-vim.g.tokyonight_transparent = true
+local is_transparent = not vim.fn.has("win32")
+vim.g.tokyonight_transparent_sidebar = is_transparent
+vim.g.tokyonight_transparent = is_transparent -- true
 vim.g.background = "dark"
 
 vim.g.tokyonight_italic_comments	= true	-- Make comments italic

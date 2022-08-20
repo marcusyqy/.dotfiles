@@ -1,4 +1,14 @@
--- must be first
+-- init.lua stuff that needs to be done first
+vim.cmd([[
+    syntax on
+    filetype off "required
+    syntax enable
+]])
+
+-- set leader before anything else
+vim.g.mapleader = " "
+
+-- modules
 require("marcusyqy.packer")
 
 -- files

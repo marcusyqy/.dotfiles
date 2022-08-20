@@ -8,7 +8,14 @@ local nnoremap = Remaps.nnoremap
 local vimfn = Remaps.vimfn
 
 require("telescope").setup {}
-require('telescope').load_extension("fzf")
+
+-- hack for windows
+if(vim.fn.has("win32")) then
+    require('telescope').load_extension('fzy_native')
+else
+    require('telescope').load_extension("fzf")
+end
+
 require("telescope").load_extension("file_browser")
 require('telescope').load_extension("project")
 -- Fuzzy find over current tasks
