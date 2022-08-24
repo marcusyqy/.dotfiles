@@ -25,9 +25,11 @@ return require('packer').startup(function()
         "hrsh7th/nvim-cmp"
     }
 
-    if vim.fn.has("win32") then
+    if vim.fn.has("win32") == 1 then
+        print("what happen")
         use {"nvim-telescope/telescope-fzy-native.nvim" }
     else
+        print("correct")
         use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
     end
 

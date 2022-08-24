@@ -10,7 +10,7 @@ local vimfn = Remaps.vimfn
 require("telescope").setup {}
 
 -- hack for windows
-if(vim.fn.has("win32")) then
+if vim.fn.has("win32") == 1 then
     require('telescope').load_extension('fzy_native')
 else
     require('telescope').load_extension("fzf")
