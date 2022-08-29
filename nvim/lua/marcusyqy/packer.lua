@@ -165,6 +165,7 @@ return require('packer').startup(function()
     use("APZelos/blamer.nvim")
 
     use { 'alvarosevilla95/luatab.nvim', requires='kyazdani42/nvim-web-devicons' }
+    use { 'p00f/clangd_extensions.nvim' }
     -- use {
     --     'numToStr/Comment.nvim',
     --     config = function()
