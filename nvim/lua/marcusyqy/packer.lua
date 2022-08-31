@@ -26,10 +26,8 @@ return require('packer').startup(function()
     }
 
     if vim.fn.has("win32") == 1 then
-        print("what happen")
         use {"nvim-telescope/telescope-fzy-native.nvim" }
     else
-        print("correct")
         use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
     end
 
@@ -57,6 +55,8 @@ return require('packer').startup(function()
 
     -- Post-install/update hook with neovim command
     use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
+    use 'nvim-treesitter/nvim-treesitter-context'
+
 
 
     -- colorschemes
@@ -83,11 +83,21 @@ return require('packer').startup(function()
 
     -- tpope
     use  {
-        "tpope/vim-surround",
         "tpope/vim-repeat",
         "tpope/vim-fugitive",
         "tpope/vim-rhubarb"
     }
+
+    use({
+        "kylechui/nvim-surround",
+        tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+        config = function()
+            require("nvim-surround").setup({
+                -- Configuration here, or leave empty to use defaults
+            })
+        end
+    })
+
 
     -- hydra
     use {
