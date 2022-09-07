@@ -61,6 +61,6 @@ vim.opt.termguicolors = true
 --
 -- set ai "Auto indent
 -- set si "Smart indent
+vim.o.background = 'dark'
 
 vim.opt.mouse="a"
-

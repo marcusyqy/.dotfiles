@@ -1,7 +1,7 @@
-
+local is_transparent = require("marcusyqy.settings").transparent_window
 local catppuccin = require("catppuccin")
 local settings = {
-    transparent_background = false,
+    transparent_background = is_transparent,
     term_colors = false,
     styles = {
         comments = "italic",

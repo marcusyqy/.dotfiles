@@ -62,8 +62,9 @@ return require('packer').startup(function()
     -- colorschemes
     use {
         {"folke/tokyonight.nvim",  branch = "main"},
+        {"Mofiqul/vscode.nvim"},
         {"luisiacc/gruvbox-baby", branch = "main"},
-        {"ayu-theme/ayu-vim"}, -- or other package manager
+        { "EdenEast/nightfox.nvim", run = ":NightfoxCompile", },
         {"catppuccin/nvim", as = "catppuccin"}
     }
 
