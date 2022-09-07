@@ -32,7 +32,24 @@ require('nightfox').setup({
     },
   },
   palettes = {},
-  specs = {},
+  specs = {
+    nordfox = {
+        syntax = {
+            -- Specs allow you to define a value using either a color or template. If the string does
+            -- start with `#` the string will be used as the path of the palette table. Defining just
+            -- a color uses the base version of that color.
+            -- variable = "red",
+            -- variables = "red",
+            -- argument = "red",
+            -- arguments = "red",
+            -- declarator = "red",
+        },
+        git = {
+            -- A color define can also be used
+            changed = "#f4a261",
+        },
+    },
+  },
   groups = {},
 })
 
