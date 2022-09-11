@@ -59,6 +59,8 @@ nnoremap("<expr> j", "(v:count > 5 ? \"m'\" . v:count : \"\") . 'j'")
 vnoremap("J", ":m '>+1<CR>gv=gv")
 vnoremap("K", ":m '<-2<CR>gv=gv")
 
+vnoremap("<leader>p", "\"_dP")
+
 -- "nice removing of whitespaces!
 -- fun! TrimWhiteSpace()
 --     let l:save = winsaveview()

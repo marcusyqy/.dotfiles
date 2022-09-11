@@ -34,8 +34,16 @@ return require('packer').startup(function()
     use {
         "nvim-lua/popup.nvim",
         "nvim-lua/plenary.nvim",
-        "nvim-telescope/telescope.nvim",
-        "theprimeagen/harpoon",
+        { "nvim-telescope/telescope.nvim",
+        requires = {
+            "nvim-lua/popup.nvim",
+            "nvim-lua/plenary.nvim",
+        }},
+        {"theprimeagen/harpoon",
+        requires = {
+            "nvim-lua/popup.nvim",
+            "nvim-lua/plenary.nvim",
+        }},
         "theprimeagen/git-worktree.nvim",
         "stevearc/dressing.nvim",
         "nvim-telescope/telescope-file-browser.nvim",
@@ -102,10 +110,10 @@ return require('packer').startup(function()
 
 
     -- hydra
-    use {
-        "anuvyklack/keymap-layer.nvim",
-        "anuvyklack/hydra.nvim"
-    }
+    -- use {
+    --     "anuvyklack/keymap-layer.nvim",
+    --     "anuvyklack/hydra.nvim"
+    -- }
 
     -- nvim-tree
     use {
