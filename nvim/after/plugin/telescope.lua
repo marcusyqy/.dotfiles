@@ -69,7 +69,7 @@ local options = {
          },
          width = 0.87,
          height = 0.80,
-         preview_cutoff = 120,
+         preview_cutoff = 20,
       },
       file_sorter = require("telescope.sorters").get_fuzzy_file,
       file_ignore_patterns = {
@@ -180,12 +180,12 @@ local function git_branch_private()
 -- nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
 -- nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 
-nnoremap("<leader>ps", function() require('telescope.builtin').grep_string({search = vim.fn.input("Find For > ")}) end);
+nnoremap("<leader>ps", function() require('telescope.builtin').grep_string({search = vim.fn.input("Find For > "), previewer=false}) end);
 
 -- Find files using Telescope command-line sugar.
-nnoremap("<c-p>", function() require('telescope.builtin').git_files() end)
-nnoremap("<leader>ff", function() require('telescope.builtin').find_files() end)
-nnoremap("<leader>eps", function() require('telescope.builtin').live_grep(require('telescope.themes').get_dropdown({})) end)
+nnoremap("<c-p>", function() require('telescope.builtin').git_files({previewer=false}) end)
+nnoremap("<leader>ff", function() require('telescope.builtin').find_files({previewer=false}) end)
+nnoremap("<leader>eps", function() require('telescope.builtin').live_grep(require('telescope.themes').get_dropdown({previewer=false})) end)
 nnoremap("<leader>fb", function() require('telescope.builtin').buffers(require('telescope.themes').get_ivy({})) end)
 nnoremap("<leader>fh", function() require('telescope.builtin').help_tags(require('telescope.themes').get_ivy({})) end)
 nnoremap("<leader>fgc", function() require('telescope.builtin').git_commits(require('telescope.themes').get_dropdown({})) end)

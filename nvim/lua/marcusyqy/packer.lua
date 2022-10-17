@@ -130,6 +130,12 @@ return require('packer').startup(function()
         requires = "nvim-neo-tree/neo-tree.nvim",
         module = "neo-tree.sources.diagnostics", -- if wanting to lazyload
     }
+    use {
+      "rcarriga/nvim-notify",
+      config = function()
+          vim.notify = require("notify")
+      end
+    }
 
     use {
       "nvim-neo-tree/neo-tree.nvim",

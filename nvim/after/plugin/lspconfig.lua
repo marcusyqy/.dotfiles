@@ -214,7 +214,7 @@ local servers = { "svelte", "gopls", "pylsp" }
 for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup {
         on_attach = on_attach,
-        capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+        capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
     }
 
 -- nvim_lsp.clangd.setup {
@@ -233,7 +233,7 @@ for _, lsp in ipairs(servers) do
 
 nvim_lsp.tsserver.setup ({
     on_attach = on_attach,
-    capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+    capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities()),
     filetypes = {
         "typescript", "typescriptreact", "typescript.tsx"
     }
@@ -284,7 +284,7 @@ nvim_lsp.rust_analyzer.setup({
             },
         }
     },
-    capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+    capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities()),
     flags = {
       debounce_text_changes = 150,
     }
@@ -331,7 +331,7 @@ require("clangd_extensions").setup {
         -- options to pass to nvim-lspconfig
         -- i.e. the arguments to require("lspconfig").clangd.setup({})
         on_attach = on_attach,
-        capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+        capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities()),
         cmd={
             "clangd",
             "--header-insertion=never",
