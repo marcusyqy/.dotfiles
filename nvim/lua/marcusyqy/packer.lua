@@ -73,6 +73,7 @@ return require('packer').startup(function()
         {"folke/tokyonight.nvim",  branch = "main"},
         {"Mofiqul/vscode.nvim"},
         {"luisiacc/gruvbox-baby", branch = "main"},
+        { "ellisonleao/gruvbox.nvim" },
         { "EdenEast/nightfox.nvim", run = ":NightfoxCompile", },
         {"catppuccin/nvim", as = "catppuccin"}
     }
@@ -131,10 +132,7 @@ return require('packer').startup(function()
         module = "neo-tree.sources.diagnostics", -- if wanting to lazyload
     }
     use {
-      "rcarriga/nvim-notify",
-      config = function()
-          vim.notify = require("notify")
-      end
+      "rcarriga/nvim-notify"
     }
 
     use {

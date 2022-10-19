@@ -65,6 +65,6 @@ map ctrl+shift+h prev_tab
 
 
 # BEGIN_KITTY_THEME
-# Dracula
+# Nord
 include current-theme.conf
 # END_KITTY_THEME
