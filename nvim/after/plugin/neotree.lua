@@ -226,8 +226,4 @@ require("neo-tree").setup({
     }
 })
 
-nnoremap("<C-n>", vimfn([[Neotree toggle reveal]]))
-nnoremap("<leader><C-n>h", vimfn([[Neotree reveal left]]))
-nnoremap("<leader><C-n>l", vimfn([[Neotree reveal right]]))
-
-nnoremap("<leader>sd", vimfn([[Neotree diagnostics reveal bottom]]))
+nnoremap("<leader>nt", vimfn([[Neotree toggle reveal]]))
