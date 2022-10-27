@@ -171,9 +171,6 @@ for_window [class="^.*"] border pixel 2
 new_window pixel 2
 
 
-#Gaps inner/outer
-gaps outer 7
-gaps inner 7
 
 #Rofi
 bindsym $mod+space exec "rofi -combi-modi window,drun -show combi -modi combi"

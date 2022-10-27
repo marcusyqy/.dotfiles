@@ -22,18 +22,18 @@ window:
     columns: 0
     lines: 0
 
-  opacity: 0.8
+  opacity: 1.0
 
   # Window padding (changes require restart)
   #
   # Blank space added around the window in pixels. This padding is not scaled by
   # DPI and the specified value is always added at both opposing sides.
   padding:
-    x: 10
-    y: 10
+    x: 1
+    y: 0
 
   # Spread additional padding evenly around the terminal content.
-  dynamic_padding: false
+  dynamic_padding: true
 
   # Window decorations
   #
@@ -42,7 +42,7 @@ window:
   # - none: neither borders nor title bar
   # - transparent: title bar, transparent background and title bar buttons
   # - buttonless: title bar, transparent background, but no title bar buttons
-  decorations: full
+  decorations: none
     #buttonless
 
   # Startup Mode (changes require restart)
@@ -54,7 +54,7 @@ window:
   #
   # Values for `startup_mode` (macOS only):
   #   - SimpleFullscreen
-  startup_mode: Maximized
+  startup_mode: Windowed
 
 scrolling:
   # maximum number of lines in the scrollback buffer. Specifying '0' will
@@ -81,7 +81,7 @@ font:
     style: Bold Italic
 
   # Point size of the font
-  size: 14.0
+  size: 12.0
 
   # Offset is the extra space around each character. offset.y can be thought of
   # as modifying the linespacing, and offset.x as modifying the letter spacing.
@@ -110,44 +110,97 @@ font:
   #
   # This is a global setting and will require a log out or restart to take
   # effect.
-  use_thin_strokes: true
+  #AppleFontSmoothing: true
 
 # When true, bold text is drawn using the bright variant of colors.
-draw_bold_text_with_bright_colors: false
+draw_bold_text_with_bright_colors: true
 
 # Use custom cursor colors. If true, display the cursor in the cursor.foreground
 # and cursor.background colors, otherwise invert the colors of the cursor.
 custom_cursor_colors: true
 
-# Colors (Gruvbox Dark)
 colors:
-  bright:
-    black: '#7f7061'
-    blue: '#719586'
-    cyan: '#7db669'
-    green: '#aab01e'
-    magenta: '#c77089'
-    red: '#f73028'
-    white: '#e6d4a3'
-    yellow: '#f7b125'
-  cursor:
-    cursor: '#e6d4a3'
-    text: '#1e1e1e'
-  normal:
-    black: '#1e1e1e'
-    blue: '#377375'
-    cyan: '#578e57'
-    green: '#868715'
-    magenta: '#a04b73'
-    red: '#be0f17'
-    white: '#978771'
-    yellow: '#cc881a'
   primary:
-    background: '#1e1e1e'
-    foreground: '#e6d4a3'
+    background: '#282a36'
+    foreground: '#f8f8f2'
+    bright_foreground: '#ffffff'
+  cursor:
+    text: CellBackground
+    cursor: CellForeground
+  vi_mode_cursor:
+    text: CellBackground
+    cursor: CellForeground
+  search:
+    matches:
+      foreground: '#44475a'
+      background: '#50fa7b'
+    focused_match:
+      foreground: '#44475a'
+      background: '#ffb86c'
+  footer_bar:
+    background: '#282a36'
+    foreground: '#f8f8f2'
+  hints:
+    start:
+      foreground: '#282a36'
+      background: '#f1fa8c'
+    end:
+      foreground: '#f1fa8c'
+      background: '#282a36'
+  line_indicator:
+    foreground: None
+    background: None
   selection:
-    background: '#e6d4a3'
-    text: '#534a42'
+    text: CellForeground
+    background: '#44475a'
+  normal:
+    black: '#21222c'
+    red: '#ff5555'
+    green: '#50fa7b'
+    yellow: '#f1fa8c'
+    blue: '#bd93f9'
+    magenta: '#ff79c6'
+    cyan: '#8be9fd'
+    white: '#f8f8f2'
+  bright:
+    black: '#6272a4'
+    red: '#ff6e6e'
+    green: '#69ff94'
+    yellow: '#ffffa5'
+    blue: '#d6acff'
+    magenta: '#ff92df'
+    cyan: '#a4ffff'
+    white: '#ffffff'
+
+# Colors (Gruvbox Dark)
+# colors:
+#   bright:
+#     black: '#7f7061'
+#     blue: '#719586'
+#     cyan: '#7db669'
+#     green: '#aab01e'
+#     magenta: '#c77089'
+#     red: '#f73028'
+#     white: '#e6d4a3'
+#     yellow: '#f7b125'
+#   cursor:
+#     cursor: '#e6d4a3'
+#     text: '#1e1e1e'
+#   normal:
+#     black: '#1e1e1e'
+#     blue: '#377375'
+#     cyan: '#578e57'
+#     green: '#868715'
+#     magenta: '#a04b73'
+#     red: '#be0f17'
+#     white: '#978771'
+#     yellow: '#cc881a'
+#   primary:
+#     background: '#1e1e1e'
+#     foreground: '#e6d4a3'
+#   selection:
+#     background: '#e6d4a3'
+#     text: '#534a42'
 
 
 # Visual Bell

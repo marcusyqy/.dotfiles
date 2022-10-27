@@ -12,6 +12,12 @@ link_tmux() {
     ln -s $DOTFILES/tmux/.tmux.conf $tmuxconfig
 }
 
+link_alacritty() {
+    #[ -d "~/.config/alacritty" ] &&
+    rm -rf ~/.config/alacritty
+    ln -s $DOTFILES/alacritty ~/.config/alacritty
+}
+
 link_kitty() {
     #[ -d "~/.config/alacritty" ] &&
     kittyconfig="$HOME/.config/kitty"
@@ -78,6 +84,7 @@ link_awesomewm() {
 
 
 link_nvim
+link_alacritty
 link_tmux
 link_kitty
 link_zsh
