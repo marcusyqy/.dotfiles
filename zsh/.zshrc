@@ -143,3 +143,5 @@ DEV_ENV=~/dev_env.sh
 if [ -f "$DEV_ENV" ]; then
     source $DEV_ENV
 fi
+
+alias lk="i3lock --color=000000"
