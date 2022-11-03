@@ -32,3 +32,5 @@ end
 
 nnoremap("<C-q>", function() ToggleQFList(1) end)
 
+vim.cmd("cnoreabbrev ClearQuickfixList cexpr []")
+vim.cmd("cnoreabbrev cqfl cexpr []")

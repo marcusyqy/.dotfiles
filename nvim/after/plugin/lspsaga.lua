@@ -70,13 +70,13 @@ saga.init_lsp_saga({
         exec = "<CR>",
     },
     definition_action_keys = {
-      edit = '<C-c>o',
-      vsplit = '<C-c>v',
-      split = '<C-c>i',
-      tabe = '<C-c>t',
+      edit = '<esc>o',
+      vsplit = '<esc>v',
+      split = '<esc>i',
+      tabe = '<esc>t',
       quit = 'q',
     },
-    rename_action_quit = "<C-c>",
+    rename_action_quit = "<esc>",
     rename_in_select = true,
     -- show symbols in winbar must nightly
     symbol_in_winbar = {
@@ -119,17 +119,11 @@ vnoremap("<leader>ca", function()
     vimfn([[Lspsaga range_code_action]])
 end, { silent = true,noremap =true })
 
--- show hover doc and press twice will jumpto hover window
-nnoremap("K", require("lspsaga.hover").render_hover_doc, { silent = true })
--- scroll down hover doc or scroll in definition preview
-vim.keymap.set("n", "<C-f>", function()
-    require("lspsaga.action").smart_scroll_with_saga(1)
-end, { silent = true })
--- scroll up hover doc
-vim.keymap.set("n", "<C-b>", function()
-    require("lspsaga.action").smart_scroll_with_saga(-1)
-end, { silent = true })
 
+nnoremap("<leader>o", vimfn([[LSoutlineToggle]]), {silent = true, noremap = true})
+
+-- show hover doc and press twice will jumpto hover window
+nnoremap("K", vimfn([[Lspsaga hover_doc]]), { silent = true })
 nnoremap("gs",  vimfn([[Lspsaga signature_help]]), { silent = true,noremap = true})
 --
 -- preview definition
@@ -143,5 +137,4 @@ nnoremap("<leader>cd", vimfn([[Lspsaga show_line_diagnostics]]), { silent = true
 nnoremap("[e", vimfn([[Lspsaga diagnostic_jump_prev]]), { silent = true, noremap =true })
 nnoremap("]e", vimfn([[Lspsaga diagnostic_jump_next]]), { silent = true, noremap =true })
 -- or use command
-
 

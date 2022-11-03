@@ -3,12 +3,12 @@ local nnoremap = Remaps.nnoremap
 local tnoremap = Remaps.tnoremap
 
 -- maybe map vim esc too
-tnoremap("<esc>", "<c-\\><c-n>")
+tnoremap("esc", "<c-\\><c-n>")
+tnoremap("<c-t>", "<c-\\><c-n>")
 tnoremap("<c-[>", "<c-\\><c-n>")
 
 -- toggle
-nnoremap("<C-t>", ":FloatermToggle<CR>")
-tnoremap("<C-t>", "<C-\\><C-n>:FloatermToggle<CR>")
+nnoremap("<leader>ftt", ":FloatermToggle<CR>")
 
 -- new terminal in tab
 nnoremap("<leader>tt", ":tabnew<CR>:term<CR>a")
