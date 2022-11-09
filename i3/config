@@ -20,7 +20,7 @@ font pango:monospace 8
 # Thanks Childz
 for_window [class="^.*"] border pixel 2
 #                           # class                 border  backgr. text    indicator child_border
-# for_window [class="^.*"] client.focused          #77dd77 #285577 #ffffff #2e9ef4   #285577
+for_window [class="^.*"] client.focused          #77dd77 #285577 #ffffff #2e9ef4   #285577
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -42,9 +42,9 @@ new_float none
 
 # colors
 #class                 border  backgr. text    indicator child_border
-client.focused         #535d6c #535d6c #535d6c #535d6c
-client.unfocused       #222222 #222222 #222222 #222222
-client.focused_inactive       #222222 #222222 #222222 #222222
+# client.focused         #535d6c #535d6c #535d6c #535d6c
+# client.unfocused       #222222 #222222 #222222 #222222
+# client.focused_inactive       #222222 #222222 #222222 #222222
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
