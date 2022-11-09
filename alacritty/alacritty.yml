@@ -22,18 +22,18 @@ window:
     columns: 0
     lines: 0
 
-  opacity: 1.0
+  opacity: 0.9
 
   # Window padding (changes require restart)
   #
   # Blank space added around the window in pixels. This padding is not scaled by
   # DPI and the specified value is always added at both opposing sides.
   padding:
-    x: 7
-    y: 7
+    x: 0
+    y: 0
 
   # Spread additional padding evenly around the terminal content.
-  # dynamic_padding: true
+  dynamic_padding: true
 
   # Window decorations
   #
