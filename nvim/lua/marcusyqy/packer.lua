@@ -1,5 +1,4 @@
 -- This file can be loaded by calling `lua require('plugins')` from your init.vim
-
 vim.cmd([[
   augroup packer_user_config
     autocmd!
@@ -65,9 +64,22 @@ return require('packer').startup(function()
     use {
         { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" },
         'nvim-treesitter/nvim-treesitter-context',
-        'nvim-treesitter/playground'
+        'nvim-treesitter/playground',
+        'MunifTanjim/nui.nvim'
     }
 
+    -- Packer
+    use({
+        "folke/noice.nvim",
+        requires = {
+            -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+            "MunifTanjim/nui.nvim",
+            -- OPTIONAL:
+            --   `nvim-notify` is only needed, if you want to use the notification view.
+            --   If not available, we use `mini` as the fallback
+            "rcarriga/nvim-notify",
+        }
+    })
 
 
     -- colorschemes
