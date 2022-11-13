@@ -131,10 +131,11 @@ nnoremap("gp", vimfn([[Lspsaga preview_definition]]), { silent = true,noremap = 
 nnoremap("gr", vimfn([[Lspsaga rename]]), { silent = true,noremap = true })
 
 -- jump and show diagnostic (try)
-nnoremap("<leader>cd", vimfn([[Lspsaga show_line_diagnostics]]), { silent = true,noremap = true })
+nnoremap("<leader>gh", vimfn([[Lspsaga show_line_diagnostics]]), { silent = true,noremap = true })
+vnoremap("<leader>gh", vimfn([[Lspsaga show_line_diagnostics]]), { silent = true,noremap = true })
 
 -- jump diagnostic
-nnoremap("[e", vimfn([[Lspsaga diagnostic_jump_prev]]), { silent = true, noremap =true })
-nnoremap("]e", vimfn([[Lspsaga diagnostic_jump_next]]), { silent = true, noremap =true })
+nnoremap("<leader>gk", vimfn([[Lspsaga diagnostic_jump_prev]]), { silent = true, noremap =true })
+nnoremap("<leader>gj", vimfn([[Lspsaga diagnostic_jump_next]]), { silent = true, noremap =true })
 -- or use command
 
