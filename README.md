@@ -91,3 +91,5 @@ alias aoeu='setxkbmap us'
  This ensures that new worktrees do not attempt to
  re-upload every resource on first push.
 
+### cursor
+https://wiki.archlinux.org/title/Cursor_themes#Configuration
