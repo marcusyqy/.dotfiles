@@ -424,3 +424,6 @@ require("clangd_extensions").setup {
         },
     },
 }
+
+-- Turn on lsp status information
+require('fidget').setup()

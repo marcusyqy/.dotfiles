@@ -11,9 +11,9 @@ require("telescope").setup {}
 
 -- hack for windows
 if vim.fn.has("win32") == 1 then
-    require('telescope').load_extension('fzy_native')
+    pcall(require('telescope').load_extension, "fzy_native")
 else
-    require('telescope').load_extension("fzf")
+    pcall(require('telescope').load_extension, "fzf")
 end
 
 require("telescope").load_extension("file_browser")
@@ -214,3 +214,14 @@ nnoremap("<leader>cmd", function() require('telescope.builtin').commands() end)
 nnoremap("<leader>to", function() require('telescope').extensions.asynctasks.all(require('telescope.themes').get_dropdown(telescope_opts)) end)
 nnoremap("<leader>te", vimfn([[e .tasks]]))
 
+
+-- See `:help telescope.builtin`
+vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
+vim.keymap.set('n', '<leader><space>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
+vim.keymap.set('n', '<leader>/', function()
+  -- You can pass additional configuration to telescope to change theme, layout, etc.
+  require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
+    winblend = 10,
+    previewer = false,
+  })
+end, { desc = '[/] Fuzzily search in current buffer]' })

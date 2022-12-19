@@ -36,7 +36,7 @@ local packer = require('packer').startup(function()
     if vim.fn.has("win32") == 1 then
         use {"nvim-telescope/telescope-fzy-native.nvim" }
     else
-        use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable 'make' == 1 }
+        use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
     end
 
     use {
@@ -67,7 +67,11 @@ local packer = require('packer').startup(function()
         "saadparwaiz1/cmp_luasnip"
     }
 
-    -- status line
+
+    use 'lukas-reineke/indent-blankline.nvim' -- Add indentation guides even on blank lines
+    use 'lewis6991/gitsigns.nvim'
+
+     -- status line
     use {
         'nvim-lualine/lualine.nvim',
         requires = { 'kyazdani42/nvim-web-devicons', opt = true }
@@ -107,7 +111,6 @@ local packer = require('packer').startup(function()
         {"luisiacc/gruvbox-baby", branch = "main"},
         { "ellisonleao/gruvbox.nvim" },
         { "EdenEast/nightfox.nvim", run = ":NightfoxCompile", },
-        {"catppuccin/nvim", as = "catppuccin"}
     }
 
     use {
@@ -219,7 +222,6 @@ local packer = require('packer').startup(function()
 
     use {
         "martinda/Jenkinsfile-vim-syntax",
-        "rmagatti/auto-session",
         "preservim/nerdcommenter",
         { "evanleck/vim-svelte", branch = "main"}
     }
