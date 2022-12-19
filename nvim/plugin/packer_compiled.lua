@@ -144,6 +144,11 @@ _G.packer_plugins = {
     path = "/home/marcus.yong/.local/share/nvim/site/pack/packer/start/dressing.nvim",
     url = "https://github.com/stevearc/dressing.nvim"
   },
+  ["fidget.nvim"] = {
+    loaded = true,
+    path = "/home/marcus.yong/.local/share/nvim/site/pack/packer/start/fidget.nvim",
+    url = "https://github.com/j-hui/fidget.nvim"
+  },
   ["git-worktree.nvim"] = {
     loaded = true,
     path = "/home/marcus.yong/.local/share/nvim/site/pack/packer/start/git-worktree.nvim",
@@ -193,6 +198,16 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/marcus.yong/.local/share/nvim/site/pack/packer/start/luatab.nvim",
     url = "https://github.com/alvarosevilla95/luatab.nvim"
+  },
+  ["mason-lspconfig.nvim"] = {
+    loaded = true,
+    path = "/home/marcus.yong/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
+    url = "https://github.com/williamboman/mason-lspconfig.nvim"
+  },
+  ["mason.nvim"] = {
+    loaded = true,
+    path = "/home/marcus.yong/.local/share/nvim/site/pack/packer/start/mason.nvim",
+    url = "https://github.com/williamboman/mason.nvim"
   },
   ["neo-tree-diagnostics.nvim"] = {
     loaded = false,
@@ -251,11 +266,6 @@ _G.packer_plugins = {
     path = "/home/marcus.yong/.local/share/nvim/site/pack/packer/start/nvim-dap-virtual-text",
     url = "https://github.com/theHamsta/nvim-dap-virtual-text"
   },
-  ["nvim-lsp-installer"] = {
-    loaded = true,
-    path = "/home/marcus.yong/.local/share/nvim/site/pack/packer/start/nvim-lsp-installer",
-    url = "https://github.com/williamboman/nvim-lsp-installer"
-  },
   ["nvim-lspconfig"] = {
     loaded = true,
     path = "/home/marcus.yong/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
@@ -286,6 +296,13 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/marcus.yong/.local/share/nvim/site/pack/packer/start/nvim-treesitter-context",
     url = "https://github.com/nvim-treesitter/nvim-treesitter-context"
+  },
+  ["nvim-treesitter-textobjects"] = {
+    load_after = {},
+    loaded = true,
+    needs_bufread = false,
+    path = "/home/marcus.yong/.local/share/nvim/site/pack/packer/opt/nvim-treesitter-textobjects",
+    url = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects"
   },
   ["nvim-web-devicons"] = {
     loaded = true,
@@ -347,6 +364,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/marcus.yong/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
     url = "https://github.com/folke/tokyonight.nvim"
+  },
+  ["typescript.nvim"] = {
+    loaded = true,
+    path = "/home/marcus.yong/.local/share/nvim/site/pack/packer/start/typescript.nvim",
+    url = "https://github.com/jose-elias-alvarez/typescript.nvim"
   },
   ["vim-floaterm"] = {
     loaded = true,
@@ -417,6 +439,11 @@ time([[Config for nvim-window-picker]], false)
 time([[Config for nvim-surround]], true)
 try_loadstring("\27LJ\2\n?\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\18nvim-surround\frequire\0", "config", "nvim-surround")
 time([[Config for nvim-surround]], false)
+-- Load plugins in order defined by `after`
+time([[Sequenced loading]], true)
+vim.cmd [[ packadd nvim-treesitter ]]
+vim.cmd [[ packadd nvim-treesitter-textobjects ]]
+time([[Sequenced loading]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

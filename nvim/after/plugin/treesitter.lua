@@ -32,7 +32,8 @@ require'nvim-treesitter.configs'.setup {
     },
   },
   sync_install = false,
-  ensure_installed = "all"
+  ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'typescript', 'help', 'dockerfile', 'tsx', 'html', 'json' },
+  -- ensure_installed = "all"
 }
 
 

@@ -1,18 +1,27 @@
+
+local install_path = vim.fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
+local is_bootstrap = false
+if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
+    is_bootstrap = true
+    vim.fn.execute('!git clone https://github.com/wbthomason/packer.nvim ' .. install_path)
+    vim.cmd [[packadd packer.nvim]]
+end
+
+
 -- This file can be loaded by calling `lua require('plugins')` from your init.vim
 vim.cmd([[
-  augroup packer_user_config
+    augroup packer_user_config
     autocmd!
     autocmd BufWritePost plugins.lua source <afile> | PackerCompile
-  augroup end
+    augroup end
 ]])
 
 -- Only required if you have packer configured as `opt`
 -- vim.cmd [[packadd packer.nvim]]
 
-return require('packer').startup(function()
+local packer = require('packer').startup(function()
     -- Packer can manage itself
     use "wbthomason/packer.nvim"
-
 
     -- cmp
     use {
@@ -27,22 +36,26 @@ return require('packer').startup(function()
     if vim.fn.has("win32") == 1 then
         use {"nvim-telescope/telescope-fzy-native.nvim" }
     else
-        use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+        use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable 'make' == 1 }
     end
 
     use {
         "nvim-lua/popup.nvim",
         "nvim-lua/plenary.nvim",
-        { "nvim-telescope/telescope.nvim",
-        requires = {
-            "nvim-lua/popup.nvim",
-            "nvim-lua/plenary.nvim",
-        }},
-        {"theprimeagen/harpoon",
-        requires = {
-            "nvim-lua/popup.nvim",
-            "nvim-lua/plenary.nvim",
-        }},
+        {
+            "nvim-telescope/telescope.nvim",
+            requires = {
+                "nvim-lua/popup.nvim",
+                "nvim-lua/plenary.nvim",
+            }
+        },
+        {
+            "theprimeagen/harpoon",
+            requires = {
+                "nvim-lua/popup.nvim",
+                "nvim-lua/plenary.nvim",
+            }
+        },
         "theprimeagen/git-worktree.nvim",
         "stevearc/dressing.nvim",
         "nvim-telescope/telescope-file-browser.nvim",
@@ -56,16 +69,21 @@ return require('packer').startup(function()
 
     -- status line
     use {
-      'nvim-lualine/lualine.nvim',
-      requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+        'nvim-lualine/lualine.nvim',
+        requires = { 'kyazdani42/nvim-web-devicons', opt = true }
     }
 
     -- Post-install/update hook with neovim command
     use {
-        { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" },
+        {"nvim-treesitter/nvim-treesitter", run = function() pcall(require('nvim-treesitter.install').update { with_sync = true }) end },
         'nvim-treesitter/nvim-treesitter-context',
         'nvim-treesitter/playground',
         'MunifTanjim/nui.nvim'
+    }
+
+    use { -- Additional text objects via treesitter
+        'nvim-treesitter/nvim-treesitter-textobjects',
+        after = 'nvim-treesitter',
     }
 
     -- Packer
@@ -116,11 +134,9 @@ return require('packer').startup(function()
     use({
         "kylechui/nvim-surround",
         tag = "*", -- Use for stability; omit to use `main` branch for the latest features
-        config = function()
-            require("nvim-surround").setup({
-                -- Configuration here, or leave empty to use defaults
-            })
-        end
+        config = function() require("nvim-surround").setup({
+            -- Configuration here, or leave empty to use defaults
+        }) end
     })
 
 
@@ -146,46 +162,54 @@ return require('packer').startup(function()
         module = "neo-tree.sources.diagnostics", -- if wanting to lazyload
     }
     use {
-      "rcarriga/nvim-notify"
+        "rcarriga/nvim-notify"
     }
 
     use {
-      "nvim-neo-tree/neo-tree.nvim",
+        "nvim-neo-tree/neo-tree.nvim",
         branch = "v2.x",
         requires = {
-          "nvim-lua/plenary.nvim",
-          "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
-          "MunifTanjim/nui.nvim",
-          {
-            -- only needed if you want to use the commands with "_with_window_picker" suffix
-            's1n7ax/nvim-window-picker',
-            tag = "v1.*",
-            config = function()
-              require'window-picker'.setup({
-                autoselect_one = true,
-                include_current = false,
-                filter_rules = {
-                  -- filter using buffer options
-                  bo = {
-                    -- if the file type is one of following, the window will be ignored
-                    filetype = { 'neo-tree', "neo-tree-popup", "notify", "quickfix" },
+            "nvim-lua/plenary.nvim",
+            "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
+            "MunifTanjim/nui.nvim",
+            {
+                -- only needed if you want to use the commands with "_with_window_picker" suffix
+                's1n7ax/nvim-window-picker',
+                tag = "v1.*",
+                config = function() require'window-picker'.setup({
+                    autoselect_one = true,
+                    include_current = false,
+                    filter_rules = {
+                        -- filter using buffer options
+                        bo = {
+                            -- if the file type is one of following, the window will be ignored
+                            filetype = { 'neo-tree', "neo-tree-popup", "notify", "quickfix" },
 
-                    -- if the buffer type is one of following, the window will be ignored
-                    buftype = { 'terminal' },
-                  },
-                },
-                other_win_hl_color = '#e35e4f',
-              })
-            end,
-          }
+                            -- if the buffer type is one of following, the window will be ignored
+                            buftype = { 'terminal' },
+                        },
+                    },
+                    other_win_hl_color = '#e35e4f',
+                }) end,
+            }
         }
+    }
+
+    use { -- LSP Configuration & Plugins
+        'neovim/nvim-lspconfig',
+        requires = {
+            -- Automatically install LSPs to stdpath for neovim
+            'williamboman/mason.nvim',
+            'williamboman/mason-lspconfig.nvim',
+
+            -- Useful status updates for LSP
+            'j-hui/fidget.nvim',
+        },
     }
 
     use {
         "onsails/lspkind-nvim",
         "nvim-lua/lsp_extensions.nvim",
-        "williamboman/nvim-lsp-installer",
-        "neovim/nvim-lspconfig",
         "sbdchd/neoformat"
     }
 
@@ -205,11 +229,37 @@ return require('packer').startup(function()
     use { 'alvarosevilla95/luatab.nvim', requires='kyazdani42/nvim-web-devicons' }
     use { 'p00f/clangd_extensions.nvim' }
     use { 'jose-elias-alvarez/typescript.nvim' }
+
     -- use {
     --     'numToStr/Comment.nvim',
     --     config = function()
     --         require('Comment').setup()
     --     end
     -- }
+    local has_plugins, plugins = pcall(require, 'custom.plugins')
+        if has_plugins then
+        plugins(use)
+    end
 
+    if is_bootstrap then
+        require('packer').sync()
+    end
 end)
+
+if is_bootstrap then
+    print '=================================='
+    print '    Plugins are being installed'
+    print '    Wait until Packer completes,'
+    print '       then restart nvim'
+    print '=================================='
+    return
+end
+
+local packer_group = vim.api.nvim_create_augroup('Packer', { clear = true })
+    vim.api.nvim_create_autocmd('BufWritePost', {
+    command = 'source <afile> | PackerCompile',
+    group = packer_group,
+    pattern = vim.fn.expand '$MYVIMRC',
+})
+return packer
+
