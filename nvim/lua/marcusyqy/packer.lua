@@ -106,10 +106,11 @@ local packer = require('packer').startup(function()
 
     -- colorschemes
     use {
-        {"folke/tokyonight.nvim",  branch = "main"},
-        {"Mofiqul/vscode.nvim"},
-        {"luisiacc/gruvbox-baby", branch = "main"},
+        { "folke/tokyonight.nvim",  branch = "main"},
+        { "Mofiqul/vscode.nvim" },
+        { "luisiacc/gruvbox-baby", branch = "main"},
         { "ellisonleao/gruvbox.nvim" },
+        { "navarasu/onedark.nvim" },
         { "EdenEast/nightfox.nvim", run = ":NightfoxCompile", },
     }
 
