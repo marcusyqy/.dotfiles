@@ -194,7 +194,7 @@ local function git_branch_private()
 -- nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
 -- nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 
-nnoremap("<leader>ps", function() require('telescope.builtin').grep_string({search = vim.fn.input("Find For > "), previewer=false}) end);
+nnoremap("<leader>ps", function() require('telescope.builtin').grep_string({search = vim.fn.input("Find For > ")--[[ , previewer=false ]]}) end);
 
 -- Find files using Telescope command-line sugar.
 
