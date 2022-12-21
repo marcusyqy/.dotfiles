@@ -173,7 +173,7 @@ new_window pixel 2
 
 
 #Rofi
-bindsym $mod+space exec "rofi -combi-modi window,drun -show combi -modi combi"
+# bindsym $mod+space exec "rofi -combi-modi window,drun -show combi -modi combi"
 bindsym $mod+d exec "rofi -combi-modi window,drun -show combi -modi combi"
 
 # Pulse Audio controls
