@@ -23,8 +23,8 @@ window:
     lines: 0
 
 
-      # Background opacity
-  opacity: 1.00
+  # Background opacity
+  opacity: 0.9
   # Window padding (changes require restart)
   #
   # Blank space added around the window in pixels. This padding is not scaled by
@@ -34,7 +34,7 @@ window:
     y: 0
 
   # Spread additional padding evenly around the terminal content.
-  dynamic_padding: false
+  dynamic_padding: true
 
   # Window decorations
   #
@@ -55,7 +55,7 @@ window:
   #
   # Values for `startup_mode` (macOS only):
   #   - SimpleFullscreen
-  startup_mode: Windowed
+  startup_mode: Maximized
 
 scrolling:
   # maximum number of lines in the scrollback buffer. Specifying '0' will
@@ -69,16 +69,16 @@ scrolling:
 # Font configuration (changes require restart)
 font:
   normal:
-    family: JetBrainsMono NF
+    family: Hack NFM
     style: Regular
   bold:
-    family: JetBrainsMono NF
+    family: Hack NFM
     style: Bold
   italic:
-    family: JetBrainsMono NF
+    family: Hack NFM
     style: Italic
   bold_italic:
-    family: JetBrainsMono NF
+    family: Hack NFM
     style: Bold Italic
 
   # Point size of the font
@@ -111,10 +111,10 @@ font:
   #
   # This is a global setting and will require a log out or restart to take
   # effect.
-  use_thin_strokes: true
+  use_thin_strokes: false
 
 # When true, bold text is drawn using the bright variant of colors.
-draw_bold_text_with_bright_colors: false
+draw_bold_text_with_bright_colors: true
 
 # Use custom cursor colors. If true, display the cursor in the cursor.foreground
 # and cursor.background colors, otherwise invert the colors of the cursor.
@@ -122,32 +122,57 @@ custom_cursor_colors: true
 
 # Colors (iTerm 2 default theme)
 colors:
-  # Default colors
   primary:
-    background: '0x101421'
-    foreground: '0xfffbf6'
-
-  # Normal colors
+    background: '#282a36'
+    foreground: '#f8f8f2'
+    bright_foreground: '#ffffff'
+  cursor:
+    text: CellBackground
+    cursor: CellForeground
+  vi_mode_cursor:
+    text: CellBackground
+    cursor: CellForeground
+  search:
+    matches:
+      foreground: '#44475a'
+      background: '#50fa7b'
+    focused_match:
+      foreground: '#44475a'
+      background: '#ffb86c'
+  footer_bar:
+    background: '#282a36'
+    foreground: '#f8f8f2'
+  hints:
+    start:
+      foreground: '#282a36'
+      background: '#f1fa8c'
+    end:
+      foreground: '#f1fa8c'
+      background: '#282a36'
+  line_indicator:
+    foreground: None
+    background: None
+  selection:
+    text: CellForeground
+    background: '#44475a'
   normal:
-    black:   '0x2e2e2e'
-    red:     '0xeb4129'
-    green:   '0xabe047'
-    yellow:  '0xf6c744'
-    blue:    '0x47a0f3'
-    magenta: '0x7b5cb0'
-    cyan:    '0x64dbed'
-    white:   '0xe5e9f0'
-
-  # Bright colors
+    black: '#21222c'
+    red: '#ff5555'
+    green: '#50fa7b'
+    yellow: '#f1fa8c'
+    blue: '#bd93f9'
+    magenta: '#ff79c6'
+    cyan: '#8be9fd'
+    white: '#f8f8f2'
   bright:
-    black:   '0x565656'
-    red:     '0xec5357'
-    green:   '0xc0e17d'
-    yellow:  '0xf9da6a'
-    blue:    '0x49a4f8'
-    magenta: '0xa47de9'
-    cyan:    '0x99faf2'
-    white:   '0xffffff'
+    black: '#6272a4'
+    red: '#ff6e6e'
+    green: '#69ff94'
+    yellow: '#ffffa5'
+    blue: '#d6acff'
+    magenta: '#ff92df'
+    cyan: '#a4ffff'
+    white: '#ffffff'
 
 
 # Visual Bell

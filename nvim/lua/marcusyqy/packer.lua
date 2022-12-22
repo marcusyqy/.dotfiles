@@ -1,4 +1,3 @@
-
 local install_path = vim.fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
 local is_bootstrap = false
 if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
@@ -34,7 +33,7 @@ local packer = require('packer').startup(function()
     }
 
     if vim.fn.has("win32") == 1 then
-        use {"nvim-telescope/telescope-fzy-native.nvim" }
+        use { "nvim-telescope/telescope-fzy-native.nvim" }
     else
         use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
     end
@@ -71,7 +70,7 @@ local packer = require('packer').startup(function()
     use 'lukas-reineke/indent-blankline.nvim' -- Add indentation guides even on blank lines
     use 'lewis6991/gitsigns.nvim'
 
-     -- status line
+    -- status line
     use {
         'nvim-lualine/lualine.nvim',
         requires = { 'kyazdani42/nvim-web-devicons', opt = true }
@@ -79,7 +78,8 @@ local packer = require('packer').startup(function()
 
     -- Post-install/update hook with neovim command
     use {
-        {"nvim-treesitter/nvim-treesitter", run = function() pcall(require('nvim-treesitter.install').update { with_sync = true }) end },
+        { "nvim-treesitter/nvim-treesitter",
+            run = function() pcall(require('nvim-treesitter.install').update { with_sync = true }) end },
         'nvim-treesitter/nvim-treesitter-context',
         'nvim-treesitter/playground',
         'MunifTanjim/nui.nvim'
@@ -106,9 +106,9 @@ local packer = require('packer').startup(function()
 
     -- colorschemes
     use {
-        { "folke/tokyonight.nvim",  branch = "main"},
+        { "folke/tokyonight.nvim", branch = "main" },
         { "Mofiqul/vscode.nvim" },
-        { "luisiacc/gruvbox-baby", branch = "main"},
+        { "luisiacc/gruvbox-baby", branch = "main" },
         { "ellisonleao/gruvbox.nvim" },
         { "navarasu/onedark.nvim" },
         { "EdenEast/nightfox.nvim", run = ":NightfoxCompile", },
@@ -129,7 +129,7 @@ local packer = require('packer').startup(function()
     }
 
     -- tpope
-    use  {
+    use {
         "tpope/vim-repeat",
         "tpope/vim-fugitive",
         "tpope/vim-rhubarb"
@@ -139,8 +139,9 @@ local packer = require('packer').startup(function()
         "kylechui/nvim-surround",
         tag = "*", -- Use for stability; omit to use `main` branch for the latest features
         config = function() require("nvim-surround").setup({
-            -- Configuration here, or leave empty to use defaults
-        }) end
+                -- Configuration here, or leave empty to use defaults
+            })
+        end
     })
 
 
@@ -180,21 +181,22 @@ local packer = require('packer').startup(function()
                 -- only needed if you want to use the commands with "_with_window_picker" suffix
                 's1n7ax/nvim-window-picker',
                 tag = "v1.*",
-                config = function() require'window-picker'.setup({
-                    autoselect_one = true,
-                    include_current = false,
-                    filter_rules = {
-                        -- filter using buffer options
-                        bo = {
-                            -- if the file type is one of following, the window will be ignored
-                            filetype = { 'neo-tree', "neo-tree-popup", "notify", "quickfix" },
+                config = function() require 'window-picker'.setup({
+                        autoselect_one = true,
+                        include_current = false,
+                        filter_rules = {
+                            -- filter using buffer options
+                            bo = {
+                                -- if the file type is one of following, the window will be ignored
+                                filetype = { 'neo-tree', "neo-tree-popup", "notify", "quickfix" },
 
-                            -- if the buffer type is one of following, the window will be ignored
-                            buftype = { 'terminal' },
+                                -- if the buffer type is one of following, the window will be ignored
+                                buftype = { 'terminal' },
+                            },
                         },
-                    },
-                    other_win_hl_color = '#e35e4f',
-                }) end,
+                        other_win_hl_color = '#e35e4f',
+                    })
+                end,
             }
         }
     }
@@ -224,12 +226,12 @@ local packer = require('packer').startup(function()
     use {
         "martinda/Jenkinsfile-vim-syntax",
         "preservim/nerdcommenter",
-        { "evanleck/vim-svelte", branch = "main"}
+        { "evanleck/vim-svelte", branch = "main" }
     }
 
     use("APZelos/blamer.nvim")
 
-    use { 'alvarosevilla95/luatab.nvim', requires='kyazdani42/nvim-web-devicons' }
+    use { 'alvarosevilla95/luatab.nvim', requires = 'kyazdani42/nvim-web-devicons' }
     use { 'p00f/clangd_extensions.nvim' }
     use { 'jose-elias-alvarez/typescript.nvim' }
 
@@ -240,7 +242,7 @@ local packer = require('packer').startup(function()
     --     end
     -- }
     local has_plugins, plugins = pcall(require, 'custom.plugins')
-        if has_plugins then
+    if has_plugins then
         plugins(use)
     end
 
@@ -259,10 +261,9 @@ if is_bootstrap then
 end
 
 local packer_group = vim.api.nvim_create_augroup('Packer', { clear = true })
-    vim.api.nvim_create_autocmd('BufWritePost', {
+vim.api.nvim_create_autocmd('BufWritePost', {
     command = 'source <afile> | PackerCompile',
     group = packer_group,
     pattern = vim.fn.expand '$MYVIMRC',
 })
 return packer
-
