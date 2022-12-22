@@ -203,7 +203,7 @@ local on_attach = function(client, bufnr)
   -- buf_set_keymap('n', '<leader>gk', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
   -- buf_set_keymap('n', '<leader>gj', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
   buf_set_keymap('n', '<leader>vq', '<cmd>lua vim.diagnostic.set_loclist()<CR>', opts)
-  buf_set_keymap("n", "<leader>vf", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+  buf_set_keymap("n", "<leader>vf", "<cmd>lua vim.lsp.buf.format()<CR>", opts)
 
 end
 
@@ -427,3 +427,7 @@ require("clangd_extensions").setup {
 
 -- Turn on lsp status information
 require('fidget').setup()
+
+vim.cmd([[cnoreabbrev vf lua vim.lsp.buf.format()]])
+vim.cmd([[cnoreabbrev Vf lua vim.lsp.buf.format()]])
+vim.cmd([[cnoreabbrev VF lua vim.lsp.buf.format()]])

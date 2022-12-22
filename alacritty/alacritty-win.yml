@@ -30,8 +30,8 @@ window:
   # Blank space added around the window in pixels. This padding is not scaled by
   # DPI and the specified value is always added at both opposing sides.
   padding:
-    x: 20
-    y: 20
+    x: 0
+    y: 0
 
   # Spread additional padding evenly around the terminal content.
   dynamic_padding: false
@@ -82,7 +82,7 @@ font:
     style: Bold Italic
 
   # Point size of the font
-  size: 14.0
+  size: 12.0
 
   # Offset is the extra space around each character. offset.y can be thought of
   # as modifying the linespacing, and offset.x as modifying the letter spacing.
@@ -120,35 +120,34 @@ draw_bold_text_with_bright_colors: false
 # and cursor.background colors, otherwise invert the colors of the cursor.
 custom_cursor_colors: true
 
-# Colors (Gruvbox Dark)
+# Colors (iTerm 2 default theme)
 colors:
-  bright:
-    black: '#7f7061'
-    blue: '#719586'
-    cyan: '#7db669'
-    green: '#aab01e'
-    magenta: '#c77089'
-    red: '#f73028'
-    white: '#e6d4a3'
-    yellow: '#f7b125'
-  cursor:
-    cursor: '#e6d4a3'
-    text: '#1e1e1e'
-  normal:
-    black: '#1e1e1e'
-    blue: '#377375'
-    cyan: '#578e57'
-    green: '#868715'
-    magenta: '#a04b73'
-    red: '#be0f17'
-    white: '#978771'
-    yellow: '#cc881a'
+  # Default colors
   primary:
-    background: '#1e1e1e'
-    foreground: '#e6d4a3'
-  selection:
-    background: '#e6d4a3'
-    text: '#534a42'
+    background: '0x101421'
+    foreground: '0xfffbf6'
+
+  # Normal colors
+  normal:
+    black:   '0x2e2e2e'
+    red:     '0xeb4129'
+    green:   '0xabe047'
+    yellow:  '0xf6c744'
+    blue:    '0x47a0f3'
+    magenta: '0x7b5cb0'
+    cyan:    '0x64dbed'
+    white:   '0xe5e9f0'
+
+  # Bright colors
+  bright:
+    black:   '0x565656'
+    red:     '0xec5357'
+    green:   '0xc0e17d'
+    yellow:  '0xf9da6a'
+    blue:    '0x49a4f8'
+    magenta: '0xa47de9'
+    cyan:    '0x99faf2'
+    white:   '0xffffff'
 
 
 # Visual Bell
