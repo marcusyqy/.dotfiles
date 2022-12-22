@@ -11,6 +11,7 @@ Set-Alias grep rg
 Set-Alias g git
 
 $env:TERM='xterm-256color'
+$env:EDITOR='nvim'
 $work = 'C:\work'
 $shrek = 'C:\work\repo\Shrek'
 $dot_files='~/.dotfiles'
