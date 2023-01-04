@@ -12,11 +12,13 @@ chosen=$(printf '%s - shutdown\n%s - reboot\n%s - lock\n' "$power_off" "$reboot"
 
 case "$chosen" in
     "$power_off - shutdown")
-        rofi-prompt --query 'Shutdown?' && poweroff
+        # rofi-prompt --query 'Shutdown?' && poweroff
+        poweroff
         ;;
 
     "$reboot - reboot")
-        rofi-prompt --query 'Reboot?' && reboot
+        #rofi-prompt --query 'Reboot?' && reboot
+        reboot
         ;;
 
     "$lock - lock")
