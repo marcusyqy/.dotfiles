@@ -1,6 +1,7 @@
 local Remap = require("marcusyqy.keymap")
 local nnoremap = Remap.nnoremap
 local vnoremap = Remap.vnoremap
+local inoremap = Remap.inoremap
 local vimfn = Remap.vimfn
 
 local saga = require("lspsaga")
@@ -20,7 +21,7 @@ saga.init_lsp_saga({
     --transparent background. Values between 0-30 are typically most useful.
     saga_winblend = 0,
     -- when cursor in saga window you config these to move
-    move_in_saga = { prev = '<C-p>',next = '<C-n>'},
+    move_in_saga = { prev = '<C-p>', next = '<C-n>' },
     -- Error, Warn, Info, Hint
     -- use emoji like
     -- { "🙀", "😿", "😾", "😺" }
@@ -50,9 +51,9 @@ saga.init_lsp_saga({
     },
     -- finder icons
     finder_icons = {
-      def = '  ',
-      ref = '諭 ',
-      link = '  ',
+        def = '  ',
+        ref = '諭 ',
+        link = '  ',
     },
     -- finder do lsp request timeout
     -- if your project big enough or your server very slow
@@ -70,11 +71,11 @@ saga.init_lsp_saga({
         exec = "<CR>",
     },
     definition_action_keys = {
-      edit = '<esc>o',
-      vsplit = '<esc>v',
-      split = '<esc>i',
-      tabe = '<esc>t',
-      quit = 'q',
+        edit = '<esc>o',
+        vsplit = '<esc>v',
+        split = '<esc>i',
+        tabe = '<esc>t',
+        quit = 'q',
     },
     rename_action_quit = "<esc>",
     rename_in_select = true,
@@ -88,17 +89,17 @@ saga.init_lsp_saga({
     },
     -- show outline
     show_outline = {
-      win_position = 'right',
-      --set special filetype win that outline window split.like NvimTree neotree
-      -- defx, db_ui
-      win_with = '',
-      win_width = 30,
-      auto_enter = true,
-      auto_preview = true,
-      virt_text = '┃',
-      jump_key = 'o',
-      -- auto refresh when change buffer
-      auto_refresh = true,
+        win_position = 'right',
+        --set special filetype win that outline window split.like NvimTree neotree
+        -- defx, db_ui
+        win_with = '',
+        win_width = 30,
+        auto_enter = true,
+        auto_preview = true,
+        virt_text = '┃',
+        jump_key = 'o',
+        -- auto refresh when change buffer
+        auto_refresh = true,
     },
     -- custom lsp kind
     -- usage { Field = 'color code'} or {Field = {your icon, your color code}}
@@ -113,29 +114,27 @@ saga.init_lsp_saga({
 
 nnoremap("<leader>rr", vimfn([[Lspsaga lsp_finder]]))
 
-nnoremap("<leader>ca", vimfn([[Lspsaga code_action]]), { silent = true,noremap = true })
+nnoremap("<leader>ca", vimfn([[Lspsaga code_action]]), { silent = true, noremap = true, desc = "[LspSaga] code action" })
 vnoremap("<leader>ca", function()
     vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<C-U>", true, false, true))
     vimfn([[Lspsaga range_code_action]])
-end, { silent = true,noremap =true })
+end, { silent = true, noremap = true, desc = "[LspSaga] range code action" })
 
 
-nnoremap("<leader>o", vimfn([[LSoutlineToggle]]), {silent = true, noremap = true})
+nnoremap("<leader>o", vimfn([[LSoutlineToggle]]), { silent = true, noremap = true, desc = "LspSaga outline toggle" })
 
 -- show hover doc and press twice will jumpto hover window
 nnoremap("K", vimfn([[Lspsaga hover_doc]]), { silent = true })
-nnoremap("gs",  vimfn([[Lspsaga signature_help]]), { silent = true,noremap = true})
 --
 -- preview definition
-nnoremap("gp", vimfn([[Lspsaga preview_definition]]), { silent = true,noremap = true })
-nnoremap("gr", vimfn([[Lspsaga rename]]), { silent = true,noremap = true })
+nnoremap("gp", vimfn([[Lspsaga preview_definition]]), { silent = true, noremap = true })
+nnoremap("gr", vimfn([[Lspsaga rename]]), { silent = true, noremap = true })
 
 -- jump and show diagnostic (try)
-nnoremap("<leader>gh", vimfn([[Lspsaga show_line_diagnostics]]), { silent = true,noremap = true })
-vnoremap("<leader>gh", vimfn([[Lspsaga show_line_diagnostics]]), { silent = true,noremap = true })
+nnoremap("<leader>gh", vimfn([[Lspsaga show_line_diagnostics]]), { silent = true, noremap = true })
+vnoremap("<leader>gh", vimfn([[Lspsaga show_line_diagnostics]]), { silent = true, noremap = true })
 
 -- jump diagnostic
-nnoremap("<c-k>", vimfn([[Lspsaga diagnostic_jump_prev]]), { silent = true, noremap =true })
-nnoremap("<c-j>", vimfn([[Lspsaga diagnostic_jump_next]]), { silent = true, noremap =true })
+nnoremap("<c-k>", vimfn([[Lspsaga diagnostic_jump_prev]]), { silent = true, noremap = true })
+nnoremap("<c-j>", vimfn([[Lspsaga diagnostic_jump_next]]), { silent = true, noremap = true })
 -- or use command
-

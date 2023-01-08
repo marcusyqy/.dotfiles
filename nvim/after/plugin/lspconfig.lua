@@ -25,31 +25,31 @@ lspkind.init({
     --
     -- default: {}
     symbol_map = {
-      Text = "",
-      Method = "",
-      Function = "",
-      Constructor = "",
-      Field = "ﰠ",
-      Variable = "",
-      Class = "ﴯ",
-      Interface = "",
-      Module = "",
-      Property = "ﰠ",
-      Unit = "塞",
-      Value = "",
-      Enum = "",
-      Keyword = "",
-      Snippet = "",
-      Color = "",
-      File = "",
-      Reference = "",
-      Folder = "",
-      EnumMember = "",
-      Constant = "",
-      Struct = "",
-      Event = "",
-      Operator = "",
-      TypeParameter = ""
+        Text = "",
+        Method = "",
+        Function = "",
+        Constructor = "",
+        Field = "ﰠ",
+        Variable = "",
+        Class = "ﴯ",
+        Interface = "",
+        Module = "",
+        Property = "ﰠ",
+        Unit = "塞",
+        Value = "",
+        Enum = "",
+        Keyword = "",
+        Snippet = "",
+        Color = "",
+        File = "",
+        Reference = "",
+        Folder = "",
+        EnumMember = "",
+        Constant = "",
+        Struct = "",
+        Event = "",
+        Operator = "",
+        TypeParameter = ""
     },
 })
 
@@ -71,58 +71,58 @@ cmp.setup({
         ['<C-d>'] = cmp.mapping.scroll_docs(4),
         ['<C-Space>'] = cmp.mapping.complete(),
         ['<Tab>'] = function(fallback)
-          if cmp.visible() then
-            cmp.select_next_item()
-          elseif luasnip.expand_or_jumpable() then
-            luasnip.expand_or_jump()
-          else
-            fallback()
-          end
+            if cmp.visible() then
+                cmp.select_next_item()
+            elseif luasnip.expand_or_jumpable() then
+                luasnip.expand_or_jump()
+            else
+                fallback()
+            end
         end,
         ['<S-Tab>'] = function(fallback)
-          if cmp.visible() then
-            cmp.select_prev_item()
-          elseif luasnip.jumpable(-1) then
-            luasnip.jump(-1)
-          else
-            fallback()
-          end
+            if cmp.visible() then
+                cmp.select_prev_item()
+            elseif luasnip.jumpable(-1) then
+                luasnip.jump(-1)
+            else
+                fallback()
+            end
         end,
         ['<down>'] = function(fallback)
-          if cmp.visible() then
-            cmp.select_next_item()
-          elseif luasnip.expand_or_jumpable() then
-            luasnip.expand_or_jump()
-          else
-            fallback()
-          end
+            if cmp.visible() then
+                cmp.select_next_item()
+            elseif luasnip.expand_or_jumpable() then
+                luasnip.expand_or_jump()
+            else
+                fallback()
+            end
         end,
         ['<up>'] = function(fallback)
-          if cmp.visible() then
-            cmp.select_prev_item()
-          elseif luasnip.jumpable(-1) then
-            luasnip.jump(-1)
-          else
-            fallback()
-          end
+            if cmp.visible() then
+                cmp.select_prev_item()
+            elseif luasnip.jumpable(-1) then
+                luasnip.jump(-1)
+            else
+                fallback()
+            end
         end,
         ['<c-n>'] = function(fallback)
-          if cmp.visible() then
-            cmp.select_next_item()
-          elseif luasnip.expand_or_jumpable() then
-            luasnip.expand_or_jump()
-          else
-            fallback()
-          end
+            if cmp.visible() then
+                cmp.select_next_item()
+            elseif luasnip.expand_or_jumpable() then
+                luasnip.expand_or_jump()
+            else
+                fallback()
+            end
         end,
         ['<c-p>'] = function(fallback)
-          if cmp.visible() then
-            cmp.select_prev_item()
-          elseif luasnip.jumpable(-1) then
-            luasnip.jump(-1)
-          else
-            fallback()
-          end
+            if cmp.visible() then
+                cmp.select_prev_item()
+            elseif luasnip.jumpable(-1) then
+                luasnip.jump(-1)
+            else
+                fallback()
+            end
         end,
         ['<CR>'] = cmp.mapping.confirm { behavior = cmp.ConfirmBehavior.Replace, select = true, },
     },
@@ -146,13 +146,13 @@ cmp.setup({
         { name = 'buffer', keyword_length = 5 },
     },
     formatting = {
-        format = lspkind.cmp_format({with_text = true, menu = ({
-        buffer = "[buffer]",
-        nvim_lsp = "[LSP]",
-        nvim_lua = "[api]",
-        luasnip = "[snippets]",
-        path = "[path]"
-        })})
+        format = lspkind.cmp_format({ with_text = true, menu = ({
+            buffer = "[buffer]",
+            nvim_lsp = "[LSP]",
+            nvim_lua = "[api]",
+            luasnip = "[snippets]",
+            path = "[path]"
+        }) })
     },
     experimental = {
         native_menu = false,
@@ -173,37 +173,41 @@ cmp.setup({
 })
 
 local nvim_lsp = require('lspconfig')
-local protocol = require'vim.lsp.protocol'
+local protocol = require 'vim.lsp.protocol'
 
 local on_attach = function(client, bufnr)
-  --require'completion'.on_attach();
-  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-  local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+    --require'completion'.on_attach();
+    local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
 
-  -- Mappings.
-  local opts = { noremap=true, silent=true }
+    local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
-  -- See `:help vim.lsp.*` for documentation on any of the below functions
-  buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-  buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
-  -- buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
-  buf_set_keymap('n', '<leader>vgi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-  buf_set_keymap('n', '<leader>vsh', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-  buf_set_keymap('n', '<leader>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
-  buf_set_keymap('n', '<leader>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
-  buf_set_keymap('n', '<leader>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
-  buf_set_keymap('n', '<leader>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-  buf_set_keymap('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-  buf_set_keymap('n', '<leader>vca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-  -- buf_set_keymap('n', '<leader>rr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-  --buf_set_keymap('n', '<leader>gh', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
-  --buf_set_keymap('v', '<leader>gh', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
-  buf_set_keymap('n', '<leader>vgh', '<cmd>lua vim.diagnostic.open_float(0, { scope = "line", border = "rounded" })<CR>', opts)
-  buf_set_keymap('v', '<leader>vgh', '<cmd>lua vim.diagnostic.open_float(0, { border = "rounded" })<CR>', opts)
-  -- buf_set_keymap('n', '<leader>gk', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
-  -- buf_set_keymap('n', '<leader>gj', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
-  buf_set_keymap('n', '<leader>vq', '<cmd>lua vim.diagnostic.set_loclist()<CR>', opts)
-  buf_set_keymap("n", "<leader>vf", "<cmd>lua vim.lsp.buf.format()<CR>", opts)
+    -- Mappings.
+    local opts = { noremap = true, silent = true }
+
+    -- See `:help vim.lsp.*` for documentation on any of the below functions
+    buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
+    buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
+    -- buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
+    buf_set_keymap('n', '<leader>vgi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+    buf_set_keymap('n', '<leader>vsh', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+    buf_set_keymap('n', '<leader>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
+    buf_set_keymap('n', '<leader>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
+    buf_set_keymap('n', '<leader>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
+    buf_set_keymap('n', '<leader>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
+    buf_set_keymap('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+    buf_set_keymap('n', '<leader>vca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+    buf_set_keymap('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+    buf_set_keymap('i', '<c-l>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+    -- buf_set_keymap('n', '<leader>rr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+    --buf_set_keymap('n', '<leader>gh', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
+    --buf_set_keymap('v', '<leader>gh', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
+    buf_set_keymap('n', '<leader>vgh',
+        '<cmd>lua vim.diagnostic.open_float(0, { scope = "line", border = "rounded" })<CR>', opts)
+    buf_set_keymap('v', '<leader>vgh', '<cmd>lua vim.diagnostic.open_float(0, { border = "rounded" })<CR>', opts)
+    -- buf_set_keymap('n', '<leader>gk', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
+    -- buf_set_keymap('n', '<leader>gj', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
+    buf_set_keymap('n', '<leader>vq', '<cmd>lua vim.diagnostic.set_loclist()<CR>', opts)
+    buf_set_keymap("n", "<leader>vf", "<cmd>lua vim.lsp.buf.format()<CR>", opts)
 
 end
 
@@ -221,78 +225,78 @@ for _, lsp in ipairs(servers) do
         capabilities = capabilities
     }
 
--- nvim_lsp.clangd.setup {
---     on_attach = on_attach,
---     capabilities = capabilities
---     cmd={
---         "clangd",
---         "--header-insertion=never",
---         "--compile-commands-dir=${workspaceFolder}/",
---         "--background-index",
---         "--suggest-missing-includes",
---         "--clang-tidy",
---         "--query-driver=/**/*"
---     }
--- }
+    -- nvim_lsp.clangd.setup {
+    --     on_attach = on_attach,
+    --     capabilities = capabilities
+    --     cmd={
+    --         "clangd",
+    --         "--header-insertion=never",
+    --         "--compile-commands-dir=${workspaceFolder}/",
+    --         "--background-index",
+    --         "--suggest-missing-includes",
+    --         "--clang-tidy",
+    --         "--query-driver=/**/*"
+    --     }
+    -- }
 
--- nvim_lsp.tsserver.setup ({
---     on_attach = on_attach,
---     capabilities = capabilities,
---     filetypes = {
---         "typescript", "typescriptreact", "typescript.tsx"
---     }
--- })
+    -- nvim_lsp.tsserver.setup ({
+    --     on_attach = on_attach,
+    --     capabilities = capabilities,
+    --     filetypes = {
+    --         "typescript", "typescriptreact", "typescript.tsx"
+    --     }
+    -- })
 
-nvim_lsp.sumneko_lua.setup {
-    on_attach=on_attach,
-    settings = {
-        Lua = {
-            runtime = {
-                -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-                version = 'LuaJIT',
-            },
-            diagnostics = {
-                -- Get the language server to recognize the `vim` global
-                globals = {'vim', "use", "client", "root", "awesome"},
-            },
-            workspace = {
-                -- Make the server aware of Neovim runtime files
-                --library = vim.api.nvim_get_runtime_file("", true),
-                library = {
-                    ['/usr/share/nvim/runtime/lua'] = true,
-                    ['/usr/share/nvim/runtime/lua/lsp'] = true,
-                    ['/usr/share/awesome/lib'] = true
+    nvim_lsp.sumneko_lua.setup {
+        on_attach = on_attach,
+        settings = {
+            Lua = {
+                runtime = {
+                    -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+                    version = 'LuaJIT',
+                },
+                diagnostics = {
+                    -- Get the language server to recognize the `vim` global
+                    globals = { 'vim', "use", "client", "root", "awesome" },
+                },
+                workspace = {
+                    -- Make the server aware of Neovim runtime files
+                    --library = vim.api.nvim_get_runtime_file("", true),
+                    library = {
+                        ['/usr/share/nvim/runtime/lua'] = true,
+                        ['/usr/share/nvim/runtime/lua/lsp'] = true,
+                        ['/usr/share/awesome/lib'] = true
+                    },
+                },
+                -- Do not send telemetry data containing a randomized but unique identifier
+                telemetry = {
+                    enable = false,
                 },
             },
-            -- Do not send telemetry data containing a randomized but unique identifier
-            telemetry = {
-                enable = false,
-            },
         },
-    },
-}
-
-nvim_lsp.rust_analyzer.setup({
-    on_attach=on_attach,
-    settings = {
-        ["rust-analyzer"] = {
-            assist = {
-                importGranularity = "module",
-                importPrefix = "by_self",
-            },
-            cargo = {
-                loadOutDirsFromCheck = true
-            },
-            procMacro = {
-                enable = true
-            },
-        }
-    },
-    capabilities = capabilities,
-    flags = {
-      debounce_text_changes = 150,
     }
-})
+
+    nvim_lsp.rust_analyzer.setup({
+        on_attach = on_attach,
+        settings = {
+            ["rust-analyzer"] = {
+                assist = {
+                    importGranularity = "module",
+                    importPrefix = "by_self",
+                },
+                cargo = {
+                    loadOutDirsFromCheck = true
+                },
+                procMacro = {
+                    enable = true
+                },
+            }
+        },
+        capabilities = capabilities,
+        flags = {
+            debounce_text_changes = 150,
+        }
+    })
 end
 
 --require'completion'.on_attach(client, bufnr)
@@ -350,7 +354,7 @@ require("clangd_extensions").setup {
         -- i.e. the arguments to require("lspconfig").clangd.setup({})
         on_attach = on_attach,
         capabilities = capabilities,
-        cmd={
+        cmd = {
             "clangd",
             "--header-insertion=never",
             "--compile-commands-dir=${workspaceFolder}/",
