@@ -225,12 +225,15 @@ local packer = require('packer').startup(function()
 
     use {
         "martinda/Jenkinsfile-vim-syntax",
-        "preservim/nerdcommenter",
         { "evanleck/vim-svelte", branch = "main" }
     }
 
+    use { 'numToStr/Comment.nvim' }
+
     use("APZelos/blamer.nvim")
 
+    use { 'windwp/nvim-autopairs' }
+    use { 'windwp/nvim-ts-autotag' }
     use { 'alvarosevilla95/luatab.nvim', requires = 'kyazdani42/nvim-web-devicons' }
     use { 'p00f/clangd_extensions.nvim' }
     -- use { 'jose-elias-alvarez/null-ls.nvim' } -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
