@@ -68,7 +68,7 @@ local packer = require('packer').startup(function()
 
 
     use 'lukas-reineke/indent-blankline.nvim' -- Add indentation guides even on blank lines
-    use 'lewis6991/gitsigns.nvim'
+    use { 'lewis6991/gitsigns.nvim' }
 
     -- status line
     use {
@@ -238,7 +238,8 @@ local packer = require('packer').startup(function()
     use { 'p00f/clangd_extensions.nvim' }
     -- use { 'jose-elias-alvarez/null-ls.nvim' } -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
     use { 'jose-elias-alvarez/typescript.nvim' }
-
+    use { "petertriho/nvim-scrollbar" }
+    use { "kevinhwang91/nvim-hlslens" }
     -- use {
     --     'numToStr/Comment.nvim',
     --     config = function()

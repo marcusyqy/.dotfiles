@@ -22,7 +22,7 @@ window:
     columns: 0
     lines: 0
 
-  opacity: 0.8
+  opacity: 1.0
 
   # Window padding (changes require restart)
   #
