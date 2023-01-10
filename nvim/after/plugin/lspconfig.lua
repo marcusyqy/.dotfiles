@@ -201,7 +201,7 @@ local on_attach = function(client, bufnr)
     -- buf_set_keymap('n', '<leader>rr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
     --buf_set_keymap('n', '<leader>gh', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
     --buf_set_keymap('v', '<leader>gh', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
-    buf_set_keymap('n', '<leader>vgh',
+    buf_set_keymap('n', '<leader>gh',
         '<cmd>lua vim.diagnostic.open_float(0, { scope = "line", border = "rounded" })<CR>', opts)
     buf_set_keymap('v', '<leader>vgh', '<cmd>lua vim.diagnostic.open_float(0, { border = "rounded" })<CR>', opts)
     -- buf_set_keymap('n', '<leader>gk', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
