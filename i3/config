@@ -50,7 +50,7 @@ new_float none
 bindsym $mod+Return exec i3-sensible-terminal
 
 bindsym $mod+Shift+q kill
-bindsym $mod+Shift+x exec i3lock --color=000000
+#bindsym $mod+Shift+x exec i3lock --color=000000
 
 # change focus
 bindsym $mod+h focus left
