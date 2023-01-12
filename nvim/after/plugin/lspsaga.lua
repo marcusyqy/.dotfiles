@@ -127,7 +127,7 @@ nnoremap("<leader>o", vimfn([[Lspsaga outline]]), { silent = true, noremap = tru
 nnoremap("K", vimfn([[Lspsaga hover_doc]]), { silent = true })
 --
 -- preview definition
-nnoremap("gp", vimfn([[Lspsaga preview_definition]]), { silent = true, noremap = true })
+nnoremap("gp", vimfn([[Lspsaga peek_definition]]), { silent = true, noremap = true })
 nnoremap("gr", vimfn([[Lspsaga rename]]), { silent = true, noremap = true })
 
 -- jump and show diagnostic (try)
