@@ -1,8 +1,8 @@
-vim.opt.winblend=0
-vim.opt.wildoptions="pum"
-vim.opt.pumblend=5
+vim.opt.winblend = 0
+vim.opt.wildoptions = "pum"
+vim.opt.pumblend = 5
 
-local colorscheme = "onedark"
+local colorscheme = "tokyonight"
 local set_color_scheme = function(color_scheme)
     require("marcusyqy.color." .. color_scheme)
     colorscheme = color_scheme

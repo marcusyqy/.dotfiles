@@ -66,7 +66,6 @@ local packer = require('packer').startup(function()
         "saadparwaiz1/cmp_luasnip"
     }
 
-
     use 'lukas-reineke/indent-blankline.nvim' -- Add indentation guides even on blank lines
     use { 'lewis6991/gitsigns.nvim' }
 
@@ -106,6 +105,8 @@ local packer = require('packer').startup(function()
 
     -- colorschemes
     use {
+        -- Using Packer:
+        { "Mofiqul/dracula.nvim" },
         { "folke/tokyonight.nvim", branch = "main" },
         { "Mofiqul/vscode.nvim" },
         { "luisiacc/gruvbox-baby", branch = "main" },

@@ -1,19 +1,19 @@
 local Remap = require("marcusyqy.keymap")
 local nnoremap = Remap.nnoremap
 local vnoremap = Remap.vnoremap
-local inoremap = Remap.inoremap
+-- local inoremap = Remap.inoremap
 local vimfn = Remap.vimfn
 
 local saga = require("lspsaga")
 
 -- change the lsp symbol kind
-local kind = require("lspsaga.lspkind")
+-- local kind = require("lspsaga.lspkind")
 -- kind[type_number][2] = icon -- see lua/lspsaga/lspkind.lua
 
 -- use default config
 
 -- use custom config
-saga.init_lsp_saga({
+saga.setup({
     -- Options with default value
     -- "single" | "double" | "rounded" | "bold" | "plus"
     border_style = "single",
