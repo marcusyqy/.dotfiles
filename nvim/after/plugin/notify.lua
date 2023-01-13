@@ -10,5 +10,5 @@ vim.notify = require("notify")
 
 
 
-nnoremap("<c-t>", function() require("notify").dismiss() end, { silent = true, noremap =true })
-vnoremap("<c-t>", function() require("notify").dismiss() end, { silent = true, noremap =true })
+nnoremap("<c-t>", function() require("notify").dismiss() end, { silent = true, noremap = true })
+vnoremap("<c-t>", function() require("notify").dismiss() end, { silent = true, noremap = true })

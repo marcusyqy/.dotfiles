@@ -135,6 +135,6 @@ nnoremap("gh", vimfn([[Lspsaga show_line_diagnostics]]), { silent = true, norema
 vnoremap("gh", vimfn([[Lspsaga show_line_diagnostics]]), { silent = true, noremap = true })
 
 -- jump diagnostic
-nnoremap("<c-k>", vimfn([[Lspsaga diagnostic_jump_prev]]), { silent = true, noremap = true })
-nnoremap("<c-j>", vimfn([[Lspsaga diagnostic_jump_next]]), { silent = true, noremap = true })
+-- nnoremap("<c-k>", vimfn([[Lspsaga diagnostic_jump_prev]]), { silent = true, noremap = true })
+-- nnoremap("<c-j>", vimfn([[Lspsaga diagnostic_jump_next]]), { silent = true, noremap = true })
 -- or use command

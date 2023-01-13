@@ -246,11 +246,11 @@ local packer = require('packer').startup(function()
     use { 'jose-elias-alvarez/typescript.nvim' }
     use { "petertriho/nvim-scrollbar" }
     use { "kevinhwang91/nvim-hlslens" }
+
+
+    -- potential plugins to use
     -- use {
-    --     'numToStr/Comment.nvim',
-    --     config = function()
-    --         require('Comment').setup()
-    --     end
+    --     "utilyre/barbecue.nvim",
     -- }
     local has_plugins, plugins = pcall(require, 'custom.plugins')
     if has_plugins then
