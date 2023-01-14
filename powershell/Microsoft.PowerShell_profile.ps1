@@ -1,20 +1,28 @@
+$env:TERM='xterm-256color'
+$env:EDITOR='nvim'
+$desktop='C:\Users\Marcus\Desktop'
+
+function cd_dotfiles() {
+    cd ~/.dotfiles
+}
+
+function cd_desktop() {
+    cd $desktop
+}
+
 # Import-Module posh-git
 # Import-Module oh-my-posh
 Set-Alias vim nvim
 Set-Alias vi nvim
 Set-Alias gvim nvim-qt
 Set-Alias quit exit
-Set-Alias alc alacritty
+Set-Alias t alacritty
 Set-Alias lzg lazygit
 Set-Alias ll ls
 Set-Alias grep rg
 Set-Alias g git
-
-$env:TERM='xterm-256color'
-$env:EDITOR='nvim'
-$work = 'C:\work'
-$shrek = 'C:\work\repo\Shrek'
-$dot_files='~/.dotfiles'
+Set-Alias .df cd_dotfiles
+Set-Alias .dd cd_desktop
 
 Import-Module PSReadLine
 
@@ -32,8 +40,8 @@ Set-PSReadLineOption -PredictionSource History
 # PSReadLine
 Set-PSReadLineOption -EditMode Emacs
 Set-PSReadLineOption -BellStyle None
-Set-PSReadLineKeyHandler -Chord 'Ctrl+d' -Function DeleteChar
-Set-PSReadLineOption -PredictionSource History
+#Set-PSReadLineKeyHandler -Chord 'Ctrl+d' -Function DeleteChar
+#Set-PSReadLineOption -PredictionSource History
 
 function Invoke-Environment {
     param
@@ -68,7 +76,8 @@ function init_msvc_env {
 
 Set-Alias -Name msvc -Value init_msvc_env
 
-clear
+# removed so that we can see the warnings
+# clear
 
 # Chocolatey profile
 $ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
