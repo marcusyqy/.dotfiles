@@ -1,5 +1,5 @@
 #!/bin/sh
 
-# feh --bg-fill --randomize ~/wallpapers/images/
-feh --bg-fill --randomize ~/wallpapers/nord/
-# feh --bg-fill --randomize ~/wallpapers/anime/
+#feh --bg-fill --randomize ~/.dotfiles/wallpapers/images/
+feh --bg-fill --randomize ~/.dotfiles/wallpapers/nord/
+# feh --bg-fill --randomize ~/.dotfiles/wallpapers/anime/

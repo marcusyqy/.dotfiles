@@ -7,5 +7,3 @@ require('gitsigns').setup {
         changedelete = { text = '~' },
     },
 }
-
-require("scrollbar.handlers.gitsigns").setup()
