@@ -4,7 +4,7 @@ local nmap     = Remaps.nmap
 local nnoremap = Remaps.nnoremap
 local inoremap = Remaps.inoremap
 local vnoremap = Remaps.vnoremap
-local vimfn = Remaps.vimfn
+local vimfn    = Remaps.vimfn
 
 -- planck keymaps
 nnoremap("<pageup>", "<c-u>")
@@ -60,6 +60,12 @@ vnoremap("J", ":m '>+1<CR>gv=gv")
 vnoremap("K", ":m '<-2<CR>gv=gv")
 
 vnoremap("<leader>p", "\"_dP")
+nnoremap("<c-s>",
+    function()
+        if vim.lsp.buf.server_ready() then
+            vim.lsp.buf.format()
+        end
+    end);
 
 -- "nice removing of whitespaces!
 -- fun! TrimWhiteSpace()

@@ -26,6 +26,8 @@ require("marcusyqy.language")
 require("marcusyqy.statusline")
 require("marcusyqy.shell")
 
+require("marcusyqy.format_on_save")
+
 -- events
 local augroup = vim.api.nvim_create_augroup
 MarcusYqyGroup = augroup('MarcusYqy', {})
@@ -61,11 +63,11 @@ autocmd({ "BufWritePre" }, {
 
 
 -- enable formatting of buffer when saving
-autocmd({ "BufWritePre" }, {
-    group = MarcusYqyGroup,
-    pattern = "*",
-    command = "lua if vim.lsp.buf.server_ready() then vim.lsp.buf.format() end",
-})
+-- autocmd({ "BufWritePre" }, {
+--     group = MarcusYqyGroup,
+--     pattern = "*",
+--     command = "lua if vim.lsp.buf.server_ready() then vim.lsp.buf.format() end",
+-- })
 
 vim.g.netrw_browse_split = 0
 vim.g.netrw_banner = 0

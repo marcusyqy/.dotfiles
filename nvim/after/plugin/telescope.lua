@@ -1,4 +1,3 @@
-
 if not vim.g.loaded_telescope then
     return
 end
@@ -147,23 +146,29 @@ local actions = require("telescope.actions")
 -- end)
 
 require("telescope").setup({
-	defaults = {
-		file_sorter = require("telescope.sorters").get_fzy_sorter,
-		-- prompt_prefix = " >",
+    defaults = {
+        file_sorter = require("telescope.sorters").get_fzy_sorter,
+        -- prompt_prefix = " >",
         prompt_prefix = "   ",
-		color_devicons = true,
+        color_devicons = true,
 
-		file_previewer = require("telescope.previewers").vim_buffer_cat.new,
-		grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
-		qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
-
-		mappings = {
-			i = {
-				["<C-x>"] = false,
-				["<C-q>"] = actions.send_to_qflist,
-			},
-		},
-	},
+        file_previewer = require("telescope.previewers").vim_buffer_cat.new,
+        grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
+        qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
+        preview = {
+            filesize_hook = function(filepath, bufnr, opts)
+                local max_bytes = 10000
+                local cmd = { "head", "-c", max_bytes, filepath }
+                require('telescope.previewers.utils').job_maker(cmd, bufnr, opts)
+            end
+        },
+        mappings = {
+            i = {
+                ["<C-x>"] = false,
+                ["<C-q>"] = actions.send_to_qflist,
+            },
+        },
+    },
     --[[
 	extensions = {
 		fzy_native = {
@@ -179,13 +184,13 @@ require("telescope").setup({
 
 
 local function git_branch_private()
-    require'telescope.builtin'.git_branches({ attach_mappings = function(_, map)
-            map('i', '<c-d>', actions.git_delete_branch)
-            map('n', '<c-d>', actions.git_delete_branch)
-            return true
-        end, require('telescope.themes').get_dropdown({})
-        })
-    end
+    require 'telescope.builtin'.git_branches({ attach_mappings = function(_, map)
+        map('i', '<c-d>', actions.git_delete_branch)
+        map('n', '<c-d>', actions.git_delete_branch)
+        return true
+    end, require('telescope.themes').get_dropdown({})
+    })
+end
 
 --
 --  " Using lua functions
@@ -194,34 +199,38 @@ local function git_branch_private()
 -- nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
 -- nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 
-nnoremap("<leader>ps", function() require('telescope.builtin').grep_string({search = vim.fn.input("Find For > ")--[[ , previewer=false ]]}) end);
+nnoremap("<leader>ps",
+    function() require('telescope.builtin').grep_string({ search = vim.fn.input("Find For > ") --[[ , previewer=false ]] }) end);
 
 -- Find files using Telescope command-line sugar.
 
 -- local telescope_opts = { previewer = false }
 local telescope_opts = {}
-nnoremap("<c-p>", function() require('telescope.builtin').git_files(telescope_opts) end)
-nnoremap("<leader>ff", function() require('telescope.builtin').find_files(telescope_opts) end)
-nnoremap("<leader>eps", function() require('telescope.builtin').live_grep(require('telescope.themes').get_dropdown(telescope_opts)) end)
+nnoremap("<c-p>", function() require('telescope.builtin').git_files(require('telescope.themes').get_dropdown({ previewer = false })) end)
+nnoremap("<leader>ff", function() require('telescope.builtin').find_files(require('telescope.themes').get_dropdown({ previewer = false })) end)
+nnoremap("<leader>eps",
+    function() require('telescope.builtin').live_grep(require('telescope.themes').get_dropdown(telescope_opts)) end)
 nnoremap("<leader>fb", function() require('telescope.builtin').buffers(require('telescope.themes').get_ivy({})) end)
 nnoremap("<leader>fh", function() require('telescope.builtin').help_tags(require('telescope.themes').get_ivy({})) end)
-nnoremap("<leader>fgc", function() require('telescope.builtin').git_commits(require('telescope.themes').get_dropdown({})) end)
+nnoremap("<leader>fgc",
+    function() require('telescope.builtin').git_commits(require('telescope.themes').get_dropdown({})) end)
 nnoremap("<leader>fgb", git_branch_private)
 nnoremap("<leader>cmd", function() require('telescope.builtin').commands() end)
 -- nnoremap <leader>pp", <cmd>lua require'telescope'.extensions.project.project{}<cr>
 
 -- test for building
-nnoremap("<leader>to", function() require('telescope').extensions.asynctasks.all(require('telescope.themes').get_dropdown(telescope_opts)) end)
+nnoremap("<leader>to",
+    function() require('telescope').extensions.asynctasks.all(require('telescope.themes').get_dropdown(telescope_opts)) end)
 nnoremap("<leader>te", vimfn([[e .tasks]]))
 
 
 -- See `:help telescope.builtin`
-vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
-vim.keymap.set('n', '<leader><space>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
+vim.keymap.set('n', '<leader>?', function() require('telescope.builtin').oldfiles(require('telescope.themes').get_ivy()) end, { desc = '[?] Find recently opened files' })
+vim.keymap.set('n', '<leader><space>', function() require('telescope.builtin').buffers(require('telescope.themes').get_ivy()) end, { desc = '[ ] Find existing buffers' })
 vim.keymap.set('n', '<leader>/', function()
-  -- You can pass additional configuration to telescope to change theme, layout, etc.
-  require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
-    winblend = 10,
-    previewer = false,
-  })
+    -- You can pass additional configuration to telescope to change theme, layout, etc.
+    require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
+        winblend = 10,
+        previewer = false,
+    })
 end, { desc = '[/] Fuzzily search in current buffer]' })
