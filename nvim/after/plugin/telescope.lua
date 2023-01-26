@@ -206,8 +206,10 @@ nnoremap("<leader>ps",
 
 -- local telescope_opts = { previewer = false }
 local telescope_opts = {}
-nnoremap("<c-p>", function() require('telescope.builtin').git_files(require('telescope.themes').get_dropdown({ previewer = false })) end)
-nnoremap("<leader>ff", function() require('telescope.builtin').find_files(require('telescope.themes').get_dropdown({ previewer = false })) end)
+-- nnoremap("<c-p>", function() require('telescope.builtin').git_files({ previewer = false }) end)
+nnoremap("<c-p>", function() require('telescope.builtin').git_files(require('telescope.themes').get_ivy({ previewer = false })) end)
+-- nnoremap("<c-p>", function() require('telescope.builtin').git_files(require('telescope.themes').get_ivy({ previewer = false })) end)
+nnoremap("<leader>ff", function() require('telescope.builtin').find_files(require('telescope.themes').get_ivy({ previewer = false })) end)
 nnoremap("<leader>eps",
     function() require('telescope.builtin').live_grep(require('telescope.themes').get_dropdown(telescope_opts)) end)
 nnoremap("<leader>fb", function() require('telescope.builtin').buffers(require('telescope.themes').get_ivy({})) end)
@@ -234,3 +236,5 @@ vim.keymap.set('n', '<leader>/', function()
         previewer = false,
     })
 end, { desc = '[/] Fuzzily search in current buffer]' })
+
+-- nnoremap("<leader>rr", require('telescope.builtin').lsp_references)

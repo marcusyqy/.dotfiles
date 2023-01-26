@@ -181,19 +181,27 @@ require("neo-tree").setup({
                             -- "open_current",  -- netrw disabled, opening a directory opens within the
                                               -- window like netrw would, regardless of window.position
                             -- "disabled",    -- netrw left alone, neo-tree does not handle opening dirs
-      use_libuv_file_watcher = false, -- This will use the OS level file watchers to detect changes
+      use_libuv_file_watcher = true, -- This will use the OS level file watchers to detect changes
                                       -- instead of relying on nvim autocmd events.
       window = {
         mappings = {
-          ["<bs>"] = "navigate_up",
-          ["."] = "set_root",
-          ["H"] = "toggle_hidden",
-          ["/"] = "fuzzy_finder",
-          ["D"] = "fuzzy_finder_directory",
-          ["f"] = "filter_on_submit",
+          -- ["<bs>"] = "navigate_up",
+          -- ["."] = "set_root",
+          -- ["H"] = "toggle_hidden",
+          -- ["/"] = "fuzzy_finder",
+          -- ["D"] = "fuzzy_finder_directory",
+          -- ["f"] = "filter_on_submit",
+          -- ["[g"] = "prev_git_modified",
+          -- ["]g"] = "next_git_modified",
+          ["<bs>"] = "noop",
+          ["."] = "noop",
+          ["H"] = "noop",
+          ["/"] = "noop",
+          ["D"] = "noop",
+          ["f"] = "noop",
           ["<c-x>"] = "clear_filter",
-          ["[g"] = "prev_git_modified",
-          ["]g"] = "next_git_modified",
+          ["[g"] = "noop",
+          ["]g"] = "noop",
         }
       }
     },
