@@ -207,6 +207,7 @@ local packer = require('packer').startup(function()
         }
     }
 
+    use { "peterhoeg/vim-qml" }
     use { -- LSP Configuration & Plugins
         'neovim/nvim-lspconfig',
         requires = {

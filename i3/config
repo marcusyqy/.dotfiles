@@ -161,8 +161,7 @@ bar {
     tray_output primary
 }
 
-bindsym $mod+i exec sh ~/.screenlayout/screenlayout.sh
-
+bindsym $mod+i exec --no-startup-id sh ~/.screenlayout/custom.sh && sh ~/wallpapers/scripts/wallpaper.sh
 bindsym $mod+f fullscreen toggle
 bindsym $mod+Control+f bar mode toggle
 
