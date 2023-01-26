@@ -26,8 +26,6 @@ require("marcusyqy.language")
 require("marcusyqy.statusline")
 require("marcusyqy.shell")
 
-require("marcusyqy.format_on_save")
-
 -- events
 local augroup = vim.api.nvim_create_augroup
 MarcusYqyGroup = augroup('MarcusYqy', {})
