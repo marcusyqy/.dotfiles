@@ -1,6 +1,6 @@
 $env:TERM='xterm-256color'
 $env:EDITOR='nvim'
-$desktop='C:\Users\Marcus\Desktop'
+$desktop='~\Desktop'
 
 function cd_dotfiles() {
     cd ~/.dotfiles
