@@ -108,6 +108,7 @@ local packer = require('packer').startup(function()
         -- Using Packer:
         { "Mofiqul/dracula.nvim" },
         { "folke/tokyonight.nvim", branch = "main" },
+        { 'projekt0n/github-nvim-theme', tag = 'v0.0.7' },
         { "Mofiqul/vscode.nvim" },
         { "luisiacc/gruvbox-baby", branch = "main" },
         { "ellisonleao/gruvbox.nvim" },

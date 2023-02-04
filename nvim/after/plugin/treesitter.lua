@@ -35,6 +35,7 @@ require 'nvim-treesitter.configs'.setup {
         enable = true,
         filetypes = {
             'html', 'javascript', 'typescript', 'javascriptreact', 'typescriptreact', 'svelte', 'vue', 'tsx', 'jsx',
+            'cpp', 'rust', 'c', 'go',
             'rescript',
             'xml',
             'php',
@@ -44,6 +45,7 @@ require 'nvim-treesitter.configs'.setup {
     },
     sync_install = false,
     ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'typescript', 'help', 'dockerfile', 'tsx', 'html',
+        'markdown',
         'json' },
 }
 

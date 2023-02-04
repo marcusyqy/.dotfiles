@@ -1,6 +1,6 @@
 $env:TERM='xterm-256color'
 $env:EDITOR='nvim'
-$desktop='~\Desktop'
+$desktop='C:\Users\Marcus\Desktop'
 
 function cd_dotfiles() {
     cd ~/.dotfiles
@@ -17,6 +17,7 @@ Set-Alias vi nvim
 Set-Alias gvim nvim-qt
 Set-Alias quit exit
 Set-Alias t alacritty
+Set-Alias e nvim-qt
 Set-Alias lzg lazygit
 Set-Alias ll ls
 Set-Alias grep rg

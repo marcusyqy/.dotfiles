@@ -23,8 +23,9 @@ endif
 
 " Enable GUI ScrollBar
 if exists(':GuiScrollBar')
-    GuiScrollBar 1
+    GuiScrollBar 0
 endif
+
 
 " Right Click Context Menu (Copy-Cut-Paste)
 nnoremap <silent><RightMouse> :call GuiShowContextMenu()<CR>
@@ -33,14 +34,20 @@ xnoremap <silent><RightMouse> :call GuiShowContextMenu()<CR>gv
 snoremap <silent><RightMouse> <C-G>:call GuiShowContextMenu()<CR>gv
 
 let s:fontsize = 14
-function! AdjustFontSize(amount)
+
+fun! SetFontSize(amount)
+  let s:fontsize = a:amount
+  :execute "GuiFont! JetBrainsMono\ NF:h" . s:fontsize
+endfun
+
+fun! AdjustFontSize(amount)
   let s:fontsize = s:fontsize+a:amount
   :execute "GuiFont! JetBrainsMono\ NF:h" . s:fontsize
-endfunction
+endfun
 
 noremap <C-ScrollWheelUp> :call AdjustFontSize(1)<CR>
 noremap <C-ScrollWheelDown> :call AdjustFontSize(-1)<CR>
 inoremap <C-ScrollWheelUp> <Esc>:call AdjustFontSize(1)<CR>a
 inoremap <C-ScrollWheelDown> <Esc>:call AdjustFontSize(-1)<CR>aa
 
-GuiFont! JetBrainsMono\ NF:h14
+call SetFontSize(s:fontsize)
