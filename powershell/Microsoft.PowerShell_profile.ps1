@@ -17,7 +17,7 @@ Set-Alias vi nvim
 Set-Alias gvim nvim-qt
 Set-Alias quit exit
 Set-Alias t alacritty
-Set-Alias e nvim-qt
+Set-Alias e neovide
 Set-Alias lzg lazygit
 Set-Alias ll ls
 Set-Alias grep rg
