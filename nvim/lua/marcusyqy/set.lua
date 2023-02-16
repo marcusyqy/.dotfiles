@@ -3,7 +3,7 @@
 -- delays and poor user experience.
 vim.opt.updatetime = 50
 
--- vim.opt.guicursor = ""
+vim.opt.guicursor = ""
 
 -- set nocompatible "be iMproved
 vim.opt.hidden = true

@@ -67,6 +67,8 @@ nnoremap("<c-s>",
         end
     end);
 
+nnoremap("<leader>sv", vimfn([[source $MYVIMRC]]))
+
 -- "nice removing of whitespaces!
 -- fun! TrimWhiteSpace()
 --     let l:save = winsaveview()
