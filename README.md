@@ -93,3 +93,7 @@ alias aoeu='setxkbmap us'
 
 ### cursor
 https://wiki.archlinux.org/title/Cursor_themes#Configuration
+
+
+### list fonts
+fc-match NameOfFont -s

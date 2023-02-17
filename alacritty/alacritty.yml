@@ -65,19 +65,19 @@ scrolling:
   # scrollback is enabled (history > 0).
   multiplier: 3
 
-  #Font configuration (changes require restart)
+#Font configuration (changes require restart)
 font:
   normal:
-    family: JetBrainsMono Nerd Font Mono
+    family: Hack NF # JetBrains Mono Nerd Font Mono
     style: Regular
   bold:
-    family: JetBrainsMono Nerd Font Mono
+    family: Hack NF # JetBrains Mono Nerd Font Mono
     style: Bold
   italic:
-    family: JetBrainsMono Nerd Font Mono
+    family: Hack NF # JetBrains Mono Nerd Font Mono
     style: Italic
   bold_italic:
-    family: JetBrainsMono Nerd Font Mono
+    family: Hack NF # JetBrains Mono Nerd Font Mono
     style: Bold Italic
 
   # Point size of the font
@@ -118,6 +118,10 @@ draw_bold_text_with_bright_colors: true
 # Use custom cursor colors. If true, display the cursor in the cursor.foreground
 # and cursor.background colors, otherwise invert the colors of the cursor.
 custom_cursor_colors: true
+
+cursor:
+  style:
+    shape: Block
 
 colors: #(DRACULA)
   primary:
