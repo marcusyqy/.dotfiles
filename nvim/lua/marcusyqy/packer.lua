@@ -111,6 +111,7 @@ local packer = require('packer').startup(function()
         { 'projekt0n/github-nvim-theme', tag = 'v0.0.7' },
         { "Mofiqul/vscode.nvim" },
         { "luisiacc/gruvbox-baby", branch = "main" },
+        { "shaunsingh/nord.nvim" },
         { "ellisonleao/gruvbox.nvim" },
         { "navarasu/onedark.nvim" },
         { "EdenEast/nightfox.nvim", run = ":NightfoxCompile", },

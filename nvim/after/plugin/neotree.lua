@@ -119,6 +119,8 @@ require("neo-tree").setup({
             nowait = false, -- disable `nowait` if you have existing combos starting with this char that you want to use
         },
         ["<2-LeftMouse>"] = "open",
+        ["o"] = "open",
+        ["e"] = "open",
         ["<cr>"] = "open",
         ["S"] = "open_split",
         ["s"] = "open_vsplit",
