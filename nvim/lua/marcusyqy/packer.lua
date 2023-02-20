@@ -112,10 +112,21 @@ local packer = require('packer').startup(function()
         { "Mofiqul/vscode.nvim" },
         { "luisiacc/gruvbox-baby", branch = "main" },
         { "shaunsingh/nord.nvim" },
+        { "Abstract-IDE/Abstract-cs" },
         { "ellisonleao/gruvbox.nvim" },
+        { "ishan9299/modus-theme-vim" },
         { "navarasu/onedark.nvim" },
         { "EdenEast/nightfox.nvim", run = ":NightfoxCompile", },
+        {
+            "mcchrish/zenbones.nvim",
+            -- Optionally install Lush. Allows for more configuration or extending the colorscheme
+            -- If you don't want to install lush, make sure to set g:zenbones_compat = 1
+            -- In Vim, compat mode is turned on as Lush only works in Neovim.
+            requires = "rktjmp/lush.nvim"
+        },
+        { "Yazeed1s/minimal.nvim" }
     }
+
 
     use {
         "skywind3000/asynctasks.vim",
