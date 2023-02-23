@@ -107,16 +107,16 @@ local packer = require('packer').startup(function()
     use {
         -- Using Packer:
         { "Mofiqul/dracula.nvim" },
-        { "folke/tokyonight.nvim", branch = "main" },
+        { "folke/tokyonight.nvim",       branch = "main" },
         { 'projekt0n/github-nvim-theme', tag = 'v0.0.7' },
         { "Mofiqul/vscode.nvim" },
-        { "luisiacc/gruvbox-baby", branch = "main" },
+        { "luisiacc/gruvbox-baby",       branch = "main" },
         { "shaunsingh/nord.nvim" },
         { "Abstract-IDE/Abstract-cs" },
         { "ellisonleao/gruvbox.nvim" },
         { "ishan9299/modus-theme-vim" },
         { "navarasu/onedark.nvim" },
-        { "EdenEast/nightfox.nvim", run = ":NightfoxCompile", },
+        { "EdenEast/nightfox.nvim",      run = ":NightfoxCompile", },
         {
             "mcchrish/zenbones.nvim",
             -- Optionally install Lush. Allows for more configuration or extending the colorscheme
@@ -124,7 +124,8 @@ local packer = require('packer').startup(function()
             -- In Vim, compat mode is turned on as Lush only works in Neovim.
             requires = "rktjmp/lush.nvim"
         },
-        { "Yazeed1s/minimal.nvim" }
+        { "Yazeed1s/minimal.nvim" },
+        { "blazkowolf/gruber-darker.nvim" }
     }
 
 
@@ -157,7 +158,8 @@ local packer = require('packer').startup(function()
     use({
         "kylechui/nvim-surround",
         tag = "*", -- Use for stability; omit to use `main` branch for the latest features
-        config = function() require("nvim-surround").setup({
+        config = function()
+            require("nvim-surround").setup({
                 -- Configuration here, or leave empty to use defaults
             })
         end
@@ -200,7 +202,8 @@ local packer = require('packer').startup(function()
                 -- only needed if you want to use the commands with "_with_window_picker" suffix
                 's1n7ax/nvim-window-picker',
                 tag = "v1.*",
-                config = function() require 'window-picker'.setup({
+                config = function()
+                    require 'window-picker'.setup({
                         autoselect_one = true,
                         include_current = false,
                         filter_rules = {
@@ -240,7 +243,12 @@ local packer = require('packer').startup(function()
     }
 
     use({
-        "glepnir/lspsaga.nvim", branch = "main" -- , commit="37bb464d55ba068ad14befd048c82cef007cea4d"
+        "glepnir/lspsaga.nvim",
+        requires = {
+            { "nvim-tree/nvim-web-devicons" },
+            --Please make sure you install markdown and markdown_inline parser
+            { "nvim-treesitter/nvim-treesitter" }
+        }
     })
 
     use {
