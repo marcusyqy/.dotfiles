@@ -69,16 +69,16 @@ scrolling:
 # Font configuration (changes require restart)
 font:
   normal:
-    family: JetBrainsMono NF
+    family: HackNF #JetBrainsMono NF
     style: Regular
   bold:
-    family: JetBrainsMono NF
+    family: HackNF #JetBrainsMono NF
     style: Bold
   italic:
-    family: JetBrainsMono NF
+    family: HackNF #JetBrainsMono NF
     style: Italic
   bold_italic:
-    family: JetBrainsMono NF
+    family: HackNF #JetBrainsMono NF
     style: Bold Italic
 
   # Point size of the font
