@@ -23,15 +23,15 @@ case "$chosen" in
 
     "$lock - lock")
         # TODO Add your lockscreen command.
-        i3lock --color=000000
+        sh ~/.dotfiles/scripts/lock.sh
         ;;
 
     "$suspend - suspend")
-        i3lock --color=000000 && systemctl suspend
+        sh ~/.dotfiles/scripts/lock.sh && systemctl suspend
         ;;
 
     "$suspend - hibernate")
-        i3lock --color=000000 && systemctl hibernate
+        sh ~/.dotfiles/scripts/lock.sh  && systemctl hibernate
         ;;
 
     *) exit 1 ;;
