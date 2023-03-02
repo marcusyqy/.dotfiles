@@ -207,9 +207,11 @@ nnoremap("<leader>ps",
 -- local telescope_opts = { previewer = false }
 local telescope_opts = {}
 -- nnoremap("<c-p>", function() require('telescope.builtin').git_files({ previewer = false }) end)
-nnoremap("<c-p>", function() require('telescope.builtin').git_files(require('telescope.themes').get_ivy({ previewer = false })) end)
+nnoremap("<c-p>",
+    function() require('telescope.builtin').git_files(require('telescope.themes').get_ivy({ previewer = false })) end)
 -- nnoremap("<c-p>", function() require('telescope.builtin').git_files(require('telescope.themes').get_ivy({ previewer = false })) end)
-nnoremap("<leader>ff", function() require('telescope.builtin').find_files(require('telescope.themes').get_ivy({ previewer = false })) end)
+nnoremap("<leader>ff",
+    function() require('telescope.builtin').find_files(require('telescope.themes').get_ivy({ previewer = false })) end)
 nnoremap("<leader>eps",
     function() require('telescope.builtin').live_grep(require('telescope.themes').get_dropdown(telescope_opts)) end)
 nnoremap("<leader>fb", function() require('telescope.builtin').buffers(require('telescope.themes').get_ivy({})) end)
@@ -227,8 +229,18 @@ nnoremap("<leader>te", vimfn([[e .tasks]]))
 
 
 -- See `:help telescope.builtin`
-vim.keymap.set('n', '<leader>?', function() require('telescope.builtin').oldfiles(require('telescope.themes').get_ivy()) end, { desc = '[?] Find recently opened files' })
-vim.keymap.set('n', '<leader><space>', function() require('telescope.builtin').buffers(require('telescope.themes').get_ivy()) end, { desc = '[ ] Find existing buffers' })
+vim.keymap.set('n', "<leader>f/", function() require("telescope.builtin").lsp_document_symbols() end,
+    { desc = "[fs], find workspace symbols" })
+vim.keymap.set('n', "<leader>fs", function() require("telescope.builtin").lsp_workspace_symbols() end,
+    { desc = "[fs], find workspace symbols" })
+vim.keymap.set('n', "<leader>ds", function() require("telescope.builtin").lsp_dynamic_workspace_symbols() end,
+    { desc = "[fs], find workspace symbols" })
+vim.keymap.set('n', '<leader>?',
+    function() require('telescope.builtin').builtin(require('telescope.themes').get_dropdown({previewer = false})) end,
+    { desc = '[?] Find recently opened files' })
+vim.keymap.set('n', '<leader><space>',
+    function() require('telescope.builtin').buffers(require('telescope.themes').get_ivy()) end,
+    { desc = '[ ] Find existing buffers' })
 vim.keymap.set('n', '<leader>/', function()
     -- You can pass additional configuration to telescope to change theme, layout, etc.
     require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
