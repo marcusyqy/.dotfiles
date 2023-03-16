@@ -18,7 +18,7 @@ font pango:monospace 8
 # GET DEM BORDERS OUT OF HEREc:w
 #
 # Thanks Childz
-for_window [class="^.*"] border pixel 5
+for_window [class="^.*"] border pixel 2
 #                           # class                 border  backgr. text    indicator child_border
 for_window [class="^.*"] client.focused          #77dd77 #285577 #ffffff #2e9ef4   #285577
 for_window [urgent="latest"] focus
@@ -43,9 +43,9 @@ new_float none
 
 # colors
 #class                 border  backgr. text    indicator child_border
-# client.focused         #535d6c #535d6c #535d6c #535d6c
-# client.unfocused       #222222 #222222 #222222 #222222
-# client.focused_inactive       #222222 #222222 #222222 #222222
+client.focused         #535d6c #535d6c #535d6c #535d6c
+client.unfocused       #222222 #222222 #222222 #222222
+client.focused_inactive       #222222 #222222 #222222 #222222
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
@@ -61,6 +61,7 @@ bindsym $mod+l focus right
 
 bindsym $mod+space focus mode_toggle
 focus_follows_mouse no
+# hide_edge_borders both
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -170,10 +171,8 @@ bindsym $mod+f fullscreen toggle
 bindsym $mod+Control+f bar mode toggle
 
 #Delete windows border
-for_window [class="^.*"] border pixel 2
-new_window pixel 2
-
-
+# for_window [class="^.*"] border pixel 2
+# new_window pixel 2
 
 #Rofi
 # bindsym $mod+space exec "rofi -combi-modi window,drun -show combi -modi combi"
