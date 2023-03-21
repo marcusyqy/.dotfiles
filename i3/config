@@ -43,9 +43,9 @@ new_float none
 
 # colors
 #class                 border  backgr. text    indicator child_border
-client.focused         #535d6c #535d6c #535d6c #535d6c
-client.unfocused       #222222 #222222 #222222 #222222
-client.focused_inactive       #222222 #222222 #222222 #222222
+client.focused         #535d6c #535d6c #ffffff #535d6c
+client.unfocused       #222222 #222222 #ffffff #222222
+client.focused_inactive       #222222 #222222 #ffffff #222222
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
