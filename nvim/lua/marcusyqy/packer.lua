@@ -176,14 +176,11 @@ local packer = require('packer').startup(function()
     -- }
 
     -- nvim-tree
+    -- kyazdani42
     use {
-        "kyazdani42/nvim-web-devicons", -- for file icons
-        "kyazdani42/nvim-tree.lua"
+        "nvim-tree/nvim-web-devicons", -- for file icons
+        "nvim-tree/nvim-tree.lua"
     }
-
-
-    -- Unless you are still migrating, remove the deprecated commands from v1.x
-    -- vim.g.neo_tree_remove_legacy_commands = 1
 
     use {
         "mrbjarksen/neo-tree-diagnostics.nvim",
