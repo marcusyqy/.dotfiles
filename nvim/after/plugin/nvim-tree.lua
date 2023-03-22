@@ -10,6 +10,15 @@ vim.g.loaded_netrwPlugin = 1
 -- set termguicolors to enable highlight groups
 vim.opt.termguicolors = true
 
+local function my_on_attach(bufnr)
+   local api = require('nvim-tree.api')
+   local function opts(desc)
+     return { desc = 'nvim-tree: ' .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+   end
+   api.config.mappings.default_on_attach(bufnr)
+   -- your removals and mappings go here
+ end
+
 require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
     auto_reload_on_write = true,
     disable_netrw = true,
@@ -25,7 +34,7 @@ require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
     sync_root_with_cwd = true,
     reload_on_bufenter = false,
     respect_buf_cwd = false,
-    on_attach = "default",
+    on_attach = my_on_attach, -- "default",
     remove_keymaps = false,
     select_prompts = false,
     view = {
@@ -47,7 +56,7 @@ require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
         },
         float = {
             enable = true,
-            quit_on_focus_loss = true,
+            quit_on_focus_loss = false,
             open_win_config = {
                 -- • "editor" The global editor grid
                 -- • "win" Window given by the `win` field, or current
@@ -202,7 +211,7 @@ require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
             },
         },
         open_file = {
-            quit_on_open = false,
+            quit_on_open = true,
             resize_window = true,
             window_picker = {
                 enable = false,
