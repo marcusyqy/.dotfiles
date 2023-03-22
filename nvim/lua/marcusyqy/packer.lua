@@ -49,6 +49,9 @@ local packer = require('packer').startup(function()
             }
         },
         {
+            "nvim-telescope/telescope-live-grep-args.nvim"
+        },
+        {
             "theprimeagen/harpoon",
             requires = {
                 "nvim-lua/popup.nvim",

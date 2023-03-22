@@ -21,6 +21,8 @@ require('telescope').load_extension("project")
 require('telescope').load_extension("asynctasks")
 require("telescope").load_extension("git_worktree")
 
+local lga_actions = require("telescope-live-grep-args.actions")
+
 local actions = require("telescope.actions")
 
 
@@ -184,11 +186,13 @@ require("telescope").setup({
 
 
 local function git_branch_private()
-    require 'telescope.builtin'.git_branches({ attach_mappings = function(_, map)
-        map('i', '<c-d>', actions.git_delete_branch)
-        map('n', '<c-d>', actions.git_delete_branch)
-        return true
-    end, require('telescope.themes').get_dropdown({})
+    require 'telescope.builtin'.git_branches({
+        attach_mappings = function(_, map)
+            map('i', '<c-d>', actions.git_delete_branch)
+            map('n', '<c-d>', actions.git_delete_branch)
+            return true
+        end,
+        require('telescope.themes').get_dropdown({})
     })
 end
 
@@ -200,7 +204,7 @@ end
 -- nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 
 nnoremap("<leader>ps",
-    function() require('telescope.builtin').grep_string({ search = vim.fn.input("Find For > ") --[[ , previewer=false ]] }) end);
+    function() require('telescope.builtin').grep_string({ search = vim.fn.input("Find For > ")}) end);
 
 -- Find files using Telescope command-line sugar.
 
@@ -213,12 +217,14 @@ nnoremap("<c-p>",
 nnoremap("<leader>ff",
     function() require('telescope.builtin').find_files(require('telescope.themes').get_ivy({ previewer = false })) end)
 nnoremap("<leader>eps",
-    function() require('telescope.builtin').live_grep(require('telescope.themes').get_dropdown(telescope_opts)) end)
+    function() require('telescope.builtin').live_grep() end)
+
+nnoremap("<leader>fg", function() require('telescope').extensions.live_grep_args.live_grep_args() end)
 nnoremap("<leader>fb", function() require('telescope.builtin').buffers(require('telescope.themes').get_ivy({})) end)
 nnoremap("<leader>fh", function() require('telescope.builtin').help_tags(require('telescope.themes').get_ivy({})) end)
-nnoremap("<leader>fgc",
-    function() require('telescope.builtin').git_commits(require('telescope.themes').get_dropdown({})) end)
-nnoremap("<leader>fgb", git_branch_private)
+-- nnoremap("<leader>fgc",
+--     function() require('telescope.builtin').git_commits(require('telescope.themes').get_dropdown({})) end)
+-- nnoremap("<leader>fgb", git_branch_private)
 nnoremap("<leader>cmd", function() require('telescope.builtin').commands() end)
 -- nnoremap <leader>pp", <cmd>lua require'telescope'.extensions.project.project{}<cr>
 
@@ -236,7 +242,7 @@ vim.keymap.set('n', "<leader>fs", function() require("telescope.builtin").lsp_wo
 vim.keymap.set('n', "<leader>ds", function() require("telescope.builtin").lsp_dynamic_workspace_symbols() end,
     { desc = "[fs], find workspace symbols" })
 vim.keymap.set('n', '<leader>?',
-    function() require('telescope.builtin').builtin(require('telescope.themes').get_dropdown({previewer = false})) end,
+    function() require('telescope.builtin').builtin(require('telescope.themes').get_dropdown({ previewer = false })) end,
     { desc = '[?] Find recently opened files' })
 vim.keymap.set('n', '<leader><space>',
     function() require('telescope.builtin').buffers(require('telescope.themes').get_ivy()) end,
