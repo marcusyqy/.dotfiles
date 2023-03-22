@@ -32,12 +32,12 @@ require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
         centralize_selection = false,
         cursorline = true,
         debounce_delay = 15,
-        width = 30,
+        width = 60,
         hide_root_folder = false,
         side = "left",
         preserve_window_proportions = false,
-        number = false,
-        relativenumber = false,
+        number = true,
+        relativenumber = true,
         signcolumn = "yes",
         mappings = {
             custom_only = false,
@@ -46,15 +46,22 @@ require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
             },
         },
         float = {
-            enable = false,
+            enable = true,
             quit_on_focus_loss = true,
             open_win_config = {
-                relative = "editor",
+                -- • "editor" The global editor grid
+                -- • "win" Window given by the `win` field, or current
+                --   window.
+                -- • "cursor" Cursor position in current window.
+                -- • "mouse" Mouse position
+                relative = "cursor",
                 border = "rounded",
-                width = 30,
-                height = 30,
-                row = 1,
-                col = 1,
+                width = 60,
+                height = 60,
+                row = 2,
+                col = 2,
+                title = "File Explorer",
+                title_pos = "center",
             },
         },
     },
@@ -125,7 +132,7 @@ require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
         auto_open = true,
     },
     update_focused_file = {
-        enable = false,
+        enable = true,
         update_root = false,
         ignore_list = {},
     },
@@ -198,7 +205,7 @@ require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
             quit_on_open = false,
             resize_window = true,
             window_picker = {
-                enable = true,
+                enable = false,
                 picker = "default",
                 chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
                 exclude = {

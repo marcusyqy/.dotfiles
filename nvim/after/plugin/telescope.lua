@@ -212,16 +212,16 @@ nnoremap("<leader>ps",
 local telescope_opts = {}
 -- nnoremap("<c-p>", function() require('telescope.builtin').git_files({ previewer = false }) end)
 nnoremap("<c-p>",
-    function() require('telescope.builtin').git_files(require('telescope.themes').get_ivy({ previewer = false })) end)
+    function() require('telescope.builtin').git_files() end)
 -- nnoremap("<c-p>", function() require('telescope.builtin').git_files(require('telescope.themes').get_ivy({ previewer = false })) end)
 nnoremap("<leader>ff",
-    function() require('telescope.builtin').find_files(require('telescope.themes').get_ivy({ previewer = false })) end)
+    function() require('telescope.builtin').find_files() end)
 nnoremap("<leader>eps",
     function() require('telescope.builtin').live_grep() end)
 
 nnoremap("<leader>fg", function() require('telescope').extensions.live_grep_args.live_grep_args() end)
-nnoremap("<leader>fb", function() require('telescope.builtin').buffers(require('telescope.themes').get_ivy({})) end)
-nnoremap("<leader>fh", function() require('telescope.builtin').help_tags(require('telescope.themes').get_ivy({})) end)
+nnoremap("<leader>fb", function() require('telescope.builtin').buffers() end)
+nnoremap("<leader>fh", function() require('telescope.builtin').help_tags() end)
 -- nnoremap("<leader>fgc",
 --     function() require('telescope.builtin').git_commits(require('telescope.themes').get_dropdown({})) end)
 -- nnoremap("<leader>fgb", git_branch_private)
