@@ -236,13 +236,16 @@ nnoremap("<leader>te", vimfn([[e .tasks]]))
 
 -- See `:help telescope.builtin`
 vim.keymap.set('n', "<leader>f/", function() require("telescope.builtin").lsp_document_symbols() end,
-    { desc = "[fs], find workspace symbols" })
+    { desc = "[fs], find document symbols" })
+vim.keymap.set('n', "<leader>f?", function() require("telescope.builtin").builtin() end,
+    { desc = "[fs], builtin" })
 vim.keymap.set('n', "<leader>fs", function() require("telescope.builtin").lsp_workspace_symbols() end,
     { desc = "[fs], find workspace symbols" })
 vim.keymap.set('n', "<leader>ds", function() require("telescope.builtin").lsp_dynamic_workspace_symbols() end,
-    { desc = "[fs], find workspace symbols" })
+    { desc = "[fs], find dynamic workspace symbols" })
 vim.keymap.set('n', '<leader>?',
     function() require('telescope.builtin').builtin(require('telescope.themes').get_dropdown({ previewer = false })) end,
+    -- function() require('telescope.builtin').oldfiles(require('telescope.themes').get_ivy()) end,
     { desc = '[?] Find recently opened files' })
 vim.keymap.set('n', '<leader><space>',
     function() require('telescope.builtin').buffers(require('telescope.themes').get_ivy()) end,
