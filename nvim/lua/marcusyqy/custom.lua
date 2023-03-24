@@ -56,8 +56,8 @@ nnoremap("<leader>sf", vimfn([[ClangdSwitchSourceHeader]]))
 nnoremap("<expr> k", "(v:count > 5 ? \"m'\" . v:count : \"\") . 'k'")
 nnoremap("<expr> j", "(v:count > 5 ? \"m'\" . v:count : \"\") . 'j'")
 
-vnoremap("J", ":m '>+1<CR>gv=gv")
-vnoremap("K", ":m '<-2<CR>gv=gv")
+vnoremap("J", ":m '>+1<CR>gv=gv", { silent = true })
+vnoremap("K", ":m '<-2<CR>gv=gv", { silent = true })
 
 vnoremap("<leader>p", "\"_dP")
 nnoremap("<c-s>",

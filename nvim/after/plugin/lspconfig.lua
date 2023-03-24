@@ -363,6 +363,8 @@ require("clangd_extensions").setup {
             "--background-index",
             "--suggest-missing-includes",
             "--clang-tidy",
+            "--cross-file-rename",
+            "--all-scopes-completion",
             "--query-driver=/**/*"
         }
     },
