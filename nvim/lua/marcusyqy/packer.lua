@@ -93,17 +93,20 @@ local packer = require('packer').startup(function()
     }
 
     -- Packer
-    use({
-        "folke/noice.nvim",
-        requires = {
-            -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-            "MunifTanjim/nui.nvim",
-            -- OPTIONAL:
-            --   `nvim-notify` is only needed, if you want to use the notification view.
-            --   If not available, we use `mini` as the fallback
-            "rcarriga/nvim-notify",
-        }
-    })
+    -- use({
+    --     "folke/noice.nvim",
+    --     requires = {
+    --         -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+    --         "MunifTanjim/nui.nvim",
+    --         -- OPTIONAL:
+    --         --   `nvim-notify` is only needed, if you want to use the notification view.
+    --         --   If not available, we use `mini` as the fallback
+    --         "rcarriga/nvim-notify",
+    --     }
+    -- },
+    --     {
+    --         "rcarriga/nvim-notify"
+    --     })
 
 
     -- colorschemes
@@ -112,23 +115,7 @@ local packer = require('packer').startup(function()
         { "Mofiqul/dracula.nvim" },
         { "folke/tokyonight.nvim",       branch = "main" },
         { 'projekt0n/github-nvim-theme', tag = 'v0.0.7' },
-        { "Mofiqul/vscode.nvim" },
-        { "luisiacc/gruvbox-baby",       branch = "main" },
-        { "shaunsingh/nord.nvim" },
-        { "Abstract-IDE/Abstract-cs" },
         { "ellisonleao/gruvbox.nvim" },
-        { "ishan9299/modus-theme-vim" },
-        { "navarasu/onedark.nvim" },
-        { "EdenEast/nightfox.nvim",      run = ":NightfoxCompile", },
-        {
-            "mcchrish/zenbones.nvim",
-            -- Optionally install Lush. Allows for more configuration or extending the colorscheme
-            -- If you don't want to install lush, make sure to set g:zenbones_compat = 1
-            -- In Vim, compat mode is turned on as Lush only works in Neovim.
-            requires = "rktjmp/lush.nvim"
-        },
-        { "Yazeed1s/minimal.nvim" },
-        { "blazkowolf/gruber-darker.nvim" }
     }
 
 
@@ -186,9 +173,6 @@ local packer = require('packer').startup(function()
         "mrbjarksen/neo-tree-diagnostics.nvim",
         requires = "nvim-neo-tree/neo-tree.nvim",
         module = "neo-tree.sources.diagnostics", -- if wanting to lazyload
-    }
-    use {
-        "rcarriga/nvim-notify"
     }
 
     use {
