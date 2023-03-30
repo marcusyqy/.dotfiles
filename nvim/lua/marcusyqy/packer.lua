@@ -22,6 +22,7 @@ local packer = require('packer').startup(function()
     -- Packer can manage itself
     use "wbthomason/packer.nvim"
 
+
     -- cmp
     use {
         "folke/lsp-colors.nvim",
@@ -79,14 +80,19 @@ local packer = require('packer').startup(function()
 
     -- status line
     use {
-        'nvim-lualine/lualine.nvim',
-        requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+        {
+            'nvim-lualine/lualine.nvim',
+            requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+        },
+        { 'tjdevries/express_line.nvim' }
     }
 
     -- Post-install/update hook with neovim command
     use {
-        { "nvim-treesitter/nvim-treesitter",
-            run = function() pcall(require('nvim-treesitter.install').update { with_sync = true }) end },
+        {
+            "nvim-treesitter/nvim-treesitter",
+            run = function() pcall(require('nvim-treesitter.install').update { with_sync = true }) end
+        },
         'nvim-treesitter/nvim-treesitter-context',
         'nvim-treesitter/playground',
         'MunifTanjim/nui.nvim'
@@ -121,6 +127,10 @@ local packer = require('packer').startup(function()
         { "folke/tokyonight.nvim",       branch = "main" },
         { 'projekt0n/github-nvim-theme', tag = 'v0.0.7' },
         { "ellisonleao/gruvbox.nvim" },
+        {
+            'tjdevries/gruvbuddy.nvim',
+            requires = { 'tjdevries/colorbuddy.vim' }
+        }
     }
 
 
@@ -200,7 +210,6 @@ local packer = require('packer').startup(function()
                             bo = {
                                 -- if the file type is one of following, the window will be ignored
                                 filetype = { 'neo-tree', "neo-tree-popup", "notify", "quickfix" },
-
                                 -- if the buffer type is one of following, the window will be ignored
                                 buftype = { 'terminal' },
                             },
@@ -257,6 +266,9 @@ local packer = require('packer').startup(function()
     use { 'jose-elias-alvarez/typescript.nvim' }
 
     use { "kalvinpearce/ShaderHighlight" }
+
+    use { "ktunprasert/gui-font-resize.nvim" }
+
 
     -- potential plugins to use
     -- use {

@@ -68,6 +68,7 @@ nnoremap("<c-s>",
     end);
 
 nnoremap("<leader>sv", vimfn([[source $MYVIMRC]]))
+nnoremap("<c-t>", vimfn([[tabnew]]))
 
 -- "nice removing of whitespaces!
 -- fun! TrimWhiteSpace()
