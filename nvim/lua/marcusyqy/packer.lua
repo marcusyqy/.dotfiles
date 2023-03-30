@@ -69,7 +69,7 @@ local packer = require('packer').startup(function()
         "saadparwaiz1/cmp_luasnip"
     }
 
-    use 'lukas-reineke/indent-blankline.nvim' -- Add indentation guides even on blank lines
+    -- use 'lukas-reineke/indent-blankline.nvim' -- Add indentation guides even on blank lines
     use { 'lewis6991/gitsigns.nvim' }
 
     -- status line
