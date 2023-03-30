@@ -32,6 +32,11 @@ local packer = require('packer').startup(function()
         "hrsh7th/nvim-cmp"
     }
 
+    -- Lua
+    use {
+        "folke/zen-mode.nvim"
+    }
+
     if vim.fn.has("win32") == 1 then
         use { "nvim-telescope/telescope-fzy-native.nvim" }
     else
