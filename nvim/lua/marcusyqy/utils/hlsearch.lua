@@ -2,7 +2,7 @@
 local Remaps   = require("marcusyqy.keymap")
 local nnoremap = Remaps.nnoremap
 
-local marcusyqy_hlsearch = false
+local marcusyqy_hlsearch = true
 
 local ToggleHLSearch = function()
     if not marcusyqy_hlsearch then

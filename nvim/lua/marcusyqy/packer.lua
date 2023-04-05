@@ -84,7 +84,14 @@ local packer = require('packer').startup(function()
             'nvim-lualine/lualine.nvim',
             requires = { 'kyazdani42/nvim-web-devicons', opt = true }
         },
-        { 'tjdevries/express_line.nvim' }
+        {
+            'tjdevries/express_line.nvim',
+            requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+        },
+        {
+            'feline-nvim/feline.nvim',
+            requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+        }
     }
 
     -- Post-install/update hook with neovim command
@@ -268,6 +275,7 @@ local packer = require('packer').startup(function()
     use { "kalvinpearce/ShaderHighlight" }
 
     use { "ktunprasert/gui-font-resize.nvim" }
+    use 'Bekaboo/deadcolumn.nvim'
 
 
     -- potential plugins to use

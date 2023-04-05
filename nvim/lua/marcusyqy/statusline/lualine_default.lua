@@ -25,7 +25,7 @@ lualine.setup {
             statusline = {},
             winbar = {},
         },
-        always_divide_middle = true,
+        always_divide_middle = false,
         globalstatus = true,
         refresh = {
             statusline = 1000,

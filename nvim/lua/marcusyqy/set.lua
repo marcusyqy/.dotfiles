@@ -58,7 +58,7 @@ vim.opt.cmdheight = 1
 
 -- Don't pass messages to |ins-completion-menu|.
 vim.opt.shortmess:append("c")
--- vim.opt.colorcolumn = "80"
+vim.opt.colorcolumn = "120"
 vim.opt.termguicolors = true
 --
 -- set ai "Auto indent

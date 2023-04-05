@@ -1,9 +1,16 @@
 require('gitsigns').setup {
-    signs = {
-        add = { text = '+' },
-        change = { text = '~' },
-        delete = { text = '_' },
-        topdelete = { text = '‾' },
-        changedelete = { text = '~' },
-    },
+    -- signs = {
+    --     add = { text = '+' },
+    --     change = { text = '~' },
+    --     delete = { text = '_' },
+    --     topdelete = { text = '‾' },
+    --     changedelete = { text = '~' },
+    -- },
+  signs = {
+    add = { hl = "GitSignsAdd", text = "│", numhl = "GitSignsAddNr" },
+    change = { hl = "GitSignsChange", text = "│", numhl = "GitSignsChangeNr" },
+    delete = { hl = "GitSignsDelete", text = "_", numhl = "GitSignsDeleteNr" },
+    topdelete = { hl = "GitSignsDelete", text = "‾", numhl = "GitSignsDeleteNr" },
+    changedelete = { hl = "GitSignsDelete", text = "~", numhl = "GitSignsChangeNr" },
+  },
 }

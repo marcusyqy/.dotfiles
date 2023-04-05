@@ -103,7 +103,7 @@ require("el").setup {
             { sections.split,                                                  required = true },
             { diagnostic_display },
             { show_current_func },
-            -- { lsp_statusline.server_progress },
+            { lsp_statusline.server_progress },
             -- { ws_diagnostic_counts },
             { git_changes },
             { "[" },
