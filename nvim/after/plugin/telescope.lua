@@ -147,23 +147,39 @@ local actions = require("telescope.actions")
 --    end
 -- end)
 
+local previewers = require('telescope.previewers')
+
+local new_maker = function(filepath, bufnr, opts)
+    opts = opts or {}
+
+    filepath = vim.fn.expand(filepath)
+    vim.loop.fs_stat(filepath, function(_, stat)
+        if not stat then return end
+        if stat.size > 100000 then
+            return
+        else
+            previewers.buffer_previewer_maker(filepath, bufnr, opts)
+        end
+    end)
+end
+
 require("telescope").setup({
     defaults = {
         file_sorter = require("telescope.sorters").get_fzy_sorter,
         -- prompt_prefix = " >",
         prompt_prefix = "   ",
         color_devicons = true,
-
+        buffer_previewer_maker = new_maker,
         file_previewer = require("telescope.previewers").vim_buffer_cat.new,
         grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
         qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
-        preview = {
-            filesize_hook = function(filepath, bufnr, opts)
-                local max_bytes = 10000
-                local cmd = { "head", "-c", max_bytes, filepath }
-                require('telescope.previewers.utils').job_maker(cmd, bufnr, opts)
-            end
-        },
+        -- preview = {
+        --     filesize_hook = function(filepath, bufnr, opts)
+        --         local max_bytes = 10000
+        --         local cmd = { "head", "-c", max_bytes, filepath }
+        --         require('telescope.previewers.utils').job_maker(cmd, bufnr, opts)
+        --     end
+        -- },
         mappings = {
             i = {
                 ["<C-x>"] = false,
@@ -204,7 +220,7 @@ end
 -- nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 
 nnoremap("<leader>ps",
-    function() require('telescope.builtin').grep_string({ search = vim.fn.input("Find For > ")}) end);
+    function() require('telescope.builtin').grep_string({ search = vim.fn.input("Find For > ") }) end);
 
 -- Find files using Telescope command-line sugar.
 
@@ -235,10 +251,12 @@ nnoremap("<leader>te", vimfn([[e .tasks]]))
 
 
 -- See `:help telescope.builtin`
-vim.keymap.set('n', "<leader>f/", function() require("telescope.builtin").lsp_document_symbols() end,
+vim.keymap.set('n', "<leader>/", function() require("telescope.builtin").lsp_document_symbols() end,
     { desc = "[fs], find document symbols" })
 vim.keymap.set('n', "<leader>f?", function() require("telescope.builtin").builtin() end,
     { desc = "[fs], builtin" })
+vim.keymap.set('n', "<c-t>", function() require("telescope.builtin").lsp_workspace_symbols() end,
+    { desc = "[fs], find workspace symbols" })
 vim.keymap.set('n', "<leader>fs", function() require("telescope.builtin").lsp_workspace_symbols() end,
     { desc = "[fs], find workspace symbols" })
 vim.keymap.set('n', "<leader>ds", function() require("telescope.builtin").lsp_dynamic_workspace_symbols() end,
@@ -250,7 +268,7 @@ vim.keymap.set('n', '<leader>?',
 vim.keymap.set('n', '<leader><space>',
     function() require('telescope.builtin').buffers(require('telescope.themes').get_ivy()) end,
     { desc = '[ ] Find existing buffers' })
-vim.keymap.set('n', '<leader>/', function()
+vim.keymap.set('n', '<leader>t/', function()
     -- You can pass additional configuration to telescope to change theme, layout, etc.
     require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
         winblend = 10,
