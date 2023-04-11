@@ -19,8 +19,8 @@ lspkind.init({
     -- 'codicons' for codicon preset (requires vscode-codicons font)
     --
     -- default: 'default'
-    preset = 'codicons',
-
+    preset = 'default',
+    mode = "symbol_text",
     -- override preset symbols
     --
     -- default: {}
@@ -67,7 +67,7 @@ cmp.setup({
         end,
     },
     mapping = {
-        ['<C-u>'] = cmp.mapping.scroll_docs(-4),
+        ['<C-u>'] = cmp.mapping.scroll_docs( -4),
         ['<C-d>'] = cmp.mapping.scroll_docs(4),
         ['<C-Space>'] = cmp.mapping.complete(),
         ['<Tab>'] = function(fallback)
@@ -82,8 +82,8 @@ cmp.setup({
         ['<S-Tab>'] = function(fallback)
             if cmp.visible() then
                 cmp.select_prev_item()
-            elseif luasnip.jumpable(-1) then
-                luasnip.jump(-1)
+            elseif luasnip.jumpable( -1) then
+                luasnip.jump( -1)
             else
                 fallback()
             end
@@ -100,8 +100,8 @@ cmp.setup({
         ['<up>'] = function(fallback)
             if cmp.visible() then
                 cmp.select_prev_item()
-            elseif luasnip.jumpable(-1) then
-                luasnip.jump(-1)
+            elseif luasnip.jumpable( -1) then
+                luasnip.jump( -1)
             else
                 fallback()
             end
@@ -118,15 +118,14 @@ cmp.setup({
         ['<c-p>'] = function(fallback)
             if cmp.visible() then
                 cmp.select_prev_item()
-            elseif luasnip.jumpable(-1) then
-                luasnip.jump(-1)
+            elseif luasnip.jumpable( -1) then
+                luasnip.jump( -1)
             else
                 fallback()
             end
         end,
         ['<CR>'] = cmp.mapping.confirm { behavior = cmp.ConfirmBehavior.Replace, select = true, },
     },
-
     sources = {
         { name = 'nvim_lsp' },
 
@@ -143,16 +142,21 @@ cmp.setup({
         -- For ultisnips user.
         -- { name = 'ultisnips' },
 
-        { name = 'buffer', keyword_length = 5 },
+        { name = 'buffer',  keyword_length = 5 },
     },
     formatting = {
-        format = lspkind.cmp_format({ with_text = true, menu = ({
-            buffer = "[buffer]",
-            nvim_lsp = "[LSP]",
-            nvim_lua = "[api]",
-            luasnip = "[snippets]",
-            path = "[path]"
-        }) })
+        format = lspkind.cmp_format({ with_text = true, mode = "symbol",
+            maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+            ellipsis_char = '...', -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
+            -- The function below will be called before any actual modifications from lspkind
+            -- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
+            menu = ({
+                buffer = "[buffer]",
+                nvim_lsp = "[LSP]",
+                nvim_lua = "[api]",
+                luasnip = "[snippets]",
+                path = "[path]"
+            }) })
     },
     experimental = {
         native_menu = false,
@@ -206,11 +210,12 @@ local on_attach = function(client, bufnr)
     buf_set_keymap('v', '<leader>vgh', '<cmd>lua vim.diagnostic.open_float(0, { border = "rounded" })<CR>', opts)
     buf_set_keymap('n', '<leader>vk', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
     buf_set_keymap('n', '<leader>vj', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
-    buf_set_keymap('n', '<leader>k', '<cmd>lua vim.diagnostic.goto_prev({ severity = vim.diagnostic.severity.ERROR})<CR>', opts)
-    buf_set_keymap('n', '<leader>j', '<cmd>lua vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.ERROR})<CR>', opts)
+    buf_set_keymap('n', '<leader>k', '<cmd>lua vim.diagnostic.goto_prev({ severity = vim.diagnostic.severity.ERROR})<CR>',
+        opts)
+    buf_set_keymap('n', '<leader>j', '<cmd>lua vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.ERROR})<CR>',
+        opts)
     buf_set_keymap('n', '<leader>vq', '<cmd>lua vim.diagnostic.set_loclist()<CR>', opts)
     buf_set_keymap("n", "<leader>vf", "<cmd>lua vim.lsp.buf.format()<CR>", opts)
-
 end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and

@@ -5,7 +5,50 @@ local vnoremap = Remap.vnoremap
 local vimfn = Remap.vimfn
 
 local saga = require("lspsaga")
+local lspkind = require('lspkind')
 
+lspkind.init({
+    -- enables text annotations
+    --
+    -- default: true
+    -- default symbol map
+    -- can be either 'default' (requires nerd-fonts font) or
+    -- 'codicons' for codicon preset (requires vscode-codicons font)
+    --
+    -- default: 'default'
+    preset = 'default',
+    mode = "symbol_text",
+    -- override preset symbols
+    --
+    -- default: {}
+    symbol_map = {
+        Text = "",
+        Method = "",
+        Function = "",
+        Constructor = "",
+        Field = "ﰠ",
+        Variable = "",
+        Class = "ﴯ",
+        Interface = "",
+        Module = "",
+        Property = "ﰠ",
+        Unit = "塞",
+        Value = "",
+        Enum = "",
+        Keyword = "",
+        Snippet = "",
+        Color = "",
+        File = "",
+        Reference = "",
+        Folder = "",
+        EnumMember = "",
+        Constant = "",
+        Struct = "",
+        Event = "",
+        Operator = "",
+        TypeParameter = ""
+    },
+})
 -- change the lsp symbol kind
 -- local kind = require("lspsaga.lspkind")
 -- kind[type_number][2] = icon -- see lua/lspsaga/lspkind.lua
@@ -13,7 +56,11 @@ local saga = require("lspsaga")
 -- use default config
 
 -- use custom config
-saga.setup()
+saga.setup({
+    symbol_in_winbar = {
+        enable = false
+    }
+})
 -- saga.setup({
 --     -- Options with default value
 --     -- "single" | "double" | "rounded" | "bold" | "plus"
@@ -126,7 +173,7 @@ nnoremap("<leader>o", vimfn([[Lspsaga outline]]), { silent = true, noremap = tru
 
 -- show hover doc and press twice will jumpto hover window
 nnoremap("K", vimfn([[Lspsaga hover_doc]]), { silent = true })
-nnoremap("L", vimfn([[Lspsaga hover_doc ++keep]]), { silent = true})
+nnoremap("L", vimfn([[Lspsaga hover_doc ++keep]]), { silent = true })
 --
 -- preview definition
 nnoremap("gp", vimfn([[Lspsaga peek_definition]]), { silent = true, noremap = true })

@@ -18,7 +18,7 @@ end
 require("telescope").load_extension("file_browser")
 require('telescope').load_extension("project")
 -- Fuzzy find over current tasks
-require('telescope').load_extension("asynctasks")
+-- require('telescope').load_extension("asynctasks")
 require("telescope").load_extension("git_worktree")
 
 local lga_actions = require("telescope-live-grep-args.actions")
@@ -245,9 +245,9 @@ nnoremap("<leader>cmd", function() require('telescope.builtin').commands() end)
 -- nnoremap <leader>pp", <cmd>lua require'telescope'.extensions.project.project{}<cr>
 
 -- test for building
-nnoremap("<leader>to",
-    function() require('telescope').extensions.asynctasks.all(require('telescope.themes').get_dropdown(telescope_opts)) end)
-nnoremap("<leader>te", vimfn([[e .tasks]]))
+-- nnoremap("<leader>to",
+--     function() require('telescope').extensions.asynctasks.all(require('telescope.themes').get_dropdown(telescope_opts)) end)
+-- nnoremap("<leader>te", vimfn([[e .tasks]]))
 
 
 -- See `:help telescope.builtin`

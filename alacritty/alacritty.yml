@@ -68,16 +68,16 @@ scrolling:
 #Font configuration (changes require restart)
 font:
   normal:
-    family: Hack NF # JetBrains Mono Nerd Font Mono
+    family: JetBrains Mono Nerd Font Mono
     style: Regular
   bold:
-    family: Hack NF # JetBrains Mono Nerd Font Mono
+    family: JetBrains Mono Nerd Font Mono
     style: Bold
   italic:
-    family: Hack NF # JetBrains Mono Nerd Font Mono
+    family: JetBrains Mono Nerd Font Mono
     style: Italic
   bold_italic:
-    family: Hack NF # JetBrains Mono Nerd Font Mono
+    family: JetBrains Mono Nerd Font Mono
     style: Bold Italic
 
   # Point size of the font

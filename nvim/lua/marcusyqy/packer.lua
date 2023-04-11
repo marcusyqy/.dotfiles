@@ -141,19 +141,19 @@ local packer = require('packer').startup(function()
     }
 
 
-    use {
-        "skywind3000/asynctasks.vim",
-        "skywind3000/asyncrun.vim",
-        "GustavoKatel/telescope-asynctasks.nvim"
-    }
+    -- use {
+    --     "skywind3000/asynctasks.vim",
+    --     "skywind3000/asyncrun.vim",
+    --     "GustavoKatel/telescope-asynctasks.nvim"
+    -- }
 
     use "voldikss/vim-floaterm"
 
-    use {
-        "mfussenegger/nvim-dap",
-        "rcarriga/nvim-dap-ui",
-        "theHamsta/nvim-dap-virtual-text"
-    }
+    -- use {
+    --     "mfussenegger/nvim-dap",
+    --     "rcarriga/nvim-dap-ui",
+    --     "theHamsta/nvim-dap-virtual-text"
+    -- }
 
     -- tpope
     use {
