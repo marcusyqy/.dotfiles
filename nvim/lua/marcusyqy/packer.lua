@@ -109,7 +109,7 @@ local packer = require('packer').startup(function()
         'nvim-treesitter/nvim-treesitter-textobjects',
         after = 'nvim-treesitter',
     }
-
+    use("mbbill/undotree")
     -- Packer
     -- use({
     --     "folke/noice.nvim",
