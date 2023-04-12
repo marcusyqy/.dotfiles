@@ -176,7 +176,7 @@ bindsym $mod+Control+f bar mode toggle
 
 #Rofi
 # bindsym $mod+space exec "rofi -combi-modi window,drun -show combi -modi combi"
-bindsym $mod+d exec "rofi -combi-modi window,drun -show combi -modi combi"
+bindsym $mod+d exec "rofi -combi-modi window,drun,run -show combi -modi combi"
 bindsym $mod+o exec sh ~/.dotfiles/scripts/power.sh
 
 # Pulse Audio controls

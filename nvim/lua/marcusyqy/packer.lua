@@ -131,7 +131,7 @@ local packer = require('packer').startup(function()
     use {
         -- Using Packer:
         { "Mofiqul/dracula.nvim" },
-        { "folke/tokyonight.nvim",       branch = "main" },
+        { "folke/tokyonight.nvim", branch = "main" },
         { 'projekt0n/github-nvim-theme', tag = 'v0.0.7' },
         { "ellisonleao/gruvbox.nvim" },
         {
@@ -275,8 +275,9 @@ local packer = require('packer').startup(function()
     use { "kalvinpearce/ShaderHighlight" }
 
     use { "ktunprasert/gui-font-resize.nvim" }
-    use 'Bekaboo/deadcolumn.nvim'
-
+    use { 'Bekaboo/deadcolumn.nvim' }
+    use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim'
+    }
 
     -- potential plugins to use
     -- use {

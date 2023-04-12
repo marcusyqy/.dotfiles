@@ -364,6 +364,8 @@ require("clangd_extensions").setup {
         cmd = {
             "clangd",
             "--header-insertion=never",
+            "-j=8",
+            "--pch-storage=memory",
             "--compile-commands-dir=${workspaceFolder}/",
             "--background-index",
             "--suggest-missing-includes",
