@@ -131,12 +131,19 @@ local packer = require('packer').startup(function()
     use {
         -- Using Packer:
         { "Mofiqul/dracula.nvim" },
-        { "folke/tokyonight.nvim", branch = "main" },
+        { "folke/tokyonight.nvim",       branch = "main" },
         { 'projekt0n/github-nvim-theme', tag = 'v0.0.7' },
         { "ellisonleao/gruvbox.nvim" },
         {
             'tjdevries/gruvbuddy.nvim',
             requires = { 'tjdevries/colorbuddy.vim' }
+        },
+        {
+            "mcchrish/zenbones.nvim",
+            -- Optionally install Lush. Allows for more configuration or extending the colorscheme
+            -- If you don't want to install lush, make sure to set g:zenbones_compat = 1
+            -- In Vim, compat mode is turned on as Lush only works in Neovim.
+            requires = "rktjmp/lush.nvim"
         }
     }
 
