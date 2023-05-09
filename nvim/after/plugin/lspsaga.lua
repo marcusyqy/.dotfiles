@@ -173,7 +173,7 @@ nnoremap("<leader>o", vimfn([[Lspsaga outline]]), { silent = true, noremap = tru
 
 -- show hover doc and press twice will jumpto hover window
 nnoremap("K", vimfn([[Lspsaga hover_doc]]), { silent = true })
-nnoremap("L", vimfn([[Lspsaga hover_doc ++keep]]), { silent = true })
+-- nnoremap("L", vimfn([[Lspsaga hover_doc ++keep]]), { silent = true })
 --
 -- preview definition
 nnoremap("gp", vimfn([[Lspsaga peek_definition]]), { silent = true, noremap = true })

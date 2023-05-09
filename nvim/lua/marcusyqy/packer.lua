@@ -138,6 +138,7 @@ local packer = require('packer').startup(function()
             'tjdevries/gruvbuddy.nvim',
             requires = { 'tjdevries/colorbuddy.vim' }
         },
+        { "rebelot/kanagawa.nvim" },
         {
             "mcchrish/zenbones.nvim",
             -- Optionally install Lush. Allows for more configuration or extending the colorscheme
