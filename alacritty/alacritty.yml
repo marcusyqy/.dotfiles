@@ -123,93 +123,93 @@ cursor:
   style:
     shape: Block
 
-colors: #(DRACULA)
-  primary:
-    background: '#282a36'
-    foreground: '#f8f8f2'
-    bright_foreground: '#ffffff'
-  cursor:
-    text: CellBackground
-    cursor: CellForeground
-  vi_mode_cursor:
-    text: CellBackground
-    cursor: CellForeground
-  search:
-    matches:
-      foreground: '#44475a'
-      background: '#50fa7b'
-    focused_match:
-      foreground: '#44475a'
-      background: '#ffb86c'
-  footer_bar:
-    background: '#282a36'
-    foreground: '#f8f8f2'
-  hints:
-    start:
-      foreground: '#282a36'
-      background: '#f1fa8c'
-    end:
-      foreground: '#f1fa8c'
-      background: '#282a36'
-  line_indicator:
-    foreground: None
-    background: None
-  selection:
-    text: CellForeground
-    background: '#44475a'
-  normal:
-    black: '#21222c'
-    red: '#ff5555'
-    green: '#50fa7b'
-    yellow: '#f1fa8c'
-    blue: '#bd93f9'
-    magenta: '#ff79c6'
-    cyan: '#8be9fd'
-    white: '#f8f8f2'
-  bright:
-    black: '#6272a4'
-    red: '#ff6e6e'
-    green: '#69ff94'
-    yellow: '#ffffa5'
-    blue: '#d6acff'
-    magenta: '#ff92df'
-    cyan: '#a4ffff'
-    white: '#ffffff'
-
-
-# Colors (Base16 Default Dark)
-colors:
-  # Default colors
-  primary:
-    background: '#181818'
-    foreground: '#d8d8d8'
-
-  # Colors the cursor will use if `custom_cursor_colors` is true
-  # cursor:
-  #   text: '#d8d8d8'
-  #   cursor: '#d8d8d8'
-
-  # Normal colors
-  normal:
-    black:   '#181818'
-    red:     '#ab4642'
-    green:   '#a1b56c'
-    yellow:  '#f7ca88'
-    blue:    '#7cafc2'
-    magenta: '#ba8baf'
-    cyan:    '#86c1b9'
-    white:   '#d8d8d8'
-
-  # Bright colors
-  bright:
-    black:   '#585858'
-    red:     '#ab4642'
-    green:   '#a1b56c'
-    yellow:  '#f7ca88'
-    blue:    '#7cafc2'
-    magenta: '#ba8baf'
-    cyan:    '#86c1b9'
-    white:   '#f8f8f8'
+# colors: #(DRACULA)
+#   primary:
+#     background: '#282a36'
+#     foreground: '#f8f8f2'
+#     bright_foreground: '#ffffff'
+#   cursor:
+#     text: CellBackground
+#     cursor: CellForeground
+#   vi_mode_cursor:
+#     text: CellBackground
+#     cursor: CellForeground
+#   search:
+#     matches:
+#       foreground: '#44475a'
+#       background: '#50fa7b'
+#     focused_match:
+#       foreground: '#44475a'
+#       background: '#ffb86c'
+#   footer_bar:
+#     background: '#282a36'
+#     foreground: '#f8f8f2'
+#   hints:
+#     start:
+#       foreground: '#282a36'
+#       background: '#f1fa8c'
+#     end:
+#       foreground: '#f1fa8c'
+#       background: '#282a36'
+#   line_indicator:
+#     foreground: None
+#     background: None
+#   selection:
+#     text: CellForeground
+#     background: '#44475a'
+#   normal:
+#     black: '#21222c'
+#     red: '#ff5555'
+#     green: '#50fa7b'
+#     yellow: '#f1fa8c'
+#     blue: '#bd93f9'
+#     magenta: '#ff79c6'
+#     cyan: '#8be9fd'
+#     white: '#f8f8f2'
+#   bright:
+#     black: '#6272a4'
+#     red: '#ff6e6e'
+#     green: '#69ff94'
+#     yellow: '#ffffa5'
+#     blue: '#d6acff'
+#     magenta: '#ff92df'
+#     cyan: '#a4ffff'
+#     white: '#ffffff'
+#
+#
+# # Colors (Base16 Default Dark)
+# colors:
+#   # Default colors
+#   primary:
+#     background: '#181818'
+#     foreground: '#d8d8d8'
+#
+#   # Colors the cursor will use if `custom_cursor_colors` is true
+#   # cursor:
+#   #   text: '#d8d8d8'
+#   #   cursor: '#d8d8d8'
+#
+#   # Normal colors
+#   normal:
+#     black:   '#181818'
+#     red:     '#ab4642'
+#     green:   '#a1b56c'
+#     yellow:  '#f7ca88'
+#     blue:    '#7cafc2'
+#     magenta: '#ba8baf'
+#     cyan:    '#86c1b9'
+#     white:   '#d8d8d8'
+#
+#   # Bright colors
+#   bright:
+#     black:   '#585858'
+#     red:     '#ab4642'
+#     green:   '#a1b56c'
+#     yellow:  '#f7ca88'
+#     blue:    '#7cafc2'
+#     magenta: '#ba8baf'
+#     cyan:    '#86c1b9'
+#     white:   '#f8f8f8'
 
 # Colors (Gruvbox Dark)
 # colors:
