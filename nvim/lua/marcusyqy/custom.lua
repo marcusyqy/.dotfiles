@@ -60,12 +60,13 @@ vnoremap("J", ":m '>+1<CR>gv=gv", { silent = true })
 vnoremap("K", ":m '<-2<CR>gv=gv", { silent = true })
 
 vnoremap("<leader>p", "\"_dP")
-nnoremap("<c-s>",
-    function()
-        if vim.lsp.buf.server_ready() then
-            vim.lsp.buf.format()
-        end
-    end);
+nnoremap("<c-s>", ":w<CR>")
+-- nnoremap("<c-s>",
+--     function()
+--         if vim.lsp.buf.server_ready() then
+--             vim.lsp.buf.format()
+--         end
+--     end);
 
 nnoremap("<leader>sv", vimfn([[source $MYVIMRC]]))
 

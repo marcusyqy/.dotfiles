@@ -16,8 +16,10 @@ require('kanagawa').setup({
         theme = { wave = {}, lotus = {}, dragon = {}, all = {
             ui = {
                 bg_gutter = "none"
-            }
-        } },
+            },
+            border = "orolnge"
+        },
+        },
     },
     overrides = function(colors)
         local theme = colors.theme
@@ -27,6 +29,8 @@ require('kanagawa').setup({
             NormalFloat = { bg = "none" },
             FloatBorder = { bg = "none" },
             FloatTitle = { bg = "none" },
+            VertSplit = { fg = "orange" }, -- the column separating vertically split windows
+            WinSeparator = { fg = "orange", bold = true }, -- the column separating vertically split windows
 
             -- Save an hlgroup with dark background and dimmed foreground
             -- so that you can use it where your still want darker windows.
@@ -59,4 +63,3 @@ require('kanagawa').setup({
 
 -- setup must be called before loading
 vim.cmd("colorscheme kanagawa")
-
