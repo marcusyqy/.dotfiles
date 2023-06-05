@@ -59,15 +59,8 @@ nnoremap("<expr> j", "(v:count > 5 ? \"m'\" . v:count : \"\") . 'j'")
 vnoremap("J", ":m '>+1<CR>gv=gv", { silent = true })
 vnoremap("K", ":m '<-2<CR>gv=gv", { silent = true })
 
-vnoremap("<leader>p", "\"_dP")
--- nnoremap("<c-s>", ":w<CR>")
-nnoremap("<c-s>",
-    function()
-        if vim.lsp.buf.server_ready() then
-            vim.lsp.buf.format()
-        end
-        vim.cmd([[w]])
-    end);
+vnoremap("<leader>p", "\"_dP") -- nnoremap("<c-s>", ":w<CR>")
+nnoremap("<c-s>", function() vim.cmd([[w]]) end);
 
 nnoremap("<leader>sv", vimfn([[source $MYVIMRC]]))
 

@@ -67,7 +67,7 @@ cmp.setup({
         end,
     },
     mapping = {
-        ['<C-u>'] = cmp.mapping.scroll_docs( -4),
+        ['<C-u>'] = cmp.mapping.scroll_docs(-4),
         ['<C-d>'] = cmp.mapping.scroll_docs(4),
         ['<C-Space>'] = cmp.mapping.complete(),
         ['<Tab>'] = function(fallback)
@@ -82,8 +82,8 @@ cmp.setup({
         ['<S-Tab>'] = function(fallback)
             if cmp.visible() then
                 cmp.select_prev_item()
-            elseif luasnip.jumpable( -1) then
-                luasnip.jump( -1)
+            elseif luasnip.jumpable(-1) then
+                luasnip.jump(-1)
             else
                 fallback()
             end
@@ -100,8 +100,8 @@ cmp.setup({
         ['<up>'] = function(fallback)
             if cmp.visible() then
                 cmp.select_prev_item()
-            elseif luasnip.jumpable( -1) then
-                luasnip.jump( -1)
+            elseif luasnip.jumpable(-1) then
+                luasnip.jump(-1)
             else
                 fallback()
             end
@@ -118,8 +118,8 @@ cmp.setup({
         ['<c-p>'] = function(fallback)
             if cmp.visible() then
                 cmp.select_prev_item()
-            elseif luasnip.jumpable( -1) then
-                luasnip.jump( -1)
+            elseif luasnip.jumpable(-1) then
+                luasnip.jump(-1)
             else
                 fallback()
             end
@@ -142,7 +142,7 @@ cmp.setup({
         -- For ultisnips user.
         -- { name = 'ultisnips' },
 
-        { name = 'buffer',  keyword_length = 5 },
+        { name = 'buffer', keyword_length = 5 },
     },
     formatting = {
         format = lspkind.cmp_format({ with_text = true, mode = "symbol",
@@ -211,12 +211,15 @@ local on_attach = function(client, bufnr)
     -- buf_set_keymap('v', '<leader>vgh', '<cmd>lua vim.diagnostic.open_float(0, { border = "rounded" })<CR>', opts)
     buf_set_keymap('n', '<leader>vk', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
     buf_set_keymap('n', '<leader>vj', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
-    buf_set_keymap('n', '<leader>k', '<cmd>lua vim.diagnostic.goto_prev({ severity = vim.diagnostic.severity.ERROR})<CR>',
+    buf_set_keymap('n', '<leader>k', '<cmd>lua vim.diagnostic.goto_prev({ severity = vim.diagnostic.severity.ERROR})<CR>'
+        ,
         opts)
-    buf_set_keymap('n', '<leader>j', '<cmd>lua vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.ERROR})<CR>',
+    buf_set_keymap('n', '<leader>j', '<cmd>lua vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.ERROR})<CR>'
+        ,
         opts)
     buf_set_keymap('n', '<leader>vq', '<cmd>lua vim.diagnostic.set_loclist()<CR>', opts)
     buf_set_keymap("n", "<leader>vf", "<cmd>lua vim.lsp.buf.format()<CR>", opts)
+    buf_set_keymap("n", "<c-s>", "<cmd>lua vim.lsp.buf.format()<CR><cmd>lua vim.cmd([[w]])<CR>", opts);
 end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
@@ -378,10 +381,11 @@ require("clangd_extensions").setup {
     },
     extensions = {
         -- defaults:
-        -- Automatically set inlay hints (type hints)
         autoSetHints = true,
         -- These apply to the default ClangdSetInlayHints command
         inlay_hints = {
+            -- Automatically set inlay hints (type hints)
+            inline = vim.fn.has("nvim-0.10") == 1,
             -- Only show inlay hints for the current line
             only_current_line = false,
             -- Event which triggers a refersh of the inlay hints.
