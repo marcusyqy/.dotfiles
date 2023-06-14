@@ -77,3 +77,5 @@ vim.g.netrw_winsize = 25
 --     call setreg(r, [])
 -- endfor
 -- endfun
+--
+vim.api.nvim_command('autocmd VimResized * wincmd =')
