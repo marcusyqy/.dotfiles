@@ -131,7 +131,7 @@ local packer = require('packer').startup(function()
     use {
         -- Using Packer:
         { "Mofiqul/dracula.nvim" },
-        { "folke/tokyonight.nvim", branch = "main" },
+        { "folke/tokyonight.nvim",       branch = "main" },
         { 'projekt0n/github-nvim-theme', tag = 'v0.0.7' },
         { "ellisonleao/gruvbox.nvim" },
         { "marko-cerovac/material.nvim" },
@@ -247,7 +247,7 @@ local packer = require('packer').startup(function()
             'williamboman/mason-lspconfig.nvim',
 
             -- Useful status updates for LSP
-            'j-hui/fidget.nvim',
+            { 'j-hui/fidget.nvim', tag = "legacy" }
         },
     }
 
@@ -278,7 +278,7 @@ local packer = require('packer').startup(function()
     use { 'windwp/nvim-autopairs' }
     use { 'windwp/nvim-ts-autotag' }
     use { 'alvarosevilla95/luatab.nvim', requires = 'kyazdani42/nvim-web-devicons' }
-    use { 'p00f/clangd_extensions.nvim', commit="798e377ec859087132b81d2f347b5080580bd6b1" }
+    use { 'p00f/clangd_extensions.nvim', commit = "798e377ec859087132b81d2f347b5080580bd6b1" }
     -- use { 'jose-elias-alvarez/null-ls.nvim' } -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
     use { 'jose-elias-alvarez/typescript.nvim' }
 
