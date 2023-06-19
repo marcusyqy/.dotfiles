@@ -42,7 +42,7 @@ nvim_tree.setup { -- BEGIN_DEFAULT_OPTS
         centralize_selection = false,
         cursorline = true,
         debounce_delay = 15,
-        width = 48,
+        width = 60,
         hide_root_folder = false,
         side = "left",
         preserve_window_proportions = false,
@@ -267,22 +267,22 @@ nvim_tree.setup { -- BEGIN_DEFAULT_OPTS
 } -- END_DEFAULT_OPTS
 
 
-local function local_toggle()
-    if view.is_visible() then
-        view.close()
-    else
-        local buf = vim.api.nvim_get_current_buf()
-        local bufname = vim.api.nvim_buf_get_name(buf)
-        if bufname == nil or bufname == "" then
-            require("nvim-tree.api").tree.toggle()
-        else
-            nvim_tree.open_replacing_current_buffer(
-                vim.fn.getcwd())
-        end
-    end
-end
--- nnoremap("<c-n>", vimfn([[NvimTreeToggle]]))
-nnoremap("<c-n>", local_toggle)
+-- local function local_toggle()
+--     if view.is_visible() then
+--         view.close()
+--     else
+--         local buf = vim.api.nvim_get_current_buf()
+--         local bufname = vim.api.nvim_buf_get_name(buf)
+--         if bufname == nil or bufname == "" then
+--             require("nvim-tree.api").tree.toggle()
+--         else
+--             nvim_tree.open_replacing_current_buffer(
+--                 vim.fn.getcwd())
+--         end
+--     end
+-- end
+nnoremap("<c-n>", vimfn([[NvimTreeToggle]]))
+-- nnoremap("<c-n>", local_toggle)
 
 -- nnoremap("<c-n>", function()
 --     -- local previous_buf = vim.api.nvim_get_current_buf()
