@@ -64,6 +64,20 @@ nnoremap("<c-s>", function() vim.cmd([[w]]) end);
 
 nnoremap("<leader>sv", vimfn([[source $MYVIMRC]]))
 
+local function netrw()
+    if vim.bo.filetype == "netrw" then
+        vim.cmd([[Rex]])
+    else
+        vim.cmd([[Ex]])
+    end
+end
+
+nnoremap("<c-n>", netrw)
+
+
+-- nnoremap("<c-n>", vimfn([[let @/=expand("%:t") \| execute 'Explore' expand("%:h") \| normal n]]))
+-- map <Leader>f :<CR>
+
 -- "nice removing of whitespaces!
 -- fun! TrimWhiteSpace()
 --     let l:save = winsaveview()

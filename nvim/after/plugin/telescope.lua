@@ -6,8 +6,6 @@ local Remaps = require("marcusyqy.keymap")
 local nnoremap = Remaps.nnoremap
 local vimfn = Remaps.vimfn
 
-require("telescope").setup {}
-
 -- hack for windows
 if vim.fn.has("win32") == 1 then
     pcall(require('telescope').load_extension, "fzy_native")
@@ -138,7 +136,6 @@ local actions = require("telescope.actions")
 --        }
 --   }
 -- }
--- require("telescope").setup(options)
 --
 -- -- load extensions
 -- pcall(function()
@@ -162,6 +159,8 @@ local new_maker = function(filepath, bufnr, opts)
         end
     end)
 end
+
+local fb_actions = require "telescope._extensions.file_browser.actions"
 
 require("telescope").setup({
     defaults = {
@@ -198,9 +197,6 @@ require("telescope").setup({
 })
 
 
-
-
-
 local function git_branch_private()
     require 'telescope.builtin'.git_branches({
         attach_mappings = function(_, map)
@@ -216,7 +212,7 @@ end
 --  " Using lua functions
 -- nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
 -- nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
--- nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
+-- nnoremap <leader>fkb <cmd>lua require('telescope.builtin').buffers()<cr>
 -- nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 
 nnoremap("<leader>ps",
@@ -236,7 +232,7 @@ nnoremap("<leader>eps",
     function() require('telescope.builtin').live_grep() end)
 
 nnoremap("<leader>fg", function() require('telescope').extensions.live_grep_args.live_grep_args() end)
-nnoremap("<leader>fb", function() require('telescope.builtin').buffers() end)
+nnoremap("<leader>fb", vimfn([[Telescope file_browser]]))
 nnoremap("<leader>fh", function() require('telescope.builtin').help_tags() end)
 -- nnoremap("<leader>fgc",
 --     function() require('telescope.builtin').git_commits(require('telescope.themes').get_dropdown({})) end)
@@ -262,7 +258,8 @@ vim.keymap.set('n', "<leader>fs", function() require("telescope.builtin").lsp_wo
 vim.keymap.set('n', "<leader>ds", function() require("telescope.builtin").lsp_dynamic_workspace_symbols() end,
     { desc = "[fs], find dynamic workspace symbols" })
 vim.keymap.set('n', '<leader>?',
-    function() require('telescope.builtin').builtin(require('telescope.themes').get_dropdown({ previewer = false })) end,
+    function() require('telescope.builtin').builtin(require('telescope.themes').get_dropdown({ previewer = false })) end
+    ,
     -- function() require('telescope.builtin').oldfiles(require('telescope.themes').get_ivy()) end,
     { desc = '[?] Find recently opened files' })
 vim.keymap.set('n', '<leader><space>',
