@@ -28,7 +28,7 @@ nnoremap("<leader>h;", function() require("harpoon.ui").nav_file(5)end)
 nnoremap("<leader>h'", function() require("harpoon.ui").nav_file(6)end)
 
 
-nnoremap("<c-h>", function() require("harpoon.ui").nav_file(1)end)
-nnoremap("<c-j>", function() require("harpoon.ui").nav_file(2)end)
-nnoremap("<c-k>", function() require("harpoon.ui").nav_file(3)end)
-nnoremap("<c-l>", function() require("harpoon.ui").nav_file(4)end)
+-- nnoremap("<c-h>", function() require("harpoon.ui").nav_file(1)end)
+-- nnoremap("<c-j>", function() require("harpoon.ui").nav_file(2)end)
+-- nnoremap("<c-k>", function() require("harpoon.ui").nav_file(3)end)
+-- nnoremap("<c-l>", function() require("harpoon.ui").nav_file(4)end)
