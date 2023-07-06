@@ -1,7 +1,4 @@
 
-vim.g.gruvbones_darkness = "stark"
-vim.g.gruvbones_transparent_background = true
-
 
 local colors_name = "gruvbones"
 vim.g.colors_name = colors_name -- Required when defining a colorscheme
@@ -57,7 +54,30 @@ lush(specs)
 
 -- Optionally set term colors
 --
--- require("zenbones.term").apply_colors(palette)
+require("zenbones.term").apply_colors(palette)
+
 vim.g.duckbones_darkness = "stark"
 vim.g.duckbones_transparent_background = true
-vim.cmd([[colorscheme duckbones]])
+
+vim.g.zenburned_darkness = "stark"
+vim.g.zenburned_transparent_background = true
+
+vim.g.forestbones_darkness = "stark"
+vim.g.forestbones_transparent_background = true
+
+vim.g.neobones_darkness = "stark"
+vim.g.neobones_transparent_background = true
+
+vim.g.zenwritten_darkness = "stark"
+vim.g.zenwritten_transparent_background = true
+
+vim.g.nordbones_darkness = "stark"
+vim.g.nordbones_transparent_background = true
+-- vim.g.gruvbones_darkness = "stark"
+-- vim.g.gruvbones_transparent_background = true
+
+
+vim.cmd([[colorscheme neobones]])
+
+
+
