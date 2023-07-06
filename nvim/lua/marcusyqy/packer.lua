@@ -131,7 +131,7 @@ local packer = require('packer').startup(function()
     use {
         -- Using Packer:
         { "Mofiqul/dracula.nvim" },
-        { "folke/tokyonight.nvim",       branch = "main" },
+        { "folke/tokyonight.nvim", branch = "main" },
         { 'projekt0n/github-nvim-theme', tag = 'v0.0.7' },
         { "ellisonleao/gruvbox.nvim" },
         { "marko-cerovac/material.nvim" },
@@ -141,6 +141,7 @@ local packer = require('packer').startup(function()
             requires = { 'tjdevries/colorbuddy.vim' }
         },
         { "rebelot/kanagawa.nvim" },
+        { "rmehri01/onenord.nvim" },
         {
             "mcchrish/zenbones.nvim",
             -- Optionally install Lush. Allows for more configuration or extending the colorscheme
