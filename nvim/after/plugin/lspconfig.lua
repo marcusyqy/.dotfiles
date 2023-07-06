@@ -374,7 +374,8 @@ require("clangd_extensions").setup {
             "--background-index",
             -- "--clang-tidy",
             "--all-scopes-completion",
-            "--query-driver=/**/*"
+            "--query-driver=**"
+            --"query-driver=/**/*"
         }
     },
     extensions = {
