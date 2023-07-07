@@ -217,3 +217,5 @@ exec --no-startup-id sh ~/.dotfiles/scripts/linux/screen-no-timeout.sh
 # picom
 exec --no-startup-id sh ~/.dotfiles/scripts/linux/picom-start.sh
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+
+for_window [ title="AV Test - dev" ] floating enable
