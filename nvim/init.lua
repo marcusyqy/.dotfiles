@@ -1,2 +1,2 @@
 require("marcusyqy")
-require("gui")
+-- require("gui")

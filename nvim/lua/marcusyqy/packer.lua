@@ -155,11 +155,11 @@ local packer = require('packer').startup(function()
     }
 
 
-    -- use {
-    --     "skywind3000/asynctasks.vim",
-    --     "skywind3000/asyncrun.vim",
+    use {
+        "skywind3000/asynctasks.vim",
+        "skywind3000/asyncrun.vim",
     --     "GustavoKatel/telescope-asynctasks.nvim"
-    -- }
+    }
 
     use "voldikss/vim-floaterm"
 

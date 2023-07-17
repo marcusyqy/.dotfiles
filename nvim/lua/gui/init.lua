@@ -1,4 +1,5 @@
 vim.opt.mouse = "a"
+vim.opt.mousemodel = "popup"
 
 require("gui.font")
 

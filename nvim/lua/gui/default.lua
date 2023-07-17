@@ -1,8 +1,7 @@
 
-
 vim.cmd([[" " Set Editor Font
 " if exists(':GuiFont')
-"     " Use GuiFont! to ignore font errors
+"     " Use GuiFont! to ignore font errorsdefault.luadefault.lua
 "     GuiFont {font_name}:h{size}
 " endif
 

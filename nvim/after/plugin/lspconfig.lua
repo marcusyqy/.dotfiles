@@ -142,11 +142,13 @@ cmp.setup({
         -- For ultisnips user.
         -- { name = 'ultisnips' },
 
-        { name = 'buffer', keyword_length = 5 },
+        { name = 'buffer',  keyword_length = 5 },
     },
     formatting = {
-        format = lspkind.cmp_format({ with_text = true, mode = "symbol",
-            maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+        format = lspkind.cmp_format({
+            with_text = true,
+            mode = "symbol",
+            maxwidth = 50,         -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
             ellipsis_char = '...', -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
             -- The function below will be called before any actual modifications from lspkind
             -- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
@@ -156,7 +158,8 @@ cmp.setup({
                 nvim_lua = "[api]",
                 luasnip = "[snippets]",
                 path = "[path]"
-            }) })
+            })
+        })
     },
     experimental = {
         native_menu = false,
@@ -228,7 +231,7 @@ end
 --
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
-local servers = { "svelte", "gopls", "pyright", "astro", "tailwindcss" }
+local servers = { "svelte", "gopls", "pyright" } --[[ "astro", "tailwindcss" ]]
 
 for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup {
@@ -346,11 +349,12 @@ end
 --)
 require("typescript").setup({
     disable_commands = false, -- prevent the plugin from creating Vim commands
-    debug = false, -- enable debug logging for commands
+    debug = false,            -- enable debug logging for commands
     go_to_source_definition = {
-        fallback = true, -- fall back to standard LSP definition on failure
+        fallback = true,      -- fall back to standard LSP definition on failure
     },
-    server = { -- pass options to lspconfig's setup method
+    server = {
+                              -- pass options to lspconfig's setup method
         on_attach = on_attach,
         capabilities = capabilities,
         filetypes = {
