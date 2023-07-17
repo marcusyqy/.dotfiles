@@ -262,10 +262,10 @@ vim.keymap.set('n', '<leader>?',
     ,
     -- function() require('telescope.builtin').oldfiles(require('telescope.themes').get_ivy()) end,
     { desc = '[?] Find recently opened files' })
-vim.keymap.set('n', '<leader><space>',
+vim.keymap.set('n', '<c-b>',
     function() require('telescope.builtin').buffers(require('telescope.themes').get_ivy()) end,
     { desc = '[ ] Find existing buffers' })
-vim.keymap.set('n', '<leader>t/', function()
+vim.keymap.set('n', '<c-f>', function()
     -- You can pass additional configuration to telescope to change theme, layout, etc.
     require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
         winblend = 10,
