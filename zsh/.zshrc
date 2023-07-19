@@ -152,3 +152,8 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 alias lk="i3lock --color=000000"
+
+# pnpm
+export PNPM_HOME="/home/marcus.yong/.local/share/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+# pnpm end

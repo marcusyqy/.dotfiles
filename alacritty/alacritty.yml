@@ -123,11 +123,11 @@ cursor:
   style:
     shape: Block
 
-colors:
+# colors:
 #   # Default colors
-  primary:
-    background: '0x000000'
-    foreground: '0xFFFFFF'
+  # primary:
+  #   background: '0x000000'
+  #   foreground: '0xFFFFFF'
 
 
 # Visual Bell
