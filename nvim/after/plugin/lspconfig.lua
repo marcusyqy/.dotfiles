@@ -222,7 +222,7 @@ local on_attach = function(client, bufnr)
         opts)
     buf_set_keymap('n', '<leader>vq', '<cmd>lua vim.diagnostic.set_loclist()<CR>', opts)
     buf_set_keymap("n", "<leader>vf", "<cmd>lua vim.lsp.buf.format()<CR>", opts)
-    buf_set_keymap("n", "<c-s>", "<cmd>lua vim.lsp.buf.format()<CR><cmd>lua vim.cmd([[w]])<CR>", opts);
+    -- buf_set_keymap("n", "<c-s>", "<cmd>lua vim.lsp.buf.format()<CR><cmd>lua vim.cmd([[w]])<CR>", opts);
 end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
