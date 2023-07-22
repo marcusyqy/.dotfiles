@@ -81,6 +81,9 @@ local packer = require('packer').startup(function()
     -- status line
     use {
         {
+            "nvimdev/whiskyline.nvim"
+        },
+        {
             'nvim-lualine/lualine.nvim',
             requires = { 'kyazdani42/nvim-web-devicons', opt = true }
         },
@@ -131,7 +134,7 @@ local packer = require('packer').startup(function()
     use {
         -- Using Packer:
         { "Mofiqul/dracula.nvim" },
-        { "folke/tokyonight.nvim", branch = "main" },
+        { "folke/tokyonight.nvim",       branch = "main" },
         { 'projekt0n/github-nvim-theme', tag = 'v0.0.7' },
         { "ellisonleao/gruvbox.nvim" },
         { "marko-cerovac/material.nvim" },
@@ -158,7 +161,7 @@ local packer = require('packer').startup(function()
     use {
         "skywind3000/asynctasks.vim",
         "skywind3000/asyncrun.vim",
-    --     "GustavoKatel/telescope-asynctasks.nvim"
+        --     "GustavoKatel/telescope-asynctasks.nvim"
     }
 
     use "voldikss/vim-floaterm"
@@ -262,7 +265,7 @@ local packer = require('packer').startup(function()
     }
 
     use({
-        "glepnir/lspsaga.nvim",
+        "nvimdev/lspsaga.nvim",
         requires = {
             { "nvim-tree/nvim-web-devicons" },
             --Please make sure you install markdown and markdown_inline parser
