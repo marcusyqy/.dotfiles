@@ -38,9 +38,15 @@ lualine.setup {
     },
     sections = {
         lualine_a = {'mode'},
-        lualine_b = {'branch', 'diff', 'diagnostics'},
-        lualine_c = {'filename'},
+        lualine_b = {'branch'}, -- 'diagnostics'},
+        lualine_c = { {
+            "%=%t%m",
+            color = {
+                gui ="bold"
+            }
+        }},
         lualine_x = {
+            'diff',
             {
                 'diagnostics',
                 sources = {"nvim_diagnostic"},
@@ -57,7 +63,7 @@ lualine.setup {
                 always_visible = false,   -- Show diagnostics even if there are none.
             },
             { searchCount },
-            'tabs',
+--            'tabs',
             "encoding",
             "filetype",
             "fileformat",
