@@ -62,7 +62,7 @@ lualine.setup {
                 update_in_insert = false, -- Update diagnostics in insert mode.
                 always_visible = false,   -- Show diagnostics even if there are none.
             },
-            { searchCount },
+            -- { searchCount },
 --            'tabs',
             "encoding",
             "filetype",
