@@ -29,7 +29,7 @@ lualine.setup {
             winbar = {},
         },
         always_divide_middle = false,
-        globalstatus = true,
+        globalstatus = false,
         refresh = {
             statusline = 1000,
             tabline = 1000,
