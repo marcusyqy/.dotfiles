@@ -50,7 +50,7 @@ vim.opt.incsearch = true
 vim.g.nowritebackup = true
 
 vim.opt.scrolloff = 8
-vim.opt.signcolumn = "auto" -- change to "yes" to get something weird.
+vim.opt.signcolumn = "no" -- change to "yes" to get something weird. and "auto" is really wonky
 -- vim.opt.isfname:append("@-@")
 
 -- Give more space for displaying messages.

@@ -1,5 +1,6 @@
 lua << EOF
 --     require("marcusyqy")
-    require("gui") -- this doesn't work.
 EOF
 
+" GuiFont! Hack\ NFM:h11
+GuiFont! JetBrainsMono\ NF:h11

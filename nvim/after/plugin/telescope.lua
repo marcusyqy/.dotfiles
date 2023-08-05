@@ -222,10 +222,8 @@ nnoremap("<leader>ps",
 
 -- local telescope_opts = { previewer = false }
 local telescope_opts = {}
--- nnoremap("<c-p>", function() require('telescope.builtin').git_files({ previewer = false }) end)
 nnoremap("<c-p>",
     function() require('telescope.builtin').git_files() end)
--- nnoremap("<c-p>", function() require('telescope.builtin').git_files(require('telescope.themes').get_ivy({ previewer = false })) end)
 nnoremap("<leader>ff",
     function() require('telescope.builtin').find_files() end)
 nnoremap("<leader>eps",

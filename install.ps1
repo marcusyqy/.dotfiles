@@ -15,6 +15,12 @@ function update_alacritty {
     Copy-Item -Force alacritty/alacritty-win.yml $env:APPDATA/alacritty/alacritty.yml
 }
 
+function update_wezterm {
+    Remove-Item '~/.config/wezterm' -Recurse
+    New-Item -Force -Type Directory ~/.config/wezterm
+    Copy-Item -Force -Recurse wezterm/* ~/.config/wezterm/
+}
+
 
 function update_vs {
     New-Item -Force -Type File ~/.vsvimrc
@@ -29,6 +35,7 @@ function update_ideavim {
 }
 
 update_vim
+update_wezterm
 update_ideavim
 update_vs
 update_ps
