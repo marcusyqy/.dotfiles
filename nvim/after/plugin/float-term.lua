@@ -3,8 +3,7 @@ local nnoremap = Remaps.nnoremap
 local tnoremap = Remaps.tnoremap
 
 -- maybe map vim esc too
-tnoremap("esc", "<c-\\><c-n>")
-tnoremap("<c-t>", "<c-\\><c-n>")
+-- tnoremap("esc", "<c-\\><c-n>")
 tnoremap("<c-[>", "<c-\\><c-n>")
 
 -- toggle
