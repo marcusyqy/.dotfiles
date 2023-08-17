@@ -226,6 +226,8 @@ nnoremap("<c-p>",
     function() require('telescope.builtin').git_files() end)
 nnoremap("<leader>ff",
     function() require('telescope.builtin').find_files() end)
+nnoremap("<c-f>",
+    function() require('telescope.builtin').find_files() end)
 nnoremap("<leader>eps",
     function() require('telescope.builtin').live_grep() end)
 
@@ -263,7 +265,7 @@ vim.keymap.set('n', '<leader>?',
 vim.keymap.set('n', '<c-b>',
     function() require('telescope.builtin').buffers(require('telescope.themes').get_ivy()) end,
     { desc = '[ ] Find existing buffers' })
-vim.keymap.set('n', '<c-f>', function()
+vim.keymap.set('n', '<c-s>', function()
     -- You can pass additional configuration to telescope to change theme, layout, etc.
     require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
         winblend = 10,
