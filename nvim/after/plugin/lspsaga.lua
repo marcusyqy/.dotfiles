@@ -172,7 +172,7 @@ end, { silent = true, noremap = true, desc = "[LspSaga] range code action" })
 nnoremap("<leader>o", vimfn([[Lspsaga outline]]), { silent = true, noremap = true, desc = "LspSaga outline toggle" })
 
 -- show hover doc and press twice will jumpto hover window
-nnoremap("K", vimfn([[Lspsaga hover_doc]]), { silent = true })
+nnoremap("<leader>K", vimfn([[Lspsaga hover_doc]]), { silent = true })
 -- nnoremap("L", vimfn([[Lspsaga hover_doc ++keep]]), { silent = true })
 --
 -- preview definition

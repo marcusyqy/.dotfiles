@@ -55,8 +55,8 @@ lspkind.init({
 
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 for type, icon in pairs(signs) do
-  local hl = "DiagnosticSign" .. type
-  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+    local hl = "DiagnosticSign" .. type
+    vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
 
 cmp.setup({
@@ -148,13 +148,13 @@ cmp.setup({
         -- For ultisnips user.
         -- { name = 'ultisnips' },
 
-        { name = 'buffer',  keyword_length = 5 },
+        { name = 'buffer', keyword_length = 5 },
     },
     formatting = {
         format = lspkind.cmp_format({
             with_text = true,
             mode = "symbol",
-            maxwidth = 50,         -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+            maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
             ellipsis_char = '...', -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
             -- The function below will be called before any actual modifications from lspkind
             -- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
@@ -200,7 +200,7 @@ local on_attach = function(client, bufnr)
     -- See `:help vim.lsp.*` for documentation on any of the below functions
     buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
     buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
-    buf_set_keymap('n', '<leader>K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
+    buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
     -- buf_set_keymap('n', '<leader>vrr', '<Cmd>lua vim.lsp.buf.references()<CR>', opts)
     buf_set_keymap('n', '<leader>vgi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
     buf_set_keymap('n', '<leader>vsh', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
@@ -226,7 +226,7 @@ local on_attach = function(client, bufnr)
     buf_set_keymap('n', '<leader>j', '<cmd>lua vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.ERROR})<CR>'
         ,
         opts)
-    buf_set_keymap('n', '<leader>vq', '<cmd>lua vim.diagnostic.set_loclist()<CR>', opts)
+    buf_set_keymap('n', '<leader>vq', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
     buf_set_keymap("n", "<leader>vf", "<cmd>lua vim.lsp.buf.format()<CR>", opts)
     -- buf_set_keymap("n", "<c-s>", "<cmd>lua vim.lsp.buf.format()<CR><cmd>lua vim.cmd([[w]])<CR>", opts);
 end
@@ -355,12 +355,12 @@ end
 --)
 require("typescript").setup({
     disable_commands = false, -- prevent the plugin from creating Vim commands
-    debug = false,            -- enable debug logging for commands
+    debug = false, -- enable debug logging for commands
     go_to_source_definition = {
-        fallback = true,      -- fall back to standard LSP definition on failure
+        fallback = true, -- fall back to standard LSP definition on failure
     },
     server = {
-                              -- pass options to lspconfig's setup method
+        -- pass options to lspconfig's setup method
         on_attach = on_attach,
         capabilities = capabilities,
         filetypes = {
@@ -378,7 +378,7 @@ require("clangd_extensions").setup {
         cmd = {
             "clangd",
             "--header-insertion=never",
-            "-j=8",
+            "-j=4",
             "--pch-storage=memory",
             "--compile-commands-dir=${workspaceFolder}/",
             "--background-index",
