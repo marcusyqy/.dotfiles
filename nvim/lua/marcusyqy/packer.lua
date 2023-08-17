@@ -274,6 +274,7 @@ local packer = require('packer').startup(function()
     -- })
 
     use {
+        { "bfrg/vim-cpp-modern" },
         "martinda/Jenkinsfile-vim-syntax",
         { "evanleck/vim-svelte", branch = "main" }
     }
