@@ -134,7 +134,7 @@ local packer = require('packer').startup(function()
     use {
         -- Using Packer:
         { "Mofiqul/dracula.nvim" },
-        { "folke/tokyonight.nvim",       branch = "main" },
+        { "folke/tokyonight.nvim", branch = "main" },
         { 'projekt0n/github-nvim-theme', tag = 'v0.0.7' },
         { "ellisonleao/gruvbox.nvim" },
         { "marko-cerovac/material.nvim" },
@@ -264,14 +264,14 @@ local packer = require('packer').startup(function()
         "sbdchd/neoformat"
     }
 
-    use({
-        "nvimdev/lspsaga.nvim",
-        requires = {
-            { "nvim-tree/nvim-web-devicons" },
-            --Please make sure you install markdown and markdown_inline parser
-            { "nvim-treesitter/nvim-treesitter" }
-        }
-    })
+    -- use({
+    --     "nvimdev/lspsaga.nvim",
+    --     requires = {
+    --         { "nvim-tree/nvim-web-devicons" },
+    --         --Please make sure you install markdown and markdown_inline parser
+    --         { "nvim-treesitter/nvim-treesitter" }
+    --     }
+    -- })
 
     use {
         "martinda/Jenkinsfile-vim-syntax",
@@ -296,6 +296,7 @@ local packer = require('packer').startup(function()
     use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim'
     }
 
+    use { 'neomake/neomake' }
     -- potential plugins to use
     -- use {
     --     "utilyre/barbecue.nvim",
