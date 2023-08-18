@@ -1,3 +1,4 @@
+
 if not vim.g.loaded_nvim_treesitter then
     print("Treesitter not loaded")
     return

@@ -2,12 +2,10 @@
 local Remaps   = require("marcusyqy.keymap")
 local nnoremap = Remaps.nnoremap
 
-nnoremap("gj", ":cnext<CR>zz")
-nnoremap("gk", ":cprev<CR>zz")
-nnoremap("<leader>gj", ":lnext<CR>zz")
-nnoremap("<leader>gk", ":lprev<CR>zz")
-nnoremap("<c-j>", ":lnext<CR>zz")
-nnoremap("<c-k>", ":lprev<CR>zz")
+nnoremap("<c-j>", ":cnext<CR>zz")
+nnoremap("<c-k>", ":cprev<CR>zz")
+nnoremap("gj", ":lnext<CR>zz")
+nnoremap("gk", ":lprev<CR>zz")
 
 local marcusyqy_qf_l = 0
 local marcusyqy_qf_g = 0
