@@ -68,6 +68,9 @@ vim.g.forestbones_transparent_background = true
 vim.g.neobones_darkness = "stark"
 vim.g.neobones_transparent_background = true
 
+vim.g.rosebones_darkness = "stark"
+vim.g.rosebones_transparent_background = true
+
 vim.g.zenwritten_darkness = "stark"
 vim.g.zenwritten_transparent_background = true
 

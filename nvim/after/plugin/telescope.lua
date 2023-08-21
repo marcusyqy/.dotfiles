@@ -224,8 +224,6 @@ nnoremap("<leader>ps",
 local telescope_opts = {}
 nnoremap("<c-p>",
     function() require('telescope.builtin').git_files() end)
-nnoremap("<leader>ff",
-    function() require('telescope.builtin').find_files() end)
 nnoremap("<c-f>",
     function() require('telescope.builtin').find_files() end)
 nnoremap("<leader>eps",

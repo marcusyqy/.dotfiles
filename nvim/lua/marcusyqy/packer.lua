@@ -98,20 +98,20 @@ local packer = require('packer').startup(function()
     }
 
     -- Post-install/update hook with neovim command
-    use {
-        {
-            "nvim-treesitter/nvim-treesitter",
-            run = function() pcall(require('nvim-treesitter.install').update { with_sync = true }) end
-        },
-        'nvim-treesitter/nvim-treesitter-context',
-        'nvim-treesitter/playground',
-        'MunifTanjim/nui.nvim'
-    }
+    -- use {
+    --     {
+    --         "nvim-treesitter/nvim-treesitter",
+    --         run = function() pcall(require('nvim-treesitter.install').update { with_sync = true }) end
+    --     },
+    --     'nvim-treesitter/nvim-treesitter-context',
+    --     'nvim-treesitter/playground',
+    --     'MunifTanjim/nui.nvim'
+    -- }
 
-    use { -- Additional text objects via treesitter
-        'nvim-treesitter/nvim-treesitter-textobjects',
-        after = 'nvim-treesitter',
-    }
+    -- use { -- Additional text objects via treesitter
+    --     'nvim-treesitter/nvim-treesitter-textobjects',
+    --     after = 'nvim-treesitter',
+    -- }
     use("mbbill/undotree")
     -- Packer
     -- use({
@@ -148,6 +148,7 @@ local packer = require('packer').startup(function()
         {
             'navarasu/onedark.nvim'
         },
+        { "blazkowolf/gruber-darker.nvim" },
         {
             "mcchrish/zenbones.nvim",
             -- Optionally install Lush. Allows for more configuration or extending the colorscheme
@@ -284,7 +285,7 @@ local packer = require('packer').startup(function()
     use("APZelos/blamer.nvim")
 
     use { 'windwp/nvim-autopairs' }
-    use { 'windwp/nvim-ts-autotag' }
+    -- use { 'windwp/nvim-ts-autotag' }
     use { 'alvarosevilla95/luatab.nvim', requires = 'kyazdani42/nvim-web-devicons' }
     use { 'p00f/clangd_extensions.nvim', commit = "798e377ec859087132b81d2f347b5080580bd6b1" }
     -- use { 'jose-elias-alvarez/null-ls.nvim' } -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
