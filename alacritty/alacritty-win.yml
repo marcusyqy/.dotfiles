@@ -127,6 +127,10 @@ cursor:
   vi_mode_style:
     shape: Block
 
+colors:
+  primary:
+    background: '#181818' #gruber-darker
+
 # Colors (iTerm 2 default theme)
 # colors: #(DRACULA)
 #   primary:

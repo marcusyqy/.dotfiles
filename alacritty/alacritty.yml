@@ -54,7 +54,7 @@ window:
   #
   # Values for `startup_mode` (macOS only):
   #   - SimpleFullscreen
-  startup_mode: Windowed
+  startup_mode: Maximized
 
 scrolling:
   # maximum number of lines in the scrollback buffer. Specifying '0' will
@@ -119,10 +119,15 @@ draw_bold_text_with_bright_colors: true
 # and cursor.background colors, otherwise invert the colors of the cursor.
 custom_cursor_colors: true
 
+colors:
+  primary:
+    background: '#181818' #gruber-darker
+
 cursor:
   style:
     shape: Block
-
+  vi_mode_style:
+    shape: Block
 
 # Visual Bell
 #
