@@ -3,5 +3,5 @@ vim.cmd([[
 ]])
 -- vim.g.neomake_open_list = 2
 
-vim.cmd([[cnoreabbrev nmake Neomake]])
+vim.cmd([[cnoreabbrev nmake Neomake!]])
 
