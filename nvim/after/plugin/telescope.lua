@@ -172,6 +172,7 @@ require("telescope").setup({
         file_previewer = require("telescope.previewers").vim_buffer_cat.new,
         grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
         qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
+       sorting_strategy = "ascending",
         -- preview = {
         --     filesize_hook = function(filepath, bufnr, opts)
         --         local max_bytes = 10000
