@@ -4,7 +4,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 export DOTFILES=$HOME/.dotfiles
-export WORK=$HOME/work/repo
+export WORK=$HOME/work/avs
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -122,7 +122,7 @@ alias gP='git push'
 alias t='tmux'
 alias .df='cd ~/.dotfiles'
 
-source $HOME/.cargo/bin
+# source $HOME/.cargo/bin
 
 export PATH=$PATH:/usr/local/go/bin # put in go install bin
 export PATH=$PATH:$HOME/go/bin # put in go installation path
@@ -157,3 +157,8 @@ alias lk="i3lock --color=000000"
 export PNPM_HOME="/home/marcus.yong/.local/share/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 # pnpm end
+#
+# local bin
+export BIN_LOCAL="/home/marcus.yong/bin"
+export PATH="$BIN_LOCAL:$PATH"
+# local bin end
