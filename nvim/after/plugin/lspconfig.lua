@@ -148,13 +148,13 @@ cmp.setup({
         -- For ultisnips user.
         -- { name = 'ultisnips' },
 
-        { name = 'buffer', keyword_length = 5 },
+        { name = 'buffer',  keyword_length = 5 },
     },
     formatting = {
         format = lspkind.cmp_format({
             with_text = true,
             mode = "symbol",
-            maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+            maxwidth = 50,         -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
             ellipsis_char = '...', -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
             -- The function below will be called before any actual modifications from lspkind
             -- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
@@ -320,6 +320,79 @@ for _, lsp in ipairs(servers) do
     })
 end
 
+local lsp_flags = {
+    allow_incremental_sync = false,
+    -- Inc sync is prolly cause of some problems.
+    debounce_text_changes = 180
+    -- 250 worked. 150 is default.
+}
+
+local handler_config = {
+    ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = my_border }),
+    ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = my_border }),
+}
+
+-- -- => 'ccls.nvim' setup (STATE: Good)
+-- require("ccls").setup({
+--     lsp = {
+--         -- Check `:help vim.lsp.start` for config options.
+--         server = {
+--             name = "ccls",  -- String name.
+--             cmd = { "ccls" },  -- Point to your binary, has to be a table.
+--             args = {},
+--
+--             -- autostart = false,  -- Does not seem to work here.
+--
+--             offset_encoding = "utf-32",  -- Default value set by plugin.
+--
+--             root_dir = vim.fs.dirname(vim.fs.find({ "compile_commands.json", ".git" }, { upward = true })[1]),
+--
+--             init_options = {
+--                 index = {
+--                     threads = 0;
+--                 };
+--
+--                 clang = {
+--                     excludeArgs = { "-frounding-math" };
+--                 };
+--             },
+--
+--             -- |> Fix diagnostics.
+--             flags = lsp_flags,
+--             -- |> Attach LSP keybindings & other crap.
+--             on_attach = on_attach,
+--             -- |> Add nvim-cmp or snippet completion capabilities.
+--             capabilities = capabilities,
+--             -- |> Activate custom handlers.
+--             handlers = handler_config,
+--         },
+--     },
+--
+--     win_config = {
+--         -- Sidebar configuration.
+--         sidebar = {
+--             size = 50,
+--             position = "topleft",
+--             split = "vnew",
+--             width = 50,
+--             height = 20,
+--         },
+--
+--         -- Floating window configuration. check :help nvim_open_win for options.
+--         float = {
+--             style = "minimal",
+--             relative = "cursor",
+--             width = 50,
+--             height = 20,
+--             row = 0,
+--             col = 0,
+--             border = "rounded",
+--         },
+--     },
+--
+--     filetypes = {"c", "cpp"},
+-- })
+
 --require'completion'.on_attach(client, bufnr)
 -- protocol.CompletionItemKind = {
 --     '', -- Text
@@ -356,9 +429,9 @@ end
 --)
 require("typescript").setup({
     disable_commands = false, -- prevent the plugin from creating Vim commands
-    debug = false, -- enable debug logging for commands
+    debug = false,            -- enable debug logging for commands
     go_to_source_definition = {
-        fallback = true, -- fall back to standard LSP definition on failure
+        fallback = true,      -- fall back to standard LSP definition on failure
     },
     server = {
         -- pass options to lspconfig's setup method

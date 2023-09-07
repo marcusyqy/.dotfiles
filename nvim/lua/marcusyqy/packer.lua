@@ -101,7 +101,7 @@ local packer = require('packer').startup(function()
     -- use {
     --     {
     --         "nvim-treesitter/nvim-treesitter",
-    --         run = function() pcall(require('nvim-treesitter.install').update { with_sync = true }) end
+    --         run = function() pcall(require('nvim-treesitter.install').update { with_sync = true }) end -- run install
     --     },
     --     'nvim-treesitter/nvim-treesitter-context',
     --     'nvim-treesitter/playground',
@@ -134,15 +134,15 @@ local packer = require('packer').startup(function()
     use {
         -- Using Packer:
         { "Mofiqul/dracula.nvim" },
-        { "folke/tokyonight.nvim", branch = "main" },
+        { "folke/tokyonight.nvim",       branch = "main" },
         { 'projekt0n/github-nvim-theme', tag = 'v0.0.7' },
         { "ellisonleao/gruvbox.nvim" },
         { "marko-cerovac/material.nvim" },
         { 'Tsuzat/NeoSolarized.nvim' },
-        {
-            'tjdevries/gruvbuddy.nvim',
-            requires = { 'tjdevries/colorbuddy.vim' }
-        },
+        { 'tjdevries/colorbuddy.vim' },
+        { 'tjdevries/gruvbuddy.nvim' },
+        { "svrana/neosolarized.nvim" },
+        { 'shaunsingh/solarized.nvim' },
         { "rebelot/kanagawa.nvim" },
         { "rmehri01/onenord.nvim" },
         {
@@ -288,6 +288,7 @@ local packer = require('packer').startup(function()
     -- use { 'windwp/nvim-ts-autotag' }
     use { 'alvarosevilla95/luatab.nvim', requires = 'kyazdani42/nvim-web-devicons' }
     use { 'p00f/clangd_extensions.nvim', commit = "798e377ec859087132b81d2f347b5080580bd6b1" }
+    use { 'ranjithshegde/ccls.nvim'}
     -- use { 'jose-elias-alvarez/null-ls.nvim' } -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
     use { 'jose-elias-alvarez/typescript.nvim' }
 

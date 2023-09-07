@@ -66,8 +66,8 @@
 --             'glimmer', 'handlebars', 'hbs'
 --         },
 --     },
---     sync_install = false,
---     ensure_installed = { 'c', 'cpp', 'go', 'lua', 'rust', 'typescript', 'help', 'dockerfile', 'tsx', 'html',
+--     sync_install = true,
+--     ensure_installed = { 'c', 'cpp', 'go', 'lua', 'rust', 'typescript', 'dockerfile', 'tsx', 'html',
 --         'markdown', "markdown_inline",
 --         'json' },
 -- }

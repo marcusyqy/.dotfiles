@@ -172,7 +172,7 @@ require("telescope").setup({
         file_previewer = require("telescope.previewers").vim_buffer_cat.new,
         grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
         qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
-       sorting_strategy = "ascending",
+        sorting_strategy = "ascending",
         -- preview = {
         --     filesize_hook = function(filepath, bufnr, opts)
         --         local max_bytes = 10000
@@ -180,6 +180,19 @@ require("telescope").setup({
         --         require('telescope.previewers.utils').job_maker(cmd, bufnr, opts)
         --     end
         -- },
+        layout_config = {
+            horizontal = {
+                prompt_position = "top",
+                preview_width = 0.55,
+                results_width = 0.8,
+            },
+            vertical = {
+                mirror = false,
+            },
+            width = 0.87,
+            height = 0.80,
+            preview_cutoff = 20,
+        },
         mappings = {
             i = {
                 ["<C-x>"] = false,

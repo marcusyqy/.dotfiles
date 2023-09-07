@@ -26,6 +26,7 @@ NeoSolarized.setup {
         -- highlights.Include.fg = colors.red -- Using `red` foreground for Includes
     end,
 }
+
 -- Set colorscheme to NeoSolarized
 vim.cmd [[
     colorscheme NeoSolarized
