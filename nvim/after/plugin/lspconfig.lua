@@ -201,7 +201,7 @@ local on_attach = function(client, bufnr)
     buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
     buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
     buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
-    -- buf_set_keymap('n', '<leader>vrr', '<Cmd>lua vim.lsp.buf.references()<CR>', opts)
+    buf_set_keymap('n', '<leader>rr', '<Cmd>lua vim.lsp.buf.references()<CR>', opts)
     buf_set_keymap('n', '<leader>gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
     buf_set_keymap('n', '<leader>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
     buf_set_keymap('n', '<leader>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
@@ -443,6 +443,9 @@ require("typescript").setup({
     },
 })
 
+
+
+
 require("clangd_extensions").setup {
     server = {
         -- options to pass to nvim-lspconfig
@@ -456,10 +459,11 @@ require("clangd_extensions").setup {
             "--pch-storage=memory",
             "--compile-commands-dir=${workspaceFolder}/",
             "--background-index",
+            "--clang-tidy=false",
             -- "--clang-tidy",
-            "--all-scopes-completion",
-            "--query-driver=**"
-            --"query-driver=/**/*"
+            "--all-scopes-completion"
+            -- "--query-driver=**"
+            -- "query-driver=/**/*"
         }
     },
     extensions = {
