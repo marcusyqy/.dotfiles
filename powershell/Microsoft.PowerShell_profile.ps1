@@ -24,6 +24,7 @@ Set-Alias grep rg
 Set-Alias g git
 Set-Alias .df cd_dotfiles
 Set-Alias .dd cd_desktop
+Set-Alias gs git_status
 
 Import-Module PSReadLine
 
