@@ -55,7 +55,7 @@ window:
   #
   # Values for `startup_mode` (macOS only):
   #   - SimpleFullscreen
-  startup_mode: Windowed
+  startup_mode: Maximized
 
 scrolling:
   # maximum number of lines in the scrollback buffer. Specifying '0' will
@@ -66,7 +66,8 @@ scrolling:
   # scrollback is enabled (history > 0).
   multiplier: 3
 
-# Font configuration (changes require restart)
+# # Font configuration (changes require restart)
+
 # font:
 #   normal:
 #     family: JetBrainsMono NF
@@ -83,20 +84,48 @@ scrolling:
 
 font:
   normal:
-    family: UbuntuMono Nerd Font
+    family: Hack Nerd Font Mono
     style: Regular
   bold:
-    family: UbuntuMono Nerd Font Bold
+    family: Hack Nerd Font Mono
     style: Bold
   italic:
-    family: UbuntuMono Nerd Font Italic
+    family: Hack Nerd Font Mono
     style: Italic
   bold_italic:
-    family: UbuntuMono Nerd Font Bold Italic
+    family: Hack Nerd Font Mono
     style: Bold Italic
 
+# font:
+#   normal:
+#     family: Ubuntu Nerd Font
+#     style: Regular
+#   bold:
+#     family: Ubuntu Nerd Font
+#     style: Bold
+#   italic:
+#     family: Ubuntu Nerd Font
+#     style: Italic
+#   bold_italic:
+#     family: Ubuntu Nerd Font
+#     style: Bold Italic
+
+# font:
+#   normal:
+#     family: UbuntuMono Nerd Font
+#     style: Regular
+#   bold:
+#     family: UbuntuMono Nerd Font # Bold
+#     style: Bold
+#   italic:
+#     family: UbuntuMono Nerd Font # Italic
+#     style: Italic
+#   bold_italic:
+#     family: UbuntuMono Nerd Font # Bold Italic
+#     style: Bold Italic
+
   # Point size of the font
-  size: 18.0
+  size: 12.0
 
   # Offset is the extra space around each character. offset.y can be thought of
   # as modifying the linespacing, and offset.x as modifying the letter spacing.
@@ -143,12 +172,12 @@ custom_cursor_colors: true
 colors:
   # Default colors
   primary:
-    background: '0x001a21'
-    foreground: '0x839496'
+    background: '0x001217'
+    foreground: '0x708183'
 
   # Normal colors
   normal:
-    black:   '0x073642'
+    black:   '0x002b36'
     red:     '0xdc322f'
     green:   '0x859900'
     yellow:  '0xb58900'
@@ -167,6 +196,35 @@ colors:
     magenta: '0x6c71c4'
     cyan:    '0x93a1a1'
     white:   '0xfdf6e3'
+
+# Colors (Solarized Dark)
+# colors:
+#   # Default colors
+#   primary:
+#     background: '0x001a21'
+#     foreground: '0x839496'
+#
+#   # Normal colors
+#   normal:
+#     black:   '0x073642'
+#     red:     '0xdc322f'
+#     green:   '0x859900'
+#     yellow:  '0xb58900'
+#     blue:    '0x268bd2'
+#     magenta: '0xd33682'
+#     cyan:    '0x2aa198'
+#     white:   '0xeee8d5'
+#
+#   # Bright colors
+#   bright:
+#     black:   '0x002b36'
+#     red:     '0xcb4b16'
+#     green:   '0x586e75'
+#     yellow:  '0x657b83'
+#     blue:    '0x839496'
+#     magenta: '0x6c71c4'
+#     cyan:    '0x93a1a1'
+#     white:   '0xfdf6e3'
 
 # Colors (iTerm 2 default theme)
 # colors: #(DRACULA)
