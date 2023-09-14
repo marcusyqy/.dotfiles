@@ -10,6 +10,10 @@ function cd_desktop() {
     cd $desktop
 }
 
+function git_status() {
+    git status
+}
+
 # Import-Module posh-git
 # Import-Module oh-my-posh
 Set-Alias vim nvim
