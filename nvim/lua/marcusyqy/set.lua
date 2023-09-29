@@ -49,7 +49,7 @@ vim.opt.incsearch = true
 -- Some servers have issues with backup files, see #649.
 vim.g.nowritebackup = true
 
-vim.opt.scrolloff = 8
+vim.opt.scrolloff = 8 -- test this out.
 vim.opt.signcolumn = "no" -- change to "yes" to get something weird. and "auto" is really wonky
 -- vim.opt.isfname:append("@-@")
 
@@ -63,6 +63,7 @@ vim.opt.termguicolors = true
 --
 -- set ai "Auto indent
 -- set si "Smart indent
-vim.o.background = 'light'
+vim.o.background = 'dark'
+vim.opt.ai = true
 
 vim.opt.mouse="a"
