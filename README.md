@@ -97,3 +97,6 @@ https://wiki.archlinux.org/title/Cursor_themes#Configuration
 
 ### list fonts
 fc-match NameOfFont -s
+
+
+hello lolol
