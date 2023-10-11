@@ -1,5 +1,3 @@
-local ok_status, NeoSolarized = pcall(require, "NeoSolarized")
-
 if not ok_status then
     return
 end
