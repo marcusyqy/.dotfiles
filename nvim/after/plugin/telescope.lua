@@ -278,12 +278,12 @@ vim.keymap.set('n', '<leader>?',
 vim.keymap.set('n', '<c-b>',
     function() require('telescope.builtin').buffers(require('telescope.themes').get_ivy()) end,
     { desc = '[ ] Find existing buffers' })
-vim.keymap.set('n', '<c-s>', function()
-    -- You can pass additional configuration to telescope to change theme, layout, etc.
-    require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
-        winblend = 10,
-        previewer = false,
-    })
-end, { desc = '[/] Fuzzily search in current buffer]' })
+-- vim.keymap.set('n', '<c-s>', function()
+--     -- You can pass additional configuration to telescope to change theme, layout, etc.
+--     require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
+--         winblend = 10,
+--         previewer = false,
+--     })
+-- end, { desc = '[/] Fuzzily search in current buffer]' })
 
 -- nnoremap("<leader>rr", require('telescope.builtin').lsp_references)

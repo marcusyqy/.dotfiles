@@ -59,7 +59,8 @@ nnoremap("<expr> j", "(v:count > 5 ? \"m'\" . v:count : \"\") . 'j'")
 vnoremap("J", ":m '>+1<CR>gv=gv", { silent = true })
 vnoremap("K", ":m '<-2<CR>gv=gv", { silent = true })
 
-vnoremap("<leader>p", "\"_dP") -- nnoremap("<c-s>", ":w<CR>")
+vnoremap("<leader>p", "\"_dP")
+nnoremap("<c-s>", ":w<CR>")
 
 nnoremap("<leader>sv", vimfn([[source $MYVIMRC]]))
 
@@ -88,3 +89,8 @@ nnoremap("<leader>sv", vimfn([[source $MYVIMRC]]))
 --     autocmd!
 --     autocmd BufWritePre * :call TrimWhiteSpace()
 -- augroup END
+--
+
+-- NOTE:
+-- clear quickfix list cxexpr []
+-- clear local quickfix list lxexpr []
