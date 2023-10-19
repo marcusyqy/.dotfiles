@@ -1,5 +1,5 @@
 # .dotfiles
-basic settings for development dotfiles
+basic settings for development dotfiles.
 
 ## Laptop Lid Closure without sleep
 Edit /etc/systemd/logind.conf with root controls and edit these following settings
