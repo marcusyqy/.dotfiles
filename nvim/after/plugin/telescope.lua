@@ -245,7 +245,7 @@ nnoremap("<leader>eps",
     function() require('telescope.builtin').live_grep() end)
 
 nnoremap("<leader>fg", function() require('telescope').extensions.live_grep_args.live_grep_args() end)
--- nnoremap("<leader>fb", vimfn([[Telescope file_browser]]))
+nnoremap("<c-n>", vimfn([[Telescope file_browser path=%:p:h select_buffer=true]]))
 nnoremap("<leader>fh", function() require('telescope.builtin').help_tags() end)
 -- nnoremap("<leader>fgc",
 --     function() require('telescope.builtin').git_commits(require('telescope.themes').get_dropdown({})) end)
