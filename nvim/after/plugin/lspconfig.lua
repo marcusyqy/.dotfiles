@@ -455,11 +455,12 @@ require("clangd_extensions").setup {
         cmd = {
             "clangd",
             "--header-insertion=never",
-            "-j=4",
+            "--j=4",
             "--pch-storage=memory",
             "--compile-commands-dir=${workspaceFolder}/",
             "--background-index",
             "--clang-tidy=false",
+            "--suggest-missing-includes",
             -- "--clang-tidy",
             "--all-scopes-completion"
             -- "--query-driver=**"

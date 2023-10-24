@@ -26,37 +26,43 @@ local conds = require("luasnip.extras.expand_conditions")
 
 
 ls.config.set_config({
-	history = true,
-	-- Update more often, :h events for more info.
-	update_events = "TextChanged,TextChangedI",
-	-- Snippets aren't automatically removed if their text is deleted.
-	-- `delete_check_events` determines on which events (:h events) a check for
-	-- deleted snippets is performed.
-	-- This can be especially useful when `history` is enabled.
-	delete_check_events = "TextChanged",
-	ext_opts = {
-		[types.choiceNode] = {
-			active = {
-				virt_text = { { "choiceNode", "Comment" } },
-			},
-		},
-	},
-	-- treesitter-hl has 100, use something higher (default is 200).
-	ext_base_prio = 300,
-	-- minimal increase in priority.
-	ext_prio_increase = 1,
-	-- should try this out first
+    history = true,
+    -- Update more often, :h events for more info.
+    update_events = "TextChanged,TextChangedI",
+    -- Snippets aren't automatically removed if their text is deleted.
+    -- `delete_check_events` determines on which events (:h events) a check for
+    -- deleted snippets is performed.
+    -- This can be especially useful when `history` is enabled.
+    delete_check_events = "TextChanged",
+    ext_opts = {
+        [types.choiceNode] = {
+            active = {
+                virt_text = { { "choiceNode", "Comment" } },
+            },
+        },
+    },
+    -- treesitter-hl has 100, use something higher (default is 200).
+    ext_base_prio = 300,
+    -- minimal increase in priority.
+    ext_prio_increase = 1,
+    -- should try this out first
     enable_autosnippets = true,
 })
 
 ls.add_snippets(
     "all", {
-        s("asynctask", fmt("[{1}]\ncommand={2}\noutput={3}",{
-            i(1,"cmd-name"),
-            i(2,"cmd"),
-            c(3,{t("terminal"),t("quickfix")})
-            })
+        s("asynctask", fmt("[{1}]\ncommand={2}\noutput={3}", {
+            i(1, "cmd-name"),
+            i(2, "cmd"),
+            c(3, { t("terminal"), t("quickfix") })
+        })
         )
+    }
+)
+
+ls.add_snippets(
+    "cpp", {
+        s("cpplog", t("std::cout << \"@MARCUS\" << __FILE__ << \":\" << __LINE__ << \":\" << __FUNCTION__ << std::endl;"))
     }
 )
 
@@ -74,8 +80,8 @@ ls.add_snippets(
 
 
 local function prequire(...)
-local status, lib = pcall(require, ...)
-if (status) then return lib end
+    local status, lib = pcall(require, ...)
+    if (status) then return lib end
     return nil
 end
 
@@ -119,10 +125,10 @@ _G.s_tab_complete = function()
 end
 
 local opts = { noremap = true, silent = true }
-vim.api.nvim_set_keymap("i", "<c-k>", "v:lua.tab_complete()", {expr = true})
-vim.api.nvim_set_keymap("s", "<c-k>", "v:lua.tab_complete()", {expr = true})
-vim.api.nvim_set_keymap("i", "<c-j>", "v:lua.s_tab_complete()", {expr = true})
-vim.api.nvim_set_keymap("s", "<c-j>", "v:lua.s_tab_complete()", {expr = true})
+vim.api.nvim_set_keymap("i", "<c-k>", "v:lua.tab_complete()", { expr = true })
+vim.api.nvim_set_keymap("s", "<c-k>", "v:lua.tab_complete()", { expr = true })
+vim.api.nvim_set_keymap("i", "<c-j>", "v:lua.s_tab_complete()", { expr = true })
+vim.api.nvim_set_keymap("s", "<c-j>", "v:lua.s_tab_complete()", { expr = true })
 vim.api.nvim_set_keymap("i", "<c-e>", "<Plug>luasnip-next-choice", {})
 vim.api.nvim_set_keymap("s", "<c-e>", "<Plug>luasnip-next-choice", {})
 

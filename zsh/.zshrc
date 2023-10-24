@@ -119,6 +119,8 @@ alias gc='git commit'
 alias gf='git fetch'
 alias gp='git pull --rebase'
 alias gP='git push'
+alias gw='git worktree list'
+
 alias t='tmux'
 alias .df='cd ~/.dotfiles'
 
