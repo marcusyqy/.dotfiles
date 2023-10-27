@@ -174,17 +174,17 @@ require("telescope").setup({
         grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
         qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
         sorting_strategy = "ascending",
-        preview = {
-            filesize_hook = function(filepath, bufnr, opts)
-                local max_bytes = 10000
-                local cmd = { "head", "-c", max_bytes, filepath }
-                require('telescope.previewers.utils').job_maker(cmd, bufnr, opts)
-            end
-        },
+        -- preview = {
+        --     filesize_hook = function(filepath, bufnr, opts)
+        --         local max_bytes = 10000
+        --         local cmd = { "head", "-c", max_bytes, filepath }
+        --         require('telescope.previewers.utils').job_maker(cmd, bufnr, opts)
+        --     end
+        -- },
         layout_config = {
             horizontal = {
                 prompt_position = "top",
-                preview_width = 0.55,
+                --                 preview_width = 0.55,
                 -- results_width = 0.8,
                 preview_cutoff = 120,
             },
@@ -248,7 +248,7 @@ nnoremap("<leader>ps",
     function() require('telescope.builtin').live_grep() end)
 
 nnoremap("<leader>fg", function() require('telescope').extensions.live_grep_args.live_grep_args() end)
-nnoremap("<c-n>", vimfn([[Telescope file_browser path=%:p:h select_buffer=true]]))
+nnoremap("<c-\\>", vimfn([[Telescope file_browser path=%:p:h select_buffer=true]]))
 nnoremap("<leader>fh", function() require('telescope.builtin').help_tags() end)
 -- nnoremap("<leader>fgc",
 --     function() require('telescope.builtin').git_commits(require('telescope.themes').get_dropdown({})) end)
