@@ -2,13 +2,12 @@
 -- Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 -- delays and poor user experience.
 vim.opt.updatetime = 50
-
 vim.opt.guicursor = ""
 
 -- set nocompatible "be iMproved
 vim.opt.hidden = true
 vim.opt.relativenumber = true
-vim.opt.nu = true
+vim.opt.number = true
 vim.opt.wrap = true
 vim.opt.hlsearch = require("marcusyqy.utils.hlsearch").hlsearch -- uses some config
 
@@ -22,6 +21,8 @@ vim.opt.expandtab = true
 
 vim.opt.autoindent = true
 vim.opt.smartindent = true
+vim.opt.laststatus = 2
+vim.opt.splitkeep = "cursor"
 
 -- display chars for tabs and trailing spaces
 vim.opt.listchars="eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:·"
@@ -44,7 +45,7 @@ vim.opt.undodir = vim.fn.expand('~/.vim/undodir/')
 
 vim.opt.undofile = true
 vim.opt.incsearch = true
-
+vim.opt.inccommand = "split"
 
 -- Some servers have issues with backup files, see #649.
 vim.g.nowritebackup = true
@@ -64,6 +65,9 @@ vim.opt.termguicolors = true
 -- set ai "Auto indent
 -- set si "Smart indent
 vim.o.background = 'dark'
-vim.opt.ai = true
+-- vim.opt.ai = true
 
 vim.opt.mouse="a"
+
+
+
