@@ -35,6 +35,7 @@ vim.opt.swapfile = false
 vim.opt.backup = false
 
 vim.opt.undodir = vim.fn.expand('~/.vim/undodir/')
+vim.opt.wildignorecase = true
 
 -- if vim.fn.has("win32") ==1 then
 --     vim.cmd([[set undodir="~/.vim/undodir"]])
