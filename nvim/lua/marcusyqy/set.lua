@@ -46,7 +46,7 @@ vim.opt.wildignorecase = true
 
 vim.opt.undofile = true
 vim.opt.incsearch = true
-vim.opt.inccommand = "split"
+vim.opt.inccommand = "split" -- for :substitute - i love it
 
 -- Some servers have issues with backup files, see #649.
 vim.g.nowritebackup = true
