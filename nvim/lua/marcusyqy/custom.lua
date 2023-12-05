@@ -18,6 +18,9 @@ inoremap("<s-tab>", "<C-D>")
 vnoremap("<tab>", ">gv")
 vnoremap("<s-tab>", "<gv")
 
+vnoremap(">", ">gv")
+vnoremap("<", "<gv")
+
 nnoremap("<s-left>", "<C-w><")
 nnoremap("<s-right>", "<C-w>>")
 nnoremap("<s-up>", "<C-w>+")
@@ -60,21 +63,21 @@ vnoremap("J", ":m '>+1<CR>gv=gv", { silent = true })
 vnoremap("K", ":m '<-2<CR>gv=gv", { silent = true })
 
 vnoremap("<leader>p", "\"_dP")
-nnoremap("<c-s>", ":w<CR>")
+-- nnoremap("<c-s>", ":w<CR>")
 nnoremap("<c-h>", "gT")
 nnoremap("<c-l>", "gt")
 
 nnoremap("<leader>sv", vimfn([[source $MYVIMRC]]))
 
-local function netrw()
-    if vim.bo.filetype == "netrw" then
-        vim.cmd([[Rex]])
-    else
-        vim.cmd([[Ex]])
-    end
-end
+-- local function netrw()
+--     if vim.bo.filetype == "netrw" then
+--         vim.cmd([[Rex]])
+--     else
+--         vim.cmd([[Ex]])
+--     end
+-- end
 
-nnoremap("<c-b>", netrw)
+-- nnoremap("<c-b>", netrw)
 
 
 -- nnoremap("<c-n>", vimfn([[let @/=expand("%:t") \| execute 'Explore' expand("%:h") \| normal n]]))
