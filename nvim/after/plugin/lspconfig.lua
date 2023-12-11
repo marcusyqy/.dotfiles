@@ -238,7 +238,7 @@ end
 --
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
-local servers = { "svelte", "gopls" } --[[ "astro", "tailwindcss" ]]
+local servers = { "pylsp" } --[[ "astro", "tailwindcss" ]]
 
 for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup {
