@@ -231,9 +231,9 @@ end
 -- nnoremap <leader>fkb <cmd>lua require('telescope.builtin').buffers()<cr>
 -- nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 
-nnoremap("<leader>ps",
-    function() require('telescope.builtin').grep_string({ search = vim.fn.input("Find For > ") }) end);
-nnoremap("<c-]>",
+-- nnoremap("<leader>ps",
+--     function() require('telescope.builtin').grep_string({ search = vim.fn.input("Find For > ") }) end);
+nnoremap("<c-f>",
     function() require('telescope.builtin').grep_string({ search = vim.fn.input("Find For > ") }) end);
 
 -- Find files using Telescope command-line sugar.
@@ -242,7 +242,7 @@ nnoremap("<c-]>",
 local telescope_opts = {}
 nnoremap("<c-p>",
     function() require('telescope.builtin').git_files() end)
-nnoremap("<c-f>",
+nnoremap("<leader>ff",
     function() require('telescope.builtin').find_files() end)
 nnoremap("<leader>ps",
     function() require('telescope.builtin').live_grep() end)
@@ -267,8 +267,8 @@ vim.keymap.set('n', "<leader>/", function() require("telescope.builtin").lsp_doc
     { desc = "[fs], find document symbols" })
 vim.keymap.set('n', "<leader>f?", function() require("telescope.builtin").builtin() end,
     { desc = "[fs], builtin" })
--- vim.keymap.set('n', "<c-t>", function() require("telescope.builtin").lsp_dynamic_workspace_symbols() end,
---     { desc = "[fs], find dynamic workspace symbols" })
+vim.keymap.set('n', "<c-t>", function() require("telescope.builtin").lsp_dynamic_workspace_symbols() end,
+    { desc = "[fs], find dynamic workspace symbols" })
 vim.keymap.set('n', "<leader>fs", function() require("telescope.builtin").lsp_workspace_symbols() end,
     { desc = "[fs], find workspace symbols" })
 vim.keymap.set('n', "<leader>ds", function() require("telescope.builtin").lsp_dynamic_workspace_symbols() end,
@@ -278,13 +278,7 @@ vim.keymap.set('n', '<leader>?',
     ,
     -- function() require('telescope.builtin').oldfiles(require('telescope.themes').get_ivy()) end,
     { desc = '[?] Find recently opened files' })
-vim.keymap.set('n', '<c-t>',
-    function() require('telescope.builtin').buffers(require('telescope.themes').get_dropdown({ previewer = false })) end,
-    { desc = '[ ] Find existing buffers' })
 vim.keymap.set('n', '<c-b>',
-    function() require('telescope.builtin').buffers(require('telescope.themes').get_dropdown({ previewer = false })) end,
-    { desc = '[ ] Find existing buffers' })
-vim.keymap.set('n', '<c-s>',
     function() require('telescope.builtin').buffers(require('telescope.themes').get_dropdown({ previewer = false })) end,
     { desc = '[ ] Find existing buffers' })
 -- vim.keymap.set('n', '<c-s>', function()
