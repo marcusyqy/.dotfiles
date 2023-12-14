@@ -279,7 +279,13 @@ vim.keymap.set('n', '<leader>?',
     -- function() require('telescope.builtin').oldfiles(require('telescope.themes').get_ivy()) end,
     { desc = '[?] Find recently opened files' })
 vim.keymap.set('n', '<c-b>',
-    function() require('telescope.builtin').buffers(require('telescope.themes').get_dropdown({ previewer = false })) end,
+    function() require('telescope.builtin').buffers(require('telescope.themes').get_dropdown({
+        attach_mappings = function(_, map)
+            map('i', '<c-d>', actions.delete_buffer)
+            map('n', '<c-d>', actions.delete_buffer)
+            return true
+        end,
+        previewer = false })) end,
     { desc = '[ ] Find existing buffers' })
 -- vim.keymap.set('n', '<c-s>', function()
 --     -- You can pass additional configuration to telescope to change theme, layout, etc.
