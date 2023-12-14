@@ -63,7 +63,6 @@ vnoremap("J", ":m '>+1<CR>gv=gv", { silent = true })
 vnoremap("K", ":m '<-2<CR>gv=gv", { silent = true })
 
 vnoremap("<leader>p", "\"_dP")
--- nnoremap("<c-s>", ":w<CR>")
 nnoremap("<c-h>", "gT")
 nnoremap("<c-l>", "gt")
 

@@ -19,7 +19,6 @@ require("harpoon").setup({
 nnoremap("<leader>ha", function() require("harpoon.mark").add_file() end)
 nnoremap("<leader>ht", function() require("harpoon.cmd-ui").toggle_quick_menu()end)
 nnoremap("<leader>hp", function() require("harpoon.ui").toggle_quick_menu()end)
-nnoremap("<c-s>", function() require("harpoon.ui").toggle_quick_menu()end)
 
 nnoremap("<leader>hh", function() require("harpoon.ui").nav_file(1)end)
 nnoremap("<leader>hj", function() require("harpoon.ui").nav_file(2)end)
