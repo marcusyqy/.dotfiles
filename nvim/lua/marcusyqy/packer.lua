@@ -299,6 +299,7 @@ local packer = require('packer').startup(function()
     }
 
 
+    use { "jremmen/vim-ripgrep" }
     use { 'neomake/neomake' }
     -- potential plugins to use
     -- use {

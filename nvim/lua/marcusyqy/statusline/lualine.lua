@@ -39,12 +39,13 @@ lualine.setup {
     sections = {
         lualine_a = {'mode'},
         lualine_b = {'branch'}, -- 'diagnostics'},
-        lualine_c = { {
-            "%=%t%m",
-            color = {
-                gui ="bold"
-            }
-        }},
+        lualine_c = {'filename'},
+        -- lualine_c = { {
+        --     "%=%t%m",
+        --     color = {
+        --         gui ="bold"
+        --     }
+        -- }},
         lualine_x = {
             'diff',
             {
