@@ -43,7 +43,7 @@ require("neo-tree").setup({
         -- },
         follow_current_file = {
             enabled = true,
-            leave_dirs_open = false, -- Ensure other nodes are collapsed
+            leave_dirs_open = true, -- Ensure other nodes are collapsed
         },
         group_dirs_and_files = true, -- when true, empty folders and files will be grouped together
         group_empty_dirs = true,     -- when true, empty directories will be grouped together
@@ -202,7 +202,7 @@ require("neo-tree").setup({
         },
         follow_current_file = {
             enabled = true,          -- This will find and focus the file in the active buffer every
-            leave_dirs_open = false, -- Ensure other nodes are collapsed
+            leave_dirs_open = true, -- Ensure other nodes are collapsed
         },
         -- time the current file is changed while the tree is open.
         group_empty_dirs = false,               -- when true, empty folders will be grouped together
@@ -238,7 +238,7 @@ require("neo-tree").setup({
     buffers = {
         follow_current_file = {
             enabled = true,          -- This will find and focus the file in the active buffer everypacker.lua
-            leave_dirs_open = false, -- Ensure other nodes are collapsed
+            leave_dirs_open = true, -- Ensure other nodes are collapsed
         },
         -- time the current file is changed while the tree is open.
         group_empty_dirs = true, -- when true, empty folders will be grouped together

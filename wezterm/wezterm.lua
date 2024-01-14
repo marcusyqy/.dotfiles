@@ -19,10 +19,8 @@ config.window_padding = {
 }
 
 -- temporary settings that have no files to be in right now.
-config.color_scheme = "GruvboxDarkHard"
+config.color_scheme = 'Solarized Dark Higher Contrast (Gogh)'
 config.warn_about_missing_glyphs = false
-config.cursor_blink_ease_in = "Constant"
-config.cursor_blink_ease_out = "Constant"
 
 require("tabbar").apply_config(config);
 require("keys").apply_config(config);

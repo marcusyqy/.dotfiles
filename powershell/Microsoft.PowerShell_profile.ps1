@@ -14,6 +14,7 @@ function git_status() {
     git status
 }
 
+
 # Import-Module posh-git
 # Import-Module oh-my-posh
 Set-Alias vim nvim
@@ -98,3 +99,4 @@ function which ($command) {
 
 # init_msvc_env
 oh-my-posh --init --shell pwsh --config ~\AppData\Local\Programs\oh-my-posh\themes\robbyrussel.omp.json | Invoke-Expression
+

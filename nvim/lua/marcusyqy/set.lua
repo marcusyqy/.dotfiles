@@ -72,4 +72,5 @@ vim.o.background = 'dark'
 vim.opt.mouse="a"
 
 
+vim.opt.cinoptions="l1"
 

@@ -6,8 +6,8 @@ local module = {}
 
 function module.apply_config(config)
     -- For example, changing the color scheme:
-    config.font = wezterm.font 'JetBrainsMono NF'
-    config.font_size = 13.0
+    -- config.font = wezterm.font 'JetBrainsMono NF'
+    config.font_size = 12.0
 
     -- config.color_scheme = 'Batman'
     config.default_prog = {

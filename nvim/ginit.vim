@@ -3,4 +3,5 @@ lua << EOF
 EOF
 
 " GuiFont! Hack\ NFM:h11
-GuiFont! JetBrainsMono\ NF:h11
+GuiFont! FiraCode\ Nerd\ Font\ Mono:h10
+

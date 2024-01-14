@@ -1,6 +1,7 @@
 -- vim.opt.showmode = false
--- vim.opt.ruler = false
--- vim.opt.laststatus = 0
--- vim.opt.showmode = true
+vim.opt.ruler = true
+vim.opt.laststatus = 0
+vim.opt.showmode = true
 -- vim.opt.statusline = ""
--- vim.opt.showcmd = true
+vim.cmd("highlight Comment ctermfg=green")
+vim.opt.showcmd = true

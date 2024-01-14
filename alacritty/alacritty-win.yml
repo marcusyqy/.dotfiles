@@ -68,19 +68,34 @@ scrolling:
 
 # # Font configuration (changes require restart)
 
+# font:
+#   normal:
+#     family: JetBrainsMono NF
+#     style: Regular
+#   bold:
+#     family: JetBrainsMono NF
+#     style: Bold
+#   italic:
+#     family: JetBrainsMono NF
+#     style: Italic
+#   bold_italic:
+#     family: JetBrainsMono NF
+#     style: Bold Italic
+
 font:
   normal:
-    family: JetBrainsMono NF
+    family: FiraCode Nerd Font Mono
     style: Regular
   bold:
-    family: JetBrainsMono NF
+    family: FiraCode Nerd Font Mono
     style: Bold
   italic:
-    family: JetBrainsMono NF
+    family: FiraCode Nerd Font Mono
     style: Italic
   bold_italic:
-    family: JetBrainsMono NF
+    family: FiraCode Nerd Font Mono
     style: Bold Italic
+
 
 # font:
 #   normal:
