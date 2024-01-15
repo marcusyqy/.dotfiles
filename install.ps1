@@ -12,7 +12,7 @@ function update_ps {
 
 function update_alacritty {
     New-Item -Force -Type Directory $env:APPDATA/alacritty
-    Copy-Item -Force alacritty/alacritty-win.yml $env:APPDATA/alacritty/alacritty.yml
+    Copy-Item -Force alacritty/alacritty-win.toml $env:APPDATA/alacritty/alacritty.toml
 }
 
 function update_wezterm {
