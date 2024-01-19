@@ -19,12 +19,14 @@ require("marcusyqy.git")
 require("marcusyqy.keymap")
 require("marcusyqy.navigation")
 require("marcusyqy.set")
+require("marcusyqy.os")
+
+
 
 -- directories
 require("marcusyqy.color")
 require("marcusyqy.language")
 require("marcusyqy.statusline")
-require("marcusyqy.shell")
 
 -- events
 local augroup = vim.api.nvim_create_augroup

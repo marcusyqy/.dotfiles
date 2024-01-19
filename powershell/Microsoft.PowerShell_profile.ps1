@@ -31,22 +31,46 @@ Set-Alias .df cd_dotfiles
 Set-Alias .dd cd_desktop
 Set-Alias gs git_status
 
-Import-Module PSReadLine
+function IsVirtualTerminalProcessingEnabled {
+    $MethodDefinitions = @'
+[DllImport("kernel32.dll", SetLastError = true)]
+public static extern IntPtr GetStdHandle(int nStdHandle);
+[DllImport("kernel32.dll", SetLastError = true)]
+public static extern bool GetConsoleMode(IntPtr hConsoleHandle, out uint lpMode);
+'@
+    $Kernel32 = Add-Type -MemberDefinition $MethodDefinitions -Name 'Kernel32' -Namespace 'Win32' -PassThru
+    $hConsoleHandle = $Kernel32::GetStdHandle(-11) # STD_OUTPUT_HANDLE
+    $mode = 0
+    $Kernel32::GetConsoleMode($hConsoleHandle, [ref]$mode) >$null
+    if ($mode -band 0x0004) { # 0x0004 ENABLE_VIRTUAL_TERMINAL_PROCESSING
+            return $true
+            }
+            return $false
+        }
+
+function CanUsePredictionSource {
+    return (! [System.Console]::IsOutputRedirected) -and (IsVirtualTerminalProcessingEnabled)
+}
+
+
+if(CanUsePredictionSource) {
+    Import-Module PSReadLine
 
 # Shows navigable menu of all options when hitting Tab
-Set-PSReadLineKeyHandler -Key Tab -Function MenuComplete
+    Set-PSReadLineKeyHandler -Key Tab -Function MenuComplete
 
 # Autocompleteion for Arrow keys
-Set-PSReadLineOption -HistorySearchCursorMovesToEnd
-Set-PSReadLineKeyHandler -Key UpArrow -Function HistorySearchBackward
-Set-PSReadLineKeyHandler -Key DownArrow -Function HistorySearchForward
+    Set-PSReadLineOption -HistorySearchCursorMovesToEnd
+    Set-PSReadLineKeyHandler -Key UpArrow -Function HistorySearchBackward
+    Set-PSReadLineKeyHandler -Key DownArrow -Function HistorySearchForward
 
-Set-PSReadLineOption -ShowToolTips
-Set-PSReadLineOption -PredictionSource History
+    Set-PSReadLineOption -ShowToolTips
+    Set-PSReadLineOption -PredictionSource History
 
 # PSReadLine
-Set-PSReadLineOption -EditMode Emacs
-Set-PSReadLineOption -BellStyle None
+    Set-PSReadLineOption -EditMode Emacs
+    Set-PSReadLineOption -BellStyle None
+}
 #Set-PSReadLineKeyHandler -Chord 'Ctrl+d' -Function DeleteChar
 #Set-PSReadLineOption -PredictionSource History
 
@@ -98,5 +122,5 @@ function which ($command) {
 }
 
 # init_msvc_env
-oh-my-posh --init --shell pwsh --config ~\AppData\Local\Programs\oh-my-posh\themes\robbyrussell.omp.json | Invoke-Expression
+# oh-my-posh --init --shell pwsh --config ~\AppData\Local\Programs\oh-my-posh\themes\robbyrussell.omp.json | Invoke-Expression
 

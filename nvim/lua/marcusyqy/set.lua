@@ -2,7 +2,7 @@
 -- Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 -- delays and poor user experience.
 vim.opt.updatetime = 50
-vim.opt.guicursor = ""
+-- vim.opt.guicursor = ""
 
 -- set nocompatible "be iMproved
 vim.opt.hidden = true
@@ -69,7 +69,7 @@ vim.opt.termguicolors = true
 vim.o.background = 'dark'
 -- vim.opt.ai = true
 
-vim.opt.mouse="a"
+vim.opt.mouse= "" --"a"
 
 
 vim.opt.cinoptions="l1"
