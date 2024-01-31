@@ -122,5 +122,5 @@ function which ($command) {
 }
 
 # init_msvc_env
-# oh-my-posh --init --shell pwsh --config ~\AppData\Local\Programs\oh-my-posh\themes\robbyrussell.omp.json | Invoke-Expression
+oh-my-posh --init --shell pwsh --config ~\AppData\Local\Programs\oh-my-posh\themes\robbyrussell.omp.json | Invoke-Expression
 
