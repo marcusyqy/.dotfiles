@@ -8,7 +8,7 @@ vim.opt.updatetime = 50
 vim.opt.hidden = true
 vim.opt.relativenumber = true
 vim.opt.number = true
-vim.opt.wrap = true
+vim.opt.wrap = false
 vim.opt.hlsearch = require("marcusyqy.utils.hlsearch").hlsearch -- uses some config
 
 vim.opt.cursorline = true
@@ -69,7 +69,11 @@ vim.opt.termguicolors = true
 vim.o.background = 'dark'
 -- vim.opt.ai = true
 
+<<<<<<< HEAD
 vim.opt.mouse= "" --"a"
+=======
+vim.opt.mouse=""-- "a"
+>>>>>>> just some weird changes
 
 
 vim.opt.cinoptions="l1"
