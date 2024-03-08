@@ -35,10 +35,6 @@ function update_ideavim {
 }
 
 update_vim
-update_wezterm
-update_ideavim
-update_vs
 update_ps
 update_alacritty
-
 

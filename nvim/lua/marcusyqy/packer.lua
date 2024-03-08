@@ -298,6 +298,7 @@ local packer = require('packer').startup(function()
     use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim'
     }
 
+    use { 'nvim-pack/nvim-spectre' }
 
     use { "jremmen/vim-ripgrep" }
     use { 'neomake/neomake' }

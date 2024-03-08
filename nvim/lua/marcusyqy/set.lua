@@ -69,7 +69,7 @@ vim.opt.termguicolors = true
 vim.o.background = 'dark'
 -- vim.opt.ai = true
 
-vim.opt.mouse=""-- "a"
+vim.opt.mouse= ""
 
 
 vim.opt.cinoptions="l1"
