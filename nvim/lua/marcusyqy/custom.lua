@@ -62,7 +62,7 @@ nnoremap("<expr> j", "(v:count > 5 ? \"m'\" . v:count : \"\") . 'j'")
 vnoremap("J", ":m '>+1<CR>gv=gv", { silent = true })
 vnoremap("K", ":m '<-2<CR>gv=gv", { silent = true })
 
-vnoremap("<leader>p", "\"_dP")
+vnoremap("<leader>p", "\"_dp")
 nnoremap("<c-h>", "gT")
 nnoremap("<c-l>", "gt")
 
@@ -98,3 +98,12 @@ nnoremap("<leader>sv", vimfn([[source $MYVIMRC]]))
 -- NOTE:
 -- clear quickfix list cxexpr []
 -- clear local quickfix list lxexpr []
+
+
+-- clipboard tryout
+nnoremap("p", "\"+p");
+vnoremap("p", "\"+p");
+
+nnoremap("y", "\"+y");
+vnoremap("y", "\"+y");
+
