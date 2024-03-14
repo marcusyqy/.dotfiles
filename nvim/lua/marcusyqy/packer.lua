@@ -137,6 +137,7 @@ local packer = require('packer').startup(function()
         { "folke/tokyonight.nvim",         branch = "main" },
         { 'projekt0n/github-nvim-theme',   tag = 'v0.0.7' },
         { "ellisonleao/gruvbox.nvim" },
+        { "zekzekus/menguless" },
         { "marko-cerovac/material.nvim" },
         { "rebelot/kanagawa.nvim" },
         { "rmehri01/onenord.nvim" },

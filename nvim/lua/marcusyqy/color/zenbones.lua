@@ -80,7 +80,7 @@ vim.g.nordbones_transparent_background = true
 -- vim.g.gruvbones_transparent_background = true
 
 
-vim.cmd([[colorscheme neobones]])
+vim.cmd([[colorscheme forestbones]])
 
 
 
