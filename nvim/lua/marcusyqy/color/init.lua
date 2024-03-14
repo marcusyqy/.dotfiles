@@ -3,8 +3,7 @@ vim.opt.wildoptions = "pum"
 vim.opt.pumblend = 5
 
 -- vim.cmd([[colorscheme vim]])
-local colorscheme = "gruvbox"
--- local colorscheme = "solarized-osaka"
+local colorscheme = "onedark"
 local set_color_scheme = function(color_scheme)
     require("marcusyqy.color." .. color_scheme)
     colorscheme = color_scheme

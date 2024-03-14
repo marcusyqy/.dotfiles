@@ -101,9 +101,9 @@ nnoremap("<leader>sv", vimfn([[source $MYVIMRC]]))
 
 
 -- clipboard tryout
-nnoremap("p", "\"+p");
-vnoremap("p", "\"+p");
-
-nnoremap("y", "\"+y");
-vnoremap("y", "\"+y");
+-- nnoremap("p", "\"+p");
+-- vnoremap("p", "\"+p");
+--
+-- nnoremap("y", "\"+y");
+-- vnoremap("y", "\"+y");
 

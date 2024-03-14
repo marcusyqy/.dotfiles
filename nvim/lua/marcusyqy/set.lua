@@ -3,7 +3,7 @@
 -- delays and poor user experience.
 vim.opt.updatetime = 50
 -- vim.opt.guicursor = ""
-
+vim.g.have_nerd_font = false
 -- set nocompatible "be iMproved
 vim.opt.hidden = true
 vim.opt.relativenumber = true
@@ -23,6 +23,11 @@ vim.opt.autoindent = true
 vim.opt.smartindent = true
 vim.opt.laststatus = 2
 vim.opt.splitkeep = "cursor"
+
+vim.opt.cursorline = true
+-- Configure how new splits should be opened
+vim.opt.splitright = true
+vim.opt.splitbelow = true
 
 -- display chars for tabs and trailing spaces
 vim.opt.listchars="eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:·"

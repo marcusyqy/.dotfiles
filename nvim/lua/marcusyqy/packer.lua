@@ -138,17 +138,11 @@ local packer = require('packer').startup(function()
         { 'projekt0n/github-nvim-theme',   tag = 'v0.0.7' },
         { "ellisonleao/gruvbox.nvim" },
         { "marko-cerovac/material.nvim" },
-        { 'tjdevries/colorbuddy.vim' },
-        { 'tjdevries/gruvbuddy.nvim' },
-        { 'Mofiqul/vscode.nvim' },
-        { "svrana/neosolarized.nvim" },
-        { "craftzdog/solarized-osaka.nvim" },
         { "rebelot/kanagawa.nvim" },
         { "rmehri01/onenord.nvim" },
         {
             'navarasu/onedark.nvim'
         },
-        { "blazkowolf/gruber-darker.nvim" },
         {
             "mcchrish/zenbones.nvim",
             -- Optionally install Lush. Allows for more configuration or extending the colorscheme

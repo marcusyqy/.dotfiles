@@ -297,5 +297,11 @@ vim.keymap.set('n', '<c-b>',
 --         previewer = false,
 --     })
 -- end, { desc = '[/] Fuzzily search in current buffer]' })
+vim.keymap.set('n', '<leader>s/', function()
+        require("telescope.builtin").live_grep {
+          grep_open_files = true,
+          prompt_title = 'Live Grep in Open Files',
+        }
+      end, { desc = '[S]earch [/] in Open Files' })
 
 -- nnoremap("<leader>rr", require('telescope.builtin').lsp_references)
