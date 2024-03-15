@@ -11,6 +11,6 @@ nnoremap("<leader>ftt", ":FloatermToggle<CR>")
 
 -- new terminal in tab
 nnoremap("<leader>tt", ":tabnew<CR>:term<CR>a")
-nnoremap("<leader>ts", "<c-w>s<c-w>j:term<CR>a")
-nnoremap("<leader>tv", "<c-w>v<c-w>l:term<CR>a")
+nnoremap("<leader>ts", "<c-w>s:term<CR>a")
+nnoremap("<leader>tv", "<c-w>v:term<CR>a")
 

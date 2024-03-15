@@ -8,7 +8,7 @@ vim.g.have_nerd_font = false
 vim.opt.hidden = true
 vim.opt.relativenumber = true
 vim.opt.number = true
-vim.opt.wrap = false
+vim.opt.wrap = true
 vim.opt.hlsearch = require("marcusyqy.utils.hlsearch").hlsearch -- uses some config
 
 vim.opt.cursorline = true

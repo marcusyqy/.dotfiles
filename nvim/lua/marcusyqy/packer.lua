@@ -133,10 +133,12 @@ local packer = require('packer').startup(function()
     -- colorschemes
     use {
         -- Using Packer:
+        { "tjdevries/colorbuddy.nvim" },
         { "Mofiqul/dracula.nvim" },
         { "folke/tokyonight.nvim",         branch = "main" },
         { 'projekt0n/github-nvim-theme',   tag = 'v0.0.7' },
         { "ellisonleao/gruvbox.nvim" },
+        { "craftzdog/solarized-osaka.nvim" },
         { "zekzekus/menguless" },
         { "marko-cerovac/material.nvim" },
         { "rebelot/kanagawa.nvim" },

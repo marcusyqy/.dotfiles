@@ -263,6 +263,9 @@ nnoremap("<leader>cmd", function() require('telescope.builtin').commands() end)
 
 
 -- See `:help telescope.builtin`
+vim.keymap.set('n', "<leader>:", function() require("telescope.builtin").command_history(require('telescope.themes').get_dropdown({previewer=false})) end,
+    { desc = "[fs], command history" })
+
 vim.keymap.set('n', "<leader>/", function() require("telescope.builtin").lsp_document_symbols() end,
     { desc = "[fs], find document symbols" })
 vim.keymap.set('n', "<leader>f?", function() require("telescope.builtin").builtin() end,
