@@ -459,7 +459,7 @@ require("clangd_extensions").setup {
             "--pch-storage=memory",
             "--compile-commands-dir=${workspaceFolder}/",
             "--background-index",
-            "--clang-tidy=false",
+            -- "--clang-tidy=false",
             "--suggest-missing-includes",
             -- "--clang-tidy",
             "--all-scopes-completion"

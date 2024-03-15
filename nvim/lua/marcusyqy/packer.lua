@@ -138,6 +138,10 @@ local packer = require('packer').startup(function()
         { "folke/tokyonight.nvim",         branch = "main" },
         { 'projekt0n/github-nvim-theme',   tag = 'v0.0.7' },
         { "ellisonleao/gruvbox.nvim" },
+        {
+          "jesseleite/nvim-noirbuddy",
+          requires = { "tjdevries/colorbuddy.nvim" }
+        },
         { "craftzdog/solarized-osaka.nvim" },
         { "zekzekus/menguless" },
         { "marko-cerovac/material.nvim" },

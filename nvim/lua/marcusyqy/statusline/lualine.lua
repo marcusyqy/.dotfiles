@@ -14,7 +14,6 @@ function searchCount()
 end
 
 
-
 lualine.setup {
     options = {
         icons_enabled = true,
