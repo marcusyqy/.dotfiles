@@ -30,7 +30,8 @@ local packer = require('packer').startup(function()
         "hrsh7th/cmp-nvim-lsp",
         "hrsh7th/cmp-buffer",
         "hrsh7th/cmp-path",
-        "hrsh7th/nvim-cmp"
+        "hrsh7th/nvim-cmp",
+        "ray-x/lsp_signature.nvim"
     }
 
     -- Lua
@@ -303,6 +304,7 @@ local packer = require('packer').startup(function()
 
     use { "jremmen/vim-ripgrep" }
     use { 'neomake/neomake' }
+    use { 'ntpeters/vim-better-whitespace' }
     -- potential plugins to use
     -- use {
     --     "utilyre/barbecue.nvim",

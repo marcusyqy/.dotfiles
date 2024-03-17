@@ -1,4 +1,3 @@
-
 -- Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 -- delays and poor user experience.
 vim.opt.updatetime = 50
@@ -57,7 +56,7 @@ vim.opt.inccommand = "split" -- for :substitute - i love it
 vim.g.nowritebackup = true
 
 -- should i remove this to get better mappings of H and L ?
-vim.opt.scrolloff = 8 -- test this out.
+vim.opt.scrolloff = 0 -- 8 -- test this out.
 vim.opt.signcolumn = "no" -- change to "yes" to get something weird. and "auto" is really wonky
 -- vim.opt.isfname:append("@-@")
 
