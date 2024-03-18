@@ -7,7 +7,7 @@ vim.opt.completeopt = { "menu", "menuone", "noselect" }
 -- lsp_signature.nvim
 require "lsp_signature".setup({
   hint_prefix = "",
-  floating_window = true,
+  floating_window = false,
   bind = true,
 })
 
