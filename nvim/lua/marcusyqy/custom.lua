@@ -18,8 +18,8 @@ inoremap("<s-tab>", "<C-D>")
 vnoremap("<tab>", ">gv")
 vnoremap("<s-tab>", "<gv")
 
-vnoremap(">", ">gv")
-vnoremap("<", "<gv")
+-- vnoremap(">", ">gv")
+-- vnoremap("<", "<gv")
 
 nnoremap("<s-left>", "<C-w><")
 nnoremap("<s-right>", "<C-w>>")

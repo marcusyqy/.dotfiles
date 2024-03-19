@@ -144,10 +144,10 @@ _G.packer_plugins = {
     path = "/home/marcus.yong/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
-  ["colorbuddy.vim"] = {
+  ["colorbuddy.nvim"] = {
     loaded = true,
-    path = "/home/marcus.yong/.local/share/nvim/site/pack/packer/start/colorbuddy.vim",
-    url = "https://github.com/tjdevries/colorbuddy.vim"
+    path = "/home/marcus.yong/.local/share/nvim/site/pack/packer/start/colorbuddy.nvim",
+    url = "https://github.com/tjdevries/colorbuddy.nvim"
   },
   ["deadcolumn.nvim"] = {
     loaded = true,
@@ -194,20 +194,10 @@ _G.packer_plugins = {
     path = "/home/marcus.yong/.local/share/nvim/site/pack/packer/start/github-nvim-theme",
     url = "https://github.com/projekt0n/github-nvim-theme"
   },
-  ["gruber-darker.nvim"] = {
-    loaded = true,
-    path = "/home/marcus.yong/.local/share/nvim/site/pack/packer/start/gruber-darker.nvim",
-    url = "https://github.com/blazkowolf/gruber-darker.nvim"
-  },
   ["gruvbox.nvim"] = {
     loaded = true,
     path = "/home/marcus.yong/.local/share/nvim/site/pack/packer/start/gruvbox.nvim",
     url = "https://github.com/ellisonleao/gruvbox.nvim"
-  },
-  ["gruvbuddy.nvim"] = {
-    loaded = true,
-    path = "/home/marcus.yong/.local/share/nvim/site/pack/packer/start/gruvbuddy.nvim",
-    url = "https://github.com/tjdevries/gruvbuddy.nvim"
   },
   ["gui-font-resize.nvim"] = {
     loaded = true,
@@ -233,6 +223,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/marcus.yong/.local/share/nvim/site/pack/packer/start/lsp_extensions.nvim",
     url = "https://github.com/nvim-lua/lsp_extensions.nvim"
+  },
+  ["lsp_signature.nvim"] = {
+    loaded = true,
+    path = "/home/marcus.yong/.local/share/nvim/site/pack/packer/start/lsp_signature.nvim",
+    url = "https://github.com/ray-x/lsp_signature.nvim"
   },
   ["lspkind-nvim"] = {
     loaded = true,
@@ -274,6 +269,11 @@ _G.packer_plugins = {
     path = "/home/marcus.yong/.local/share/nvim/site/pack/packer/start/material.nvim",
     url = "https://github.com/marko-cerovac/material.nvim"
   },
+  menguless = {
+    loaded = true,
+    path = "/home/marcus.yong/.local/share/nvim/site/pack/packer/start/menguless",
+    url = "https://github.com/zekzekus/menguless"
+  },
   ["neo-tree-diagnostics.nvim"] = {
     loaded = false,
     needs_bufread = false,
@@ -296,11 +296,6 @@ _G.packer_plugins = {
     path = "/home/marcus.yong/.local/share/nvim/site/pack/packer/start/neomake",
     url = "https://github.com/neomake/neomake"
   },
-  ["neosolarized.nvim"] = {
-    loaded = true,
-    path = "/home/marcus.yong/.local/share/nvim/site/pack/packer/start/neosolarized.nvim",
-    url = "https://github.com/svrana/neosolarized.nvim"
-  },
   ["nui.nvim"] = {
     loaded = true,
     path = "/home/marcus.yong/.local/share/nvim/site/pack/packer/start/nui.nvim",
@@ -320,6 +315,16 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/marcus.yong/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
+  },
+  ["nvim-noirbuddy"] = {
+    loaded = true,
+    path = "/home/marcus.yong/.local/share/nvim/site/pack/packer/start/nvim-noirbuddy",
+    url = "https://github.com/jesseleite/nvim-noirbuddy"
+  },
+  ["nvim-spectre"] = {
+    loaded = true,
+    path = "/home/marcus.yong/.local/share/nvim/site/pack/packer/start/nvim-spectre",
+    url = "https://github.com/nvim-pack/nvim-spectre"
   },
   ["nvim-surround"] = {
     config = { "\27LJ\2\n?\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\18nvim-surround\frequire\0" },
@@ -413,6 +418,11 @@ _G.packer_plugins = {
     path = "/home/marcus.yong/.local/share/nvim/site/pack/packer/start/undotree",
     url = "https://github.com/mbbill/undotree"
   },
+  ["vim-better-whitespace"] = {
+    loaded = true,
+    path = "/home/marcus.yong/.local/share/nvim/site/pack/packer/start/vim-better-whitespace",
+    url = "https://github.com/ntpeters/vim-better-whitespace"
+  },
   ["vim-cpp-modern"] = {
     loaded = true,
     path = "/home/marcus.yong/.local/share/nvim/site/pack/packer/start/vim-cpp-modern",
@@ -443,15 +453,15 @@ _G.packer_plugins = {
     path = "/home/marcus.yong/.local/share/nvim/site/pack/packer/start/vim-rhubarb",
     url = "https://github.com/tpope/vim-rhubarb"
   },
+  ["vim-ripgrep"] = {
+    loaded = true,
+    path = "/home/marcus.yong/.local/share/nvim/site/pack/packer/start/vim-ripgrep",
+    url = "https://github.com/jremmen/vim-ripgrep"
+  },
   ["vim-svelte"] = {
     loaded = true,
     path = "/home/marcus.yong/.local/share/nvim/site/pack/packer/start/vim-svelte",
     url = "https://github.com/evanleck/vim-svelte"
-  },
-  ["vscode.nvim"] = {
-    loaded = true,
-    path = "/home/marcus.yong/.local/share/nvim/site/pack/packer/start/vscode.nvim",
-    url = "https://github.com/Mofiqul/vscode.nvim"
   },
   ["whiskyline.nvim"] = {
     loaded = true,
