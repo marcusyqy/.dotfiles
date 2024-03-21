@@ -209,15 +209,11 @@ cmp.setup.cmdline('/', {
     }
   })
 
--- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
-cmp.setup.cmdline(':', {
-    mapping = cmp.mapping.preset.cmdline(),
-    sources = cmp.config.sources({
-        { name = 'path' }
-      }, {
-        { name = 'cmdline' }
-      })
-  })
+-- this doesn't work lol.
+-- cmp.setup.cmdline(':', {
+--     mapping = cmp.mapping.preset.cmdline(),
+--     sources = cmp.config.sources({ name = 'cmdline' })
+-- })
 
 local nvim_lsp = require('lspconfig')
 local protocol = require 'vim.lsp.protocol'
