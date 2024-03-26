@@ -2,25 +2,27 @@
 -- delays and poor user experience.
 vim.opt.updatetime = 50
 -- vim.opt.guicursor = ""
-vim.g.have_nerd_font = false
+
 -- set nocompatible "be iMproved
 vim.opt.hidden = true
 vim.opt.relativenumber = true
 vim.opt.number = true
 vim.opt.wrap = true
 vim.opt.hlsearch = require("marcusyqy.utils.hlsearch").hlsearch -- uses some config
+vim.opt.ruler = true
 
 vim.opt.cursorline = true
 vim.opt.signcolumn = "yes"
 vim.opt.errorbells = false
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
+vim.opt.tabstop = 2 --  4
+vim.opt.softtabstop = 2 -- 4
+vim.opt.shiftwidth = 2 -- 4
 vim.opt.expandtab = true
 
 vim.opt.autoindent = true
 vim.opt.smartindent = true
-vim.opt.laststatus = 2
+vim.opt.laststatus = 0 -- 2
+vim.opt.showmode = true
 vim.opt.splitkeep = "cursor"
 
 vim.opt.cursorline = true
@@ -78,3 +80,6 @@ vim.opt.mouse= ""
 
 vim.opt.cinoptions="l1"
 
+-- set default colorscheme
+vim.cmd.colorscheme('vim')
+vim.cmd("highlight Comment ctermfg=green")
