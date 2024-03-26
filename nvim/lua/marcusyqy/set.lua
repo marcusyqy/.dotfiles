@@ -25,8 +25,8 @@ vim.opt.splitkeep = "cursor"
 
 vim.opt.cursorline = false -- true
 -- Configure how new splits should be opened
-vim.opt.splitright = true
-vim.opt.splitbelow = true
+-- vim.opt.splitright = true
+-- vim.opt.splitbelow = true
 
 -- display chars for tabs and trailing spaces
 vim.opt.listchars="eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:·"
@@ -79,4 +79,7 @@ vim.cmd.colorscheme('vim')
 vim.opt.termguicolors = false
 vim.cmd("highlight Comment ctermfg=DarkGreen")
 vim.cmd("highlight Constant ctermfg=DarkRed")
+vim.cmd("highlight Type ctermfg=Green")
+-- try this.
+vim.cmd("highlight Visual ctermbg=DarkGray ctermfg=White")
 
