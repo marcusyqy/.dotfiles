@@ -11,9 +11,7 @@ vim.opt.wrap = true
 vim.opt.hlsearch = require("marcusyqy.utils.hlsearch").hlsearch -- uses some config
 vim.opt.ruler = true
 
-vim.opt.cursorline = true
-vim.opt.signcolumn = "yes"
-vim.opt.errorbells = false
+vim.opt.errorbells = true
 vim.opt.tabstop = 2 --  4
 vim.opt.softtabstop = 2 -- 4
 vim.opt.shiftwidth = 2 -- 4
@@ -25,7 +23,7 @@ vim.opt.laststatus = 0 -- 2
 vim.opt.showmode = true
 vim.opt.splitkeep = "cursor"
 
-vim.opt.cursorline = true
+vim.opt.cursorline = false -- true
 -- Configure how new splits should be opened
 vim.opt.splitright = true
 vim.opt.splitbelow = true
@@ -68,18 +66,17 @@ vim.opt.cmdheight = 1
 -- Don't pass messages to |ins-completion-menu|.
 vim.opt.shortmess:append("c")
 vim.opt.colorcolumn = "120"
-vim.opt.termguicolors = true
 --
 -- set ai "Auto indent
 -- set si "Smart indent
 vim.o.background = 'dark'
--- vim.opt.ai = true
 
 vim.opt.mouse= ""
-
-
 vim.opt.cinoptions="l1"
 
 -- set default colorscheme
 vim.cmd.colorscheme('vim')
-vim.cmd("highlight Comment ctermfg=green")
+vim.opt.termguicolors = false
+vim.cmd("highlight Comment ctermfg=DarkGreen")
+vim.cmd("highlight Constant ctermfg=DarkRed")
+
