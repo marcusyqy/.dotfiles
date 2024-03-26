@@ -19,7 +19,7 @@ vim.opt.expandtab = true
 
 vim.opt.autoindent = true
 vim.opt.smartindent = true
-vim.opt.laststatus = 0 -- 2
+vim.opt.laststatus = 2
 vim.opt.showmode = true
 vim.opt.splitkeep = "cursor"
 
@@ -57,7 +57,7 @@ vim.g.nowritebackup = true
 
 -- should i remove this to get better mappings of H and L ?
 vim.opt.scrolloff = 0 -- 8 -- test this out.
-vim.opt.signcolumn = "no" -- change to "yes" to get something weird. and "auto" is really wonky
+vim.opt.signcolumn = "yes" -- change to "yes" to get something weird. and "auto" is really wonky
 -- vim.opt.isfname:append("@-@")
 
 -- Give more space for displaying messages.
@@ -74,12 +74,5 @@ vim.o.background = 'dark'
 vim.opt.mouse= ""
 vim.opt.cinoptions="l1"
 
--- set default colorscheme
-vim.cmd.colorscheme('vim')
-vim.opt.termguicolors = false
-vim.cmd("highlight Comment ctermfg=DarkGreen")
-vim.cmd("highlight Constant ctermfg=DarkRed")
-vim.cmd("highlight Type ctermfg=Green")
--- try this.
-vim.cmd("highlight Visual ctermbg=DarkGray ctermfg=White")
+vim.opt.termguicolors = true
 
