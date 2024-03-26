@@ -57,7 +57,7 @@ vim.g.nowritebackup = true
 
 -- should i remove this to get better mappings of H and L ?
 vim.opt.scrolloff = 0 -- 8 -- test this out.
-vim.opt.signcolumn = "yes" -- change to "yes" to get something weird. and "auto" is really wonky
+vim.opt.signcolumn = "no" -- change to "yes" to get something weird. and "auto" is really wonky
 -- vim.opt.isfname:append("@-@")
 
 -- Give more space for displaying messages.
