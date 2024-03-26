@@ -62,6 +62,11 @@ nnoremap("<expr> j", "(v:count > 5 ? \"m'\" . v:count : \"\") . 'j'")
 vnoremap("J", ":m '>+1<CR>gv=gv", { silent = true })
 vnoremap("K", ":m '<-2<CR>gv=gv", { silent = true })
 
+-- to replace no c-s-v
+inoremap("<m-v>", "<c-r>+")
+nnoremap("<m-v>", "\"+p")
+vnoremap("<m-v>", "\"+p")
+
 vnoremap("<leader>p", "\"_dp")
 nnoremap("<c-h>", "gT")
 nnoremap("<c-l>", "gt")

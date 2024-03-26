@@ -3,5 +3,5 @@ lua << EOF
 EOF
 
 " GuiFont! Hack\ NFM:h11
-set guifont=FiraMono\ Nerd\ Font\ Mono:h10
+" set guifont=FiraMono\ Nerd\ Font\ Mono:h10
 
