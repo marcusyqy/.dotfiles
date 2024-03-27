@@ -18,11 +18,10 @@ lualine.setup {
     options = {
         icons_enabled = true,
         theme = auto, -- 'solarized_dark', --require("marcusyqy.color").colorscheme,
-        -- component_separators = { left = '|', right = '▓'},
-        -- section_separators = { left = '▓', right = '▓'},
-        component_separators = { left = '', right = ''},
-        section_separators = { left = '', right = ''},
-
+        component_separators = { left = '', right = ''},
+        section_separators = { left = '', right = ''},
+        -- component_separators = { left = '', right = ''},
+        -- section_separators = { left = '', right = ''},
         disabled_filetypes = {
             statusline = {},
             winbar = {},
@@ -38,13 +37,13 @@ lualine.setup {
     sections = {
         lualine_a = {'mode'},
         lualine_b = {'branch'}, -- 'diagnostics'},
-        lualine_c = {'filename'},
-        -- lualine_c = { {
-        --     "%=%t%m",
-        --     color = {
-        --         gui ="bold"
-        --     }
-        -- }},
+        -- lualine_c = {'filename'},
+        lualine_c = { {
+            "%=%t%m",
+            color = {
+                gui ="bold"
+            }
+        }},
         lualine_x = {
             'diff',
             {
