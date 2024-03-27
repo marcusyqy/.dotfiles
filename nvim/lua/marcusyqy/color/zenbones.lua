@@ -56,6 +56,9 @@ lush(specs)
 --
 require("zenbones.term").apply_colors(palette)
 
+vim.g.zenbones_darkness = "stark"
+vim.g.zenbones_transparent_background = true
+
 vim.g.duckbones_darkness = "stark"
 vim.g.duckbones_transparent_background = true
 
@@ -76,11 +79,14 @@ vim.g.zenwritten_transparent_background = true
 
 vim.g.nordbones_darkness = "stark"
 vim.g.nordbones_transparent_background = true
--- vim.g.gruvbones_darkness = "stark"
--- vim.g.gruvbones_transparent_background = true
 
+vim.g.vimbones_darkness = "stark"
+vim.g.vimbones_transparent_background = true
 
-vim.cmd([[colorscheme forestbones]])
+vim.g.kanagawabones_darkness = "stark"
+vim.g.kanagawabones_transparent_background = true
+
+vim.cmd([[colorscheme neobones]])
 
 
 
