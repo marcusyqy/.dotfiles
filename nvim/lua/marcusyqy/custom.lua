@@ -73,6 +73,8 @@ nnoremap("<c-l>", "gt")
 
 nnoremap("<leader>sv", vimfn([[source $MYVIMRC]]))
 
+nnoremap("<c-\\>", "<c-w>v") -- vscode
+
 -- local function netrw()
 --     if vim.bo.filetype == "netrw" then
 --         vim.cmd([[Rex]])
