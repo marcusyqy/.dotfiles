@@ -2,7 +2,7 @@ vim.opt.winblend = 0
 vim.opt.wildoptions = "pum"
 vim.opt.pumblend = 5
 
-local colorscheme = "onenord"
+local colorscheme = "zenbones"
 local set_color_scheme = function(color_scheme)
     require("marcusyqy.color." .. color_scheme)
     colorscheme = color_scheme
@@ -15,3 +15,4 @@ M.set = set_color_scheme
 set_color_scheme(colorscheme)
 
 return M
+
