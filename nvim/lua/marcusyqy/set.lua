@@ -25,7 +25,7 @@ vim.opt.splitkeep = "cursor"
 
 vim.opt.cursorline = false -- true
 -- Configure how new splits should be opened
--- vim.opt.splitright = true
+vim.opt.splitright = true
 -- vim.opt.splitbelow = true
 
 -- display chars for tabs and trailing spaces

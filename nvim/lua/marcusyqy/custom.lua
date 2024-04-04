@@ -5,6 +5,7 @@ local nnoremap = Remaps.nnoremap
 local inoremap = Remaps.inoremap
 local vnoremap = Remaps.vnoremap
 local vimfn    = Remaps.vimfn
+local cnoremap = Remaps.cnoremap
 
 -- planck keymaps
 nnoremap("<pageup>", "<c-u>")
@@ -113,4 +114,11 @@ nnoremap("<c-\\>", "<c-w>v") -- vscode
 --
 -- nnoremap("y", "\"+y");
 -- vnoremap("y", "\"+y");
+
+vim.cmd([[set makeprg=build]])
+vim.cmd("command! -nargs=1 -complete=shellcmd MakePrg noautocmd set makeprg=<args>")
+vim.cmd("command! -nargs=+ -complete=shellcmd Call noautocmd cexpr! system(\"<args>\") | redraw! | copen")
+
+cnoremap("<C-a>", "<home>", {})
+cnoremap("<C-e>", "<end>", {})
 
