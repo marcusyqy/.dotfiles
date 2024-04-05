@@ -76,15 +76,15 @@ nnoremap("<leader>sv", vimfn([[source $MYVIMRC]]))
 
 nnoremap("<c-\\>", "<c-w>v") -- vscode
 
--- local function netrw()
---     if vim.bo.filetype == "netrw" then
---         vim.cmd([[Rex]])
---     else
---         vim.cmd([[Ex]])
---     end
--- end
+local function netrw()
+    if vim.bo.filetype == "netrw" then
+        vim.cmd([[Rex]])
+    else
+        vim.cmd([[Ex]])
+    end
+end
 
--- nnoremap("<c-b>", netrw)
+-- nnoremap("<c-1>", netrw)
 
 
 -- nnoremap("<c-n>", vimfn([[let @/=expand("%:t") \| execute 'Explore' expand("%:h") \| normal n]]))
@@ -115,8 +115,11 @@ nnoremap("<c-\\>", "<c-w>v") -- vscode
 -- nnoremap("y", "\"+y");
 -- vnoremap("y", "\"+y");
 
-vim.cmd([[set makeprg=build]])
-vim.cmd("command! -nargs=1 -complete=shellcmd MakePrg noautocmd set makeprg=<args>")
+-- vim.cmd([[set makeprg=build]])
+
+vim.opt.makeprg = "build" -- typically
+
+vim.cmd("command! -nargs=1 -complete=shellcmd MakePrg noautocmd lua vim.opt.makeprg=\"<args>\"")
 vim.cmd("command! -nargs=+ -complete=shellcmd Call noautocmd cexpr! system(\"<args>\") | redraw! | copen")
 
 cnoremap("<C-a>", "<home>", {})
