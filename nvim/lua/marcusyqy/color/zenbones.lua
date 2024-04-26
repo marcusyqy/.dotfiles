@@ -86,7 +86,7 @@ vim.g.vimbones_transparent_background = true
 vim.g.kanagawabones_darkness = "stark"
 vim.g.kanagawabones_transparent_background = true
 
-vim.cmd([[colorscheme nordbones]])
+vim.cmd([[colorscheme forestbones]])
 
 
 

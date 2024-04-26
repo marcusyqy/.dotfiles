@@ -15,13 +15,15 @@ require('kanagawa').setup({
         palette = {},
         theme = { wave = {}, lotus = {}, dragon = {}, all = {
             ui = {
-                bg_gutter = "none"
+                bg_gutter = "none",
+                border = "orange"
             }
         },
         },
     },
     overrides = function(colors)
         local theme = colors.theme
+
         return {
             -- Assign a static color to strings
             String = { fg = colors.palette.carpYellow, italic = true },
@@ -55,7 +57,7 @@ require('kanagawa').setup({
     end,
     theme = "wave", -- Load "wave" theme when 'background' option is not set
     background = { -- map the value of 'background' option to a theme
-        dark = "wave", -- try "dragon" !
+        dark = "dragon", -- try "dragon" !
         light = "lotus"
     },
 })
