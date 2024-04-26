@@ -215,7 +215,7 @@
              quit_on_open = true,
              resize_window = true,
              window_picker = {
-                 enable = false,
+                 enable = true,
                  picker = "default",
                  chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
                  exclude = {
