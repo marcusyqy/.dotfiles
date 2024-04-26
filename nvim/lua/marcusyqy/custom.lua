@@ -47,6 +47,7 @@ nnoremap("J", "mzJ`v")
 
 inoremap("<c-c>", "<esc>")
 nnoremap("<leader>sf", vimfn([[ClangdSwitchSourceHeader]]))
+nnoremap("<m-o>", vimfn([[ClangdSwitchSourceHeader]]))
 
 -- undo breakpoints
 -- inoremap(",", ",<c-g>u")
