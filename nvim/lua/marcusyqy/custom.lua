@@ -22,10 +22,11 @@ vnoremap("<s-tab>", "<gv")
 -- vnoremap(">", ">gv")
 -- vnoremap("<", "<gv")
 
-nnoremap("<s-left>", "<C-w><")
-nnoremap("<s-right>", "<C-w>>")
-nnoremap("<s-up>", "<C-w>+")
-nnoremap("<s-down>", "<C-w>-")
+nnoremap("<m-left>", "10<C-w><")
+nnoremap("<m-right>", "10<C-w>>")
+nnoremap("<m-up>", "10<C-w>+")
+nnoremap("<m-down>", "10<C-w>-")
+
 vnoremap("<leader>p", "\"_dp")
 vnoremap("<leader>P", "\"_dP")
 
