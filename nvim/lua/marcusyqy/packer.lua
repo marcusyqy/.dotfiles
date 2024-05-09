@@ -34,10 +34,6 @@ local packer = require('packer').startup(function()
         "ray-x/lsp_signature.nvim"
     }
 
-    -- Lua
-    use {
-        "folke/zen-mode.nvim"
-    }
 
     if vim.fn.has("win32") == 1 then
         use { "nvim-telescope/telescope-fzy-native.nvim" }
@@ -65,7 +61,6 @@ local packer = require('packer').startup(function()
                 "nvim-lua/plenary.nvim",
             }
         },
-        "theprimeagen/git-worktree.nvim",
         "stevearc/dressing.nvim",
         "nvim-telescope/telescope-file-browser.nvim",
         "nvim-telescope/telescope-project.nvim"
@@ -98,77 +93,14 @@ local packer = require('packer').startup(function()
         }
     }
 
-    -- Post-install/update hook with neovim command
-    -- use {
-    --     {
-    --         "nvim-treesitter/nvim-treesitter",
-    --         run = function() pcall(require('nvim-treesitter.install').update { with_sync = true }) end -- run install
-    --     },
-    --     'nvim-treesitter/nvim-treesitter-context',
-    --     'nvim-treesitter/playground',
-    --     'MunifTanjim/nui.nvim'
-    -- }
-
-    -- use { -- Additional text objects via treesitter
-    --     'nvim-treesitter/nvim-treesitter-textobjects',
-    --     after = 'nvim-treesitter',
-    -- }
-    use("mbbill/undotree")
-    -- Packer
-    -- use({
-    --     "folke/noice.nvim",
-    --     requires = {
-    --         -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-    --         "MunifTanjim/nui.nvim",
-    --         -- OPTIONAL:
-    --         --   `nvim-notify` is only needed, if you want to use the notification view.
-    --         --   If not available, we use `mini` as the fallback
-    --         "rcarriga/nvim-notify",
-    --     }
-    -- },
-    --     {
-    --         "rcarriga/nvim-notify"
-    --     })
-
-
     -- colorschemes
     use {
         -- Using Packer:
-        { "tjdevries/colorbuddy.nvim" },
-        { "Mofiqul/dracula.nvim" },
-        { "folke/tokyonight.nvim",         branch = "main" },
-        { 'projekt0n/github-nvim-theme',   tag = 'v0.0.7' },
         { "ellisonleao/gruvbox.nvim" },
-        { "p00f/alabaster.nvim" },
-        {
-          "jesseleite/nvim-noirbuddy",
-          requires = { "tjdevries/colorbuddy.nvim" }
-        },
         { "craftzdog/solarized-osaka.nvim" },
-        { "zekzekus/menguless" },
-        { "marko-cerovac/material.nvim" },
-        { "rebelot/kanagawa.nvim" },
-        { "rmehri01/onenord.nvim" },
-        {
-            'navarasu/onedark.nvim'
-        },
-        {
-            "mcchrish/zenbones.nvim",
-            -- Optionally install Lush. Allows for more configuration or extending the colorscheme
-            -- If you don't want to install lush, make sure to set g:zenbones_compat = 1
-            -- In Vim, compat mode is turned on as Lush only works in Neovim.
-            requires = "rktjmp/lush.nvim"
-        }
+        { 'navarasu/onedark.nvim' },
     }
 
-
-    use {
-        "skywind3000/asynctasks.vim",
-        "skywind3000/asyncrun.vim",
-        --     "GustavoKatel/telescope-asynctasks.nvim"
-    }
-
-    use "voldikss/vim-floaterm"
 
     -- use {
     --     "mfussenegger/nvim-dap",
@@ -183,10 +115,6 @@ local packer = require('packer').startup(function()
         "tpope/vim-rhubarb"
     }
 
-    use({
-        "iamcco/markdown-preview.nvim",
-        run = function() vim.fn["mkdp#util#install"]() end,
-    })
 
     use({
         "kylechui/nvim-surround",
@@ -199,53 +127,31 @@ local packer = require('packer').startup(function()
     })
 
 
-    -- hydra
-    -- use {
-    --     "anuvyklack/keymap-layer.nvim",
-    --     "anuvyklack/hydra.nvim"
-    -- }
-
     -- nvim-tree
     -- kyazdani42
     use {
         "nvim-tree/nvim-web-devicons", -- for file icons
-        "nvim-tree/nvim-tree.lua"
-    }
-
-    use {
-        "mrbjarksen/neo-tree-diagnostics.nvim",
-        requires = "nvim-neo-tree/neo-tree.nvim",
-        module = "neo-tree.sources.diagnostics", -- if wanting to lazyload
-    }
-
-    use {
-        "nvim-neo-tree/neo-tree.nvim",
-        branch = "v2.x",
-        requires = {
-            "nvim-lua/plenary.nvim",
-            "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
-            "MunifTanjim/nui.nvim",
-            {
-                -- only needed if you want to use the commands with "_with_window_picker" suffix
-                's1n7ax/nvim-window-picker',
-                tag = "v1.*",
-                config = function()
-                    require 'window-picker'.setup({
-                        autoselect_one = true,
-                        include_current = false,
-                        filter_rules = {
-                            -- filter using buffer options
-                            bo = {
-                                -- if the file type is one of following, the window will be ignored
-                                filetype = { 'neo-tree', "neo-tree-popup", "notify", "quickfix" },
-                                -- if the buffer type is one of following, the window will be ignored
-                                buftype = { 'terminal' },
-                            },
+        "nvim-tree/nvim-tree.lua",
+        {
+            -- only needed if you want to use the commands with "_with_window_picker" suffix
+            's1n7ax/nvim-window-picker',
+            tag = "v1.*",
+            config = function()
+                require 'window-picker'.setup({
+                    autoselect_one = true,
+                    include_current = false,
+                    filter_rules = {
+                        -- filter using buffer options
+                        bo = {
+                            -- if the file type is one of following, the window will be ignored
+                            filetype = { 'neo-tree', "neo-tree-popup", "notify", "quickfix" },
+                            -- if the buffer type is one of following, the window will be ignored
+                            buftype = { 'terminal' },
                         },
-                        other_win_hl_color = '#e35e4f',
-                    })
-                end,
-            }
+                    },
+                    other_win_hl_color = '#e35e4f',
+                })
+            end,
         }
     }
 

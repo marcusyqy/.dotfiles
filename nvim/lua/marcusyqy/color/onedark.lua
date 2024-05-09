@@ -2,7 +2,7 @@
 
 require('onedark').setup  {
     -- Main options --
-    style = 'deep', -- Default theme style. Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
+    style = 'darker', -- Defalt theme style. Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
     transparent = true,  -- Show/hide background
     term_colors = true, -- Change terminal color as per the selected theme style
     ending_tildes = true, -- Show the end-of-buffer tildes. By default they are hidden
@@ -36,8 +36,8 @@ require('onedark').setup  {
     diagnostics = {
         darker = true, -- darker colors for diagnostic
         undercurl = true,   -- use undercurl instead of underline for diagnostics
-        background = false,    -- use background color for virtual text
+        background = true,    -- use background color for virtual text
     },
 }
 
-require('onedark').load()
+-- require('onedark').load()

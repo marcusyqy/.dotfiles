@@ -17,7 +17,7 @@ require("telescope").load_extension("file_browser")
 require('telescope').load_extension("project")
 -- Fuzzy find over current tasks
 -- require('telescope').load_extension("asynctasks")
-require("telescope").load_extension("git_worktree")
+-- require("telescope").load_extension("git_worktree")
 
 local lga_actions = require("telescope-live-grep-args.actions")
 

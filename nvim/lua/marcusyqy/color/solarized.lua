@@ -64,4 +64,4 @@ require("solarized-osaka").setup({
     end,
 })
 
-vim.cmd.colorscheme("solarized-osaka")
+-- vim.cmd.colorscheme("solarized-osaka")

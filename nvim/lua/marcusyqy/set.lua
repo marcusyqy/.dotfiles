@@ -12,20 +12,21 @@ vim.opt.hlsearch = require("marcusyqy.utils.hlsearch").hlsearch -- uses some con
 vim.opt.ruler = true
 
 vim.opt.errorbells = true
-vim.opt.tabstop = 2 --  4
-vim.opt.softtabstop = 2 -- 4
-vim.opt.shiftwidth = 2 -- 4
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
+vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 
 vim.opt.autoindent = true
 vim.opt.smartindent = true
-vim.opt.laststatus = 2 --3
+
+vim.opt.laststatus = 1
 vim.opt.showmode = true
 vim.opt.splitkeep = "cursor"
 
 vim.opt.cursorline = false -- true
 -- Configure how new splits should be opened
-vim.opt.splitright = true
+-- vim.opt.splitright = true
 -- vim.opt.splitbelow = true
 
 -- display chars for tabs and trailing spaces

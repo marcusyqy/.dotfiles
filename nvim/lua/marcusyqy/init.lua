@@ -19,7 +19,6 @@ require("marcusyqy.git")
 require("marcusyqy.keymap")
 require("marcusyqy.navigation")
 require("marcusyqy.set")
-require("marcusyqy.os")
 
 
 
