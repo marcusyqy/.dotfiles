@@ -72,7 +72,7 @@ vim.opt.colorcolumn = "120"
 -- set si "Smart indent
 vim.o.background = 'dark'
 
-vim.opt.mouse= "a"
+vim.opt.mouse= ""
 vim.opt.cinoptions="l1"
 
 vim.opt.termguicolors = true

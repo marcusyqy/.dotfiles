@@ -71,7 +71,7 @@ local packer = require('packer').startup(function()
         "saadparwaiz1/cmp_luasnip"
     }
 
-    use 'lukas-reineke/indent-blankline.nvim' -- Add indentation guides even on blank lines
+    -- use 'lukas-reineke/indent-blankline.nvim' -- Add indentation guides even on blank lines
     use { 'lewis6991/gitsigns.nvim' }
 
     -- status line
@@ -185,9 +185,8 @@ local packer = require('packer').startup(function()
 
     use {
         { "bfrg/vim-cpp-modern" },
-        "martinda/Jenkinsfile-vim-syntax",
-        { "kalvinpearce/ShaderHighlight" },
-        { "evanleck/vim-svelte",         branch = "main" }
+        { "martinda/Jenkinsfile-vim-syntax"},
+        { "kalvinpearce/ShaderHighlight" }
     }
 
     use { 'numToStr/Comment.nvim' }
@@ -204,14 +203,13 @@ local packer = require('packer').startup(function()
 
     use { "ktunprasert/gui-font-resize.nvim" }
     use { 'Bekaboo/deadcolumn.nvim' }
-    use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim'
-    }
+    use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
 
     use { 'nvim-pack/nvim-spectre' }
 
     use { "jremmen/vim-ripgrep" }
     use { 'neomake/neomake' }
-    use { 'ntpeters/vim-better-whitespace' }
+    -- use { 'ntpeters/vim-better-whitespace' }
     -- potential plugins to use
     -- use {
     --     "utilyre/barbecue.nvim",
