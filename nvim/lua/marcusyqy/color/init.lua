@@ -25,4 +25,5 @@ vim.opt.pumblend = 5
 --
 --
 --
+
 vim.cmd([[colorscheme gruvbox]])

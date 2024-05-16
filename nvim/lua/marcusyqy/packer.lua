@@ -34,6 +34,9 @@ local packer = require('packer').startup(function()
         "ray-x/lsp_signature.nvim"
     }
 
+    use { "stevearc/oil.nvim" }
+
+
 
     if vim.fn.has("win32") == 1 then
         use { "nvim-telescope/telescope-fzy-native.nvim" }
