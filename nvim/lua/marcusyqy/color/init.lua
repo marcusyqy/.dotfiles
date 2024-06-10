@@ -3,7 +3,6 @@ vim.opt.wildoptions = "pum"
 vim.opt.pumblend = 5
 
 -- require("marcusyqy.color.onedark")
--- require("marcusyqy.color.gruvbox")
 -- require("marcusyqy.color.solarized")
 -- require("marcusyqy.color.github")
 -- require("marcusyqy.color.zenbones")
@@ -26,4 +25,5 @@ vim.opt.pumblend = 5
 --
 --
 
+require("marcusyqy.color.gruvbox")
 vim.cmd([[colorscheme gruvbox]])
