@@ -266,11 +266,11 @@ end
 -- map buffer local keybindings when the language server attaches
 -- "cssls", "tailwindcss",
 --
-local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
-capabilities.textDocument.completion.completionItem.snippetSupport = true
-capabilities.textDocument.completion.completionItem.resolveSupport = {
-    properties = { "documentation", "detail", "additionalTextEdits" },
-}
+-- local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
+-- capabilities.textDocument.completion.completionItem.snippetSupport = true
+-- capabilities.textDocument.completion.completionItem.resolveSupport = {
+--     properties = { "documentation", "detail", "additionalTextEdits" },
+-- }
 
 -- local servers = { "pylsp" } --[[ "astro", "tailwindcss" ]]
 nvim_lsp.pylsp.setup {
