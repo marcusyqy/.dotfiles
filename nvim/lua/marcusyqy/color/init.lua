@@ -2,28 +2,5 @@ vim.opt.winblend = 0
 vim.opt.wildoptions = "pum"
 vim.opt.pumblend = 5
 
--- require("marcusyqy.color.onedark")
--- require("marcusyqy.color.solarized")
--- require("marcusyqy.color.github")
--- require("marcusyqy.color.zenbones")
-
-
--- local colorscheme = "onedark"
--- local set_color_scheme = function(color_scheme)
---   require("marcusyqy.color." .. color_scheme)
---   colorscheme = color_scheme
--- end
---
--- local M = {}
--- M.colorscheme = colorscheme
--- M.set = set_color_scheme
---
--- set_color_scheme(colorscheme)
---
--- return M
---
---
---
-
 require("marcusyqy.color.gruvbox")
 vim.cmd([[colorscheme gruvbox]])
