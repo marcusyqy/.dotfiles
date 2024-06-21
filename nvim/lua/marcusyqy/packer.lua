@@ -31,7 +31,7 @@ local packer = require('packer').startup(function()
         "hrsh7th/cmp-buffer",
         "hrsh7th/cmp-path",
         "hrsh7th/nvim-cmp",
-        "ray-x/lsp_signature.nvim"
+        -- "ray-x/lsp_signature.nvim"
     }
 
     use { "stevearc/oil.nvim" }
