@@ -25,7 +25,7 @@ local packer = require('packer').startup(function()
 
     -- cmp
     use {
-        "folke/lsp-colors.nvim",
+        -- "folke/lsp-colors.nvim",
         "hrsh7th/cmp-nvim-lua",
         "hrsh7th/cmp-nvim-lsp",
         "hrsh7th/cmp-buffer",
@@ -64,8 +64,7 @@ local packer = require('packer').startup(function()
                 "nvim-lua/plenary.nvim",
             }
         },
-        "stevearc/dressing.nvim",
-        "nvim-telescope/telescope-file-browser.nvim",
+        -- "stevearc/dressing.nvim",
         "nvim-telescope/telescope-project.nvim"
     }
 
@@ -74,27 +73,6 @@ local packer = require('packer').startup(function()
         "saadparwaiz1/cmp_luasnip"
     }
 
-    -- use 'lukas-reineke/indent-blankline.nvim' -- Add indentation guides even on blank lines
-    use { 'lewis6991/gitsigns.nvim' }
-
-    -- status line
-    use {
-        {
-            "nvimdev/whiskyline.nvim"
-        },
-        {
-            'nvim-lualine/lualine.nvim',
-            requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-        },
-        {
-            'tjdevries/express_line.nvim',
-            requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-        },
-        {
-            'feline-nvim/feline.nvim',
-            requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-        }
-    }
 
     -- colorschemes
     use {
@@ -103,13 +81,6 @@ local packer = require('packer').startup(function()
         { "craftzdog/solarized-osaka.nvim" },
         { 'navarasu/onedark.nvim' },
     }
-
-
-    -- use {
-    --     "mfussenegger/nvim-dap",
-    --     "rcarriga/nvim-dap-ui",
-    --     "theHamsta/nvim-dap-virtual-text"
-    -- }
 
     -- tpope
     use {
@@ -129,36 +100,6 @@ local packer = require('packer').startup(function()
         end
     })
 
-
-    -- nvim-tree
-    -- kyazdani42
-    use {
-        "nvim-tree/nvim-web-devicons", -- for file icons
-        "nvim-tree/nvim-tree.lua",
-        {
-            -- only needed if you want to use the commands with "_with_window_picker" suffix
-            's1n7ax/nvim-window-picker',
-            tag = "v1.*",
-            config = function()
-                require 'window-picker'.setup({
-                    autoselect_one = true,
-                    include_current = false,
-                    filter_rules = {
-                        -- filter using buffer options
-                        bo = {
-                            -- if the file type is one of following, the window will be ignored
-                            filetype = { 'neo-tree', "neo-tree-popup", "notify", "quickfix" },
-                            -- if the buffer type is one of following, the window will be ignored
-                            buftype = { 'terminal' },
-                        },
-                    },
-                    other_win_hl_color = '#e35e4f',
-                })
-            end,
-        }
-    }
-
-    use { "peterhoeg/vim-qml" }
     use { -- LSP Configuration & Plugins
         'neovim/nvim-lspconfig',
         requires = {
@@ -174,19 +115,10 @@ local packer = require('packer').startup(function()
     use {
         "onsails/lspkind-nvim",
         "nvim-lua/lsp_extensions.nvim",
-        "sbdchd/neoformat"
     }
 
-    -- use({
-    --     "nvimdev/lspsaga.nvim",
-    --     requires = {
-    --         { "nvim-tree/nvim-web-devicons" },
-    --         --Please make sure you install markdown and markdown_inline parser
-    --         { "nvim-treesitter/nvim-treesitter" }
-    --     }
-    -- })
-
-    use {
+    use { -- highlights
+        { "peterhoeg/vim-qml" },
         { "bfrg/vim-cpp-modern" },
         { "martinda/Jenkinsfile-vim-syntax"},
         { "kalvinpearce/ShaderHighlight" }
@@ -194,29 +126,18 @@ local packer = require('packer').startup(function()
 
     use { 'numToStr/Comment.nvim' }
 
-    use("APZelos/blamer.nvim")
-
-    use { 'windwp/nvim-autopairs' }
-    -- use { 'windwp/nvim-ts-autotag' }
     use { 'alvarosevilla95/luatab.nvim', requires = 'kyazdani42/nvim-web-devicons' }
     use { 'p00f/clangd_extensions.nvim', commit = "798e377ec859087132b81d2f347b5080580bd6b1" }
-    use { 'ranjithshegde/ccls.nvim' }
-    -- use { 'jose-elias-alvarez/null-ls.nvim' } -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
+    use { 'jose-elias-alvarez/null-ls.nvim' } -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
     use { 'jose-elias-alvarez/typescript.nvim' }
 
-    use { "ktunprasert/gui-font-resize.nvim" }
     use { 'Bekaboo/deadcolumn.nvim' }
     use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
 
     use { 'nvim-pack/nvim-spectre' }
 
     use { "jremmen/vim-ripgrep" }
-    use { 'neomake/neomake' }
-    -- use { 'ntpeters/vim-better-whitespace' }
-    -- potential plugins to use
-    -- use {
-    --     "utilyre/barbecue.nvim",
-    -- }
+
     local has_plugins, plugins = pcall(require, 'custom.plugins')
     if has_plugins then
         plugins(use)
