@@ -289,36 +289,9 @@ nvim_lsp.pylsp.setup {
     }
 }
 
-
--- require("rust_analyzer").setup({
---     on_attach = on_attach,
---     settings = {
---         ["rust-analyzer"] = {
---             assist = {
---                 importGranularity = "module",
---                 importPrefix = "by_self",
---             },
---             cargo = {
---                 loadOutDirsFromCheck = true
---             },
---             procMacro = {
---                 enable = true
---             },
---         }
---     },
---     capabilities = capabilities,
---     flags = {
---         debounce_text_changes = 150,
---     }
--- })
---
--- local lsp_flags = {
---     allow_incremental_sync = false,
---     -- Inc sync is prolly cause of some problems.
---     debounce_text_changes = 180
---     -- 250 worked. 150 is default.
--- }
-
+nvim_lsp.lua_ls.setup({
+    on_attach = on_attach,
+});
 
 require("typescript").setup({
     disable_commands = false, -- prevent the plugin from creating Vim commands
@@ -335,8 +308,6 @@ require("typescript").setup({
         }
     },
 })
-
-
 
 
 require("clangd_extensions").setup {

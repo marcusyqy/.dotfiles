@@ -120,7 +120,7 @@ local packer = require('packer').startup(function()
     use { -- highlights
         { "peterhoeg/vim-qml" },
         { "bfrg/vim-cpp-modern" },
-        { "martinda/Jenkinsfile-vim-syntax"},
+        { "martinda/Jenkinsfile-vim-syntax" },
         { "kalvinpearce/ShaderHighlight" }
     }
 
@@ -128,7 +128,9 @@ local packer = require('packer').startup(function()
 
     use { 'alvarosevilla95/luatab.nvim', requires = 'kyazdani42/nvim-web-devicons' }
     use { 'p00f/clangd_extensions.nvim', commit = "798e377ec859087132b81d2f347b5080580bd6b1" }
-    use { 'jose-elias-alvarez/null-ls.nvim' } -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
+    use { "folke/lazydev.nvim" }
+
+    -- use { 'jose-elias-alvarez/null-ls.nvim' } -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
     use { 'jose-elias-alvarez/typescript.nvim' }
 
     use { 'Bekaboo/deadcolumn.nvim' }

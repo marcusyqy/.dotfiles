@@ -1,0 +1,16 @@
+--
+-- local wezterm = require 'wezterm'
+--
+-- local module = {}
+--
+--
+-- function module.apply_config(config)
+--     config.font_size = 9.0
+--     -- config.default_prog = {
+--     --     "cmd"
+--     --     -- 'C:\\Users\\Marcus\\AppData\\Local\\Microsoft\\WindowsApps\\Microsoft.PowerShell_8wekyb3d8bbwe\\pwsh.exe'
+--     -- }
+-- end
+--
+--
+-- return module;
