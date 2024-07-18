@@ -40,6 +40,7 @@ function module.apply_config(config)
         { key = "n",  mods = "LEADER",       action = wezterm.action { ActivateTabRelative = 1 } },
         { key = "p",  mods = "LEADER",       action = wezterm.action { ActivateTabRelative = -1 } },
         { key = "r",  mods = "LEADER",       action = wezterm.action.ReloadConfiguration },
+        { key = "t",  mods = "LEADER",       action = wezterm.action.ShowLauncher },
         { key = "H",  mods = "LEADER|SHIFT", action = wezterm.action { AdjustPaneSize = { "Left", 5 } } },
         { key = "J",  mods = "LEADER|SHIFT", action = wezterm.action { AdjustPaneSize = { "Down", 5 } } },
         { key = "K",  mods = "LEADER|SHIFT", action = wezterm.action { AdjustPaneSize = { "Up", 5 } } },

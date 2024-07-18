@@ -33,10 +33,13 @@ config.window_padding = {
 config.warn_about_missing_glyphs = false
 
 require("tabbar").apply_config(config);
--- require("keys").apply_config(config);
+require("keys").apply_config(config);
 
 -- @TODO: Apply windows only settings only when detecting windows.
--- require("platform.windows").apply_config(config)
+--
+if wezterm.target_triple == 'x86_64-pc-windows-msvc' then
+require("platform.windows").apply_config(config)
+end
 
 -- and finally, return the configuration to wezterm
 return config
