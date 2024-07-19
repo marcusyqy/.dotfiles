@@ -289,9 +289,11 @@ nvim_lsp.pylsp.setup {
     }
 }
 
-nvim_lsp.lua_ls.setup({
+nvim_lsp.lua_ls.setup {
     on_attach = on_attach,
-});
+    capabilities = capabilities,
+}
+
 
 require("typescript").setup({
     disable_commands = false, -- prevent the plugin from creating Vim commands

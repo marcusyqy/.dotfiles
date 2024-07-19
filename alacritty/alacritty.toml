@@ -1,6 +1,7 @@
 #custom_cursor_colors = true
 #live_config_reload = true
 
+
 [bell]
 animation = "EaseOutExpo"
 color = "0xffffff"
@@ -376,8 +377,8 @@ multiplier = 3
 save_to_clipboard = false
 semantic_escape_chars = ",│`|:\"' ()[]{}<>"
 
-[shell]
-program = "pwsh"
+# [shell]
+# program = "pwsh"
 
 [window]
 decorations = "full"
