@@ -18,11 +18,17 @@ link_alacritty() {
     ln -s $DOTFILES/alacritty ~/.config/alacritty
 }
 
+link_wezterm() {
+    #[ -d "~/.config/alacritty" ] &&
+    rm -rf ~/.config/alacritty
+    ln -s $DOTFILES/alacritty ~/.config/alacritty
+}
+
 link_kitty() {
     #[ -d "~/.config/alacritty" ] &&
-    kittyconfig="$HOME/.config/kitty"
-    rm -rf $kittyconfig
-    ln -s $DOTFILES/kitty $kittyconfig
+    weztermconfig="$HOME/.config/wezterm"
+    rm -rf $weztermconfig
+    ln -s $DOTFILES/wezterm $weztermconfig
 }
 
 link_zsh() {
