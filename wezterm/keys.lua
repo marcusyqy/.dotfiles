@@ -10,7 +10,8 @@ function module.apply_config(config)
     config.leader = get_leader()
     config.disable_default_key_bindings = true
     config.keys = {
-        { key = "a",  mods = "LEADER|CTRL",  action = wezterm.action { SendString = "\x01" } },
+         require("overrides.tmux"),
+        -- { key = "a",  mods = "LEADER|CTRL",  action = wezterm.action { SendString = "\x01" } },
         { key = "c",  mods = "CTRL|SHIFT",   action = wezterm.action { CopyTo = "Clipboard" } },
         { key = "v",  mods = "CTRL|SHIFT",   action = wezterm.action { PasteFrom = "Clipboard" } },
         { key = "-",  mods = "CTRL",         action = wezterm.action.DecreaseFontSize },
