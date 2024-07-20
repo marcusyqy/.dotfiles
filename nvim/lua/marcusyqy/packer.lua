@@ -133,7 +133,7 @@ local packer = require('packer').startup(function()
     -- use { 'jose-elias-alvarez/null-ls.nvim' } -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
     use { 'jose-elias-alvarez/typescript.nvim' }
 
-    use { 'Bekaboo/deadcolumn.nvim' }
+    -- use { 'Bekaboo/deadcolumn.nvim' }
     use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
 
     use { 'nvim-pack/nvim-spectre' }
