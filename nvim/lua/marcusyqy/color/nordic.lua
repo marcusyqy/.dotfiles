@@ -13,7 +13,7 @@ require 'nordic' .setup {
     -- Reduce the overall amount of blue in the theme (diverges from base Nord).
     reduced_blue = true,
     -- Swap the dark background with the normal one.
-    swap_backgrounds = false,
+    swap_backgrounds = true,
     -- Override the styling of any highlight group.
     override = {},
     -- Cursorline options.  Also includes visual/selection.
