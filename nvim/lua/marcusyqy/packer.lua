@@ -25,13 +25,11 @@ local packer = require('packer').startup(function()
 
     -- cmp
     use {
-        -- "folke/lsp-colors.nvim",
         "hrsh7th/cmp-nvim-lua",
         "hrsh7th/cmp-nvim-lsp",
         "hrsh7th/cmp-buffer",
         "hrsh7th/cmp-path",
         "hrsh7th/nvim-cmp",
-        -- "ray-x/lsp_signature.nvim"
     }
 
     use { "stevearc/oil.nvim" }
@@ -76,7 +74,8 @@ local packer = require('packer').startup(function()
 
     -- colorschemes
     use {
-        -- Using Packer:
+        { "AlexvZyl/nordic.nvim" },
+        { "olivercederborg/poimandres.nvim" },
         { "ellisonleao/gruvbox.nvim" },
         { "craftzdog/solarized-osaka.nvim" },
         { 'navarasu/onedark.nvim' },

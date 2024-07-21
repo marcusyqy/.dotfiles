@@ -1,0 +1,2 @@
+
+ require('poimandres').setup {}

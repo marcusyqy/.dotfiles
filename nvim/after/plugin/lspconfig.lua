@@ -294,6 +294,11 @@ nvim_lsp.lua_ls.setup {
     capabilities = capabilities,
 }
 
+nvim_lsp.emmet_language_server.setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+}
+
 
 require("typescript").setup({
     disable_commands = false, -- prevent the plugin from creating Vim commands

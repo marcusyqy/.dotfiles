@@ -9,6 +9,7 @@ if wezterm.config_builder then
     config = wezterm.config_builder()
 end
 
+-- config.color_scheme = "Poimandres"
 config.colors = {}
 config.colors.background = '#111111'
 
