@@ -19,6 +19,8 @@ config.font = wezterm.font_with_fallback {
 }
 
 config.freetype_load_target = "HorizontalLcd"
+config.front_end = "OpenGL"
+config.prefer_egl = true
 
 -- windows
 -- config.window_decorations = "NONE"
