@@ -19,14 +19,20 @@ config.colors.background = '#111111'
 -- config.cursor_blink_ease_out = "Constant"
 -- config.cursor_blink_rate = 100
 
+-- gpus
+for _, gpu in ipairs(wezterm.gui.enumerate_gpus()) do
+  if gpu.backend == 'Vulkan' and gpu.device_type == 'DiscreteGpu' then
+    config.webgpu_preferred_adapter = gpu
+    break
+  end
+end
+
 config.font = wezterm.font_with_fallback {
   'JetBrains Mono',
   'nonicons',
 }
 
 config.freetype_load_target = "HorizontalLcd"
-config.front_end = "OpenGL"
-config.prefer_egl = true
 
 -- windows
 -- config.window_decorations = "NONE"
