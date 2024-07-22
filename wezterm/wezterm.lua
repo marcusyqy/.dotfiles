@@ -13,6 +13,12 @@ end
 config.colors = {}
 config.colors.background = '#111111'
 
+-- @TODO try this out on windows.
+-- cursor
+-- config.cursor_blink_ease_in = "Constant"
+-- config.cursor_blink_ease_out = "Constant"
+-- config.cursor_blink_rate = 100
+
 config.font = wezterm.font_with_fallback {
   'JetBrains Mono',
   'nonicons',
