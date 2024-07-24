@@ -65,3 +65,7 @@ vim.opt.cinoptions="l1"
 
 vim.opt.termguicolors = true
 
+
+-- vim.opt.showbreak='↪'
+vim.opt.listchars='tab:→ ,eol:↲,nbsp:␣,trail:•,extends:⟩,precedes:⟨'
+
