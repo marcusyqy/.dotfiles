@@ -74,7 +74,10 @@ local packer = require('packer').startup(function()
 
     -- colorschemes
     use {
+        { "fxn/vim-monochrome" },
         { "AlexvZyl/nordic.nvim" },
+        { "andreypopp/vim-colors-plain" },
+        { "owickstrom/vim-colors-paramount" },
         { "olivercederborg/poimandres.nvim" },
         { "ellisonleao/gruvbox.nvim" },
         { "craftzdog/solarized-osaka.nvim" },

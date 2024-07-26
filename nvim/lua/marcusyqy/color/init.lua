@@ -6,4 +6,4 @@ require("marcusyqy.color.nordic")
 require("marcusyqy.color.gruvbox")
 require("marcusyqy.color.onedark")
 
-vim.cmd([[colorscheme nordic]])
+vim.cmd([[colorscheme paramount]])
