@@ -86,13 +86,13 @@ nnoremap("<c-f>",
 
 local telescope_opts = {}
 nnoremap("<c-p>",
-    function() require('telescope.builtin').git_files() end)
+    function() require('telescope.builtin').git_files(require('telescope.themes').get_ivy({previewer=false})) end)
 nnoremap("<leader>ff",
-    function() require('telescope.builtin').find_files() end)
-nnoremap("<leader>ps",
+    function() require('telescope.builtin').find_files(require('telescope.themes').get_ivy({previewer=false})) end)
+nnoremap("<leader>fg",
     function() require('telescope.builtin').live_grep() end)
 
-nnoremap("<leader>fg", function() require('telescope').extensions.live_grep_args.live_grep_args() end)
+nnoremap("<leader>ps", function() require('telescope').extensions.live_grep_args.live_grep_args() end)
 nnoremap("<leader>fh", function() require('telescope.builtin').help_tags() end)
 nnoremap("<leader>cmd", function() require('telescope.builtin').commands() end)
 
