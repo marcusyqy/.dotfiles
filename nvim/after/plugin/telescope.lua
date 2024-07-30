@@ -116,7 +116,7 @@ vim.keymap.set('n', '<leader>?',
     { desc = '[?] Find recently opened files' })
 vim.keymap.set('n', '<c-b>',
     function()
-        require('telescope.builtin').buffers(require('telescope.themes').get_dropdown({
+        require('telescope.builtin').buffers(require('telescope.themes').get_ivy({
             attach_mappings = function(_, map)
                 map('i', '<c-d>', actions.delete_buffer)
                 map('n', '<c-d>', actions.delete_buffer)
