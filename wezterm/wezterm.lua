@@ -12,8 +12,8 @@ end
 -- config.color_scheme = "Poimandres Storm"
 config.colors = {}
 -- config.colors.background = '#111111'
-config.colors.background = '#14181f'
--- config.colors.background = '#000000' -- for paramount
+-- config.colors.background = '#14181f'
+config.colors.background = '#000000' -- for paramount
 
 -- @TODO try this out on windows.
 -- cursor
