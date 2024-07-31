@@ -56,7 +56,7 @@ vim.opt.cmdheight = 1
 
 -- Don't pass messages to |ins-completion-menu|.
 vim.opt.shortmess:append("c")
--- vim.opt.colorcolumn = "120"
+vim.opt.colorcolumn = "" -- "120"
 
 vim.o.background = 'dark'
 
