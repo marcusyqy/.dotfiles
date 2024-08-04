@@ -3,7 +3,7 @@ local wezterm = require("wezterm")
 local module = {}
 
 local function get_leader()
-    return { key = "Space", mods = "CTRL" }
+    return { key = "`", mods = "CTRL" }
 end
 
 function module.apply_config(config)

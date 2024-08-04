@@ -1,7 +1,7 @@
 local wezterm = require 'wezterm'
 
 local function get_leader()
-    return { key =  "`", mods = "CTRL" }
+    return { key =  "Space", mods = "CTRL" }
 end
 
 wezterm.on('toggle-leader-for-tmux', function(window, pane)
