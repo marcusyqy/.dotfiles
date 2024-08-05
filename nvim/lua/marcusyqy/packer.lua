@@ -80,6 +80,7 @@ local packer = require('packer').startup(function()
         { "owickstrom/vim-colors-paramount" },
         { "olivercederborg/poimandres.nvim" },
         { "ellisonleao/gruvbox.nvim" },
+        { "tjdevries/colorbuddy.nvim" },
         { "craftzdog/solarized-osaka.nvim" },
         { 'navarasu/onedark.nvim' },
     }
