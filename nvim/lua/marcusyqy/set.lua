@@ -37,6 +37,8 @@ vim.opt.swapfile = false
 vim.opt.backup = false
 
 vim.opt.undodir = vim.fn.expand('~/.vim/undodir/')
+vim.opt.wildmode="list:longest"
+vim.opt.wildignore:append(".git")
 vim.opt.wildignorecase = true
 
 vim.opt.undofile = true
