@@ -62,7 +62,7 @@ vim.opt.colorcolumn = "" -- "120"
 
 vim.o.background = 'dark'
 
-vim.opt.mouse= ""
+vim.opt.mouse= "a"
 vim.opt.cinoptions="l1"
 
 vim.opt.termguicolors = true
