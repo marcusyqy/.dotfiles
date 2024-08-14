@@ -9,6 +9,11 @@ end
 function module.apply_config(config)
     config.leader = get_leader()
     config.disable_default_key_bindings = true
+    local copy_mode = wezterm.gui.default_key_tables().copy_mode
+    table.insert(copy_mode, { key = '/', mods = 'NONE', action = wezterm.action.Search{CaseSensitiveString=""}})
+    config.key_tables = {
+        copy_mode = copy_mode,
+    }
     config.keys = {
          require("overrides.tmux"),
         -- { key = "a",  mods = "LEADER|CTRL",  action = wezterm.action { SendString = "\x01" } },
@@ -45,6 +50,7 @@ function module.apply_config(config)
         { key = "r",  mods = "LEADER",       action = wezterm.action.ReloadConfiguration },
         { key = "`",  mods = "LEADER",       action = wezterm.action.ActivateLastTab },
         { key = "t",  mods = "LEADER",       action = wezterm.action.ActivateLastTab },
+        { key = "/",  mods = "LEADER",       action = wezterm.action.Search{CaseSensitiveString=""} },
         { key = "H",  mods = "LEADER|SHIFT", action = wezterm.action { AdjustPaneSize = { "Left", 5 } } },
         { key = "J",  mods = "LEADER|SHIFT", action = wezterm.action { AdjustPaneSize = { "Down", 5 } } },
         { key = "K",  mods = "LEADER|SHIFT", action = wezterm.action { AdjustPaneSize = { "Up", 5 } } },
