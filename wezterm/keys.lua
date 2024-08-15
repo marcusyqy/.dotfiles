@@ -14,6 +14,7 @@ function module.apply_config(config)
     config.key_tables = {
         copy_mode = copy_mode,
     }
+
     config.keys = {
          require("overrides.tmux"),
         -- { key = "a",  mods = "LEADER|CTRL",  action = wezterm.action { SendString = "\x01" } },
@@ -50,7 +51,9 @@ function module.apply_config(config)
         { key = "r",  mods = "LEADER",       action = wezterm.action.ReloadConfiguration },
         { key = "`",  mods = "LEADER",       action = wezterm.action.ActivateLastTab },
         { key = "t",  mods = "LEADER",       action = wezterm.action.ActivateLastTab },
+        { key = "z",  mods = "LEADER",       action = wezterm.action.TogglePaneZoomState },
         { key = "/",  mods = "LEADER",       action = wezterm.action.Search{CaseSensitiveString=""} },
+        { key = ":",  mods = "LEADER|SHIFT",       action = wezterm.action.ActivateCommandPalette },
         { key = "H",  mods = "LEADER|SHIFT", action = wezterm.action { AdjustPaneSize = { "Left", 5 } } },
         { key = "J",  mods = "LEADER|SHIFT", action = wezterm.action { AdjustPaneSize = { "Down", 5 } } },
         { key = "K",  mods = "LEADER|SHIFT", action = wezterm.action { AdjustPaneSize = { "Up", 5 } } },
