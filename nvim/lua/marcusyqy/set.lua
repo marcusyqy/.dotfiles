@@ -19,10 +19,12 @@ vim.opt.expandtab = true
 
 vim.opt.autoindent = true
 vim.opt.smartindent = true
+-- vim.opt.splitkeep = "cursor"
+vim.opt.splitright = true
+vim.opt.splitbelow = true
 
 -- vim.opt.laststatus = 3
 vim.opt.showmode = true
--- vim.opt.splitkeep = "cursor"
 
 -- vim.opt.cursorline = true -- true
 

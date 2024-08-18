@@ -6,6 +6,11 @@ local function get_leader()
     return { key = "Space", mods = "CTRL" }
 end
 
+wezterm.on('toggle-term', function(window, pane)
+    wezterm.log_info("toggling the terminal")
+end
+)
+
 function module.apply_config(config)
     config.leader = get_leader()
     config.disable_default_key_bindings = true
@@ -17,7 +22,6 @@ function module.apply_config(config)
 
     config.keys = {
          require("overrides.tmux"),
-        -- { key = "a",  mods = "LEADER|CTRL",  action = wezterm.action { SendString = "\x01" } },
         { key = "c",  mods = "CTRL|SHIFT",   action = wezterm.action { CopyTo = "Clipboard" } },
         { key = "v",  mods = "CTRL|SHIFT",   action = wezterm.action { PasteFrom = "Clipboard" } },
         { key = "-",  mods = "CTRL",         action = wezterm.action.DecreaseFontSize },
@@ -48,8 +52,7 @@ function module.apply_config(config)
         { key = "p",  mods = "LEADER",       action = wezterm.action { ActivateTabRelative = -1 } },
         { key = "r",  mods = "LEADER",       action = wezterm.action.ReloadConfiguration },
         { key = "`",  mods = "LEADER",       action = wezterm.action.ActivateLastTab },
-        { key = "t",  mods = "LEADER",       action = wezterm.action.ActivateLastTab },
-        { key = "z",  mods = "LEADER",       action = wezterm.action.TogglePaneZoomState },
+        { key = "t",  mods = "LEADER",       action = wezterm.action.TogglePaneZoomState },
         { key = "/",  mods = "LEADER",       action = wezterm.action.Search{CaseSensitiveString=""} },
         { key = "s",  mods = "LEADER",       action = wezterm.action.ShowTabNavigator },
         { key = "F",  mods = "LEADER|SHIFT",       action = wezterm.action.ToggleFullScreen}, -- maybe a little gimmicky
