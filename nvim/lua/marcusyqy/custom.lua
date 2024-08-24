@@ -127,3 +127,7 @@ vim.cmd("command! -nargs=+ -complete=shellcmd Call noautocmd cexpr! system(\"<ar
 cnoremap("<C-a>", "<home>", {})
 cnoremap("<C-e>", "<end>", {})
 
+vim.cmd([[
+let g:ackprg = 'ag --vimgrep'
+nnoremap <leader>fd :Ack!<Space>
+]])
