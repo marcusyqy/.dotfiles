@@ -142,6 +142,7 @@ local packer = require('packer').startup(function()
     use { 'nvim-pack/nvim-spectre' }
 
     use { "jremmen/vim-ripgrep" }
+    use { "mileszs/ack.vim" }
 
     local has_plugins, plugins = pcall(require, 'custom.plugins')
     if has_plugins then
