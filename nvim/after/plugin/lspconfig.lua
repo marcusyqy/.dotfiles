@@ -155,7 +155,7 @@ cmp.setup({
     -- For ultisnips user.
     -- { name = 'ultisnips' },
 
-    { name = 'buffer',  keyword_length = 5 },
+    { name = 'buffer' } , -- ,  keyword_length = 1 },
   },
   formatting = {
     format = lspkind.cmp_format({
@@ -222,7 +222,7 @@ local on_attach = function(client, bufnr)
     --require'completion'.on_attach();
     local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
 
-    local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+    -- local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
     -- Mappings.
     local opts = { noremap = true, silent = true }
