@@ -22,7 +22,6 @@ local packer = require('packer').startup(function()
     -- Packer can manage itself
     use "wbthomason/packer.nvim"
 
-
     -- cmp
     use {
         "hrsh7th/cmp-nvim-lua",
@@ -74,34 +73,17 @@ local packer = require('packer').startup(function()
 
     -- colorschemes
     use {
-        { "fxn/vim-monochrome" },
         { "AlexvZyl/nordic.nvim" },
-        { "andreypopp/vim-colors-plain" },
-        { "owickstrom/vim-colors-paramount" },
-        { "olivercederborg/poimandres.nvim" },
         { "ellisonleao/gruvbox.nvim" },
         { "tjdevries/colorbuddy.nvim" },
-        { "craftzdog/solarized-osaka.nvim" },
         { 'navarasu/onedark.nvim' },
     }
 
     -- tpope
     use {
-        "tpope/vim-repeat",
         "tpope/vim-fugitive",
-        "tpope/vim-rhubarb"
     }
 
-
-    use({
-        "kylechui/nvim-surround",
-        tag = "*", -- Use for stability; omit to use `main` branch for the latest features
-        config = function()
-            require("nvim-surround").setup({
-                -- Configuration here, or leave empty to use defaults
-            })
-        end
-    })
 
     use { -- LSP Configuration & Plugins
         'neovim/nvim-lspconfig',
@@ -132,9 +114,6 @@ local packer = require('packer').startup(function()
     use { 'alvarosevilla95/luatab.nvim', requires = 'kyazdani42/nvim-web-devicons' }
     use { 'p00f/clangd_extensions.nvim', commit = "798e377ec859087132b81d2f347b5080580bd6b1" }
     use { "folke/lazydev.nvim" }
-
-    -- use { 'jose-elias-alvarez/null-ls.nvim' } -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
-    use { 'jose-elias-alvarez/typescript.nvim' }
 
     -- use { 'Bekaboo/deadcolumn.nvim' }
     use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
