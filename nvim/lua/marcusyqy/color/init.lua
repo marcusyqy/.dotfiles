@@ -9,4 +9,5 @@ require("marcusyqy.color.colorbuddy")
 
 -- vim.cmd([[colorscheme paramount]])
 -- vim.cmd([[colorscheme poimandres]])
--- vim.cmd.colorscheme("gruvbox")
+vim.opt.background='light'
+vim.cmd.colorscheme("gruvbox")
