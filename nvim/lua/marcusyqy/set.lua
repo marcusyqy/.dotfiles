@@ -74,3 +74,7 @@ vim.opt.termguicolors = true
 vim.opt.listchars='tab:→ ,eol:↲,nbsp:␣,trail:•,extends:⟩,precedes:⟨'
 
 vim.lsp.set_log_level("off")
+
+vim.opt.winblend = 0
+vim.opt.wildoptions = "pum"
+vim.opt.pumblend = 5

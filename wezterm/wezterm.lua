@@ -9,11 +9,14 @@ if wezterm.config_builder then
     config = wezterm.config_builder()
 end
 
-config.color_scheme = 'Gruvbox light, medium (base16)'
+-- config.color_scheme = 'Gruvbox light, medium (base16)'
 -- config.color_scheme = 'Gruvbox dark, medium (base16)'
+--
+config.color_scheme = 'Rosé Pine (base16)'
+-- config.color_scheme = 'Rosé Pine (Gogh)'
 -- config.colors = {}
 -- config.colors.background = '#111111'
--- config.colors.background = '#14181f'
+-- config.colors.background = '#14161b'
 -- config.colors.background = '#000000' -- for paramount
 
 -- @TODO try this out on windows.

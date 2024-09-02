@@ -75,6 +75,7 @@ local packer = require('packer').startup(function()
     use {
         { "AlexvZyl/nordic.nvim" },
         { "ellisonleao/gruvbox.nvim" },
+        { "rose-pine/neovim" },
         { "tjdevries/colorbuddy.nvim" },
         { 'navarasu/onedark.nvim' },
     }
