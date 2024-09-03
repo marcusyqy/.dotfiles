@@ -20,10 +20,10 @@ config.color_scheme = 'Rosé Pine (base16)'
 -- config.colors.background = '#000000' -- for paramount
 
 -- @TODO try this out on windows.
--- cursor
--- config.cursor_blink_ease_in = "Constant"
--- config.cursor_blink_ease_out = "Constant"
--- config.cursor_blink_rate = 100
+config.default_cursor_style = "BlinkingBlock"
+config.cursor_blink_ease_in = "Constant"
+config.cursor_blink_ease_out = "Constant"
+config.cursor_blink_rate = 500
 
 -- gpus
 for _, gpu in ipairs(wezterm.gui.enumerate_gpus()) do
