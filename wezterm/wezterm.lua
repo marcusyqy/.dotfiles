@@ -55,11 +55,6 @@ config.warn_about_missing_glyphs = false
 
 require("tabbar").apply_config(config);
 
--- @TODO: Apply windows only settings only when detecting windows.
-if wezterm.target_triple == 'x86_64-pc-windows-msvc' then
-    require("platform.windows").apply_config(config)
-end
-
 -- require("keys").apply_config(config) -- we use tmux for linux so we don't need this
 
 -- and finally, return the configuration to wezterm
