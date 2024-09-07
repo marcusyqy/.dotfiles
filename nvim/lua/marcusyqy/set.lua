@@ -14,6 +14,9 @@ vim.opt.wrap = true
 vim.opt.hlsearch = require("marcusyqy.utils.hlsearch").hlsearch -- uses some config
 vim.opt.ruler = true
 
+-- for windows
+vim.opt.shellslash = true
+
 vim.opt.errorbells = true
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4

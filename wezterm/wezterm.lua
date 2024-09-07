@@ -60,7 +60,7 @@ if wezterm.target_triple == 'x86_64-pc-windows-msvc' then
     require("platform.windows").apply_config(config)
 end
 
-require("keys").apply_config(config) -- we use tmux for linux so we don't need this
+-- require("keys").apply_config(config) -- we use tmux for linux so we don't need this
 
 -- and finally, return the configuration to wezterm
 return config
