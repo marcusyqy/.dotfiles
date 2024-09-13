@@ -25,6 +25,8 @@ config.cursor_blink_ease_in = "Constant"
 config.cursor_blink_ease_out = "Constant"
 config.cursor_blink_rate = 500
 
+config.prefer_egl = true
+
 -- gpus
 for _, gpu in ipairs(wezterm.gui.enumerate_gpus()) do
   if gpu.backend == 'Vulkan' and gpu.device_type == 'DiscreteGpu' then
