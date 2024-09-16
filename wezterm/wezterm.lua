@@ -12,7 +12,7 @@ end
 -- config.color_scheme = 'Gruvbox light, medium (base16)'
 -- config.color_scheme = 'Gruvbox dark, medium (base16)'
 --
-config.color_scheme = 'Rosé Pine (base16)'
+-- config.color_scheme = 'Rosé Pine (base16)'
 -- config.color_scheme = 'Rosé Pine (Gogh)'
 -- config.colors = {}
 -- config.colors.background = '#111111'
@@ -52,6 +52,7 @@ config.window_padding = {
 -- temporary settings that have no files to be in right now.
 -- config.color_scheme = 'Solarized Dark Higher Contrast (Gogh)'
 config.warn_about_missing_glyphs = false
+config.window_close_confirmation = 'NeverPrompt'
 
 require("tabbar").apply_config(config);
 

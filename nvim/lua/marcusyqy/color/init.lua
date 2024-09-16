@@ -5,13 +5,14 @@
 require("marcusyqy.color.nordic")
 require("marcusyqy.color.gruvbox")
 require("marcusyqy.color.onedark")
+require("marcusyqy.color.rosepine")
 -- require("marcusyqy.color.colorbuddy")
 
 -- vim.cmd([[colorscheme paramount]])
 -- vim.cmd([[colorscheme poimandres]])
 -- vim.opt.background='light'
--- vim.cmd.colorscheme("onedark")
-vim.cmd("colorscheme rose-pine")
+vim.cmd.colorscheme("rose-pine-moon")
+-- vim.cmd("colorscheme rose-pine")
 -- vim.cmd("colorscheme rose-pine-main")
 -- vim.cmd("colorscheme rose-pine-moon")
 -- vim.cmd("colorscheme rose-pine-dawn")

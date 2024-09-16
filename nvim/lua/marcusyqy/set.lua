@@ -18,9 +18,12 @@ vim.opt.ruler = true
 vim.cmd([[set shellslash]])
 
 vim.opt.errorbells = true
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
+
+-- we should put 4 for work.
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
+vim.opt.shiftwidth = 2
+
 vim.opt.expandtab = true
 
 vim.opt.autoindent = true
@@ -70,7 +73,7 @@ vim.opt.colorcolumn = "" -- "120"
 
 vim.o.background = 'dark'
 
-vim.opt.mouse= "a"
+vim.opt.mouse= ""
 vim.opt.cinoptions="l1"
 
 vim.opt.termguicolors = true
