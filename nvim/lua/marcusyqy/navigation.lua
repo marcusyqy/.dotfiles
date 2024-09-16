@@ -4,6 +4,7 @@ local nnoremap = Remaps.nnoremap
 
 nnoremap("<c-j>", ":cnext<CR>zz")
 nnoremap("<c-k>", ":cprev<CR>zz")
+nnoremap("<c-l>", ":cexpr []<CR>")
 nnoremap("gj", ":lnext<CR>zz")
 nnoremap("gk", ":lprev<CR>zz")
 

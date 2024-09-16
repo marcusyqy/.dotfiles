@@ -71,8 +71,8 @@ nnoremap("<m-v>", "\"+p")
 vnoremap("<m-v>", "\"+p")
 
 vnoremap("<leader>p", "\"_dp")
-nnoremap("<c-h>", "gT")
-nnoremap("<c-l>", "gt")
+-- nnoremap("<c-h>", "gT")
+-- nnoremap("<c-l>", "gt")
 
 nnoremap("<leader>sv", vimfn([[source $MYVIMRC]]))
 
