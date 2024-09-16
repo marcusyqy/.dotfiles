@@ -13,7 +13,7 @@ require 'nordic' .setup {
     -- Reduce the overall amount of blue in the theme (diverges from base Nord).
     reduced_blue = true,
     -- Swap the dark background with the normal one.
-    swap_backgrounds = true,
+    swap_backgrounds = false,
     -- Override the styling of any highlight group.
     override = {},
     -- Cursorline options.  Also includes visual/selection.
@@ -33,14 +33,14 @@ require 'nordic' .setup {
     },
     telescope = {
         -- Available styles: `classic`, `flat`.
-        style = 'flat',
+        style = 'classic',
     },
     leap = {
         -- Dims the backdrop when using leap.
-        dim_backdrop = false,
+        dim_backdrop = true,
     },
     ts_context = {
         -- Enables dark background for treesitter-context window
-        dark_background = true,
+        dark_background = false,
     }
 }

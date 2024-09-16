@@ -1,13 +1,12 @@
 local colorbuddy = require("colorbuddy")
 
-require("colorbuddy").colorscheme("gruvbuddy-lol")
+require("colorbuddy").colorscheme("marcus")
 
 local Color = colorbuddy.Color
 local Group = colorbuddy.Group
 local c = colorbuddy.colors
 local g = colorbuddy.groups
 local s = colorbuddy.styles
-
 
 Color.new("white", "#f2e5bc")
 Color.new("red", "#cc6666")
