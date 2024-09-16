@@ -12,7 +12,7 @@ require("marcusyqy.color.rosepine")
 -- vim.cmd([[colorscheme poimandres]])
 -- vim.opt.background='light'
 vim.cmd.colorscheme("rose-pine-moon")
--- vim.cmd("colorscheme rose-pine")
+-- vim.cmd("colorscheme nordic")
 -- vim.cmd("colorscheme rose-pine-main")
 -- vim.cmd("colorscheme rose-pine-moon")
 -- vim.cmd("colorscheme rose-pine-dawn")

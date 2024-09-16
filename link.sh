@@ -20,12 +20,6 @@ link_alacritty() {
 
 link_wezterm() {
     #[ -d "~/.config/alacritty" ] &&
-    rm -rf ~/.config/alacritty
-    ln -s $DOTFILES/alacritty ~/.config/alacritty
-}
-
-link_kitty() {
-    #[ -d "~/.config/alacritty" ] &&
     weztermconfig="$HOME/.config/wezterm"
     rm -rf $weztermconfig
     ln -s $DOTFILES/wezterm $weztermconfig
@@ -92,7 +86,7 @@ link_awesomewm() {
 link_nvim
 link_alacritty
 link_tmux
-link_kitty
+link_wezterm
 link_zsh
 link_i3
 link_rofi

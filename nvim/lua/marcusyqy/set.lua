@@ -1,5 +1,4 @@
--- Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
--- delays and poor user experience.
+-- Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable delays and poor user experience.
 vim.opt.updatetime = 50
 -- vim.opt.guicursor = ""
 -- vim.opt.guicursor='n:blinkon1,i-'
@@ -20,9 +19,16 @@ vim.cmd([[set shellslash]])
 vim.opt.errorbells = true
 
 -- we should put 4 for work.
-vim.opt.tabstop = 2
-vim.opt.softtabstop = 2
-vim.opt.shiftwidth = 2
+if(os.getenv("motional") ~= nil) then
+  print("motional mode")
+  vim.opt.tabstop = 4
+  vim.opt.softtabstop = 4
+  vim.opt.shiftwidth = 4
+else -- preference
+  vim.opt.tabstop = 2
+  vim.opt.softtabstop = 2
+  vim.opt.shiftwidth = 2
+end
 
 vim.opt.expandtab = true
 
@@ -73,7 +79,13 @@ vim.opt.colorcolumn = "" -- "120"
 
 vim.o.background = 'dark'
 
-vim.opt.mouse= ""
+if(os.getenv("TMUX") ~= nil) then -- disable mouse in tmux
+    vim.opt.mouse= ""
+else
+    vim.opt.mouse= "a"
+end
+
+
 vim.opt.cinoptions="l1"
 
 vim.opt.termguicolors = true
