@@ -3,7 +3,6 @@
 -- vim.opt.pumblend = 5
 
 require("marcusyqy.color.gruvbox")
-
 -- vim.cmd([[colorscheme paramount]])
 -- vim.cmd([[colorscheme poimandres]])
 -- vim.opt.background='light'

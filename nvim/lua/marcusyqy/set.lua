@@ -14,7 +14,7 @@ vim.opt.hlsearch = require("marcusyqy.utils.hlsearch").hlsearch -- uses some con
 vim.opt.ruler = true
 
 -- for windows
-vim.cmd([[set shellslash]])
+-- vim.cmd([[set shellslash]])
 
 vim.opt.errorbells = true
 
