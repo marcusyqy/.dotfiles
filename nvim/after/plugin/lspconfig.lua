@@ -299,6 +299,11 @@ nvim_lsp.emmet_language_server.setup {
     capabilities = capabilities,
 }
 
+nvim_lsp.ols.setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+}
+
 
 require("clangd_extensions").setup {
     server = {

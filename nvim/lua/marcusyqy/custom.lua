@@ -121,11 +121,23 @@ end
 
 -- vim.cmd([[set makeprg=build]])
 
-vim.opt.makeprg = "build" -- typically
+if vim.fn.exists('g:os') == 0 then
+  local is_windows = vim.fn.has("win64") == 1 or vim.fn.has("win32") == 1 or vim.fn.has("win16") == 1
+  if is_windows then
+    vim.opt.makeprg = "build"      -- typically
+  else
+    vim.opt.makeprg = "./build.sh" -- typically
+  end
+end
+
 
 vim.cmd("command! -nargs=1 -complete=shellcmd MakePrg noautocmd lua vim.opt.makeprg=\"<args>\"")
 vim.cmd("command! -nargs=+ -complete=shellcmd Call noautocmd cexpr! system(\"<args>\") | redraw! | copen")
 
+nnoremap("<c-s>", ":make<CR>")
+nnoremap("<F5>",  ":make<CR>")
+cnoremap("<C-t>", "e <c-r>%", {})
+cnoremap("<C-l>", "e %:h", {})
 cnoremap("<C-a>", "<home>", {})
 cnoremap("<C-e>", "<end>", {})
 
