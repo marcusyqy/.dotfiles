@@ -73,12 +73,8 @@ local packer = require('packer').startup(function()
 
     -- colorschemes
     use {
-        { "Mofiqul/vscode.nvim" },
-        { "AlexvZyl/nordic.nvim" },
         { "ellisonleao/gruvbox.nvim" },
-        { "rose-pine/neovim" },
         { "tjdevries/colorbuddy.nvim" },
-        { 'navarasu/onedark.nvim' },
     }
 
     -- tpope
