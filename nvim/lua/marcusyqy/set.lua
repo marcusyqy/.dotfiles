@@ -9,7 +9,7 @@ vim.opt.guicursor='n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait700-b
 vim.opt.hidden = true
 vim.opt.relativenumber = true
 vim.opt.number = true
-vim.opt.wrap = true
+vim.opt.wrap = false
 vim.opt.hlsearch = require("marcusyqy.utils.hlsearch").hlsearch -- uses some config
 vim.opt.ruler = true
 
