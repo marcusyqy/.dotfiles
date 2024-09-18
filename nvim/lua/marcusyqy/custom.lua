@@ -134,7 +134,10 @@ end
 vim.cmd("command! -nargs=1 -complete=shellcmd MakePrg noautocmd lua vim.opt.makeprg=\"<args>\"")
 vim.cmd("command! -nargs=+ -complete=shellcmd Call noautocmd cexpr! system(\"<args>\") | redraw! | copen")
 
-nnoremap("<c-s>", ":make<CR>")
+nnoremap("<c-s>", function()
+    vim.cmd("tab ter " .. vim.opt.makeprg._value)
+end)
+
 nnoremap("<F5>",  ":make<CR>")
 cnoremap("<C-t>", "e <c-r>%", {})
 cnoremap("<C-l>", "e %:h", {})
