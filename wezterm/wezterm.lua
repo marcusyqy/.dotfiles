@@ -35,6 +35,7 @@ for _, gpu in ipairs(wezterm.gui.enumerate_gpus()) do
   end
 end
 
+config.font_size = 11.0
 config.font = wezterm.font_with_fallback {
   'JetBrains Mono',
   'nonicons',
