@@ -121,8 +121,10 @@ end
 
 -- vim.cmd([[set makeprg=build]])
 
+local is_windows = false
+
 if vim.fn.exists('g:os') == 0 then
-  local is_windows = vim.fn.has("win64") == 1 or vim.fn.has("win32") == 1 or vim.fn.has("win16") == 1
+  is_windows = vim.fn.has("win64") == 1 or vim.fn.has("win32") == 1 or vim.fn.has("win16") == 1
   if is_windows then
     vim.opt.makeprg = "build"      -- typically
   else
@@ -134,11 +136,40 @@ end
 vim.cmd("command! -nargs=1 -complete=shellcmd MakePrg noautocmd lua vim.opt.makeprg=\"<args>\"")
 vim.cmd("command! -nargs=+ -complete=shellcmd Call noautocmd cexpr! system(\"<args>\") | redraw! | copen")
 
+local function run_in_terminal(str)
+    vim.cmd("tab ter " .. str)
+end
+
+local function run_shell(str)
+  if is_windows then
+    run_in_terminal(str)
+  else
+    run_in_terminal("./" .. str .. ".sh")
+  end
+end
+
 nnoremap("<c-s>", function()
-    vim.cmd("tab ter " .. vim.opt.makeprg._value)
+    run_in_terminal(vim.opt.makeprg._value)
+    -- vim.cmd("tab ter " .. vim.opt.makeprg._value)
 end)
 
-nnoremap("<F5>",  ":make<CR>")
+nnoremap("<f2>", function()
+    run_in_terminal(vim.opt.makeprg._value)
+    -- run_shell("build")
+end)
+
+nnoremap("<f3>", function()
+    run_shell("run")
+end)
+
+nnoremap("<f4>", function()
+    -- @TODO: find something i like
+    -- vim.cmd([[make]])
+    -- run_shell("build")
+    run_shell("build")
+end)
+
+nnoremap("<f5>", ":make<CR>")
 cnoremap("<C-t>", "e <c-r>%", {})
 cnoremap("<C-l>", "e %:h", {})
 cnoremap("<C-a>", "<home>", {})
