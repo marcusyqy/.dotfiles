@@ -1,5 +1,6 @@
 -- locals
 local Remaps   = require("marcusyqy.keymap")
+local runner   = require("marcusyqy.runner")
 local nmap     = Remaps.nmap
 local nnoremap = Remaps.nnoremap
 local inoremap = Remaps.inoremap
@@ -125,48 +126,45 @@ local is_windows = false
 
 if vim.fn.exists('g:os') == 0 then
   is_windows = vim.fn.has("win64") == 1 or vim.fn.has("win32") == 1 or vim.fn.has("win16") == 1
-  if is_windows then
-    vim.opt.makeprg = "build"      -- typically
-  else
-    vim.opt.makeprg = "./build.sh" -- typically
-  end
+end
+
+if is_windows then
+  vim.opt.makeprg = "build"      -- typically
+else
+  vim.opt.makeprg = "./build.sh" -- typically
 end
 
 
 vim.cmd("command! -nargs=1 -complete=shellcmd MakePrg noautocmd lua vim.opt.makeprg=\"<args>\"")
 vim.cmd("command! -nargs=+ -complete=shellcmd Call noautocmd cexpr! system(\"<args>\") | redraw! | copen")
 
-local function run_in_terminal(str)
-    vim.cmd("tab ter " .. str)
-end
-
-local function run_shell(str)
-  if is_windows then
-    run_in_terminal(str)
-  else
-    run_in_terminal("./" .. str .. ".sh")
-  end
-end
-
 nnoremap("<c-s>", function()
-    run_in_terminal(vim.opt.makeprg._value)
+    -- runner.run(vim.opt.makeprg._value)
+    runner.run_in_terminal(vim.opt.makeprg._value)
     -- vim.cmd("tab ter " .. vim.opt.makeprg._value)
 end)
 
-nnoremap("<f2>", function()
-    run_in_terminal(vim.opt.makeprg._value)
+nnoremap("<f1>", function()
+    -- @TODO: find something i like
+    -- vim.cmd([[make]])
     -- run_shell("build")
+    runner.run_in_terminal(vim.opt.makeprg._value)
+end)
+
+nnoremap("<f2>", function()
+    -- run_shell("build")
+    runner.run_shell("build")
 end)
 
 nnoremap("<f3>", function()
-    run_shell("run")
+    runner.run_shell("run")
 end)
 
 nnoremap("<f4>", function()
     -- @TODO: find something i like
     -- vim.cmd([[make]])
     -- run_shell("build")
-    run_shell("build")
+    runner.run_shell("test")
 end)
 
 nnoremap("<f5>", ":make<CR>")
@@ -179,3 +177,6 @@ vim.cmd([[
 let g:ackprg = 'ag --vimgrep'
 nnoremap <leader>fd :Ack!<Space>
 ]])
+
+
+
