@@ -140,7 +140,7 @@ vim.cmd("command! -nargs=+ -complete=shellcmd Call noautocmd cexpr! system(\"<ar
 
 nnoremap("<c-s>", function()
     -- runner.run(vim.opt.makeprg._value)
-    runner.run_in_terminal(vim.opt.makeprg._value)
+    runner.run(vim.opt.makeprg._value, runner.run_in_terminal)
     -- vim.cmd("tab ter " .. vim.opt.makeprg._value)
 end)
 
