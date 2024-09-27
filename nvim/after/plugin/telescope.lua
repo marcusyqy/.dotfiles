@@ -86,9 +86,9 @@ nnoremap("<c-f>",
 
 local telescope_opts = {}
 nnoremap("<c-p>",
-    function() require('telescope.builtin').git_files(require('telescope.themes').get_ivy({previewer=false})) end)
+    function() require('telescope.builtin').git_files() end)
 nnoremap("<leader>ff",
-    function() require('telescope.builtin').find_files(require('telescope.themes').get_ivy({previewer=false})) end)
+    function() require('telescope.builtin').find_files() end)
 nnoremap("<leader>fg",
     function() require('telescope.builtin').live_grep() end)
 
@@ -122,7 +122,7 @@ vim.keymap.set('n', '<c-b>',
                 map('n', '<c-d>', actions.delete_buffer)
                 return true
             end,
-            previewer = false
+            previewer = true
         }))
     end,
     { desc = '[ ] Find existing buffers' })

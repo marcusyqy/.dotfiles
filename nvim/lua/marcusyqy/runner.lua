@@ -69,11 +69,11 @@ end
 
 M.run = function(command, term_func)
     -- Open our buffer, if we need to.
-    close_open_buffer()
+    -- close_open_buffer()
     term_func(command)
 
     -- Collect the buffer's number.
-    buffer_number = vim.api.nvim_get_current_buf()
+    -- buffer_number = vim.api.nvim_get_current_buf()
 
     -- Clear the buffer's contents incase it has been used.
     -- vim.api.nvim_buf_set_lines(buffer_number, 0, -1, true, {})
