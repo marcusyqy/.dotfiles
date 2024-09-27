@@ -25,15 +25,15 @@ config.cursor_blink_ease_in = "Constant"
 config.cursor_blink_ease_out = "Constant"
 config.cursor_blink_rate = 500
 
-config.prefer_egl = true
+-- config.prefer_egl = true
 
 -- gpus
-for _, gpu in ipairs(wezterm.gui.enumerate_gpus()) do
-  if gpu.backend == 'Vulkan' and gpu.device_type == 'DiscreteGpu' then
-    config.webgpu_preferred_adapter = gpu
-    break
-  end
-end
+-- for _, gpu in ipairs(wezterm.gui.enumerate_gpus()) do
+--   if gpu.backend == 'Vulkan' and gpu.device_type == 'DiscreteGpu' then
+--     config.webgpu_preferred_adapter = gpu
+--     break
+--   end
+-- end
 
 config.font_size = 11.0
 config.font = wezterm.font_with_fallback {

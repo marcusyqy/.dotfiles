@@ -14,7 +14,7 @@ local ToggleHLSearch = function()
     end
 end
 
-nnoremap("<leader>sh", ToggleHLSearch)
+-- nnoremap("<leader>sh", ToggleHLSearch)
 -- nnoremap("<c-s>", ToggleHLSearch)
 
 

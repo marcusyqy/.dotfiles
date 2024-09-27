@@ -10,7 +10,7 @@ vim.opt.hidden = true
 vim.opt.relativenumber = true
 vim.opt.number = true
 vim.opt.wrap = false
-vim.opt.hlsearch = require("marcusyqy.utils.hlsearch").hlsearch -- uses some config
+vim.opt.hlsearch = false
 vim.opt.ruler = true
 
 -- for windows
@@ -92,6 +92,7 @@ vim.opt.termguicolors = true
 
 
 -- vim.opt.showbreak='↪'
+vim.opt.list = true
 vim.opt.listchars='tab:→ ,eol:↲,nbsp:␣,trail:•,extends:⟩,precedes:⟨'
 
 vim.lsp.set_log_level("off")
