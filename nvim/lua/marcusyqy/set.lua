@@ -10,7 +10,7 @@ vim.opt.hidden = true
 vim.opt.relativenumber = true
 vim.opt.number = true
 vim.opt.wrap = false
-vim.opt.hlsearch = false
+vim.opt.hlsearch = true
 vim.opt.ruler = true
 
 -- for windows
