@@ -15,9 +15,9 @@ end
 -- config.color_scheme = 'Rosé Pine (base16)'
 -- config.color_scheme = 'Rosé Pine (Gogh)'
 config.colors = {}
--- config.colors.background = '#111111'
--- config.colors.background = '#14161b'
-config.colors.background = '#000000' -- for paramount
+config.colors.background = '#111111'
+-- config.colors.background = '#1d2021'
+-- config.colors.background = '#000000' -- for paramount
 
 -- @TODO try this out on windows.
 config.default_cursor_style = "BlinkingBlock"
@@ -36,8 +36,12 @@ config.cursor_blink_rate = 500
 -- end
 
 config.font_size = 11.0
+config.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' } -- no ligatures for me please!
 config.font = wezterm.font_with_fallback {
-  'JetBrains Mono',
+  -- "Comic Mono",
+  "Iosevka Nerd Font",
+  -- "ComicShannsMono Nerd Font Propo",
+  -- 'JetBrains Mono',
   'nonicons',
 }
 

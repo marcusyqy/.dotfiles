@@ -74,6 +74,7 @@ local packer = require('packer').startup(function()
     -- colorschemes
     use {
         { "ellisonleao/gruvbox.nvim"   },
+        { "tpope/vim-vividchalk" },
         { "tjdevries/colorbuddy.nvim"  },
     }
 

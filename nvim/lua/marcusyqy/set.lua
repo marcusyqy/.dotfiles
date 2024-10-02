@@ -38,7 +38,7 @@ vim.opt.smartindent = true
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 
--- vim.opt.laststatus = 3
+vim.opt.laststatus = 3
 vim.opt.showmode = true
 
 -- vim.opt.cursorline = true -- true
@@ -89,7 +89,6 @@ end
 vim.opt.cinoptions="l1"
 
 vim.opt.termguicolors = true
-
 
 -- vim.opt.showbreak='↪'
 vim.opt.list = true
