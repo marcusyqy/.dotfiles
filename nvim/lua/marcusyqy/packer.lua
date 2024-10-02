@@ -73,8 +73,8 @@ local packer = require('packer').startup(function()
 
     -- colorschemes
     use {
-        { "ellisonleao/gruvbox.nvim" },
-        { "tjdevries/colorbuddy.nvim" },
+        { "ellisonleao/gruvbox.nvim"   },
+        { "tjdevries/colorbuddy.nvim"  },
     }
 
     -- tpope

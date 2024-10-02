@@ -93,7 +93,7 @@ vim.opt.termguicolors = true
 
 -- vim.opt.showbreak='↪'
 vim.opt.list = true
-vim.opt.listchars='tab:→ ,eol:↲,nbsp:␣,trail:•,extends:⟩,precedes:⟨'
+vim.opt.listchars='tab:→ ,nbsp:␣,trail:•' -- ,eol:↲,extends:⟩,precedes:⟨'
 
 vim.lsp.set_log_level("off")
 

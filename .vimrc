@@ -9,4 +9,10 @@ set number
 set hlsearch
 set ruler
 
+set noswapfile
+set nobackup
+
+set incsearch
+set undofile
+
 highlight Comment ctermfg=green
