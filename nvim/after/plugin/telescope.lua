@@ -59,6 +59,9 @@ require("telescope").setup({
             -- width = 0.87,
             -- height = 0.80,
         },
+        preview = {
+          treesitter = false
+        },
         mappings = {
             i = {
                 ["<C-x>"] = false,
