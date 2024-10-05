@@ -174,7 +174,7 @@ cnoremap("<C-a>", "<home>", {})
 cnoremap("<C-e>", "<end>", {})
 
 vim.cmd([[
-let g:ackprg = 'ag --vimgrep'
+let g:ackprg = 'rg --vimgrep'
 nnoremap <leader>fd :Ack!<Space>
 ]])
 

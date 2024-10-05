@@ -289,20 +289,20 @@ nvim_lsp.pylsp.setup {
     }
 }
 
-nvim_lsp.lua_ls.setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-}
+-- nvim_lsp.lua_ls.setup {
+--     on_attach = on_attach,
+--     capabilities = capabilities,
+-- }
 
-nvim_lsp.emmet_language_server.setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-}
+-- nvim_lsp.emmet_language_server.setup {
+--     on_attach = on_attach,
+--     capabilities = capabilities,
+-- }
 
-nvim_lsp.ols.setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-}
+-- nvim_lsp.ols.setup {
+--     on_attach = on_attach,
+--     capabilities = capabilities,
+-- }
 
 
 require("clangd_extensions").setup {
