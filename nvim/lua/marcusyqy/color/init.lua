@@ -3,10 +3,21 @@
 -- vim.opt.pumblend = 5
 
 require("marcusyqy.color.gruvbox")
---
-vim.cmd("colorscheme vividchalk")
-vim.cmd("hi Normal guibg=None")
-vim.cmd("hi LineNr guifg=orange guibg=#222222")
-vim.cmd("hi LineNrBelow guifg=white guibg=#222222")
-vim.cmd("hi LineNrAbove guifg=white guibg=#222222")
-vim.cmd("hi IncSearch guibg=#555555")
+
+require('base16-colorscheme').with_config({
+    telescope = false,
+    indentblankline = true,
+    notify = false,
+    ts_rainbow = false,
+    cmp = true,
+    illuminate = false,
+    dapui = false,
+})
+
+vim.cmd("colorscheme marcus-base16")
+-- vim.cmd("hi Normal guibg=None")
+-- vim.cmd("hi NormalNC guibg=None")
+-- vim.cmd("hi LineNr guifg=orange guibg=#222222")
+-- vim.cmd("hi LineNrBelow guifg=white guibg=#222222")
+-- vim.cmd("hi LineNrAbove guifg=white guibg=#222222")
+-- vim.cmd("hi IncSearch guibg=#555555")
