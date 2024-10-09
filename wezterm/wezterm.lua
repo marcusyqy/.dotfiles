@@ -36,7 +36,7 @@ config.cursor_blink_rate = 500
 -- end
 
 config.font_size = 11.0
--- config.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' } -- no ligatures for me please!
+config.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' } -- no ligatures for me please!
 config.font = wezterm.font_with_fallback {
   -- "Comic Mono",
   "Iosevka Nerd Font",
