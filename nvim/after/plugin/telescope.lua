@@ -110,7 +110,7 @@ vim.keymap.set('n', "<leader>fp", function() require("telescope.builtin").lsp_dy
     { desc = "[fs], find dynamic workspace symbols" })
 vim.keymap.set('n', "<leader>fs", function() require("telescope.builtin").lsp_workspace_symbols() end,
     { desc = "[fs], find workspace symbols" })
-vim.keymap.set('n', "<leader>ds", function() require("telescope.builtin").lsp_document_symbols() end,
+vim.keymap.set('n', "<leader>ds", function() require("telescope.builtin").lsp_dynamic_workspace_symbols() end,
     { desc = "[fs], find dynamic workspace symbols" })
 vim.keymap.set('n', '<leader>?',
     function() require('telescope.builtin').builtin(require('telescope.themes').get_dropdown({ previewer = false })) end
