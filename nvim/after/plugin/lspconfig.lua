@@ -294,10 +294,20 @@ nvim_lsp.svelte.setup {
     capabilities = capabilities,
 }
 
--- nvim_lsp.lua_ls.setup {
---     on_attach = on_attach,
---     capabilities = capabilities,
--- }
+nvim_lsp.lua_ls.setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+}
+
+nvim_lsp.emmet_ls.setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+}
+
+nvim_lsp.ts_ls.setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+}
 
 -- nvim_lsp.emmet_language_server.setup {
 --     on_attach = on_attach,
