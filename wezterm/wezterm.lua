@@ -48,7 +48,7 @@ config.font = wezterm.font_with_fallback {
 config.freetype_load_target = "HorizontalLcd"
 
 -- windows
--- config.window_decorations = "NONE"
+config.window_decorations = "TITLE | RESIZE"
 config.window_padding = {
     left = 0,
     right = 0,
@@ -65,5 +65,6 @@ require("tabbar").apply_config(config);
 
 -- require("keys").apply_config(config) -- we use tmux for linux so we don't need this
 
+config.enable_wayland = false
 -- and finally, return the configuration to wezterm
 return config
