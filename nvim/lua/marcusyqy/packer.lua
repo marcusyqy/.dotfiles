@@ -105,6 +105,7 @@ local packer = require('packer').startup(function()
     use { -- highlights
         { "peterhoeg/vim-qml" },
         { "bfrg/vim-cpp-modern" },
+        { "evanleck/vim-svelte" },
         { "martinda/Jenkinsfile-vim-syntax" },
         { "kalvinpearce/ShaderHighlight" }
     }
