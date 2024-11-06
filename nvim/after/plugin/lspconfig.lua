@@ -220,6 +220,7 @@ local protocol = require 'vim.lsp.protocol'
 
 local on_attach = function(client, bufnr)
     --require'completion'.on_attach();
+    vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
     local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
 
     -- local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
@@ -265,7 +266,7 @@ end
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
 -- "cssls", "tailwindcss",
---
+
 -- local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 -- capabilities.textDocument.completion.completionItem.snippetSupport = true
 -- capabilities.textDocument.completion.completionItem.resolveSupport = {
@@ -275,7 +276,7 @@ end
 -- local servers = { "pylsp" } --[[ "astro", "tailwindcss" ]]
 nvim_lsp.pylsp.setup {
     on_attach = on_attach,
-    capabilities = capabilities,
+--     capabilities = capabilities,
     settings = {
         pylsp = {
             plugins = {
@@ -289,34 +290,70 @@ nvim_lsp.pylsp.setup {
     }
 }
 
-nvim_lsp.rust_analyzer.setup {
+vim.g.rustaceanvim = {
+  -- Plugin configuration
+  tools = {
+  },
+  -- LSP configuration
+  server = {
     on_attach = on_attach,
-    capabilities = capabilities,
+    -- capabilities = capabilities,
+    default_settings = {
+      -- rust-analyzer language server configuration
+      ['rust-analyzer'] = {
+        imports = {
+          granularity = {
+            group = "module",
+          },
+          prefix = "self",
+        },
+        cargo = {
+          buildScripts = {
+            enable = true,
+          },
+        },
+        inlayHints = {
+          bindingModeHints = {
+            enable = true,
+          },
+          closureCaptureHints = {
+            enable = true
+          },
+        },
+        diagnostics = {
+          enable = true,
+          disabled = { "unresolved-proc-macro" },
+          enableExperimental = true,
+        },
+        procMacro = {
+          enable = true
+        },
+      },
+    },
+  },
+  -- DAP configuration
+  dap = {
+  },
 }
 
 nvim_lsp.svelte.setup {
     on_attach = on_attach,
-    capabilities = capabilities,
 }
 
 nvim_lsp.lua_ls.setup {
     on_attach = on_attach,
-    capabilities = capabilities,
 }
 
 nvim_lsp.emmet_ls.setup {
     on_attach = on_attach,
-    capabilities = capabilities,
 }
 
 nvim_lsp.ts_ls.setup {
     on_attach = on_attach,
-    capabilities = capabilities,
 }
 
 nvim_lsp.quick_lint_js.setup {
     on_attach = on_attach,
-    capabilities = capabilities,
 }
 
 
@@ -336,7 +373,6 @@ require("clangd_extensions").setup {
         -- options to pass to nvim-lspconfig
         -- i.e. the arguments to require("lspconfig").clangd.setup({})
         on_attach = on_attach,
-        capabilities = capabilities,
         cmd = {
             "clangd",
             "--header-insertion=never",

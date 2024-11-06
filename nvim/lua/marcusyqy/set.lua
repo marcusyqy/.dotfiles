@@ -94,7 +94,7 @@ vim.opt.termguicolors = true
 vim.opt.list = true
 vim.opt.listchars='tab:→ ,nbsp:␣,trail:•' -- ,eol:↲,extends:⟩,precedes:⟨'
 
-vim.lsp.set_log_level("off")
+vim.lsp.set_log_level("trace")
 
 vim.opt.winblend = 0
 vim.opt.wildoptions = "pum"

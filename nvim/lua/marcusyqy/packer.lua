@@ -114,6 +114,7 @@ local packer = require('packer').startup(function()
 
     use { 'alvarosevilla95/luatab.nvim', requires = 'kyazdani42/nvim-web-devicons' }
     use { 'p00f/clangd_extensions.nvim', commit = "798e377ec859087132b81d2f347b5080580bd6b1" }
+    use { 'mrcjkb/rustaceanvim' }
     use { "folke/lazydev.nvim" }
 
     -- use { 'Bekaboo/deadcolumn.nvim' }
