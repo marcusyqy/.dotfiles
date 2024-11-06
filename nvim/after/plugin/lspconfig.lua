@@ -220,7 +220,7 @@ local protocol = require 'vim.lsp.protocol'
 
 local on_attach = function(client, bufnr)
     --require'completion'.on_attach();
-    vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+    -- vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
     local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
 
     -- local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
