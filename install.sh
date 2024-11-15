@@ -20,6 +20,14 @@ link_wezterm() {
     ln -s $DOTFILES/wezterm $weztermconfig
 }
 
+link_rustfmt() {
+    #[ -d "~/.config/alacritty" ] &&
+    rustfmt="$HOME/.config/rustfmt"
+    rm -rf $rustfmt
+    ln -s $DOTFILES/rustfmt $rustfmt
+}
+
 link_nvim
 link_tmux
 link_wezterm
+link_rustfmt

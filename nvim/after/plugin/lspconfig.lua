@@ -328,6 +328,10 @@ vim.g.rustaceanvim = {
         procMacro = {
           enable = true
         },
+        -- rustfmt = {
+        --   overrideCommand = { "rustfmt", "--edition", "2018" },
+        --   config = "~/.config/rustfmt/rustfmt.toml",
+        -- },
       },
     },
   },
