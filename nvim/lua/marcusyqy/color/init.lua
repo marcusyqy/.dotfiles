@@ -14,7 +14,13 @@ require('base16-colorscheme').with_config({
     dapui = false,
 })
 
-vim.cmd("colorscheme marcus-base16")
+if os.getenv("SSH_TTY") ~= nil then
+  -- vim.opt.termguicolors = false
+  vim.cmd("colorscheme vim")
+else
+  vim.cmd("colorscheme marcus-base16")
+end
+
 -- vim.cmd("hi Normal guibg=None")
 -- vim.cmd("hi NormalNC guibg=None")
 -- vim.cmd("hi LineNr guifg=orange guibg=#222222")
