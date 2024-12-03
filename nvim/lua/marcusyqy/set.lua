@@ -88,7 +88,7 @@ end
 
 vim.opt.cinoptions="l1"
 
--- vim.opt.termguicolors = os.getenv("SSH_TTY") == nil
+vim.opt.termguicolors = os.getenv("SSH_TTY") == nil
 
 -- vim.opt.showbreak='↪'
 vim.opt.list = true
