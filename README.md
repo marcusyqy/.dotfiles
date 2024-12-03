@@ -91,6 +91,12 @@ alias aoeu='setxkbmap us'
  This ensures that new worktrees do not attempt to
  re-upload every resource on first push.
 
+```
+git config remote.origin.fetch '+refs/heads/*:refs/remotes/origin/*'
+git fetch
+git for-each-ref --format='%(refname:short)' refs/heads | xargs -n1 -I{} git branch --set-upstream-to=origin/{}
+```
+
 ### cursor
 https://wiki.archlinux.org/title/Cursor_themes#Configuration
 
@@ -99,4 +105,3 @@ https://wiki.archlinux.org/title/Cursor_themes#Configuration
 fc-match NameOfFont -s
 
 
-hello lolol
