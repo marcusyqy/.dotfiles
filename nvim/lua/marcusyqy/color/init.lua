@@ -14,7 +14,7 @@ require('base16-colorscheme').with_config({
     dapui = false,
 })
 
-if os.getenv("SSH_TTY") ~= nil then
+if vim.opt.termguicolors ~= true then -- os.getenv("SSH_TTY") ~= nil then
   -- vim.opt.termguicolors = false
   vim.cmd("colorscheme vim")
   vim.cmd([[highlight Comment ctermfg=green]])
