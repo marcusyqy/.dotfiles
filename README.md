@@ -94,7 +94,7 @@ alias aoeu='setxkbmap us'
 ```
 git config remote.origin.fetch '+refs/heads/*:refs/remotes/origin/*'
 git fetch
-git for-each-ref --format='%(refname:short)' refs/heads | xargs -n1 -I{} git branch --set-upstream-to=origin/{}
+git for-each-ref --format='%(refname:short)' refs/heads | xargs -n1 -I{} git branch --set-upstream-to=origin/{} {}
 ```
 
 ### cursor
