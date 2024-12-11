@@ -15,7 +15,8 @@ end
 -- config.color_scheme = 'Rosé Pine (base16)'
 -- config.color_scheme = 'Rosé Pine (Gogh)'
 config.colors = {}
-config.colors.background = '#111111'
+config.colors.background = '#1d1d1d'
+config.colors.foreground = '#ffffff'
 -- config.colors.background = '#1d2021'
 -- config.colors.background = '#000000' -- for paramount
 
@@ -37,13 +38,13 @@ config.cursor_blink_rate = 500
 
 config.font_size = 11.0
 config.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' } -- no ligatures for me please!
-config.font = wezterm.font_with_fallback {
-  -- "Comic Mono",
-  "Iosevka Nerd Font",
-  -- "ComicShannsMono Nerd Font Propo",
-  -- 'JetBrains Mono',
-  'nonicons',
-}
+-- config.font = wezterm.font_with_fallback {
+--   -- "Comic Mono",
+--   "Iosevka Nerd Font",
+--   -- "ComicShannsMono Nerd Font Propo",
+--   -- 'JetBrains Mono',
+--   'nonicons',
+-- }
 
 config.freetype_load_target = "HorizontalLcd"
 
