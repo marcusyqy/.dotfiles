@@ -27,7 +27,14 @@ link_rustfmt() {
     ln -s $DOTFILES/rustfmt $rustfmt
 }
 
-link_nvim
-link_tmux
-link_wezterm
-link_rustfmt
+link_ghostty() {
+    ghostty="$HOME/.config/ghostty"
+    rm -rf $ghostty
+    ln -s $DOTFILES/ghostty $ghostty
+}
+
+# link_nvim
+# link_tmux
+# link_wezterm
+# link_rustfmt
+link_ghostty
