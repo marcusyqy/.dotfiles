@@ -1,5 +1,6 @@
 font-feature = -calt
 background = 1d1d1d
 foreground = ffffff
-
-
+cursor-style = block
+cursor-style-blink = true
+shell-integration-features = no-cursor

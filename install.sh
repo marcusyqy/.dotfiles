@@ -33,8 +33,8 @@ link_ghostty() {
     ln -s $DOTFILES/ghostty $ghostty
 }
 
-# link_nvim
-# link_tmux
-# link_wezterm
-# link_rustfmt
+link_nvim
+link_tmux
+link_wezterm
+link_rustfmt
 link_ghostty
