@@ -1,6 +1,8 @@
 font-feature = -calt
-background = 1d1d1d
+theme = "Dark+"
+background = 000000
 foreground = ffffff
 cursor-style = block
 cursor-style-blink = true
 shell-integration-features = no-cursor
+

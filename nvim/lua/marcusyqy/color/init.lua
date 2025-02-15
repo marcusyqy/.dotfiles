@@ -4,23 +4,13 @@
 
 require("marcusyqy.color.gruvbox")
 
-require('base16-colorscheme').with_config({
-    telescope = false,
-    indentblankline = true,
-    notify = false,
-    ts_rainbow = false,
-    cmp = true,
-    illuminate = false,
-    dapui = false,
-})
-
-vim.cmd("colorscheme marcus-base16")
+vim.cmd("colorscheme gruvbox")
 -- if os.getenv("SSH_TTY") ~= nil then
 --   -- vim.opt.termguicolors = false
 --   vim.cmd("colorscheme vim")
 --   vim.cmd([[highlight Comment ctermfg=green]])
 -- else
---   vim.cmd("colorscheme marcus-base16")
+--   vim.cmd("colorscheme gruvbox")
 -- end
 
 -- vim.cmd("hi Normal guibg=None")
