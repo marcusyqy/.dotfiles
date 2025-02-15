@@ -1,5 +1,8 @@
 font-feature = -calt
-theme = "Dark+"
+# theme = "Dark+"
+# theme = "niji"
+theme = "PaulMillr"
+# theme = "Wez"
 background = 000000
 foreground = ffffff
 cursor-style = block
