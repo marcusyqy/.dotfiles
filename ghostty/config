@@ -1,11 +1,13 @@
 font-feature = -calt
 # theme = "Dark+"
 # theme = "niji"
-theme = "PaulMillr"
+# theme = "PaulMillr"
 # theme = "Wez"
-background = 000000
+# background = 000000
+background = 1d1d1d
 foreground = ffffff
 cursor-style = block
 cursor-style-blink = true
 shell-integration-features = no-cursor
+keybind = cmd+enter=unbind
 
