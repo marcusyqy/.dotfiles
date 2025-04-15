@@ -376,7 +376,15 @@ require("clangd_extensions").setup {
     server = {
         -- options to pass to nvim-lspconfig
         -- i.e. the arguments to require("lspconfig").clangd.setup({})
-        on_attach = on_attach,
+        on_attach = function(client, bufnr)
+                  local rootdir = client.config.root_dir
+                  if not(vim.fn.filereadable(rootdir .. "/compile_commands.json") == 1 or vim.fn.filereadable(rootdir .. "/compile_flags.txt") == 1) then
+                    vim.notify("LSP disabled: Missing compile_commands.json or compile_flags.txt", vim.log.levels.WARN)
+                    client.stop()
+                    return
+                  end
+                  on_attach(client, bufnr)
+                end,
         cmd = {
             "clangd",
             "--header-insertion=never",
