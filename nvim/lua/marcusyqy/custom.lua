@@ -71,6 +71,9 @@ inoremap("<m-v>", "<c-r>+")
 nnoremap("<m-v>", "\"+p")
 vnoremap("<m-v>", "\"+p")
 
+nnoremap("<m-c>", "\"+y")
+vnoremap("<m-c>", "\"+y")
+
 vnoremap("<leader>p", "\"_dp")
 nnoremap("<c-h>", "gT")
 nnoremap("<c-l>", "gt")
