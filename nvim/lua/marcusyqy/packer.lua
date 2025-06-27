@@ -123,6 +123,8 @@ local packer = require('packer').startup(function()
     use { "mileszs/ack.vim" }
     use { "duane9/nvim-rg" }
     use { "loctvl842/monokai-pro.nvim" }
+    use { "olimorris/onedarkpro.nvim" }
+    use { 'echasnovski/mini.statusline'}
 
     local has_plugins, plugins = pcall(require, 'custom.plugins')
     if has_plugins then
