@@ -124,7 +124,10 @@ local packer = require('packer').startup(function()
     use { "duane9/nvim-rg" }
     use { "loctvl842/monokai-pro.nvim" }
     use { "olimorris/onedarkpro.nvim" }
-    use { 'echasnovski/mini.statusline'}
+    use {
+      'nvim-lualine/lualine.nvim',
+      requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+    }
 
     local has_plugins, plugins = pcall(require, 'custom.plugins')
     if has_plugins then
