@@ -74,7 +74,7 @@ local packer = require('packer').startup(function()
 
 
     -- colorschemes
-    use { "ellisonleao/gruvbox.nvim" } 
+    use { "ellisonleao/gruvbox.nvim" }
 
     -- tpope
     use {
@@ -122,6 +122,7 @@ local packer = require('packer').startup(function()
     use { "jremmen/vim-ripgrep" }
     use { "mileszs/ack.vim" }
     use { "duane9/nvim-rg" }
+    use { "loctvl842/monokai-pro.nvim" }
 
     local has_plugins, plugins = pcall(require, 'custom.plugins')
     if has_plugins then

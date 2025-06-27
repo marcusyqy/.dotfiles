@@ -3,8 +3,9 @@
 -- vim.opt.pumblend = 5
 
 require("marcusyqy.color.gruvbox")
+require("marcusyqy.color.monokai")
 
-vim.cmd("colorscheme gruvbox")
+vim.cmd("colorscheme monokai-pro")
 -- if os.getenv("SSH_TTY") ~= nil then
 --   -- vim.opt.termguicolors = false
 --   vim.cmd("colorscheme vim")
