@@ -360,6 +360,9 @@ nvim_lsp.quick_lint_js.setup {
     on_attach = on_attach,
 }
 
+nvim_lsp.gopls.setup {
+    on_attach = on_attach,
+}
 
 -- nvim_lsp.emmet_language_server.setup {
 --     on_attach = on_attach,
