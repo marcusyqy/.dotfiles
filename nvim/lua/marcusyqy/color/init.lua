@@ -4,8 +4,9 @@
 
 require("marcusyqy.color.gruvbox")
 require("marcusyqy.color.monokai")
+require("marcusyqy.color.sonokai")
 
-vim.cmd("colorscheme monokai-pro")
+vim.cmd("colorscheme sonokai")
 -- if os.getenv("SSH_TTY") ~= nil then
 --   -- vim.opt.termguicolors = false
 --   vim.cmd("colorscheme vim")
