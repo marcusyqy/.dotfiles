@@ -123,11 +123,14 @@ local packer = require('packer').startup(function()
     use { "mileszs/ack.vim" }
     use { "duane9/nvim-rg" }
     use { "loctvl842/monokai-pro.nvim" }
+    use { "sainnhe/sonokai" }
     use { "olimorris/onedarkpro.nvim" }
     use {
       'nvim-lualine/lualine.nvim',
       requires = { 'nvim-tree/nvim-web-devicons', opt = true }
     }
+
+    use { "nosduco/remote-sshfs.nvim" }
 
     local has_plugins, plugins = pcall(require, 'custom.plugins')
     if has_plugins then
