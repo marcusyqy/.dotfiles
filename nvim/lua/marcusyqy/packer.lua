@@ -130,8 +130,6 @@ local packer = require('packer').startup(function()
       requires = { 'nvim-tree/nvim-web-devicons', opt = true }
     }
 
-    use { "nosduco/remote-sshfs.nvim" }
-
     local has_plugins, plugins = pcall(require, 'custom.plugins')
     if has_plugins then
         plugins(use)
