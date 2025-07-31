@@ -75,8 +75,8 @@ nnoremap("<m-c>", "\"+y")
 vnoremap("<m-c>", "\"+y")
 
 vnoremap("<leader>p", "\"_dp")
--- nnoremap("<c-h>", "gT")
--- nnoremap("<c-l>", "gt")
+nnoremap("<c-h>", "gT")
+nnoremap("<c-l>", "gt")
 -- nnoremap("<a-k>", ":tabc<CR>")
 -- nnoremap("<a-j>", ":tabnew<CR>")
 
