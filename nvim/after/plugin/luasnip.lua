@@ -111,11 +111,10 @@ _G.s_tab_complete = function()
     return ""
 end
 
-local opts = { noremap = true, silent = true }
-vim.api.nvim_set_keymap("i", "<c-k>", "v:lua.tab_complete()", { expr = true })
-vim.api.nvim_set_keymap("s", "<c-k>", "v:lua.tab_complete()", { expr = true })
-vim.api.nvim_set_keymap("i", "<c-j>", "v:lua.s_tab_complete()", { expr = true })
-vim.api.nvim_set_keymap("s", "<c-j>", "v:lua.s_tab_complete()", { expr = true })
--- vim.api.nvim_set_keymap("i", "<c->", "<Plug>luasnip-next-choice", {})
-vim.api.nvim_set_keymap("s", "<c-e>", "<Plug>luasnip-next-choice", {})
-
+-- local opts = { noremap = true, silent = true }
+-- vim.api.nvim_set_keymap("i", "<c-k>", "v:lua.tab_complete()", { expr = true })
+-- vim.api.nvim_set_keymap("s", "<c-k>", "v:lua.tab_complete()", { expr = true })
+-- vim.api.nvim_set_keymap("i", "<c-j>", "v:lua.s_tab_complete()", { expr = true })
+-- vim.api.nvim_set_keymap("s", "<c-j>", "v:lua.s_tab_complete()", { expr = true })
+-- vim.api.nvim_set_keymap("s", "<c-t>", "<Plug>luasnip-next-choice", {})
+--

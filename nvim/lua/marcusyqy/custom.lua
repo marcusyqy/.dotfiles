@@ -177,6 +177,11 @@ cnoremap("<C-a>", "<home>", {})
 cnoremap("<C-e>", "<end>", {})
 inoremap("<C-a>", "<home>", {})
 inoremap("<C-e>", "<end>", {})
+inoremap("<C-e>", "<end>", {})
+
+-- testing this out.
+inoremap("<C-k>", "<c-e>", {})
+
 
 vim.cmd([[
 let g:ackprg = 'rg --vimgrep'
