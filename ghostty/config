@@ -1,17 +1,16 @@
 font-feature = -calt
+# font-family = "menlo monospace"
 font-family = monospace
-font-size = 12.0
+# font-size = 12.0
 font-thicken = true
-# theme = "Dark+"
-# theme = "niji"
-# theme = "PaulMillr"
-# theme = "Wez"
-theme = "iTerm2 Default"
-# background = 000000
+adjust-cell-height=-10%
+adjust-cell-width=-5%
+# theme = "Dark Pastel"
+theme = "Raycast_Dark"
+background = 000000
 # background = 1d1d1d
 # foreground = ffffff
 cursor-style = block
 cursor-style-blink = true
 shell-integration-features = no-cursor
 keybind = cmd+enter=unbind
-
