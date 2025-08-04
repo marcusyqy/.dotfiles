@@ -7,7 +7,7 @@ require("marcusyqy.color.monokai")
 require("marcusyqy.color.sonokai")
 require("marcusyqy.color.vague")
 
-vim.cmd("colorscheme sonokai")
+vim.cmd("colorscheme vague")
 -- if os.getenv("SSH_TTY") ~= nil then
 --   -- vim.opt.termguicolors = false
 --   vim.cmd("colorscheme vim")
