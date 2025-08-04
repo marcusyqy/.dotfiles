@@ -124,6 +124,7 @@ local packer = require('packer').startup(function()
     use { "duane9/nvim-rg" }
     use { "loctvl842/monokai-pro.nvim" }
     use { "sainnhe/sonokai" }
+    use { "vague2k/vague.nvim" }
     use { "olimorris/onedarkpro.nvim" }
     use {
       'nvim-lualine/lualine.nvim',
