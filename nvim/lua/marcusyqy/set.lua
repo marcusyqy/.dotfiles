@@ -79,7 +79,7 @@ vim.opt.colorcolumn = "" -- "120"
 
 vim.o.background = 'dark'
 
-vim.opt.mouse= ""
+vim.opt.mouse= "a"
 -- if(os.getenv("TMUX") ~= nil) then -- disable mouse in tmux
 --     vim.opt.mouse= ""
 -- else
