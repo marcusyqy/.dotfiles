@@ -14,17 +14,15 @@ link_tmux() {
 
 
 link_wezterm() {
-    #[ -d "~/.config/alacritty" ] &&
     weztermconfig="$HOME/.config/wezterm"
     rm -rf $weztermconfig
     ln -s $DOTFILES/wezterm $weztermconfig
 }
 
-link_rustfmt() {
-    #[ -d "~/.config/alacritty" ] &&
-    rustfmt="$HOME/.config/rustfmt"
-    rm -rf $rustfmt
-    ln -s $DOTFILES/rustfmt $rustfmt
+link_wezterm() {
+    pipconfig="$HOME/.config/pip"
+    rm -rf $pipconfig
+    ln -s $DOTFILES/pip $pipconfig
 }
 
 link_ghostty() {
@@ -36,5 +34,5 @@ link_ghostty() {
 link_nvim
 link_tmux
 link_wezterm
-link_rustfmt
+link_pip
 link_ghostty
