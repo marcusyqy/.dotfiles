@@ -49,7 +49,7 @@ config.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' } -- no ligatures for 
 config.freetype_load_target = "HorizontalLcd"
 
 -- windows
-config.window_decorations = "TITLE | RESIZE"
+config.window_decorations = "RESIZE | INTEGRATED_BUTTONS" -- "TITLE | RESIZE"
 config.window_padding = {
     left = 0,
     right = 0,
