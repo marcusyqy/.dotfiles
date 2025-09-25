@@ -3,9 +3,8 @@
 -- vim.opt.pumblend = 5
 
 require("marcusyqy.color.gruvbox")
-require("marcusyqy.color.monokai")
-require("marcusyqy.color.sonokai")
 require("marcusyqy.color.vague")
+require("marcusyqy.color.vscode")
 
 vim.cmd("colorscheme gruvbox")
 -- if os.getenv("SSH_TTY") ~= nil then

@@ -75,6 +75,7 @@ local packer = require('packer').startup(function()
 
     -- colorschemes
     use { "ellisonleao/gruvbox.nvim" }
+    use {"Mofiqul/vscode.nvim"}
 
     -- tpope
     use {
@@ -122,8 +123,6 @@ local packer = require('packer').startup(function()
     use { "jremmen/vim-ripgrep" }
     use { "mileszs/ack.vim" }
     use { "duane9/nvim-rg" }
-    use { "loctvl842/monokai-pro.nvim" }
-    use { "sainnhe/sonokai" }
     use { "vague2k/vague.nvim" }
     use { "olimorris/onedarkpro.nvim" }
     use {
