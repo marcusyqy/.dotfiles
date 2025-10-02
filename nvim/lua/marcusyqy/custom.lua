@@ -45,7 +45,7 @@ nmap("<leader>Y", "\"+Y")
 -- center cursor
 nnoremap("n", "nzzzv")
 nnoremap("N", "Nzzzv")
-nnoremap("J", "mzJ`v")
+-- nnoremap("J", "mzJ`v")
 
 inoremap("<c-c>", "<esc>")
 nnoremap("<leader>sf", vimfn([[ClangdSwitchSourceHeader]]))
@@ -60,11 +60,11 @@ nnoremap("<leader>sf", vimfn([[ClangdSwitchSourceHeader]]))
 -- inoremap("(", "(<c-g>u")
 -- inoremap("[", "[<c-g>u")
 
-nnoremap("<expr> k", "(v:count > 5 ? \"m'\" . v:count : \"\") . 'k'")
-nnoremap("<expr> j", "(v:count > 5 ? \"m'\" . v:count : \"\") . 'j'")
+-- nnoremap("<expr> k", "(v:count > 5 ? \"m'\" . v:count : \"\") . 'k'")
+-- nnoremap("<expr> j", "(v:count > 5 ? \"m'\" . v:count : \"\") . 'j'")
 
-vnoremap("J", ":m '>+1<CR>gv=gv", { silent = true })
-vnoremap("K", ":m '<-2<CR>gv=gv", { silent = true })
+-- vnoremap("J", ":m '>+1<CR>gv=gv", { silent = true })
+-- vnoremap("K", ":m '<-2<CR>gv=gv", { silent = true })
 
 -- to replace no c-s-v
 inoremap("<m-v>", "<c-r>+")
