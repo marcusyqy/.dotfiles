@@ -5,8 +5,10 @@
 require("marcusyqy.color.gruvbox")
 require("marcusyqy.color.vague")
 require("marcusyqy.color.vscode")
+require("marcusyqy.color.lackluster")
 
-vim.cmd("colorscheme distinguished")
+-- vim.cmd("colorscheme distinguished")
+vim.cmd("colorscheme lackluster-hack")
 -- if os.getenv("SSH_TTY") ~= nil then
 --   -- vim.opt.termguicolors = false
 --   vim.cmd("colorscheme vim")

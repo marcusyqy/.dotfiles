@@ -75,6 +75,8 @@ local packer = require('packer').startup(function()
 
     -- colorschemes
     use { "ellisonleao/gruvbox.nvim" }
+    use { "slugbyte/lackluster.nvim" }
+
     use {"marcusyqy/vim-distinguished" }
     use {"Mofiqul/vscode.nvim"}
 
