@@ -340,9 +340,9 @@ vim.g.rustaceanvim = {
   },
 }
 
-nvim_lsp.svelte.setup {
-    on_attach = on_attach,
-}
+-- nvim_lsp.svelte.setup {
+--     on_attach = on_attach,
+-- }
 
 -- nvim_lsp.lua_ls.setup {
 --     on_attach = on_attach,
@@ -352,9 +352,9 @@ nvim_lsp.emmet_ls.setup {
     on_attach = on_attach,
 }
 
-nvim_lsp.ts_ls.setup {
-    on_attach = on_attach,
-}
+-- nvim_lsp.ts_ls.setup {
+--     on_attach = on_attach,
+-- }
 
 nvim_lsp.quick_lint_js.setup {
     on_attach = on_attach,
