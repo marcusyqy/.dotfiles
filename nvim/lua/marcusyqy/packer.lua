@@ -117,6 +117,7 @@ local packer = require('packer').startup(function()
     use { 'p00f/clangd_extensions.nvim', commit = "798e377ec859087132b81d2f347b5080580bd6b1" }
     use { 'mrcjkb/rustaceanvim' }
     use { "folke/lazydev.nvim" }
+    use { "ej-shafran/compile-mode.nvim" }
 
     -- use { 'Bekaboo/deadcolumn.nvim' }
     use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
@@ -127,6 +128,7 @@ local packer = require('packer').startup(function()
     use { "mileszs/ack.vim" }
     use { "duane9/nvim-rg" }
     use { "vague2k/vague.nvim" }
+    use {"m00qek/baleia.nvim"}
     use { "olimorris/onedarkpro.nvim" }
     use {
       'nvim-lualine/lualine.nvim',
