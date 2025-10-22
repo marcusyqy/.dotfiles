@@ -170,7 +170,7 @@ nnoremap("<f4>", function()
     runner.run_shell("test")
 end)
 
-nnoremap("<f5>", ":make<CR>")
+nnoremap("<f5>", ":Recompile<CR>")
 cnoremap("<C-t>", "e <c-r>%", {})
 cnoremap("<C-l>", "e %:h", {})
 cnoremap("<C-a>", "<home>", {})
