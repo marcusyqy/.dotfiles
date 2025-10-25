@@ -74,6 +74,7 @@ local packer = require('packer').startup(function()
 
 
     -- colorschemes
+    use { "sainnhe/everforest" }
     use { "ellisonleao/gruvbox.nvim" }
     use { "slugbyte/lackluster.nvim" }
 

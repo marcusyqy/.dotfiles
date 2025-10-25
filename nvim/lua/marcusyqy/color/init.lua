@@ -6,13 +6,15 @@ require("marcusyqy.color.gruvbox")
 require("marcusyqy.color.vague")
 require("marcusyqy.color.vscode")
 require("marcusyqy.color.lackluster")
+require("marcusyqy.color.everforest")
 
-vim.cmd("colorscheme default")
-vim.cmd([[
-  highlight Normal guibg=NONE
-  highlight NormalFloat guibg=NONE
-  highlight NormalNC guibg=NONE
-]])
+vim.cmd("colorscheme everforest")
+-- vim.cmd([[
+--   highlight Normal guibg=NONE
+--   highlight NormalFloat guibg=NONE
+--   highlight NormalNC guibg=NONE
+-- ]])
+
 -- vim.cmd("colorscheme lackluster-night")
 -- if os.getenv("SSH_TTY") ~= nil then
 --   -- vim.opt.termguicolors = false
