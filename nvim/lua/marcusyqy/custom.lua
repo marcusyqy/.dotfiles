@@ -82,7 +82,6 @@ vnoremap("<leader>p", "\"_dp")
 
 nnoremap("<leader>sv", vimfn([[source $MYVIMRC]]))
 
-nnoremap("<c-\\>", "<c-w>v") -- vscode
 
 local function netrw()
     if vim.bo.filetype == "netrw" then
@@ -171,12 +170,15 @@ nnoremap("<f4>", function()
 end)
 
 nnoremap("<f5>", ":Recompile<CR>")
+nnoremap("<c-\\>", ":Recompile<CR>")
+
 cnoremap("<C-t>", "e <c-r>%", {})
 cnoremap("<C-l>", "e %:h", {})
 cnoremap("<C-a>", "<home>", {})
 cnoremap("<C-e>", "<end>", {})
 inoremap("<C-a>", "<home>", {})
 inoremap("<C-e>", "<end>", {})
+cnoremap("<C-b>", "Compile", {})
 
 -- testing this out.
 inoremap("<C-k>", "<c-y>", {})
