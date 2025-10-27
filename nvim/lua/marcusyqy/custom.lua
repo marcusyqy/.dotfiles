@@ -171,6 +171,8 @@ end)
 
 nnoremap("<f5>", ":Recompile<CR>")
 nnoremap("<c-\\>", ":Recompile<CR>")
+nnoremap("<leader>bi", ":Compile<CR>")
+nnoremap("<leader>bo", ":Recompile<CR>")
 
 cnoremap("<C-t>", "e <c-r>%", {})
 cnoremap("<C-l>", "e %:h", {})
