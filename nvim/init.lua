@@ -360,6 +360,7 @@ require("lazy").setup({
       'dmtrKovalenko/fff.nvim',
       dependencies = {
         "folke/snacks.nvim",
+        "nvim-tree/nvim-web-devicons",
       },
       build = function()
         -- this will download prebuild binary or try to use existing rustup toolchain to build from source
