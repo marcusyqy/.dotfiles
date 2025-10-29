@@ -231,6 +231,7 @@ require("lazy").setup({
         },
         picker = {
           enabled = true,
+          prompt = "   ",
           win = {
             -- input window
             input = {
@@ -319,8 +320,8 @@ require("lazy").setup({
         -- find
         { "<c-b>", function() Snacks.picker.buffers() end, desc = "Buffers" },
         { "<leader>fc", function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end, desc = "Find Config File" },
-        -- { "<leader>ff", function() Snacks.picker.files() end, desc = "Find Files" },
-        { "<leader>fg", function() Snacks.picker.git_files() end, desc = "Find Git Files" },
+        { "<leader>fg", function() Snacks.picker.files() end, desc = "Find Files" },
+        { "<leader>ff", function() Snacks.picker.git_files() end, desc = "Find Git Files" },
         { "<leader>fp", function() Snacks.picker.projects() end, desc = "Projects" },
         { "<leader>fr", function() Snacks.picker.recent() end, desc = "Recent" },
         -- git
@@ -443,13 +444,14 @@ require("lazy").setup({
           preview_position = 'right', -- or 'left', 'right', 'top', 'bottom'
           preview_size = 0.5,
         },
+        prompt = "   ",
       },
       -- No need to lazy-load with lazy.nvim.
       -- This plugin initializes itself lazily.
       lazy = false,
       keys = {
         {
-          "<c-p>", -- try it if you didn't it is a banger keybinding for a picker
+          "<leader>ff", -- try it if you didn't it is a banger keybinding for a picker
           function() require('fff').find_files() end,
           desc = 'FFFind files',
         }
