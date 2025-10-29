@@ -209,7 +209,7 @@ require("lazy").setup({
         vim.g.everforest_better_performance = 1
         vim.g.everforest_background = 'hard'
         vim.g.everforest_enable_italic = 1
-        vim.g.everforest_transparent_background = 0
+        vim.g.everforest_transparent_background = 1
         vim.g.everforest_ui_contrast = 'high'
         vim.cmd([[colorscheme everforest]])
       end,
@@ -321,7 +321,7 @@ require("lazy").setup({
         { "<c-b>", function() Snacks.picker.buffers() end, desc = "Buffers" },
         { "<leader>fc", function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end, desc = "Find Config File" },
         { "<leader>fg", function() Snacks.picker.files() end, desc = "Find Files" },
-        { "<leader>ff", function() Snacks.picker.git_files() end, desc = "Find Git Files" },
+        { "<c-p>", function() Snacks.picker.git_files() end, desc = "Find Git Files" },
         { "<leader>fp", function() Snacks.picker.projects() end, desc = "Projects" },
         { "<leader>fr", function() Snacks.picker.recent() end, desc = "Recent" },
         -- git
