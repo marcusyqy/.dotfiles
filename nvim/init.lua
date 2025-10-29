@@ -891,8 +891,11 @@ require("lazy").setup({
 
             -- For ultisnips user.
             -- { name = 'ultisnips' },
-
-            { name = 'buffer' } , -- ,  keyword_length = 1 },
+            { name = 'buffer',  keyword_length = 4 },
+          },
+          window = {
+            -- completion = cmp.config.window.bordered(),
+            -- documentation = cmp.config.window.bordered(),
           },
           formatting = {
             format = lspkind.cmp_format({
@@ -1008,7 +1011,7 @@ require("lazy").setup({
           -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
           -- Using this option may slow down your editor, and you may see some duplicate highlights.
           -- Instead of true it can also be a list of languages
-          additional_vim_regex_highlighting = false,
+          additional_vim_regex_highlighting = true,
         },
       }
     },
