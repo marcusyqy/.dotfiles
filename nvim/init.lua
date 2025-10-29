@@ -208,7 +208,7 @@ require("lazy").setup({
       config = function()
         require("tokyonight").setup({
         -- use the night style
-        style = "night",
+        style = "moon",
         light_style = "day",
         transparent = true,
         -- disable italic for functions
@@ -340,12 +340,12 @@ require("lazy").setup({
       },
       keys = {
         -- Top Pickers & Explorer
-        { "<leader><space>", function() Snacks.picker.smart() end, desc = "Smart Find Files" },
+        -- { "<leader><space>", function() Snacks.picker.smart() end, desc = "Smart Find Files" },
         { "<leader>,", function() Snacks.picker.buffers() end, desc = "Buffers" },
         { "<leader>/", function() Snacks.picker.grep() end, desc = "Grep" },
         { "<leader>:", function() Snacks.picker.command_history() end, desc = "Command History" },
-        { "<leader>n", function() Snacks.picker.notifications() end, desc = "Notification History" },
-        { "<leader>e", function() Snacks.explorer() end, desc = "File Explorer" },
+        -- { "<leader>n", function() Snacks.picker.notifications() end, desc = "Notification History" },
+        -- { "<leader>e", function() Snacks.explorer() end, desc = "File Explorer" },
         -- find
         { "<c-b>", function() Snacks.picker.buffers() end, desc = "Buffers" },
         { "<leader>fc", function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end, desc = "Find Config File" },
