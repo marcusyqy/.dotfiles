@@ -207,6 +207,36 @@ end
 require("lazy").setup({
   spec = {
     {
+      "folke/tokyonight.nvim",
+      lazy = false,
+      priority = 1000,
+      config = function()
+        require("tokyonight").setup({
+        -- use the night style
+        style = "night",
+        light_style = "day",
+        transparent = true,
+        -- disable italic for functions
+        styles = {
+          -- Style to be applied to different syntax groups
+          -- Value is any valid attr-list value for `:help nvim_set_hl`
+          comments = { italic = true },
+          keywords = { italic = true },
+          functions = {},
+          variables = {},
+          -- Background styles. Can be "dark", "transparent" or "normal"
+          sidebars = "transparent", -- style for sidebars, see below
+          floats = "transparent", -- style for floating windows
+        },  -- Change the "hint" color to the "orange" color, and make the "error" color bright red
+        on_colors = function(colors)
+          colors.hint = colors.orange
+          colors.error = "#ff0000"
+        end
+        })
+        vim.cmd([[colorscheme tokyonight]])
+      end,
+    },
+    {
       "sainnhe/everforest",
       lazy = false,
       priority = 1000,
@@ -216,7 +246,7 @@ require("lazy").setup({
         vim.g.everforest_enable_italic = 1
         vim.g.everforest_transparent_background = 1
         vim.g.everforest_ui_contrast = 'high'
-        vim.cmd([[colorscheme everforest]])
+        -- vim.cmd([[colorscheme everforest]])
       end,
     },
     {
@@ -234,12 +264,79 @@ require("lazy").setup({
           enabled = false,
           timeout = 3000,
         },
-        picker = { enabled = true },
+        picker = {
+          enabled = true,
+          win = {
+            -- input window
+            input = {
+              keys = {
+                -- to close the picker on ESC instead of going to normal mode,
+                -- add the following keymap to your config
+                -- ["<Esc>"] = { "close", mode = { "n", "i" } },
+                ["/"] = "toggle_focus",
+                ["<C-Down>"] = { "history_forward", mode = { "i", "n" } },
+                ["<C-Up>"] = { "history_back", mode = { "i", "n" } },
+                ["<C-c>"] = { "cancel", mode = "i" },
+                ["<C-w>"] = { "<c-s-w>", mode = { "i" }, expr = true, desc = "delete word" },
+                ["<CR>"] = { "confirm", mode = { "n", "i" } },
+                ["<Down>"] = { "list_down", mode = { "i", "n" } },
+                ["<Esc>"] = "cancel",
+                ["<C-a>"]= { "<home>", mode = { "i" }},
+                ["<C-e>"]= { "<end>", mode = { "i" }},
+                ["<S-CR>"] = { { "pick_win", "jump" }, mode = { "n", "i" } },
+                ["<S-Tab>"] = { "select_and_prev", mode = { "i", "n" } },
+                ["<Tab>"] = { "select_and_next", mode = { "i", "n" } },
+                ["<Up>"] = { "list_up", mode = { "i", "n" } },
+                ["<a-d>"] = { "inspect", mode = { "n", "i" } },
+                ["<a-f>"] = { "toggle_follow", mode = { "i", "n" } },
+                ["<a-h>"] = { "toggle_hidden", mode = { "i", "n" } },
+                ["<a-i>"] = { "toggle_ignored", mode = { "i", "n" } },
+                ["<a-r>"] = { "toggle_regex", mode = { "i", "n" } },
+                ["<a-m>"] = { "toggle_maximize", mode = { "i", "n" } },
+                ["<a-p>"] = { "toggle_preview", mode = { "i", "n" } },
+                ["<a-w>"] = { "cycle_win", mode = { "i", "n" } },
+                ["<c-b>"] = { "preview_scroll_up", mode = { "i", "n" } },
+                ["<c-d>"] = { "list_scroll_down", mode = { "i", "n" } },
+                ["<c-f>"] = { "preview_scroll_down", mode = { "i", "n" } },
+                ["<c-g>"] = { "toggle_live", mode = { "i", "n" } },
+                ["<c-j>"] = { "list_down", mode = { "i", "n" } },
+                ["<c-k>"] = { "list_up", mode = { "i", "n" } },
+                ["<c-n>"] = { "list_down", mode = { "i", "n" } },
+                ["<c-p>"] = { "list_up", mode = { "i", "n" } },
+                ["<c-q>"] = { "qflist", mode = { "i", "n" } },
+                ["<c-s>"] = { "edit_split", mode = { "i", "n" } },
+                ["<c-t>"] = { "tab", mode = { "n", "i" } },
+                ["<c-u>"] = { "list_scroll_up", mode = { "i", "n" } },
+                ["<c-v>"] = { "edit_vsplit", mode = { "i", "n" } },
+                ["<c-r>#"] = { "insert_alt", mode = "i" },
+                ["<c-r>%"] = { "insert_filename", mode = "i" },
+                ["<c-r><c-a>"] = { "insert_cWORD", mode = "i" },
+                ["<c-r><c-f>"] = { "insert_file", mode = "i" },
+                ["<c-r><c-l>"] = { "insert_line", mode = "i" },
+                ["<c-r><c-p>"] = { "insert_file_full", mode = "i" },
+                ["<c-r><c-w>"] = { "insert_cword", mode = "i" },
+                ["<c-w>H"] = "layout_left",
+                ["<c-w>J"] = "layout_bottom",
+                ["<c-w>K"] = "layout_top",
+                ["<c-w>L"] = "layout_right",
+                ["?"] = "toggle_help_input",
+                ["G"] = "list_bottom",
+                ["gg"] = "list_top",
+                ["j"] = "list_down",
+                ["k"] = "list_up",
+                ["q"] = "close",
+              },
+              b = {
+                minipairs_disable = true,
+              },
+            }
+          }
+        },
         quickfile = { enabled = true },
         scope = { enabled = true },
         scroll = { enabled = false },
         statuscolumn = { enabled = true },
-        words = { enabled = true },
+        words = { enabled = false },
         styles = {
           notification = {
             -- wo = { wrap = true } -- Wrap notifications
@@ -348,7 +445,7 @@ require("lazy").setup({
             -- Snacks.toggle.line_number():map("<leader>ul")
             -- Snacks.toggle.option("conceallevel", { off = 0, on = vim.o.conceallevel > 0 and vim.o.conceallevel or 2 }):map("<leader>uc")
             -- Snacks.toggle.treesitter():map("<leader>uT")
-            -- Snacks.toggle.option("background", { off = "light", on = "dark", name = "Dark Background" }):map("<leader>ub")
+            Snacks.toggle.option("background", { off = "light", on = "dark", name = "Dark Background" }):map("<leader>ub")
             -- Snacks.toggle.inlay_hints():map("<leader>uh")
             -- Snacks.toggle.indent():map("<leader>ug")
             -- Snacks.toggle.dim():map("<leader>uD")
@@ -968,8 +1065,8 @@ vim.keymap.set("n", "<leader>bo", ":Recompile<CR>")
 vim.keymap.set("n", "<leader>fj", ":NextError<CR>")
 vim.keymap.set("n", "<leader>fk", ":PrevError<CR>")
 
-vim.keymap.set("c", "<C-a>", "<home>", {})
-vim.keymap.set("c", "<C-e>", "<end>", {})
+vim.keymap.set({"i", "c"}, "<C-a>", "<home>", {})
+vim.keymap.set({"i", "c"}, "<C-e>", "<end>", {})
 
 vim.keymap.set("i", "<m-v>", "<c-r>+")
 vim.keymap.set("n", "<m-v>", "\"+p")
