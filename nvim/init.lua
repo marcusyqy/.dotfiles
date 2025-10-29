@@ -29,11 +29,6 @@ vim.cmd([[
     syntax enable
 ]])
 
--- vim.cmd([[
---   highlight Normal guibg=NONE
---   highlight NormalFloat guibg=NONE
---   highlight NormalNC guibg=NONE
--- ]])
 
 -- language
 vim.g.python_recommended_style = 0
@@ -259,7 +254,7 @@ require("lazy").setup({
         dashboard = { enabled = false },
         explorer = { enabled = true },
         indent = { enabled = false },
-        input = { enabled = true },
+        input = { enabled = false },
         notifier = {
           enabled = false,
           timeout = 3000,
@@ -333,9 +328,9 @@ require("lazy").setup({
           }
         },
         quickfile = { enabled = true },
-        scope = { enabled = true },
+        scope = { enabled = false },
         scroll = { enabled = false },
-        statuscolumn = { enabled = true },
+        statuscolumn = { enabled = false },
         words = { enabled = false },
         styles = {
           notification = {
@@ -470,6 +465,13 @@ require("lazy").setup({
         debug = {
           enabled = false,     -- we expect your collaboration at least during the beta
           show_scores = false, -- to help us optimize the scoring system, feel free to share your scores!
+        },
+        layout = {
+          height = 0.8,
+          width = 0.8,
+          prompt_position = 'top', -- or 'top'
+          preview_position = 'right', -- or 'left', 'right', 'top', 'bottom'
+          preview_size = 0.5,
         },
       },
       -- No need to lazy-load with lazy.nvim.
@@ -1173,3 +1175,10 @@ autocmd({ "BufWritePre" }, {
     command = "%s/\\s\\+$//e",
 })
 
+
+-- vim.cmd([[
+--   colorscheme default
+--   highlight Normal guibg=NONE
+--   highlight NormalFloat guibg=NONE
+--   highlight NormalNC guibg=NONE
+-- ]])
