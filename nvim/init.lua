@@ -299,9 +299,9 @@ require("lazy").setup({
           }
         },
         quickfile = { enabled = true },
-        scope = { enabled = false },
+        scope = { enabled = true },
         scroll = { enabled = false },
-        statuscolumn = { enabled = false },
+        statuscolumn = { enabled = true },
         words = { enabled = false },
         styles = {
           notification = {
