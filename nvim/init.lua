@@ -202,36 +202,6 @@ end
 require("lazy").setup({
   spec = {
     {
-      "folke/tokyonight.nvim",
-      lazy = false,
-      priority = 1000,
-      config = function()
-        require("tokyonight").setup({
-        -- use the night style
-        style = "moon",
-        light_style = "day",
-        transparent = true,
-        -- disable italic for functions
-        styles = {
-          -- Style to be applied to different syntax groups
-          -- Value is any valid attr-list value for `:help nvim_set_hl`
-          comments = { italic = true },
-          keywords = { italic = true },
-          functions = {},
-          variables = {},
-          -- Background styles. Can be "dark", "transparent" or "normal"
-          sidebars = "transparent", -- style for sidebars, see below
-          floats = "transparent", -- style for floating windows
-        },  -- Change the "hint" color to the "orange" color, and make the "error" color bright red
-        on_colors = function(colors)
-          colors.hint = colors.orange
-          colors.error = "#ff0000"
-        end
-        })
-        vim.cmd([[colorscheme tokyonight]])
-      end,
-    },
-    {
       "sainnhe/everforest",
       lazy = false,
       priority = 1000,
@@ -239,9 +209,9 @@ require("lazy").setup({
         vim.g.everforest_better_performance = 1
         vim.g.everforest_background = 'hard'
         vim.g.everforest_enable_italic = 1
-        vim.g.everforest_transparent_background = 1
+        vim.g.everforest_transparent_background = 0
         vim.g.everforest_ui_contrast = 'high'
-        -- vim.cmd([[colorscheme everforest]])
+        vim.cmd([[colorscheme everforest]])
       end,
     },
     {
@@ -253,7 +223,7 @@ require("lazy").setup({
         bigfile = { enabled = true },
         dashboard = { enabled = false },
         explorer = { enabled = true },
-        indent = { enabled = false },
+        indent = { enabled = true, animate = { enabled = false } },
         input = { enabled = false },
         notifier = {
           enabled = false,
