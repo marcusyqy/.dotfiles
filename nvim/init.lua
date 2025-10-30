@@ -786,7 +786,10 @@ require("lazy").setup({
             border = "none",
           },
         },
-      }
+      },
+      dependencies = {
+        "neovim/nvim-lspconfig",
+      },
     },
     { "hrsh7th/nvim-cmp",
       dependencies = {
