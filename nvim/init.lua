@@ -153,50 +153,6 @@ vim.g.compile_mode = {
   -- bang_expansion = true,
 }
 
-local on_attach = function(client, bufnr)
-    --require'completion'.on_attach();
-    -- vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
-    local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-
-    -- local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
-
-    -- Mappings.
-    local opts = { noremap = true, silent = true }
-
-    -- See `:help vim.lsp.*` for documentation on any of the below functions
-    buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-    buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
-    buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
-    buf_set_keymap('n', '<leader>rr', '<Cmd>lua vim.lsp.buf.references()<CR>', opts)
-    buf_set_keymap('n', '<leader>rr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-    buf_set_keymap('n', '<leader>gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-    buf_set_keymap('n', '<leader>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
-    buf_set_keymap('n', '<leader>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
-    buf_set_keymap('n', '<leader>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
-    buf_set_keymap('n', '<leader>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-    buf_set_keymap('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-    buf_set_keymap('n', '<leader>R', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-    buf_set_keymap('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-    buf_set_keymap('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-    buf_set_keymap('i', '<c-l>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-    --buf_set_keymap('n', '<leader>gh', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
-    --buf_set_keymap('v', '<leader>gh', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
-    buf_set_keymap('n', '<leader>gh',
-    '<cmd>lua vim.diagnostic.open_float(0, { scope = "line", border = "rounded" })<CR>', opts)
-    -- buf_set_keymap('v', '<leader>vgh', '<cmd>lua vim.diagnostic.open_float(0, { border = "rounded" })<CR>', opts)
-    buf_set_keymap('n', '<leader>vk', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
-    buf_set_keymap('n', '<leader>vj', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
-    buf_set_keymap('n', '<leader>k', '<cmd>lua vim.diagnostic.goto_prev({ severity = vim.diagnostic.severity.ERROR})<CR>'
-    ,
-    opts)
-    buf_set_keymap('n', '<leader>j', '<cmd>lua vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.ERROR})<CR>'
-    ,
-    opts)
-    buf_set_keymap('n', '<leader>vq', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
-    -- buf_set_keymap("n", "<leader>ff", "<cmd>lua vim.lsp.buf.format()<CR>", opts)
-    -- buf_set_keymap("n", "<leader>vf", "<cmd>lua vim.lsp.buf.format()<CR>", opts)
-    -- buf_set_keymap("n", "<c-s>", "<cmd>lua vim.lsp.buf.format()<CR><cmd>lua vim.cmd([[w]])<CR>", opts);
-end
 
 -- Setup lazy.nvim
 require("lazy").setup({
@@ -346,8 +302,6 @@ require("lazy").setup({
         { "<leader>sC", function() Snacks.picker.commands() end, desc = "Commands" },
         { "<leader>sd", function() Snacks.picker.diagnostics() end, desc = "Diagnostics" },
         { "<leader>sD", function() Snacks.picker.diagnostics_buffer() end, desc = "Buffer Diagnostics" },
-        { "<leader>sh", function() Snacks.picker.help() end, desc = "Help Pages" },
-        { "<leader>sH", function() Snacks.picker.highlights() end, desc = "Highlights" },
         { "<leader>si", function() Snacks.picker.icons() end, desc = "Icons" },
         { "<leader>sj", function() Snacks.picker.jumps() end, desc = "Jumps" },
         { "<leader>sk", function() Snacks.picker.keymaps() end, desc = "Keymaps" },
@@ -956,7 +910,7 @@ require("lazy").setup({
                     -- Lsp Progress is formatted using the builtins for lsp_progress. See config.format.builtin
                     -- See the section on formatting for more details on how to customize.
                     --- @type NoiceFormat|string
-                    format = "lsp_progress",
+
                     --- @type NoiceFormat|string
                     format_done = "lsp_progress_done",
                     throttle = 1000 / 30, -- frequency to update lsp progress message
@@ -1057,7 +1011,6 @@ require("lazy").setup({
       config = function()
         vim.lsp.set_log_level("error")
         vim.lsp.config("pylsp", {
-            on_attach = on_attach,
             settings = {
                 pylsp = {
                     plugins = {
@@ -1071,13 +1024,8 @@ require("lazy").setup({
             }
         })
         vim.lsp.config("*", {
-            on_attach = on_attach,
-        })
-        vim.lsp.config("lua_ls", {
-            on_attach = on_attach,
         })
         vim.lsp.config("clangd", {
-          on_attach = on_attach,
           cmd = {
             "clangd",
             "--header-insertion=never",
@@ -1187,7 +1135,6 @@ vim.keymap.set("v", "<m-c>", "\"+y")
 
 
 vim.keymap.set("i", "<c-c>", "<esc>")
-vim.keymap.set("n", "<leader>sf", function() vim.cmd([[ClangdSwitchSourceHeader]]) end)
 
 -- center cursor
 vim.keymap.set("n", "n", "nzzzv")
@@ -1285,6 +1232,56 @@ autocmd({ "BufWritePre" }, {
     command = "%s/\\s\\+$//e",
 })
 
+
+vim.api.nvim_create_autocmd("LspAttach", {
+    callback = function(args)
+        local client = vim.lsp.get_client_by_id(args.data.client_id)
+        local bufnr = args.buf;
+        if not client then
+            return
+        end
+        local opts = { noremap = true, silent = true, buffer = bufnr }
+
+        -- See `:help vim.lsp.*` for documentation on any of the below functions
+        vim.keymap.set('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
+        vim.keymap.set('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
+        vim.keymap.set('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
+        vim.keymap.set('n', '<leader>rr', '<Cmd>lua vim.lsp.buf.references()<CR>', opts)
+        vim.keymap.set('n', '<leader>rr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+        vim.keymap.set('n', '<leader>gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+        vim.keymap.set('n', '<leader>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
+        vim.keymap.set('n', '<leader>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
+        vim.keymap.set('n', '<leader>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
+        vim.keymap.set('n', '<leader>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
+        vim.keymap.set('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+        vim.keymap.set('n', '<leader>R', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+        vim.keymap.set('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+        vim.keymap.set('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+        vim.keymap.set('i', '<c-l>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+        --vim.keymap.set('n', '<leader>gh', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
+        --vim.keymap.set('v', '<leader>gh', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
+        vim.keymap.set('n', '<leader>gh',
+            '<cmd>lua vim.diagnostic.open_float(0, { scope = "line", border = "rounded" })<CR>', opts)
+        -- keymap.set('v', '<leader>vgh', '<cmd>lua vim.diagnostic.open_float(0, { border = "rounded" })<CR>', opts)
+        vim.keymap.set('n', '<leader>vk', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
+        vim.keymap.set('n', '<leader>vj', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
+        vim.keymap.set('n', '<leader>k', '<cmd>lua vim.diagnostic.goto_prev({ severity = vim.diagnostic.severity.ERROR})<CR>'
+        ,
+        opts)
+        vim.keymap.set('n', '<leader>j', '<cmd>lua vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.ERROR})<CR>'
+        ,
+        opts)
+        vim.keymap.set('n', '<leader>vq', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
+        -- vim.keymap.set("n", "<leader>ff", "<cmd>lua vim.lsp.buf.format()<CR>", opts)
+        -- vim.keymap.set("n", "<leader>vf", "<cmd>lua vim.lsp.buf.format()<CR>", opts)
+        -- vim.keymap.set("n", "<c-s>", "<cmd>lua vim.lsp.buf.format()<CR><cmd>lua vim.cmd([[w]])<CR>", opts);
+
+        if client.name == "clangd" then
+            vim.keymap.set("n", "<leader>sh", "<cmd>LspClangdShowSymbolInfo<CR>", opts)
+            vim.keymap.set("n", "<leader>sf", "<cmd>LspClangdSwitchSourceHeader<CR>", opts)
+        end
+    end,
+})
 
 -- vim.cmd([[
 --   colorscheme default
