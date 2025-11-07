@@ -1185,6 +1185,7 @@ vim.keymap.set("v", "<m-v>", "\"+p")
 vim.keymap.set("n", "<m-c>", "\"+y")
 vim.keymap.set("v", "<m-c>", "\"+y")
 
+
 vim.keymap.set("i", "<c-c>", "<esc>")
 vim.keymap.set("n", "<leader>sf", function() vim.cmd([[ClangdSwitchSourceHeader]]) end)
 
@@ -1195,9 +1196,10 @@ vim.keymap.set("n", "N", "Nzzzv")
 -- yanks
 vim.keymap.set("n", "<leader>fy", function() vim.cmd([[let @+=@%]]) end)
 vim.keymap.set("n", "Y", "y$")
+vim.keymap.set("n", "<leader>Y", "\"+y$")
+vim.keymap.set("v", "<leader>y", "\"+y")
+vim.keymap.set("v", "<leader>p", "\"_dP")
 
-vim.keymap.set("v", "<leader>p", "\"_dp")
-vim.keymap.set("v", "<leader>P", "\"_dP")
 
 vim.keymap.set("n", "<m-left>", "10<C-w><")
 vim.keymap.set("n", "<m-right>", "10<C-w>>")
