@@ -1026,22 +1026,22 @@ require("lazy").setup({
         vim.lsp.config("*", {
         })
         vim.lsp.config("clangd", {
+            -- "--header-insertion-decorators",
+            -- "--function-arg-placeholders",
+            -- "--completion-style=detailed",
+            -- "--clang-tidy=false",
+            -- "--query-driver=**"
           cmd = {
             "clangd",
             "--header-insertion=never",
-            "--header-insertion-decorators",
-            "--function-arg-placeholders",
-            "--completion-style=detailed",
             "--j=4",
             "--pch-storage=memory",
             "--compile-commands-dir=${workspaceFolder}/",
             "--background-index",
-            -- "--clang-tidy=false",
             "--suggest-missing-includes",
-            -- "--clang-tidy",
-            "--all-scopes-completion"
-            -- "--query-driver=**"
-            -- "query-driver=/**/*"
+            "--clang-tidy",
+            "--all-scopes-completion",
+            "--query-driver=/**/*"
           }
         })
       end,
