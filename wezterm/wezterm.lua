@@ -48,6 +48,12 @@ config.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' } -- no ligatures for 
 
 config.freetype_load_target = "HorizontalLcd"
 
+-- tab
+config.use_fancy_tab_bar = true
+config.enable_tab_bar = true
+config.hide_tab_bar_if_only_one_tab = false
+config.tab_bar_at_bottom = false
+
 -- windows
 config.window_decorations = "RESIZE | INTEGRATED_BUTTONS" -- "TITLE | RESIZE"
 config.window_padding = {
@@ -62,8 +68,7 @@ config.window_padding = {
 config.warn_about_missing_glyphs = false
 config.window_close_confirmation = 'NeverPrompt'
 
-require("tabbar").apply_config(config);
-
+-- require("tabbar").apply_config(config);
 -- require("keys").apply_config(config) -- we use tmux for linux so we don't need this
 
 config.enable_wayland = false

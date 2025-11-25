@@ -143,15 +143,6 @@ for type, icon in pairs(signs) do
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
 
-vim.g.compile_mode = {
-  baleia_setup = true,
-  -- to add ANSI escape code support, add:
-  -- baleia_setup = true,
-
-  -- to make `:Compile` replace special characters (e.g. `%`) in
-  -- the command (and behave more like `:!`), add:
-  -- bang_expansion = true,
-}
 
 
 -- Setup lazy.nvim
@@ -646,8 +637,17 @@ require("lazy").setup({
     { "ej-shafran/compile-mode.nvim",
       dependencies = {
         "nvim-lua/plenary.nvim",
-        "m00qek/baleia.nvim",
-      }
+        { "m00qek/baleia.nvim", tag = "v1.3.0" },
+      },
+      config = function()
+        vim.g.compile_mode = {
+          input_word_completion = true,
+          baleia_setup = true,
+          -- to make `:Compile` replace special characters (e.g. `%`) in
+          -- the command (and behave more like `:!`), add:
+          bang_expansion = true,
+        }
+      end
     },
     { "tpope/vim-fugitive" },
     { "sainnhe/everforest" },
@@ -1282,6 +1282,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end
   end,
 })
+
 
 -- vim.cmd([[
 --   colorscheme default
