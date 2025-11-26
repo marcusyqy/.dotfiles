@@ -1,4 +1,5 @@
 local wezterm = require 'wezterm'
+local action = wezterm.action
 
 -- This table will hold the configuration.
 local config = {}
@@ -68,9 +69,50 @@ config.window_padding = {
 config.warn_about_missing_glyphs = false
 config.window_close_confirmation = 'NeverPrompt'
 
--- require("tabbar").apply_config(config);
--- require("keys").apply_config(config) -- we use tmux for linux so we don't need this
-
 config.enable_wayland = false
+-- config.enable_kitty_keyboard = true
+
+-- Use the defaults as a base
+config.hyperlink_rules = wezterm.default_hyperlink_rules()
+
+-- makes things easier
+if wezterm.target_triple == "x86_64-apple-darwin" or
+   wezterm.target_triple == "aarch64-apple-darwin" then
+   config.keys = {
+     { mods = "OPT", key = "LeftArrow", action = action.SendKey({ mods = "ALT", key = "b" }) },
+     { mods = "OPT", key = "RightArrow", action = action.SendKey({ mods = "ALT", key = "f" }) },
+     { mods = "CMD", key = "LeftArrow", action = action.SendKey({ mods = "CTRL", key = "a" }) },
+     { mods = "CMD", key = "RightArrow", action = action.SendKey({ mods = "CTRL", key = "e" }) },
+     { mods = "CMD", key = "Backspace", action = action.SendKey({ mods = "CTRL", key = "u" }) },
+   }
+elseif wezterm.target_triple == "x86_64-unknown-linux-gnu" then
+  config.keys = {
+    { mods = "CTRL", key = "LeftArrow", action = action.SendKey({ mods = "ALT", key = "b" }) },
+    { mods = "CTRL", key = "RightArrow", action = action.SendKey({ mods = "ALT", key = "f" }) },
+  }
+end
+
+-- Notification when the configuration is reloaded
+local function toast(window, message)
+ window:toast_notification('wezterm', message .. ' - ' .. os.date('%I:%M:%S %p'), nil, 1000)
+end
+
+wezterm.on('window-config-reloaded', function(window, pane)
+ toast(window, 'Configuration reloaded!')
+end)
+
+-- Make IP addresses with port clickable (e.g., 127.0.0.1:5053)
+table.insert(config.hyperlink_rules, {
+  regex = [[\b(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}):(\d+)\b]],
+  format = 'http://$1:$2',
+})
+
+-- Match local file paths ending in .html
+table.insert(config.hyperlink_rules, {
+ regex = [[\b(?:[a-zA-Z0-9_-]+(?:/[a-zA-Z0-9_-]+)*)+\.html\b]],
+ format = 'file://$0',
+})
+
+
 -- and finally, return the configuration to wezterm
 return config
