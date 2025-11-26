@@ -1275,14 +1275,6 @@ autocmd('TextYankPost', {
     end,
 })
 
-autocmd({ "BufEnter", "BufWinEnter", "TabEnter" }, {
-    group = MarcusYqyGroup,
-    pattern = "*.rs",
-    callback = function()
-        require("lsp_extensions").inlay_hints {}
-    end
-})
-
 -- remove white spaces
 autocmd({ "BufWritePre" }, {
     group = MarcusYqyGroup,
