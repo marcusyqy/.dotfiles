@@ -10,14 +10,12 @@ if wezterm.config_builder then
     config = wezterm.config_builder()
 end
 
--- config.color_scheme = 'Gruvbox light, medium (base16)'
--- config.color_scheme = 'Gruvbox dark, medium (base16)'
---
--- config.color_scheme = 'Rosé Pine (base16)'
 config.color_scheme = 'iTerm2 Default'
+-- config.color_scheme = 'Apple System Colors'
+-- config.color_scheme = 'Builtin Dark'
+
 config.colors = {}
 config.colors.background = '#1d1d1d'
--- config.colors.background = '#1d2021'
 -- config.colors.background = '#000000' -- for paramount
 config.colors.foreground = '#ffffff'
 
