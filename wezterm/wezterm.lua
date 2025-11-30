@@ -15,11 +15,11 @@ end
 --
 -- config.color_scheme = 'Rosé Pine (base16)'
 -- config.color_scheme = 'Rosé Pine (Gogh)'
--- config.colors = {}
--- config.colors.background = '#1d1d1d'
--- config.colors.foreground = '#ffffff'
+config.colors = {}
+config.colors.background = '#1d1d1d'
 -- config.colors.background = '#1d2021'
 -- config.colors.background = '#000000' -- for paramount
+config.colors.foreground = '#ffffff'
 
 -- @TODO try this out on windows.
 config.default_cursor_style = "BlinkingBlock"
