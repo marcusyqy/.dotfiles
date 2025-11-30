@@ -14,7 +14,7 @@ end
 -- config.color_scheme = 'Gruvbox dark, medium (base16)'
 --
 -- config.color_scheme = 'Rosé Pine (base16)'
--- config.color_scheme = 'Rosé Pine (Gogh)'
+config.color_scheme = 'iTerm2 Default'
 config.colors = {}
 config.colors.background = '#1d1d1d'
 -- config.colors.background = '#1d2021'
