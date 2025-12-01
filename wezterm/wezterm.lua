@@ -91,13 +91,13 @@ elseif wezterm.target_triple == "x86_64-unknown-linux-gnu" then
 end
 
 -- Notification when the configuration is reloaded
-local function toast(window, message)
- window:toast_notification('wezterm', message .. ' - ' .. os.date('%I:%M:%S %p'), nil, 1000)
-end
+-- local function toast(window, message)
+--  window:toast_notification('wezterm', message .. ' - ' .. os.date('%I:%M:%S %p'), nil, 1000)
+-- end
 
-wezterm.on('window-config-reloaded', function(window, pane)
- toast(window, 'Configuration reloaded!')
-end)
+-- wezterm.on('window-config-reloaded', function(window, pane)
+--  toast(window, 'Configuration reloaded!')
+-- end)
 
 -- Make IP addresses with port clickable (e.g., 127.0.0.1:5053)
 table.insert(config.hyperlink_rules, {
