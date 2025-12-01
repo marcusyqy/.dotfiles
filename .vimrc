@@ -11,8 +11,11 @@ set hlsearch
 set ruler
 set undodir=$HOME/.vim/undodir/
 set background=dark
-set rnu 
+set rnu
 set nu
 set incsearch
-colorscheme retrobox
-highlight Comment guifg=green ctermfg=red
+nnoremap <leader>y "+y$
+vnoremap <leader>y "+y
+vnoremap <leader>p "+P
+highlight Comment guifg=red ctermfg=red
+highlight Normal guifg=white guibg=#1d1d1d ctermbg=black ctermfg=white

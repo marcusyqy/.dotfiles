@@ -31,8 +31,14 @@ link_ghostty() {
     ln -s $DOTFILES/ghostty $ghostty
 }
 
+link_vimrc() {
+    rm $HOME/.vimrc
+    ln -s $DOTFILES/.vimrc $HOME/.vimrc
+}
+
 link_nvim
 link_tmux
 link_wezterm
 link_pip
 link_ghostty
+link_vimrc

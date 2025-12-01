@@ -1201,7 +1201,7 @@ vim.keymap.set("n", "N", "Nzzzv")
 -- yanks
 vim.keymap.set("n", "<leader>fy", function() vim.cmd([[let @+=@%]]) end)
 vim.keymap.set("n", "Y", "y$")
-vim.keymap.set("n", "<leader>Y", "\"+y$")
+vim.keymap.set("n", "<leader>y", "\"+y$")
 vim.keymap.set("v", "<leader>y", "\"+y")
 vim.keymap.set("v", "<leader>p", "\"_dP")
 
