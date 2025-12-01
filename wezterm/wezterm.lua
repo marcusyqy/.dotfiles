@@ -10,8 +10,8 @@ if wezterm.config_builder then
     config = wezterm.config_builder()
 end
 
-config.color_scheme = 'iTerm2 Default'
--- config.color_scheme = 'Apple System Colors'
+-- config.color_scheme = 'iTerm2 Default'
+config.color_scheme = 'Apple System Colors'
 -- config.color_scheme = 'Builtin Dark'
 
 config.colors = {}
