@@ -7,6 +7,7 @@ set si
 set number
 set hlsearch
 set ruler
-highlight Comment guifg=red ctermfg=red
-highlight Normal guibg=black ctermbg=black
+set undodir=$HOME/.vim/undodir/
+highlight Comment guifg=green ctermfg=green
+highlight Normal guibg=#1d1d1d ctermbg=Gray
 
