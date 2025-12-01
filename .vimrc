@@ -7,4 +7,6 @@ set si
 set number
 set hlsearch
 set ruler
-highlight Comment ctermfg=green
+highlight Comment guifg=red ctermfg=red
+highlight Normal guibg=black ctermbg=black
+
