@@ -1,4 +1,6 @@
 syntax on
+
+let mapleader=" "
 set tabstop=2
 set shiftwidth=2
 set expandtab
@@ -8,6 +10,9 @@ set number
 set hlsearch
 set ruler
 set undodir=$HOME/.vim/undodir/
-highlight Comment guifg=green ctermfg=green
-highlight Normal guibg=#1d1d1d ctermbg=Gray
-
+set background=dark
+set rnu 
+set nu
+set incsearch
+colorscheme retrobox
+highlight Comment guifg=green ctermfg=red
