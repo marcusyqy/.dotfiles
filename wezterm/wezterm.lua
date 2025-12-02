@@ -36,7 +36,15 @@ config.cursor_blink_rate = 500
 -- end
 
 config.font_size = 13.0
+config.cell_width = 0.95
+config.line_height = 0.9
 config.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' } -- no ligatures for me please!
+config.font = wezterm.font {
+    family = "JetBrains Mono", -- Or the font you prefer
+    weight = "Bold", -- Optional: Adjust weight
+    harfbuzz_features = { "calt=0", "clig=0", "liga=0" }, -- Disable ligatures
+}
+config.font_size = 14.0
 -- config.font = wezterm.font_with_fallback {
 --   -- "Comic Mono",
 --   "Iosevka Nerd Font",
