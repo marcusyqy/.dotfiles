@@ -36,12 +36,10 @@ config.cursor_blink_rate = 500
 -- end
 
 if wezterm.target_triple == "x86_64-apple-darwin" or
-   wezterm.target_triple == "aarch64-apple-darwin" then
+   wezterm.target_triple == "aarch64-apple-darwin" or
+   wezterm.target_triple == "x86_64-unknown-linux-gnu" then
    config.cell_width = 0.95
    config.line_height = 0.9
-else
-   config.cell_width = 0.95
-   config.line_height = 0.95
 end
 config.font_size = 13.0
 config.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' } -- no ligatures for me please!
