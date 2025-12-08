@@ -1168,13 +1168,25 @@ vim.keymap.set("n", "<leader>O", ":t.-1<cr>")
 
 
 -- terminal
-vim.keymap.set("t", "<c-[>", "<c-\\><c-n>")
+-- double tap
+vim.keymap.set("t", "<c-[><c-[>", "<c-\\><c-n>")
+vim.keymap.set("t", "<esc><esc>", "<c-\\><c-n>")
+-- vim.keymap.set("t", "<c-[>", "<c-\\><c-n>")
 vim.keymap.set("t", "<m-v>", "<c-\\><c-o>\"+p") -- enable paste.
 
 -- new terminal in tab
 vim.keymap.set("n", "<leader>tt", ":tabnew<CR>:term<CR>a")
 vim.keymap.set("n", "<leader>ts", "<c-w>s:term<CR>a")
 vim.keymap.set("n", "<leader>tv", "<c-w>v:term<CR>a")
+
+-- Open a terminal at the bottom of the screen with a fixed height.
+-- vim.keymap.set("n", "<leader>ts", function()
+--   vim.cmd.new()
+--   vim.cmd.wincmd "J"
+--   vim.api.nvim_win_set_height(0, 12)
+--   vim.wo.winfixheight = true
+--   vim.cmd.term()
+-- end)
 
 
 -- quick fix list
@@ -1287,6 +1299,16 @@ vim.api.nvim_create_autocmd("LspAttach", {
       vim.keymap.set("n", "<leader>sh", "<cmd>LspClangdShowSymbolInfo<CR>", opts)
       vim.keymap.set("n", "<leader>sf", "<cmd>LspClangdSwitchSourceHeader<CR>", opts)
     end
+  end,
+})
+
+-- Set local settings for terminal buffers
+vim.api.nvim_create_autocmd("TermOpen", {
+  group = vim.api.nvim_create_augroup("custom-term-open", {}),
+  callback = function()
+    vim.opt_local.number = false
+    vim.opt_local.relativenumber = false
+    vim.opt_local.scrolloff = 0
   end,
 })
 
