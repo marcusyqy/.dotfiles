@@ -1169,6 +1169,7 @@ vim.keymap.set("n", "<leader>O", ":t.-1<cr>")
 
 -- terminal
 vim.keymap.set("t", "<c-[>", "<c-\\><c-n>")
+vim.keymap.set("t", "<m-v>", "<c-\\><c-o>\"+p") -- enable paste.
 
 -- new terminal in tab
 vim.keymap.set("n", "<leader>tt", ":tabnew<CR>:term<CR>a")
