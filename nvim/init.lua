@@ -1163,6 +1163,8 @@ vim.keymap.set("n", "<m-left>", "10<C-w><")
 vim.keymap.set("n", "<m-right>", "10<C-w>>")
 vim.keymap.set("n", "<m-up>", "10<C-w>+")
 vim.keymap.set("n", "<m-down>", "10<C-w>-")
+vim.keymap.set("n", "<leader>o", ":t.<cr>")
+vim.keymap.set("n", "<leader>O", ":t.-1<cr>")
 
 
 -- terminal
@@ -1178,6 +1180,7 @@ vim.keymap.set("n", "<leader>tv", "<c-w>v:term<CR>a")
 vim.keymap.set("n", "<c-j>", ":cnext<CR>zz", { desc =  "Quick fix list next" })
 vim.keymap.set("n", "<c-k>", ":cprev<CR>zz", { desc = "Quick fix list prev" })
 vim.keymap.set("n", "gj", ":lnext<CR>zz", { desc = "Local Quick fix list next" })
+vim.keymap.set("n", "gk", ":lprev<CR>zz", { desc = "Local Quick fix list prev" })
 vim.keymap.set("n", "gk", ":lprev<CR>zz", { desc = "Local Quick fix list prev" })
 
 local marcusyqy_qf_l = 0
