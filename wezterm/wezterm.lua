@@ -72,7 +72,6 @@ config.warn_about_missing_glyphs = false
 config.window_close_confirmation = 'NeverPrompt'
 
 config.enable_wayland = false
--- config.enable_kitty_keyboard = true
 
 -- Use the defaults as a base
 config.hyperlink_rules = wezterm.default_hyperlink_rules()
@@ -86,11 +85,20 @@ if wezterm.target_triple == "x86_64-apple-darwin" or
      { mods = "CMD", key = "LeftArrow", action = action.SendKey({ mods = "CTRL", key = "a" }) },
      { mods = "CMD", key = "RightArrow", action = action.SendKey({ mods = "CTRL", key = "e" }) },
      { mods = "CMD", key = "Backspace", action = action.SendKey({ mods = "CTRL", key = "u" }) },
+     { key = '\\', mods = 'CTRL', action = wezterm.action.SendString('\x1c') }, -- Sending ASCII code for Ctrl+\
+     { key = '`', mods = 'CTRL', action = wezterm.action.SendString('\x60') }, -- Sending ASCII code for Ctrl+`
    }
 elseif wezterm.target_triple == "x86_64-unknown-linux-gnu" then
   config.keys = {
     { mods = "CTRL", key = "LeftArrow", action = action.SendKey({ mods = "ALT", key = "b" }) },
     { mods = "CTRL", key = "RightArrow", action = action.SendKey({ mods = "ALT", key = "f" }) },
+    { mods = "CTRL", key = "\\", action = wezterm.action.Nop },
+    { mods = "CTRL", key = "\'", action = wezterm.action.Nop },
+  }
+else
+  config.keys = {
+    { mods = "CTRL", key = "\\", action = wezterm.action.Nop },
+    { mods = "CTRL", key = "\'", action = wezterm.action.Nop },
   }
 end
 
