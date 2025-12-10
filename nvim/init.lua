@@ -599,25 +599,25 @@ require("lazy").setup({
     { "folke/lazydev.nvim" },
     { "nvim-lua/popup.nvim" },
     { "nvim-lua/plenary.nvim" },
-   -- { "tpope/vim-fugitive" },
-     {
-  "NeogitOrg/neogit",
-  lazy = true,
-  dependencies = {
-    "nvim-lua/plenary.nvim",         -- required
-    "sindrets/diffview.nvim",        -- optional - Diff integration
+    { "tpope/vim-fugitive" },
+    {
+      "NeogitOrg/neogit",
+      lazy = true,
+      dependencies = {
+        "nvim-lua/plenary.nvim",         -- required
+        "sindrets/diffview.nvim",        -- optional - Diff integration
 
-    -- Only one of these is needed.
-    "nvim-telescope/telescope.nvim", -- optional
-    "ibhagwan/fzf-lua",              -- optional
-    "nvim-mini/mini.pick",           -- optional
-    "folke/snacks.nvim",             -- optional
-  },
-  cmd = "Neogit",
-  keys = {
-    { "<leader>gg", "<cmd>Neogit<cr>", desc = "Show Neogit UI" }
-  }
-},
+        -- Only one of these is needed.
+        "nvim-telescope/telescope.nvim", -- optional
+        "ibhagwan/fzf-lua",              -- optional
+        "nvim-mini/mini.pick",           -- optional
+        "folke/snacks.nvim",             -- optional
+      },
+      cmd = "Neogit",
+      keys = {
+        { "<leader>gg", "<cmd>Neogit<cr>", desc = "Show Neogit UI" }
+      }
+    },
     { "sainnhe/everforest" },
     { "ellisonleao/gruvbox.nvim" },
     { "hrsh7th/nvim-cmp",
@@ -1241,12 +1241,8 @@ end
 vim.keymap.set("n", "<C-q>", function() ToggleQFList(true) end, { desc = "Open Global QF List" })
 vim.keymap.set("n", "<leader>q", function() ToggleQFList(false) end, { desc = "Open Local QF List" })
 
--- vim.cmd([[
---   cnoreabbrev g Git
---   cnoreabbrev gopen GBrowse
--- ]])
 vim.cmd([[
-  cnoreabbrev g Neogit
+  cnoreabbrev g Git
   cnoreabbrev gopen GBrowse
 ]])
 
