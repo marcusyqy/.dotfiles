@@ -1088,7 +1088,7 @@ require("lazy").setup({
           }
         },
         sections = {
-          lualine_a = {'mode'},
+          lualine_a = {{'mode', fmt = function(res) return res:sub(1,1) end }},
           lualine_b = {'branch', 'diff', 'diagnostics'},
           lualine_c = {'filename'},
           lualine_x = {'encoding', 'fileformat', 'filetype'},
@@ -1310,6 +1310,7 @@ vim.api.nvim_create_autocmd("TermOpen", {
     vim.opt_local.number = false
     vim.opt_local.relativenumber = false
     vim.opt_local.scrolloff = 0
+    vim.cmd.normal "i"
   end,
 })
 
