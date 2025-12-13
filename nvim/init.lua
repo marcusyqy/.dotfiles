@@ -149,14 +149,6 @@ end
 require("lazy").setup({
   spec = {
     {
-      "RRethy/base16-nvim",
-      lazy = false,
-      priority = 1000,
-      config = function()
-        vim.cmd.colorscheme 'base16-black-metal-bathory'
-      end,
-    },
-    {
       "sainnhe/everforest",
       lazy = false,
       priority = 1000,
@@ -166,8 +158,7 @@ require("lazy").setup({
         vim.g.everforest_enable_italic = 1
         vim.g.everforest_transparent_background = 1
         vim.g.everforest_ui_contrast = 'high'
-        -- vim.cmd.colorscheme 'everforest'
-        -- vim.cmd([[colorscheme ]])
+        vim.cmd.colorscheme 'everforest'
       end,
     },
     {
