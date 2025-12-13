@@ -149,6 +149,14 @@ end
 require("lazy").setup({
   spec = {
     {
+      "RRethy/base16-nvim",
+      lazy = false,
+      priority = 1000,
+      config = function()
+        vim.cmd.colorscheme 'base16-default-dark'
+      end,
+    },
+    {
       "sainnhe/everforest",
       lazy = false,
       priority = 1000,
@@ -158,7 +166,8 @@ require("lazy").setup({
         vim.g.everforest_enable_italic = 1
         vim.g.everforest_transparent_background = 1
         vim.g.everforest_ui_contrast = 'high'
-        vim.cmd([[colorscheme everforest]])
+        -- vim.cmd.colorscheme 'everforest'
+        -- vim.cmd([[colorscheme ]])
       end,
     },
     {
@@ -1135,6 +1144,7 @@ require("lazy").setup({
   checker = { enabled = false },
 })
 
+
 -- keybinds
 vim.keymap.set("n", "<c-n>", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 vim.keymap.set("i", "<s-tab>", "<C-D>", { desc = "Backward when s-tab in insert mode." })
@@ -1332,6 +1342,7 @@ vim.api.nvim_create_autocmd("TermOpen", {
   end,
 })
 
+-- vim.cmd.colorscheme 'base-16-default-dark'
 
 -- vim.cmd([[
 --   colorscheme default
