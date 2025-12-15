@@ -361,6 +361,17 @@ require("lazy").setup({
         })
       end,
     },
+    {
+      'nvim-mini/mini.align',
+      version = false,
+      opts = {
+        mappings = {
+          start = 'ga',
+          start_with_preview = 'gA',
+        },
+
+      },
+    },
     { "folke/todo-comments.nvim", },
     {
       "stevearc/oil.nvim", opts = {
