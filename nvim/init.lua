@@ -25,7 +25,7 @@ vim.g.maplocalleader = "\\"
 
 vim.cmd([[
     syntax on
-    filetype off "required
+    " filetype off "required
     syntax enable
 ]])
 
@@ -1212,9 +1212,9 @@ vim.keymap.set("n", "<leader>tv", "<c-w>v:term<CR>a")
 -- quick fix list
 vim.keymap.set("n", "<c-j>", ":cnext<CR>zz", { desc =  "Quick fix list next" })
 vim.keymap.set("n", "<c-k>", ":cprev<CR>zz", { desc = "Quick fix list prev" })
-vim.keymap.set("n", "gj", ":lnext<CR>zz", { desc = "Local Quick fix list next" })
-vim.keymap.set("n", "gk", ":lprev<CR>zz", { desc = "Local Quick fix list prev" })
-vim.keymap.set("n", "gk", ":lprev<CR>zz", { desc = "Local Quick fix list prev" })
+-- vim.keymap.set("n", "gj", ":lnext<CR>zz", { desc = "Local Quick fix list next" })
+-- vim.keymap.set("n", "gk", ":lprev<CR>zz", { desc = "Local Quick fix list prev" })
+
 
 local marcusyqy_qf_l = 0
 local marcusyqy_qf_g = 0
