@@ -123,6 +123,7 @@ table.insert(config.hyperlink_rules, {
  format = 'file://$0',
 })
 
+config.window_close_confirmation = "AlwaysPrompt"
 
 -- and finally, return the configuration to wezterm
 return config
