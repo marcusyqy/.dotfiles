@@ -116,12 +116,6 @@ vim.opt.colorcolumn = "" -- "120"
 
 vim.o.background = 'dark'
 vim.opt.mouse= "a"
--- if(os.getenv("TMUX") ~= nil) then -- disable mouse in tmux
---     vim.opt.mouse= ""
--- else
---     vim.opt.mouse= "a"
--- end
-
 
 vim.opt.cinoptions="l1"
 vim.opt.termguicolors=true
@@ -158,7 +152,7 @@ require("lazy").setup({
         vim.g.everforest_enable_italic = 1
         vim.g.everforest_transparent_background = 1
         vim.g.everforest_ui_contrast = 'high'
-        vim.cmd.colorscheme 'everforest'
+        vim.cmd.colorscheme('everforest')
       end,
     },
     {
@@ -618,7 +612,6 @@ require("lazy").setup({
         { "<leader>gg", "<cmd>Neogit<cr>", desc = "Show Neogit UI" }
       }
     },
-    { "sainnhe/everforest" },
     { "ellisonleao/gruvbox.nvim" },
     { "hrsh7th/nvim-cmp",
       dependencies = {
@@ -1332,8 +1325,6 @@ vim.api.nvim_create_autocmd("TermOpen", {
     vim.cmd.normal "i"
   end,
 })
-
--- vim.cmd.colorscheme 'base-16-default-dark'
 
 -- vim.cmd([[
 --   colorscheme default
