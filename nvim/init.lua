@@ -1110,7 +1110,7 @@ require("lazy").setup({
           }
         },
         sections = {
-          lualine_a = {{'mode', fmt = function(res) return res:sub(1,1) end }},
+          lualine_a = {'mode'}, --  {{'mode', fmt = function(res) return res:sub(1,1) end }},
           lualine_b = {'branch', 'diff', 'diagnostics'},
           lualine_c = {'filename'},
           lualine_x = {'encoding', 'fileformat', 'filetype'},
@@ -1244,7 +1244,6 @@ local ToggleQFList = function(globs)
 end
 
 vim.keymap.set("n", "<C-q>", function() ToggleQFList(true) end, { desc = "Open Global QF List" })
-vim.keymap.set("n", "<leader>q", function() ToggleQFList(false) end, { desc = "Open Local QF List" })
 
 vim.cmd([[
   cnoreabbrev g Git
