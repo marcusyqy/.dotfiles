@@ -152,8 +152,37 @@ require("lazy").setup({
         vim.g.everforest_enable_italic = 0
         vim.g.everforest_transparent_background = 1
         vim.g.everforest_ui_contrast = 'high'
-        vim.cmd.colorscheme('everforest')
+        -- vim.cmd.colorscheme('everforest')
       end,
+    },
+    {
+      "ellisonleao/gruvbox.nvim",
+      lazy = false,
+      priority = 1000,
+      config = true,
+      opts = {
+        terminal_colors = true, -- add neovim terminal colors
+        undercurl = true,
+        underline = true,
+        bold = true,
+        italic = {
+          strings = true,
+          emphasis = true,
+          comments = true,
+          operators = false,
+          folds = true,
+        },
+        strikethrough = true,
+        invert_selection = false,
+        invert_signs = false,
+        invert_tabline = false,
+        inverse = true, -- invert background for search, diffs, statuslines and errors
+        contrast = "", -- can be "hard", "soft" or empty string
+        palette_overrides = {},
+        overrides = {},
+        dim_inactive = false,
+        transparent_mode = true,
+      },
     },
     {
       "folke/snacks.nvim",
@@ -165,7 +194,7 @@ require("lazy").setup({
         dashboard = { enabled = false },
         explorer = { enabled = false },
         image = { enabled = false, formats = {} },
-        indent = { enabled = true, animate = { enabled = false } },
+        indent = { enabled = false, animate = { enabled = false } },
         input = { enabled = false },
         notifier = {
           enabled = false,
@@ -623,7 +652,6 @@ require("lazy").setup({
         { "<leader>gg", "<cmd>Neogit<cr>", desc = "Show Neogit UI" }
       }
     },
-    { "ellisonleao/gruvbox.nvim" },
     { "hrsh7th/nvim-cmp",
       dependencies = {
         { "hrsh7th/cmp-nvim-lua" },
@@ -1336,6 +1364,7 @@ vim.api.nvim_create_autocmd("TermOpen", {
   end,
 })
 
+vim.cmd.colorscheme("everforest")
 -- vim.cmd([[
 --   colorscheme default
 --   highlight Normal guibg=NONE
