@@ -156,7 +156,9 @@ require("lazy").setup({
             strings = true, -- Boolean: Italicizes strings
             variables = false, -- Boolean: Italicizes variables
           },
-          overrides = {}, -- A dictionary of group names, can be a function returning a dictionary or a table.
+          overrides = {
+             NormalFloat = { bg= "NONE" }
+          }, -- A dictionary of group names, can be a function returning a dictionary or a table.
           palette_overrides = {}
         })
       end
