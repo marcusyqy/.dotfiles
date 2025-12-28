@@ -15,11 +15,10 @@ config.color_scheme = 'Apple System Colors'
 -- config.color_scheme = 'Builtin Dark'
 
 config.colors = {}
-config.colors.background = '#1d1d1d'
--- config.colors.background = '#000000' -- for paramount
+-- config.colors.background = '#1d1d1d'
+config.colors.background = '#000000' -- for paramount
+config.colors.cursor_bg = '#52ad70'
 config.colors.foreground = '#ffffff'
-
--- @TODO try this out on windows.
 config.default_cursor_style = "BlinkingBlock"
 config.cursor_blink_ease_in = "Constant"
 config.cursor_blink_ease_out = "Constant"
@@ -35,12 +34,6 @@ config.cursor_blink_rate = 500
 --   end
 -- end
 
-if wezterm.target_triple == "x86_64-apple-darwin" or
-   wezterm.target_triple == "aarch64-apple-darwin" or
-   wezterm.target_triple == "x86_64-unknown-linux-gnu" then
-   config.cell_width = 0.95
-   config.line_height = 0.9
-end
 config.font_size = 13.0
 config.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' } -- no ligatures for me please!
 config.font = wezterm.font {

@@ -152,7 +152,6 @@ require("lazy").setup({
         vim.g.everforest_enable_italic = 0
         vim.g.everforest_transparent_background = 1
         vim.g.everforest_ui_contrast = 'high'
-        -- vim.cmd.colorscheme('everforest')
       end,
     },
     {
@@ -1364,7 +1363,7 @@ vim.api.nvim_create_autocmd("TermOpen", {
   end,
 })
 
-vim.cmd.colorscheme("everforest")
+vim.cmd.colorscheme("gruvbox")
 -- vim.cmd([[
 --   colorscheme default
 --   highlight Normal guibg=NONE
