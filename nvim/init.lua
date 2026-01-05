@@ -1166,13 +1166,6 @@ vim.keymap.set("i", "<C-k>", "<c-o>D", { desc = "Del behind the line" })
 vim.keymap.set("v", "<tab>", ">gv", { desc = "Indent block forward" })
 vim.keymap.set("v", "<s-tab>", "<gv", { desc = "Indent block backward" })
 
-vim.keymap.set("n", "<f5>", ":Recompile<CR>")
-vim.keymap.set("n", "<c-\\>", ":Recompile<CR>")
-vim.keymap.set("n", "<leader>bi", ":Compile<CR>")
-vim.keymap.set("n", "<leader>bo", ":Recompile<CR>")
-vim.keymap.set("n", "<leader>fj", ":NextError<CR>")
-vim.keymap.set("n", "<leader>fk", ":PrevError<CR>")
-
 vim.keymap.set({"i", "c"}, "<C-a>", "<home>", {})
 vim.keymap.set({"i", "c"}, "<C-e>", "<end>", {})
 
@@ -1218,14 +1211,34 @@ vim.keymap.set("n", "<leader>tt", ":tabnew<CR>:term<CR>a")
 vim.keymap.set("n", "<leader>ts", "<c-w>s:term<CR>a")
 vim.keymap.set("n", "<leader>tv", "<c-w>v:term<CR>a")
 
--- Open a terminal at the bottom of the screen with a fixed height.
--- vim.keymap.set("n", "<leader>ts", function()
+-- local is_windows = false
+--
+-- if vim.fn.exists('g:os') == 0 then
+--   is_windows = vim.fn.has("win64") == 1 or vim.fn.has("win32") == 1 or vim.fn.has("win16") == 1
+-- end
+--
+-- if is_windows then
+--   -- Windows specific configuration
+--   vim.opt.makeprg = "build"      -- typically
+-- else
+--   -- Unix-like specific configuration (Linux/macOS)
+--   vim.opt.makeprg = "./build.sh" -- typically
+-- end
+--
+-- vim.cmd("command! -nargs=1 -complete=shellcmd MakePrg noautocmd lua vim.opt.makeprg=\"<args>\"")
+-- vim.cmd("command! -nargs=+ -complete=shellcmd Call noautocmd cexpr! system(\"<args>\") | redraw! | copen")
+
+-- local terminal_build = function()
 --   vim.cmd.new()
 --   vim.cmd.wincmd "J"
---   vim.api.nvim_win_set_height(0, 12)
+--   -- vim.api.nvim_win_set_height(0, 12)
 --   vim.wo.winfixheight = true
---   vim.cmd.term()
--- end)
+--   vim.cmd.term(vim.opt.makeprg._value)
+-- end
+
+-- Open a terminal at the bottom of the screen with a fixed height.
+-- vim.keymap.set("n", "<leader>tb", terminal_build);
+-- vim.keymap.set("n", "<f5>" , terminal_build);
 
 
 -- quick fix list
