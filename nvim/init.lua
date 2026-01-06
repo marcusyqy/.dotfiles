@@ -1228,17 +1228,17 @@ vim.keymap.set("n", "<leader>tv", "<c-w>v:term<CR>a")
 -- vim.cmd("command! -nargs=1 -complete=shellcmd MakePrg noautocmd lua vim.opt.makeprg=\"<args>\"")
 -- vim.cmd("command! -nargs=+ -complete=shellcmd Call noautocmd cexpr! system(\"<args>\") | redraw! | copen")
 
--- local terminal_build = function()
---   vim.cmd.new()
---   vim.cmd.wincmd "J"
---   -- vim.api.nvim_win_set_height(0, 12)
---   vim.wo.winfixheight = true
---   vim.cmd.term(vim.opt.makeprg._value)
--- end
+local terminal_open = function()
+  vim.cmd.new()
+  vim.cmd.wincmd "J"
+  vim.api.nvim_win_set_height(0, 12)
+  vim.wo.winfixheight = true
+  vim.cmd.term()
+end
 
 -- Open a terminal at the bottom of the screen with a fixed height.
--- vim.keymap.set("n", "<leader>tb", terminal_build);
--- vim.keymap.set("n", "<f5>" , terminal_build);
+vim.keymap.set("n", "<leader>ts", terminal_open);
+vim.keymap.set("n", "<f2>" , terminal_open);
 
 
 -- quick fix list
