@@ -7,4 +7,5 @@ set -o emacs
 alias ll='ls -la'
 bindkey -e
 
+alias python='python3'
 
