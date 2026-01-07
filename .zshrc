@@ -5,6 +5,7 @@ export EDITOR='vim'
 set -o emacs
 
 alias ll='ls -la'
+alias l='ls -la'
 bindkey -e
 
 alias python='python3'
