@@ -95,6 +95,18 @@ else
   }
 end
 
+-- for windows.
+table.insert(config.keys, { mods="ALT", key = "1", action = action.ActivateTab(0) })
+table.insert(config.keys, { mods="ALT", key = "2", action = action.ActivateTab(1) })
+table.insert(config.keys, { mods="ALT", key = "3", action = action.ActivateTab(2) })
+table.insert(config.keys, { mods="ALT", key = "4", action = action.ActivateTab(3) })
+table.insert(config.keys, { mods="ALT", key = "5", action = action.ActivateTab(4) })
+table.insert(config.keys, { mods="ALT", key = "6", action = action.ActivateTab(5) })
+table.insert(config.keys, { mods="ALT", key = "7", action = action.ActivateTab(6) })
+table.insert(config.keys, { mods="ALT", key = "8", action = action.ActivateTab(7) })
+table.insert(config.keys, { mods="ALT", key = "9", action = action.ActivateTab(8) })
+table.insert(config.keys, { mods="ALT", key = "0", action = action.ActivateTab(9) })
+
 -- Notification when the configuration is reloaded
 -- local function toast(window, message)
 --  window:toast_notification('wezterm', message .. ' - ' .. os.date('%I:%M:%S %p'), nil, 1000)
