@@ -38,20 +38,20 @@ config.font_size = 13.0
 config.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' } -- no ligatures for me please!
 config.font = wezterm.font {
     family = "JetBrains Mono", -- Or the font you prefer
-    -- weight = "Bold", -- Optional: Adjust weight
+    weight = "Regular", -- Optional: Adjust weight
     harfbuzz_features = { "calt=0", "clig=0", "liga=0" }, -- Disable ligatures
 }
 
 config.freetype_load_target = "HorizontalLcd"
 
 -- tab
-config.use_fancy_tab_bar = true
+config.use_fancy_tab_bar = false
 config.enable_tab_bar = true
 config.hide_tab_bar_if_only_one_tab = false
 config.tab_bar_at_bottom = false
 
 -- windows
-config.window_decorations = "RESIZE | INTEGRATED_BUTTONS" -- "TITLE | RESIZE"
+config.window_decorations = "RESIZE | TITLE | INTEGRATED_BUTTONS"
 config.window_padding = {
     left = 0,
     right = 0,

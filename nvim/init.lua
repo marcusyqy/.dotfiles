@@ -114,7 +114,7 @@ vim.opt.cmdheight = 1
 vim.opt.shortmess:append("c")
 vim.opt.colorcolumn = "" -- "120"
 
-vim.o.background = 'light'
+vim.o.background = 'dark'
 vim.opt.mouse= "a"
 
 vim.opt.cinoptions="l1"
@@ -162,11 +162,11 @@ require("lazy").setup({
         invert_signs = false,
         invert_tabline = false,
         inverse = true, -- invert background for search, diffs, statuslines and errors
-        contrast = "", -- can be "hard", "soft" or empty string
+        contrast = "soft", -- can be "hard", "soft" or empty string
         palette_overrides = {},
         overrides = {},
         dim_inactive = false,
-        transparent_mode = false,
+        transparent_mode = true,
       },
     },
     {
