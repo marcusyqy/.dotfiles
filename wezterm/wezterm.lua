@@ -45,13 +45,13 @@ config.font = wezterm.font {
 config.freetype_load_target = "HorizontalLcd"
 
 -- tab
-config.use_fancy_tab_bar = false
+config.use_fancy_tab_bar = true
 config.enable_tab_bar = true
 config.hide_tab_bar_if_only_one_tab = false
 config.tab_bar_at_bottom = false
 
 -- windows
-config.window_decorations = "RESIZE | TITLE | INTEGRATED_BUTTONS"
+config.window_decorations = "RESIZE | INTEGRATED_BUTTONS"
 config.window_padding = {
     left = 0,
     right = 0,
