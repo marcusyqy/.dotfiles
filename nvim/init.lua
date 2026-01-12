@@ -1206,7 +1206,6 @@ vim.keymap.set("t", "<m-v>", "<c-\\><c-o>\"+p") -- enable paste.
 
 -- new terminal in tab
 vim.keymap.set("n", "<leader>tt", ":tabnew<CR>:term<CR>a")
-vim.keymap.set("n", "<leader>ts", "<c-w>s:term<CR>a")
 vim.keymap.set("n", "<leader>tv", "<c-w>v:term<CR>a")
 
 -- local is_windows = false
@@ -1226,7 +1225,7 @@ vim.keymap.set("n", "<leader>tv", "<c-w>v:term<CR>a")
 -- vim.cmd("command! -nargs=1 -complete=shellcmd MakePrg noautocmd lua vim.opt.makeprg=\"<args>\"")
 -- vim.cmd("command! -nargs=+ -complete=shellcmd Call noautocmd cexpr! system(\"<args>\") | redraw! | copen")
 
-local terminal_open = function()
+local terminal_toggle = function()
   vim.cmd.new()
   vim.cmd.wincmd "J"
   vim.api.nvim_win_set_height(0, 12)
@@ -1235,9 +1234,7 @@ local terminal_open = function()
 end
 
 -- Open a terminal at the bottom of the screen with a fixed height.
-vim.keymap.set("n", "<leader>ts", terminal_open);
-vim.keymap.set("n", "<f2>" , terminal_open);
-
+vim.keymap.set("n", "<leader>ts", terminal_toggle);
 
 -- quick fix list
 vim.keymap.set("n", "<c-j>", ":cnext<CR>zz", { desc =  "Quick fix list next" })
