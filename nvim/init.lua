@@ -114,7 +114,7 @@ vim.opt.cmdheight = 1
 vim.opt.shortmess:append("c")
 vim.opt.colorcolumn = "" -- "120"
 
-vim.o.background = 'dark'
+vim.o.background = 'light'
 vim.opt.mouse= "a"
 
 vim.opt.cinoptions="l1"
@@ -136,8 +136,6 @@ for type, icon in pairs(signs) do
   local hl = "DiagnosticSign" .. type
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
-
-
 
 -- Setup lazy.nvim
 require("lazy").setup({
@@ -168,7 +166,7 @@ require("lazy").setup({
         palette_overrides = {},
         overrides = {},
         dim_inactive = false,
-        transparent_mode = true,
+        transparent_mode = false,
       },
     },
     {
