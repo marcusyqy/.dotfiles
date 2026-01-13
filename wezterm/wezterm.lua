@@ -109,6 +109,7 @@ table.insert(config.keys, { mods="ALT", key = "0", action = action.ActivateTab(9
 table.insert(config.keys, { mods="ALT", key = "w", action = action.CloseCurrentTab{confirm=true} })
 table.insert(config.keys, { mods="ALT", key = "t", action = action.SpawnTab("CurrentPaneDomain") })
 
+
 -- Notification when the configuration is reloaded
 -- local function toast(window, message)
 --  window:toast_notification('wezterm', message .. ' - ' .. os.date('%I:%M:%S %p'), nil, 1000)
