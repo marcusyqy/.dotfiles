@@ -1,5 +1,7 @@
 [font]
-normal = ["Iosevka Nerd Font Mono"]
+normal = ["FiraCode Nerd Font"]
 size = 14
 
+[font.features]
+"FiraCode Nerd Font" = ["-calt"]
 

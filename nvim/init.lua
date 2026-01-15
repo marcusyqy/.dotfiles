@@ -144,6 +144,9 @@ require("lazy").setup({
       "srcery-colors/srcery-vim",
       lazy = false,
       priority = 1000,
+      config = function()
+        vim.g.srcery_italic = 0
+      end
     },
     {
       "ellisonleao/gruvbox.nvim",
@@ -1365,13 +1368,13 @@ vim.api.nvim_create_autocmd("TermOpen", {
 })
 
 vim.cmd.colorscheme("srcery")
--- vim.cmd([[
---   colorscheme default
---   highlight Normal guibg=NONE
---   highlight NormalFloat guibg=NONE
---   highlight NormalNC guibg=NONE
--- ]])
---
+
+vim.cmd([[
+  " colorscheme default
+  highlight Normal guibg=NONE
+  highlight NormalFloat guibg=NONE
+  highlight NormalNC guibg=NONE
+]])
 
 if vim.g.neovide then
     -- Put anything you want to happen only in Neovide here
