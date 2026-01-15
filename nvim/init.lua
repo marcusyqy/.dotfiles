@@ -1371,3 +1371,32 @@ vim.cmd.colorscheme("srcery")
 --   highlight NormalFloat guibg=NONE
 --   highlight NormalNC guibg=NONE
 -- ]])
+--
+
+if vim.g.neovide then
+    -- Put anything you want to happen only in Neovide here
+    -- vim.o.guifont = "Source Code Pro:h14"
+  vim.keymap.set("i", "<c-s-v>", "<c-r>+")
+  vim.keymap.set("n", "<c-s-v>", "\"+p")
+  vim.keymap.set("v", "<c-s-v>", "\"+p")
+  vim.keymap.set("n", "<c-s-c>", "\"+y")
+  vim.keymap.set("v", "<c-s-c>", "\"+y")
+
+  vim.keymap.set({ "n", "v", "i", "c", "t"}, "<C-=>", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1<CR>")
+  vim.keymap.set({ "n", "v", "i", "c", "t"}, "<C-+>", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1<CR>")
+  vim.keymap.set({ "n", "v", "i", "c", "t"}, "<C-_>", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor - 0.1<CR>")
+  vim.keymap.set({ "n", "v", "i", "c", "t"}, "<C-->", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor - 0.1<CR>")
+  vim.keymap.set({ "n", "v", "i", "c", "t"}, "<C-0>", ":lua vim.g.neovide_scale_factor = 1<CR>")
+
+  vim.g.neovide_progress_bar_enabled = true
+  vim.g.neovide_progress_bar_height = 5.0
+  vim.g.neovide_progress_bar_animation_speed = 200.0
+  vim.g.neovide_progress_bar_hide_delay = 0.2
+
+  vim.g.neovide_floating_shadow = true
+  vim.g.neovide_floating_z_height = 10
+  vim.g.neovide_light_angle_degrees = 45
+  vim.g.neovide_light_radius = 5
+
+end
+
