@@ -141,6 +141,11 @@ end
 require("lazy").setup({
   spec = {
     {
+      "srcery-colors/srcery-vim",
+      lazy = false,
+      priority = 1000,
+    },
+    {
       "ellisonleao/gruvbox.nvim",
       lazy = false,
       priority = 1000,
@@ -1359,7 +1364,7 @@ vim.api.nvim_create_autocmd("TermOpen", {
   end,
 })
 
-vim.cmd.colorscheme("gruvbox")
+vim.cmd.colorscheme("srcery")
 -- vim.cmd([[
 --   colorscheme default
 --   highlight Normal guibg=NONE
