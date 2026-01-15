@@ -305,13 +305,13 @@ require("lazy").setup({
         { "<leader>sw", function() Snacks.picker.grep_word() end, desc = "Visual selection or word", mode = { "n", "x" } },
         -- search
         -- { '<leader>s"', function() Snacks.picker.registers() end, desc = "Registers" },
-        -- { '<leader>s/', function() Snacks.picker.search_history() end, desc = "Search History" },
+        { '<leader>s/', function() Snacks.picker.search_history() end, desc = "Search History" },
         -- { "<leader>sa", function() Snacks.picker.autocmds() end, desc = "Autocmds" },
-        -- { "<leader>sb", function() Snacks.picker.lines() end, desc = "Buffer Lines" },
+        { "<leader>sb", function() Snacks.picker.lines() end, desc = "Buffer Lines" },
         -- { "<leader>s:", function() Snacks.picker.command_history() end, desc = "Command History" },
         -- { "<leader>sC", function() Snacks.picker.commands() end, desc = "Commands" },
-        -- { "<leader>sd", function() Snacks.picker.diagnostics() end, desc = "Diagnostics" },
-        -- { "<leader>sD", function() Snacks.picker.diagnostics_buffer() end, desc = "Buffer Diagnostics" },
+        { "<leader>sd", function() Snacks.picker.diagnostics() end, desc = "Diagnostics" },
+        { "<leader>sD", function() Snacks.picker.diagnostics_buffer() end, desc = "Buffer Diagnostics" },
         -- { "<leader>si", function() Snacks.picker.icons() end, desc = "Icons" },
         -- { "<leader>sj", function() Snacks.picker.jumps() end, desc = "Jumps" },
         -- { "<leader>sk", function() Snacks.picker.keymaps() end, desc = "Keymaps" },
@@ -341,8 +341,7 @@ require("lazy").setup({
         -- { "<leader>cR", function() Snacks.rename.rename_file() end, desc = "Rename File" },
         -- { "<leader>gB", function() Snacks.gitbrowse() end, desc = "Git Browse", mode = { "n", "v" } },
         -- { "<leader>un", function() Snacks.notifier.hide() end, desc = "Dismiss All Notifications" },
-        -- { "<c-/>",      function() Snacks.terminal() end, desc = "Toggle Terminal" },
-        -- { "<c-_>",      function() Snacks.terminal() end, desc = "which_key_ignore" },
+        { "<c-/>",      function() Snacks.terminal() end, desc = "Toggle Terminal" },
         -- { "]]",         function() Snacks.words.jump(vim.v.count1) end, desc = "Next Reference", mode = { "n", "t" } },
         -- { "[[",         function() Snacks.words.jump(-vim.v.count1) end, desc = "Prev Reference", mode = { "n", "t" } },
       },
@@ -1162,6 +1161,7 @@ require("lazy").setup({
 
 
 -- keybinds
+vim.keymap.set("n", "<c-,>", "<c-w>w", { desc = "Swap panes" })
 vim.keymap.set("n", "<c-n>", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 vim.keymap.set("i", "<s-tab>", "<C-D>", { desc = "Backward when s-tab in insert mode." })
 vim.keymap.set("i", "<s-tab>", "<C-D>", { desc = "Backward when s-tab in insert mode." })
@@ -1178,6 +1178,8 @@ vim.keymap.set({"i", "c"}, "<C-e>", "<end>", {})
 vim.keymap.set("i", "<m-v>", "<c-r>+")
 vim.keymap.set("n", "<m-v>", "\"+p")
 vim.keymap.set("v", "<m-v>", "\"+p")
+vim.keymap.set("t", "<m-v>", "<c-r>+")
+vim.keymap.set("c", "<m-v>", "<c-r>+")
 
 vim.keymap.set("n", "<m-c>", "\"+y")
 vim.keymap.set("v", "<m-c>", "\"+y")
@@ -1249,7 +1251,6 @@ vim.keymap.set("n", "<c-j>", ":cnext<CR>zz", { desc =  "Quick fix list next" })
 vim.keymap.set("n", "<c-k>", ":cprev<CR>zz", { desc = "Quick fix list prev" })
 -- vim.keymap.set("n", "gj", ":lnext<CR>zz", { desc = "Local Quick fix list next" })
 -- vim.keymap.set("n", "gk", ":lprev<CR>zz", { desc = "Local Quick fix list prev" })
-
 
 local marcusyqy_qf_l = 0
 local marcusyqy_qf_g = 0
@@ -1369,12 +1370,12 @@ vim.api.nvim_create_autocmd("TermOpen", {
 
 vim.cmd.colorscheme("srcery")
 
-vim.cmd([[
-  " colorscheme default
-  highlight Normal guibg=NONE
-  highlight NormalFloat guibg=NONE
-  highlight NormalNC guibg=NONE
-]])
+-- vim.cmd([[
+--   colorscheme default
+--   highlight Normal guibg=NONE
+--   highlight NormalFloat guibg=NONE
+--   highlight NormalNC guibg=NONE
+-- ]])
 
 if vim.g.neovide then
     -- Put anything you want to happen only in Neovide here
@@ -1384,6 +1385,9 @@ if vim.g.neovide then
   vim.keymap.set("v", "<c-s-v>", "\"+p")
   vim.keymap.set("n", "<c-s-c>", "\"+y")
   vim.keymap.set("v", "<c-s-c>", "\"+y")
+
+  vim.keymap.set("t", "<c-s-v>", "<c-r>+")
+  vim.keymap.set("c", "<c-s-v>", "<c-r>+")
 
   vim.keymap.set({ "n", "v", "i", "c", "t"}, "<C-=>", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1<CR>")
   vim.keymap.set({ "n", "v", "i", "c", "t"}, "<C-+>", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1<CR>")
