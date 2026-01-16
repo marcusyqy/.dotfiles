@@ -1178,7 +1178,6 @@ vim.keymap.set({"i", "c"}, "<C-e>", "<end>", {})
 vim.keymap.set("i", "<m-v>", "<c-r>+")
 vim.keymap.set("n", "<m-v>", "\"+p")
 vim.keymap.set("v", "<m-v>", "\"+p")
-vim.keymap.set("t", "<m-v>", "<c-r>+")
 vim.keymap.set("c", "<m-v>", "<c-r>+")
 
 vim.keymap.set("n", "<m-c>", "\"+y")
@@ -1386,7 +1385,8 @@ if vim.g.neovide then
   vim.keymap.set("n", "<c-s-c>", "\"+y")
   vim.keymap.set("v", "<c-s-c>", "\"+y")
 
-  vim.keymap.set("t", "<c-s-v>", "<c-r>+")
+  vim.keymap.set("t", "<c-s-v>", "<c-\\><c-o>\"+p") -- enable paste.
+
   vim.keymap.set("c", "<c-s-v>", "<c-r>+")
 
   vim.keymap.set({ "n", "v", "i", "c", "t"}, "<C-=>", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1<CR>")
@@ -1394,6 +1394,8 @@ if vim.g.neovide then
   vim.keymap.set({ "n", "v", "i", "c", "t"}, "<C-_>", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor - 0.1<CR>")
   vim.keymap.set({ "n", "v", "i", "c", "t"}, "<C-->", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor - 0.1<CR>")
   vim.keymap.set({ "n", "v", "i", "c", "t"}, "<C-0>", ":lua vim.g.neovide_scale_factor = 1<CR>")
+
+  vim.keymap.set({ "n", "v", "i", "c", "t"}, '<F11>', ":let g:neovide_fullscreen = !g:neovide_fullscreen<CR>")
 
   vim.g.neovide_progress_bar_enabled = true
   vim.g.neovide_progress_bar_height = 5.0
