@@ -1367,6 +1367,8 @@ vim.api.nvim_create_autocmd("TermOpen", {
   end,
 })
 
+vim.keymap.set({"i", "n", "v", "t", "c" }, "<f4>", function() Snacks.terminal() end, { desc = "Toggle Terminal" })
+
 vim.cmd.colorscheme("srcery")
 
 -- vim.cmd([[
