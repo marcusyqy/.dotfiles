@@ -174,7 +174,7 @@ require("lazy").setup({
         palette_overrides = {},
         overrides = {},
         dim_inactive = false,
-        transparent_mode = true,
+        transparent_mode = false,
       },
     },
     {
@@ -1351,7 +1351,7 @@ vim.api.nvim_create_autocmd("TermOpen", {
 
 vim.keymap.set({"i", "n", "v", "t", "c" }, "<f4>", function() Snacks.terminal() end, { desc = "Toggle Terminal" })
 
-vim.cmd.colorscheme("srcery")
+-- vim.cmd.colorscheme("srcery")
 
 -- vim.cmd([[
 --   colorscheme default
@@ -1386,6 +1386,9 @@ if vim.g.neovide then
   vim.keymap.set({ "n", "v", "i", "c", "t"}, "<D-0>", ":lua vim.g.neovide_scale_factor = 1<CR>")
 
   vim.keymap.set({ "n", "v", "i", "c", "t"}, '<F11>', ":let g:neovide_fullscreen = !g:neovide_fullscreen<CR>")
+  -- NOTE need to test this out
+  vim.keymap.set({ "n", "v", "i", "c", "t"}, '<D-CR>', ":let g:neovide_fullscreen = !g:neovide_fullscreen<CR>")
+  -- vim.keymap.set({ "n", "v", "i", "c", "t"}, '<M-CR>', ":let g:neovide_fullscreen = !g:neovide_fullscreen<CR>")
 
   vim.g.neovide_progress_bar_enabled = true
   vim.g.neovide_progress_bar_height = 5.0
@@ -1401,5 +1404,8 @@ if vim.g.neovide then
 
   vim.g.neovide_cursor_animation_length = 0.1
   vim.g.neovide_cursor_trail_size  = 0.1
+
+  vim.cmd.colorscheme("gruvbox")
+  vim.opt.background = "light"
 end
 
