@@ -626,24 +626,6 @@ require("lazy").setup({
     { "nvim-lua/popup.nvim" },
     { "nvim-lua/plenary.nvim" },
     { "tpope/vim-fugitive" },
-    {
-      "NeogitOrg/neogit",
-      lazy = true,
-      dependencies = {
-        "nvim-lua/plenary.nvim",         -- required
-        "sindrets/diffview.nvim",        -- optional - Diff integration
-
-        -- Only one of these is needed.
-        "nvim-telescope/telescope.nvim", -- optional
-        "ibhagwan/fzf-lua",              -- optional
-        "nvim-mini/mini.pick",           -- optional
-        "folke/snacks.nvim",             -- optional
-      },
-      cmd = "Neogit",
-      keys = {
-        { "<leader>gg", "<cmd>Neogit<cr>", desc = "Show Neogit UI" }
-      }
-    },
     { "hrsh7th/nvim-cmp",
       dependencies = {
         { "hrsh7th/cmp-nvim-lua" },
