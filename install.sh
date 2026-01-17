@@ -39,6 +39,5 @@ link_vimrc() {
 link_nvim
 link_tmux
 link_wezterm
-link_pip
 link_ghostty
 link_vimrc
