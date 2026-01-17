@@ -36,8 +36,15 @@ link_vimrc() {
     ln -s $DOTFILES/.vimrc $HOME/.vimrc
 }
 
+
+link_neovide() {
+    rm -rf $HOME/.config/neovide
+    ln -s $DOTFILES/neovide $HOME/.config/neovide
+}
+
 link_nvim
 link_tmux
 link_wezterm
 link_ghostty
 link_vimrc
+link_neovide
