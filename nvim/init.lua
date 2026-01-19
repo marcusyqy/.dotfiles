@@ -1351,7 +1351,7 @@ vim.api.nvim_create_autocmd("TermOpen", {
 
 vim.keymap.set({"i", "n", "v", "t", "c" }, "<f4>", function() Snacks.terminal() end, { desc = "Toggle Terminal" })
 
--- vim.cmd.colorscheme("srcery")
+vim.cmd.colorscheme("srcery")
 
 -- vim.cmd([[
 --   colorscheme default
@@ -1360,8 +1360,7 @@ vim.keymap.set({"i", "n", "v", "t", "c" }, "<f4>", function() Snacks.terminal() 
 --   highlight NormalNC guibg=NONE
 -- ]])
 
-vim.cmd.colorscheme("gruvbox")
-vim.opt.background = "light"
+-- vim.cmd.colorscheme("gruvbox")
 
 if vim.g.neovide then
     -- Put anything you want to happen only in Neovide here
@@ -1407,8 +1406,5 @@ if vim.g.neovide then
 
   vim.g.neovide_cursor_animation_length = 0.1
   vim.g.neovide_cursor_trail_size  = 0.1
-
-  vim.cmd.colorscheme("gruvbox")
-  vim.opt.background = "light"
 end
 
