@@ -16,14 +16,14 @@ config.color_scheme = 'Apple System Colors'
 
 config.colors = {}
 -- config.colors.background = '#1d1d1d'
--- config.colors.background = '#000000' -- for paramount
--- config.colors.cursor_bg = '#52ad70'
--- config.colors.foreground = '#ffffff'
+config.colors.background = '#000000' -- for paramount
+config.colors.cursor_bg = '#52ad70'
+config.colors.foreground = '#ffffff'
 config.default_cursor_style = "BlinkingBlock"
 config.cursor_blink_ease_in = "Constant"
 config.cursor_blink_ease_out = "Constant"
 config.cursor_blink_rate = 500
-config.color_scheme = "Gruvbox (Gogh)"
+-- config.color_scheme = "Gruvbox (Gogh)"
 
 -- config.prefer_egl = true
 
