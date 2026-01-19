@@ -16,13 +16,14 @@ config.color_scheme = 'Apple System Colors'
 
 config.colors = {}
 -- config.colors.background = '#1d1d1d'
-config.colors.background = '#000000' -- for paramount
-config.colors.cursor_bg = '#52ad70'
-config.colors.foreground = '#ffffff'
+-- config.colors.background = '#000000' -- for paramount
+-- config.colors.cursor_bg = '#52ad70'
+-- config.colors.foreground = '#ffffff'
 config.default_cursor_style = "BlinkingBlock"
 config.cursor_blink_ease_in = "Constant"
 config.cursor_blink_ease_out = "Constant"
 config.cursor_blink_rate = 500
+config.color_scheme = "Gruvbox (Gogh)"
 
 -- config.prefer_egl = true
 
@@ -37,8 +38,9 @@ config.cursor_blink_rate = 500
 config.font_size = 13.0
 config.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' } -- no ligatures for me please!
 config.font = wezterm.font {
-    family = "JetBrains Mono", -- Or the font you prefer
-    weight = "DemiBold", -- Optional: Adjust weight
+    family = "Iosevka Nerd Font Mono", -- Or the font you prefer
+    -- family = "JetBrains Mono", -- Or the font you prefer
+    -- weight = "DemiBold", -- Optional: Adjust weight
     harfbuzz_features = { "calt=0", "clig=0", "liga=0" }, -- Disable ligatures
 }
 

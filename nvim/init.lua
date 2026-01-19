@@ -1360,6 +1360,9 @@ vim.keymap.set({"i", "n", "v", "t", "c" }, "<f4>", function() Snacks.terminal() 
 --   highlight NormalNC guibg=NONE
 -- ]])
 
+vim.cmd.colorscheme("gruvbox")
+vim.opt.background = "light"
+
 if vim.g.neovide then
     -- Put anything you want to happen only in Neovide here
     -- vim.o.guifont = "Source Code Pro:h14"
