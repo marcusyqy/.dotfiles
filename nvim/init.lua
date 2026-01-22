@@ -1370,10 +1370,16 @@ if vim.g.neovide then
   vim.keymap.set("v", "<c-s-v>", "\"+p")
   vim.keymap.set("n", "<c-s-c>", "\"+y")
   vim.keymap.set("v", "<c-s-c>", "\"+y")
-
   vim.keymap.set("t", "<c-s-v>", "<c-\\><c-o>\"+p") -- enable paste.
-
   vim.keymap.set("c", "<c-s-v>", "<c-r>+")
+
+  vim.keymap.set("i", "<D-v>", "<c-r>+")
+  vim.keymap.set("n", "<D-v>", "\"+p")
+  vim.keymap.set("v", "<D-v>", "\"+p")
+  vim.keymap.set("n", "<D-c>", "\"+y")
+  vim.keymap.set("v", "<D-c>", "\"+y")
+  vim.keymap.set("t", "<D-v>", "<c-\\><c-o>\"+p") -- enable paste.
+  vim.keymap.set("c", "<D-v>", "<c-r>+")
 
   vim.keymap.set({ "n", "v", "i", "c", "t"}, "<C-=>", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1<CR>")
   vim.keymap.set({ "n", "v", "i", "c", "t"}, "<C-+>", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1<CR>")
