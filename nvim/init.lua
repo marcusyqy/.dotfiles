@@ -1353,12 +1353,12 @@ vim.keymap.set({"i", "n", "v", "t", "c" }, "<f4>", function() Snacks.terminal() 
 
 vim.cmd.colorscheme("srcery")
 
--- vim.cmd([[
---   colorscheme default
---   highlight Normal guibg=NONE
---   highlight NormalFloat guibg=NONE
---   highlight NormalNC guibg=NONE
--- ]])
+vim.cmd([[
+  " colorscheme default
+  highlight Normal guibg=NONE
+  highlight NormalFloat guibg=NONE
+  highlight NormalNC guibg=NONE
+]])
 
 -- vim.cmd.colorscheme("gruvbox")
 
