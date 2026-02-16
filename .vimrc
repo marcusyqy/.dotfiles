@@ -10,6 +10,7 @@ set number
 set hlsearch
 set ruler
 set undodir=$HOME/.vim/undodir/
+set dir=$HOME/.vim/tmp/
 set background=dark
 set rnu
 set nu
