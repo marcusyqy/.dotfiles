@@ -13,3 +13,4 @@ alias python='python3'
 bindkey "^[OF" end-of-line
 bindkey "^[OH" beginning-of-line
 bindkey "^[[3~" delete-char
+
