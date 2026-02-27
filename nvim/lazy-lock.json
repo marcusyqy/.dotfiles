@@ -29,6 +29,7 @@
   "poimandres.nvim": { "branch": "main", "commit": "a488957d803943a4201ac3b774913fcafa9e6b3a" },
   "popup.nvim": { "branch": "master", "commit": "b7404d35d5d3548a82149238289fa71f7f6de4ac" },
   "snacks.nvim": { "branch": "main", "commit": "6ca541747c09962f87fc42b858249e4f9d2bbf2d" },
+  "solarized-osaka.nvim": { "branch": "main", "commit": "f0c2f0ba0bd56108d53c9bfae4bb28ff6c67bbdb" },
   "srcery-vim": { "branch": "master", "commit": "38f52babe0fa2b11719b51eb045a85244d6d7883" },
   "todo-comments.nvim": { "branch": "main", "commit": "411503d3bedeff88484de572f2509c248e499b38" },
   "vim-cpp-modern": { "branch": "master", "commit": "850561ee5b2a600cd00efcf95d85162dba988765" },

@@ -29,7 +29,6 @@ vim.cmd([[
     syntax enable
 ]])
 
-
 -- language
 vim.g.python_recommended_style = 0
 vim.g.lsp_cxx_hl_use_text_props = 1
@@ -114,7 +113,7 @@ vim.opt.cmdheight = 1
 vim.opt.shortmess:append("c")
 vim.opt.colorcolumn = "" -- "120"
 
-vim.o.background = "light"
+vim.o.background = "dark"
 vim.opt.mouse= "a"
 
 vim.opt.cinoptions="l1"
@@ -140,6 +139,44 @@ end
 -- Setup lazy.nvim
 require("lazy").setup({
   spec = {
+    {
+      "craftzdog/solarized-osaka.nvim",
+      lazy = false,
+      priority = 1000,
+      opts = {
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        transparent = false, -- Enable this to disable setting the background color
+        terminal_colors = true, -- Configure the colors used when opening a `:terminal` in [Neovim](https://github.com/neovim/neovim)
+        styles = {
+          -- Style to be applied to different syntax groups
+          -- Value is any valid attr-list value for `:help nvim_set_hl`
+          comments = { italic = true },
+          keywords = { italic = true },
+          functions = {},
+          variables = {},
+          -- Background styles. Can be "dark", "transparent" or "normal"
+          sidebars = "dark", -- style for sidebars, see below
+          floats = "dark", -- style for floating windows
+        },
+        sidebars = { "qf", "help" }, -- Set a darker background on sidebar-like windows. For example: `["qf", "vista_kind", "terminal", "packer"]`
+        day_brightness = 0.3, -- Adjusts the brightness of the colors of the **Day** style. Number between 0 and 1, from dull to vibrant colors
+        hide_inactive_statusline = false, -- Enabling this option, will hide inactive statuslines and replace them with a thin border instead. Should work with the standard **StatusLine** and **LuaLine**.
+        dim_inactive = false, -- dims inactive windows
+        lualine_bold = false, -- When `true`, section headers in the lualine theme will be bold
+
+        --- You can override specific color groups to use other groups or a hex color
+        --- function will be called with a ColorScheme table
+        ---@param colors ColorScheme
+        on_colors = function(colors) end,
+
+        --- You can override specific highlights to use other groups or a hex color
+        --- function will be called with a Highlights and ColorScheme table
+        ---@param highlights Highlights
+        ---@param colors ColorScheme
+        on_highlights = function(highlights, colors) end,
+      },
+    },
     {
       'olivercederborg/poimandres.nvim',
       lazy = false,
@@ -1336,11 +1373,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     vim.keymap.set('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
     vim.keymap.set('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
     vim.keymap.set('i', '<c-l>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-    --vim.keymap.set('n', '<leader>gh', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
-    --vim.keymap.set('v', '<leader>gh', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
-    vim.keymap.set('n', '<leader>gh',
-    '<cmd>lua vim.diagnostic.open_float(0, { scope = "line", border = "rounded" })<CR>', opts)
-    -- keymap.set('v', '<leader>vgh', '<cmd>lua vim.diagnostic.open_float(0, { border = "rounded" })<CR>', opts)
+    vim.keymap.set('n', '<leader>gh', '<cmd>lua vim.diagnostic.open_float(0, { scope = "line", border = "rounded" })<CR>', opts)
     vim.keymap.set('n', '<leader>vk', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
     vim.keymap.set('n', '<leader>vj', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
     vim.keymap.set('n', '<leader>k', '<cmd>lua vim.diagnostic.goto_prev({ severity = vim.diagnostic.severity.ERROR})<CR>'
@@ -1383,7 +1416,7 @@ vim.keymap.set({"i", "n", "v", "t", "c" }, "<f4>", function() Snacks.terminal() 
 -- ]])
 
 -- Set the background color of the entire cursor line
-vim.cmd.colorscheme("quiet")
+vim.cmd.colorscheme("lunaperche")
 vim.api.nvim_set_hl(0, "Cursor", { bg = "#7c7c7c", fg = "NONE" })
 
 if vim.g.neovide then
