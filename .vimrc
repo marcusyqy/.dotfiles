@@ -18,6 +18,5 @@ set incsearch
 nnoremap <leader>y "+y$
 vnoremap <leader>y "+y
 vnoremap <leader>p "+P
-colorscheme lunaperche
 highlight Comment guifg=red ctermfg=red
 highlight Normal guifg=white guibg=#1d1d1d ctermbg=black ctermfg=white
