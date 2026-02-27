@@ -114,7 +114,7 @@ vim.opt.cmdheight = 1
 vim.opt.shortmess:append("c")
 vim.opt.colorcolumn = "" -- "120"
 
-vim.o.background = "dark"
+vim.o.background = "light"
 vim.opt.mouse= "a"
 
 vim.opt.cinoptions="l1"
@@ -1374,16 +1374,17 @@ vim.api.nvim_create_autocmd("TermOpen", {
 
 vim.keymap.set({"i", "n", "v", "t", "c" }, "<f4>", function() Snacks.terminal() end, { desc = "Toggle Terminal" })
 
-vim.cmd("colorscheme poimandres")
 
 -- vim.cmd([[
---   " colorscheme default
+-- colorscheme default
 --   highlight Normal guibg=NONE
 --   highlight NormalFloat guibg=NONE
 --   highlight NormalNC guibg=NONE
 -- ]])
 
--- vim.cmd.colorscheme("gruvbox")
+-- Set the background color of the entire cursor line
+vim.cmd.colorscheme("quiet")
+vim.api.nvim_set_hl(0, "Cursor", { bg = "#7c7c7c", fg = "NONE" })
 
 if vim.g.neovide then
     -- Put anything you want to happen only in Neovide here
