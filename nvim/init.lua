@@ -114,7 +114,7 @@ vim.opt.cmdheight = 1
 vim.opt.shortmess:append("c")
 vim.opt.colorcolumn = "" -- "120"
 
-vim.o.background = 'dark'
+vim.o.background = "dark"
 vim.opt.mouse= "a"
 
 vim.opt.cinoptions="l1"
@@ -140,6 +140,29 @@ end
 -- Setup lazy.nvim
 require("lazy").setup({
   spec = {
+    {
+      'olivercederborg/poimandres.nvim',
+      lazy = false,
+      priority = 1000,
+      config = function()
+        require('poimandres').setup {
+          -- bold_vert_split = false, -- use bold vertical separators
+          -- dim_nc_background = false, -- dim 'non-current' window backgrounds
+          disable_background = true, -- disable background
+          disable_float_background = true, -- disable background for floats
+          -- disable_italics = false, -- disable italics
+        }
+      end,
+    },
+    {
+      "zenbones-theme/zenbones.nvim",
+      dependencies = "rktjmp/lush.nvim",
+      lazy = false,
+      priority = 1000,
+      config = function()
+        vim.g.zenbones = { lightness = "dim" }
+      end
+    },
     {
       "srcery-colors/srcery-vim",
       lazy = false,
@@ -1351,14 +1374,14 @@ vim.api.nvim_create_autocmd("TermOpen", {
 
 vim.keymap.set({"i", "n", "v", "t", "c" }, "<f4>", function() Snacks.terminal() end, { desc = "Toggle Terminal" })
 
-vim.cmd.colorscheme("srcery")
+vim.cmd("colorscheme poimandres")
 
-vim.cmd([[
-  " colorscheme default
-  highlight Normal guibg=NONE
-  highlight NormalFloat guibg=NONE
-  highlight NormalNC guibg=NONE
-]])
+-- vim.cmd([[
+--   " colorscheme default
+--   highlight Normal guibg=NONE
+--   highlight NormalFloat guibg=NONE
+--   highlight NormalNC guibg=NONE
+-- ]])
 
 -- vim.cmd.colorscheme("gruvbox")
 

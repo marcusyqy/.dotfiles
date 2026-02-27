@@ -5,7 +5,6 @@ font-family = monospace
 font-thicken = true
 adjust-cell-height=-10%
 adjust-cell-width=-5%
-# theme = "Builtin Dark"
 # theme = "Dark Pastel"
 # theme = "Raycast Dark"
 theme = "Kitty Default"
