@@ -1320,6 +1320,8 @@ vim.keymap.set({"i", "n", "v", "t", "c" }, "<f4>", function() Snacks.terminal() 
 -- Set the background color of the entire cursor line
 vim.cmd.colorscheme("lunaperche")
 -- vim.api.nvim_set_hl(0, "Cursor", { bg = "#7c7c7c", fg = "NONE" })
+vim.api.nvim_set_hl(0, "PMenu", { bg = "NONE" })
+vim.api.nvim_set_hl(0, "VertSplit", { bg = "NONE" })
 
 if vim.g.neovide then
     -- Put anything you want to happen only in Neovide here
