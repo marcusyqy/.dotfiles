@@ -140,6 +140,22 @@ end
 require("lazy").setup({
   spec = {
     {
+      "sainnhe/gruvbox-material",
+      priority = 1000,
+      lazy = false,
+      config = function()
+        vim.g.gruvbox_material_enable_italic = true
+        vim.g.gruvbox_material_enable_italic = false
+        vim.g.gruvbox_material_foreground = "material"
+        vim.g.gruvbox_material_background = "hard"
+        vim.g.gruvbox_material_transparent_background = true
+        vim.g.gruvbox_material_dim_inactive_windows = true
+        vim.g.gruvbox_material_visual = 'reverse'
+        vim.g.gruvbox_material_cursor = "auto"
+        vim.g.gruvbox_material_better_performance = true
+      end,
+    },
+    {
       "folke/snacks.nvim",
       priority = 1000,
       lazy = false,
@@ -1037,64 +1053,64 @@ require("lazy").setup({
     { "evanleck/vim-svelte" },
     { "martinda/Jenkinsfile-vim-syntax" },
     { "kalvinpearce/ShaderHighlight" },
-    -- {
-    --   "nvim-lualine/lualine.nvim",
-    --   dependencies = { 'nvim-tree/nvim-web-devicons' },
-    --   opts = {
-    --     options = {
-    --       icons_enabled = true,
-    --       theme = 'auto',
-    --       component_separators = { left = '', right = ''},
-    --       section_separators = { left = '', right = ''},
-    --       disabled_filetypes = {
-    --         statusline = {},
-    --         winbar = {},
-    --       },
-    --       ignore_focus = {},
-    --       always_divide_middle = true,
-    --       always_show_tabline = true,
-    --       globalstatus = false,
-    --       refresh = {
-    --         statusline = 1000,
-    --         tabline = 1000,
-    --         winbar = 1000,
-    --         refresh_time = 16, -- ~60fps
-    --         events = {
-    --           'WinEnter',
-    --           'BufEnter',
-    --           'BufWritePost',
-    --           'SessionLoadPost',
-    --           'FileChangedShellPost',
-    --           'VimResized',
-    --           'Filetype',
-    --           'CursorMoved',
-    --           'CursorMovedI',
-    --           'ModeChanged',
-    --         },
-    --       }
-    --     },
-    --     sections = {
-    --       lualine_a = {'mode'}, --  {{'mode', fmt = function(res) return res:sub(1,1) end }},
-    --       lualine_b = {'branch', 'diff', 'diagnostics'},
-    --       lualine_c = {'filename'},
-    --       lualine_x = {'encoding', 'fileformat', 'filetype'},
-    --       lualine_y = {'progress'},
-    --       lualine_z = {'location'}
-    --     },
-    --     inactive_sections = {
-    --       lualine_a = {},
-    --       lualine_b = {},
-    --       lualine_c = {'filename'},
-    --       lualine_x = {'location'},
-    --       lualine_y = {},
-    --       lualine_z = {}
-    --     },
-    --     tabline = {},
-    --     winbar = {},
-    --     inactive_winbar = {},
-    --     extensions = {}
-    --   }
-    -- },
+    {
+      "nvim-lualine/lualine.nvim",
+      dependencies = { 'nvim-tree/nvim-web-devicons' },
+      opts = {
+        options = {
+          icons_enabled = true,
+          theme = 'auto',
+          component_separators = { left = '', right = ''},
+          section_separators = { left = '', right = ''},
+          disabled_filetypes = {
+            statusline = {},
+            winbar = {},
+          },
+          ignore_focus = {},
+          always_divide_middle = true,
+          always_show_tabline = true,
+          globalstatus = false,
+          refresh = {
+            statusline = 1000,
+            tabline = 1000,
+            winbar = 1000,
+            refresh_time = 16, -- ~60fps
+            events = {
+              'WinEnter',
+              'BufEnter',
+              'BufWritePost',
+              'SessionLoadPost',
+              'FileChangedShellPost',
+              'VimResized',
+              'Filetype',
+              'CursorMoved',
+              'CursorMovedI',
+              'ModeChanged',
+            },
+          }
+        },
+        sections = {
+          lualine_a = {'mode'}, --  {{'mode', fmt = function(res) return res:sub(1,1) end }},
+          lualine_b = {'branch', 'diff', 'diagnostics'},
+          lualine_c = {'filename'},
+          lualine_x = {'encoding', 'fileformat', 'filetype'},
+          lualine_y = {'progress'},
+          lualine_z = {'location'}
+        },
+        inactive_sections = {
+          lualine_a = {},
+          lualine_b = {},
+          lualine_c = {'filename'},
+          lualine_x = {'location'},
+          lualine_y = {},
+          lualine_z = {}
+        },
+        tabline = {},
+        winbar = {},
+        inactive_winbar = {},
+        extensions = {}
+      }
+    },
   },
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.
@@ -1318,10 +1334,10 @@ vim.keymap.set({"i", "n", "v", "t", "c" }, "<f4>", function() Snacks.terminal() 
 -- ]])
 
 -- Set the background color of the entire cursor line
-vim.cmd.colorscheme("lunaperche")
+vim.cmd.colorscheme('gruvbox-material')
 -- vim.api.nvim_set_hl(0, "Cursor", { bg = "#7c7c7c", fg = "NONE" })
-vim.api.nvim_set_hl(0, "PMenu", { bg = "NONE" })
-vim.api.nvim_set_hl(0, "VertSplit", { bg = "NONE" })
+-- vim.api.nvim_set_hl(0, "PMenu", { bg = "NONE" })
+-- vim.api.nvim_set_hl(0, "VertSplit", { bg = "NONE" })
 
 if vim.g.neovide then
     -- Put anything you want to happen only in Neovide here

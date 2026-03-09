@@ -6,10 +6,13 @@ font-thicken = true
 adjust-cell-height=-10%
 adjust-cell-width=-5%
 # theme = "Raycast Light"
-theme = "Kitty Default"
+# theme = "Kitty Default"
+theme = "dark:Kitty Default,light:Raycast Light"
+
 # background = 000000
 # background = 1d1d1d
 # foreground = ffffff
+
 cursor-style = block
 cursor-style-blink = true
 shell-integration-features = no-cursor
