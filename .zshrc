@@ -15,5 +15,5 @@ bindkey "^[OH" beginning-of-line
 bindkey "^[[3~" delete-char
 
 
-alias vim='nvim'
-alias vi='nvim'
+# alias vim='nvim'
+# alias vi='nvim'

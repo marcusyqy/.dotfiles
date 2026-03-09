@@ -15,8 +15,14 @@ set background=dark
 set rnu
 set nu
 set incsearch
+
 nnoremap <leader>y "+y$
 vnoremap <leader>y "+y
 vnoremap <leader>p "+P
+cnoremap  <C-a> <home>
+cnoremap  <C-e> <end>
+inoremap  <C-a> <home>
+inoremap  <C-e> <end>
+
 highlight Comment guifg=red ctermfg=red
-highlight Normal guifg=white guibg=#1d1d1d ctermbg=black ctermfg=white
+" highlight Normal guifg=white guibg=#1d1d1d ctermbg=black ctermfg=white
