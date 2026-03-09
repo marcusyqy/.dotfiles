@@ -140,7 +140,7 @@ end
 require("lazy").setup({
   spec = {
     {
-      "sainnhe/gruvbox-material",
+      "marcusyqy/gruvbox-material",
       priority = 1000,
       lazy = false,
       config = function()
