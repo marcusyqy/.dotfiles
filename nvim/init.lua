@@ -180,25 +180,25 @@ require("lazy").setup({
           function() require('fff').find_files() end,
           desc = 'FFFind files',
         },
-        {
-          "<leader>fg",
-          function() require('fff').live_grep() end,
-          desc = 'LiFFFe grep',
-        },
-        {
-          "<leader>fz",
-          function() require('fff').live_grep({
-            grep = {
-              modes = { 'fuzzy', 'plain' }
-            }
-          }) end,
-          desc = 'Live fffuzy grep',
-        },
-        {
-          "<leader>fc",
-          function() require('fff').live_grep({ query = vim.fn.expand("<cword>") }) end,
-          desc = 'Search current word',
-        },
+        -- {
+        --   "<leader>fg",
+        --   function() require('fff').live_grep() end,
+        --   desc = 'LiFFFe grep',
+        -- },
+        -- {
+        --   "<leader>fg",
+        --   function() require('fff').live_grep({
+        --     grep = {
+        --       modes = { 'fuzzy', 'plain' }
+        --     }
+        --   }) end,
+        --   desc = 'Live fffuzy grep',
+        -- },
+        -- {
+        --   "<leader>fc",
+        --   function() require('fff').live_grep({ query = vim.fn.expand("<cword>") }) end,
+        --   desc = 'Search current word',
+        -- },
       }
     },
     {
@@ -299,16 +299,16 @@ require("lazy").setup({
       },
       keys = {
         -- Top Pickers & Explorer
-        -- { "<leader><space>", function() Snacks.picker.smart() end, desc = "Smart Find Files" },
+        { "<leader>fof", function() Snacks.picker.smart() end, desc = "Smart Find Files" },
         { "<leader>,", function() Snacks.picker.buffers() end, desc = "Buffers" },
         { "<leader>/", function() Snacks.picker.grep() end, desc = "Grep" },
-        -- { "<leader>fg", function() Snacks.picker.grep() end, desc = "Grep" },
+        { "<leader>fg", function() Snacks.picker.grep() end, desc = "Grep" },
         { "<leader>:", function() Snacks.picker.command_history() end, desc = "Command History" },
         -- { "<leader>n", function() Snacks.picker.notifications() end, desc = "Notification History" },
         -- { "<leader>e", function() Snacks.explorer() end, desc = "File Explorer" },
         -- find
         { "<c-b>", function() Snacks.picker.buffers() end, desc = "Buffers" },
-        -- { "<leader>fc", function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end, desc = "Find Config File" },
+        { "<leader>fif", function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end, desc = "Find Config File" },
         -- { "<leader>ff", function() Snacks.picker.files() end, desc = "Find Files" },
         { "<c-p>", function() Snacks.picker.git_files() end, desc = "Find Git Files" },
         { "<leader>fh", function() Snacks.picker.help() end, desc = "Search help files" },
