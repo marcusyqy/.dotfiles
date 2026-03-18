@@ -157,51 +157,6 @@ require("lazy").setup({
       end,
     },
     {
-      'dmtrKovalenko/fff.nvim',
-      build = function()
-        -- this will download prebuild binary or try to use existing rustup toolchain to build from source
-        -- (if you are using lazy you can use gb for rebuilding a plugin if needed)
-        require("fff.download").download_or_build_binary()
-      end,
-      -- if you are using nixos
-      -- build = "nix run .#release",
-      opts = { -- (optional)
-        debug = {
-          enabled = true,     -- we expect your collaboration at least during the beta
-          show_scores = true, -- to help us optimize the scoring system, feel free to share your scores!
-        },
-      },
-      -- No need to lazy-load with lazy.nvim.
-      -- This plugin initializes itself lazily.
-      lazy = false,
-      keys = {
-        {
-          "<leader>ff", -- try it if you didn't it is a banger keybinding for a picker
-          function() require('fff').find_files() end,
-          desc = 'FFFind files',
-        },
-        -- {
-        --   "<leader>fg",
-        --   function() require('fff').live_grep() end,
-        --   desc = 'LiFFFe grep',
-        -- },
-        -- {
-        --   "<leader>fg",
-        --   function() require('fff').live_grep({
-        --     grep = {
-        --       modes = { 'fuzzy', 'plain' }
-        --     }
-        --   }) end,
-        --   desc = 'Live fffuzy grep',
-        -- },
-        -- {
-        --   "<leader>fc",
-        --   function() require('fff').live_grep({ query = vim.fn.expand("<cword>") }) end,
-        --   desc = 'Search current word',
-        -- },
-      }
-    },
-    {
       "folke/snacks.nvim",
       priority = 1000,
       lazy = false,
@@ -299,16 +254,16 @@ require("lazy").setup({
       },
       keys = {
         -- Top Pickers & Explorer
-        { "<leader>fof", function() Snacks.picker.smart() end, desc = "Smart Find Files" },
+        -- { "<leader>fof", function() Snacks.picker.smart() end, desc = "Smart Find Files" },
         { "<leader>,", function() Snacks.picker.buffers() end, desc = "Buffers" },
         { "<leader>/", function() Snacks.picker.grep() end, desc = "Grep" },
         { "<leader>fg", function() Snacks.picker.grep() end, desc = "Grep" },
         { "<leader>:", function() Snacks.picker.command_history() end, desc = "Command History" },
+        { "<leader>ff", function() Snacks.picker.files() end, desc = "Find files" },
         -- { "<leader>n", function() Snacks.picker.notifications() end, desc = "Notification History" },
         -- { "<leader>e", function() Snacks.explorer() end, desc = "File Explorer" },
         -- find
         { "<c-b>", function() Snacks.picker.buffers() end, desc = "Buffers" },
-        { "<leader>fif", function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end, desc = "Find Config File" },
         -- { "<leader>ff", function() Snacks.picker.files() end, desc = "Find Files" },
         { "<c-p>", function() Snacks.picker.git_files() end, desc = "Find Git Files" },
         { "<leader>fh", function() Snacks.picker.help() end, desc = "Search help files" },
