@@ -157,6 +157,13 @@ require("lazy").setup({
       end,
     },
     {
+      "rockyzhang24/arctic.nvim",
+      branch = "v2",
+      dependencies = { "rktjmp/lush.nvim" },
+      priority = 1000,
+      lazy = false,
+    },
+    {
       "folke/snacks.nvim",
       priority = 1000,
       lazy = false,
@@ -1338,7 +1345,9 @@ vim.keymap.set({"i", "n", "v", "t", "c" }, "<f4>", function() Snacks.terminal() 
 -- ]])
 
 -- Set the background color of the entire cursor line
-vim.cmd.colorscheme('gruvbox-material')
+-- vim.cmd.colorscheme('gruvbox-material')
+-- Lua
+vim.cmd("colorscheme arctic")
 -- vim.api.nvim_set_hl(0, "Cursor", { bg = "#7c7c7c", fg = "NONE" })
 -- vim.api.nvim_set_hl(0, "PMenu", { bg = "NONE" })
 -- vim.api.nvim_set_hl(0, "VertSplit", { bg = "NONE" })
