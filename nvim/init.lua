@@ -157,7 +157,7 @@ require("lazy").setup({
       end,
     },
     {
-      "rockyzhang24/arctic.nvim",
+      "marcusyqy/arctic.nvim",
       branch = "v2",
       dependencies = { "rktjmp/lush.nvim" },
       priority = 1000,
