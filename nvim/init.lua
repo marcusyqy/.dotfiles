@@ -1079,7 +1079,7 @@ require("lazy").setup({
             },
             ignore_focus = {},
             always_divide_middle = true,
-            always_show_tabline = true,
+            always_show_tabline = false,
             globalstatus = true,
             refresh = {
               statusline = 1000,
@@ -1116,7 +1116,8 @@ require("lazy").setup({
             lualine_y = {},
             lualine_z = {}
           },
-          tabline = {},
+          tabline = {
+          },
           winbar = {},
           inactive_winbar = {},
           extensions = {}
