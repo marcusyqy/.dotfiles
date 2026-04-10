@@ -13,11 +13,12 @@ end
 -- config.color_scheme = 'iTerm2 Default'
 config.color_scheme = 'Apple System Colors'
 -- config.color_scheme = 'Builtin Dark'
+-- config.color_scheme = 'Gruvbox Dark (Gogh)'
 
 config.colors = {}
 -- config.colors.background = '#1d1d1d'
-config.colors.background = '#000000' -- for paramount
-config.colors.cursor_bg = '#52ad70'
+-- config.colors.background = '#000000' -- for paramount
+-- config.colors.cursor_bg = '#52ad70'
 config.colors.foreground = '#ffffff'
 config.default_cursor_style = "BlinkingBlock"
 config.cursor_blink_ease_in = "Constant"
@@ -35,7 +36,7 @@ config.cursor_blink_rate = 500
 --   end
 -- end
 
-config.font_size = 11.0
+config.font_size = 13.0
 config.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' } -- no ligatures for me please!
 -- config.font = wezterm.font {
 --     family = "Iosevka Nerd Font Mono", -- Or the font you prefer
