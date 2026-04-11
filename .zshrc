@@ -17,3 +17,4 @@ bindkey "^[[3~" delete-char
 
 alias vim='nvim'
 alias vi='nvim'
+

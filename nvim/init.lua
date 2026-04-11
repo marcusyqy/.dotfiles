@@ -163,6 +163,14 @@ require("lazy").setup({
       lazy = false,
     },
     {
+      "srcery-colors/srcery-vim",
+      priority = 1000,
+      lazy = false,
+      config = function()
+        vim.g.srcery_italic_types = 0
+      end
+    },
+    {
       "folke/snacks.nvim",
       priority = 1000,
       lazy = false,
@@ -1345,6 +1353,7 @@ vim.keymap.set({"i", "n", "v", "t", "c" }, "<f4>", function() Snacks.terminal() 
 -- ]])
 
 vim.cmd("colorscheme gruvbox-material")
+
 -- vim.api.nvim_set_hl(0, "Cursor", { bg = "#7c7c7c", fg = "NONE" })
 -- vim.api.nvim_set_hl(0, "PMenu", { bg = "NONE" })
 -- vim.api.nvim_set_hl(0, "VertSplit", { bg = "NONE" })
