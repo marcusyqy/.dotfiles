@@ -36,11 +36,11 @@ config.cursor_blink_rate = 500
 --   end
 -- end
 
-config.font_size = 15.0
+config.font_size = 13.0
 config.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' } -- no ligatures for me please!
 config.font = wezterm.font {
     -- family = "Iosevka Nerd Font Mono", -- Or the font you prefer
-    family = "ComicShannsMono Nerd Font", -- Or the font you prefer
+    family = "Comic Code", -- Or the font you prefer
     -- family = "JetBrains Mono", -- Or the font you prefer
     -- weight = "DemiBold", -- Optional: Adjust weight
     harfbuzz_features = { "calt=0", "clig=0", "liga=0" }, -- Disable ligatures
