@@ -179,7 +179,7 @@ require("lazy").setup({
         bigfile = { enabled = true },
         dashboard = { enabled = false },
         explorer = { enabled = false },
-        image = { enabled = false, formats = {} },
+        image = { enabled = true },
         indent = { enabled = false, animate = { enabled = false } },
         input = { enabled = false },
         notifier = {
@@ -1007,6 +1007,8 @@ end
 
 vim.cmd("command! -nargs=1 -complete=shellcmd MakePrg noautocmd lua vim.opt.makeprg=\"<args>\"")
 vim.cmd("command! -nargs=+ -complete=shellcmd Call noautocmd cexpr! system(\"<args>\") | redraw! | copen")
+vim.keymap.set("n", "<leader>bb", function() vim.cmd [[make]] end)
+vim.keymap.set("n", "<f5>", function() vim.cmd [[make]] end)
 
 local terminal_toggle = function()
   vim.cmd.new()
