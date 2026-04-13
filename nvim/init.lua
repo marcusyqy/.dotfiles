@@ -334,7 +334,6 @@ require("lazy").setup({
         -- { "<leader>cR", function() Snacks.rename.rename_file() end, desc = "Rename File" },
         -- { "<leader>gB", function() Snacks.gitbrowse() end, desc = "Git Browse", mode = { "n", "v" } },
         -- { "<leader>un", function() Snacks.notifier.hide() end, desc = "Dismiss All Notifications" },
-        { "<c-/>",      function() Snacks.terminal() end, desc = "Toggle Terminal" },
         -- { "]]",         function() Snacks.words.jump(vim.v.count1) end, desc = "Next Reference", mode = { "n", "t" } },
         -- { "[[",         function() Snacks.words.jump(-vim.v.count1) end, desc = "Prev Reference", mode = { "n", "t" } },
       },
@@ -1139,7 +1138,6 @@ vim.api.nvim_create_autocmd("TermOpen", {
   end,
 })
 
-vim.keymap.set({"i", "n", "v", "t", "c" }, "<f4>", function() Snacks.terminal() end, { desc = "Toggle Terminal" })
 
 
 -- vim.cmd([[
