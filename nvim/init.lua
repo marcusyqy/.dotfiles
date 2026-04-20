@@ -145,12 +145,12 @@ require("lazy").setup({
       lazy = false,
       config = function()
         vim.g.gruvbox_material_enable_italic = false
-        vim.g.gruvbox_material_foreground = "material" -- "original"
-        vim.g.gruvbox_material_statusline_style= "material" -- "original"
+        vim.g.gruvbox_material_foreground = "mixed" -- "original"
+        vim.g.gruvbox_material_statusline_style= "mixed" -- "original"
         vim.g.gruvbox_material_background = "hard"
         vim.g.gruvbox_material_transparent_background = false
         vim.g.gruvbox_material_dim_inactive_windows = false
-        vim.g.gruvbox_material_visual = 'reverse'
+        vim.g.gruvbox_material_visual = 'grey background' -- 'reverse'
         vim.g.gruvbox_material_cursor = "auto"
         vim.g.gruvbox_material_better_performance = true
       end,
