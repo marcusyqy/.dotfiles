@@ -278,7 +278,7 @@ require("lazy").setup({
         -- { "<leader>n", function() Snacks.picker.notifications() end, desc = "Notification History" },
         -- { "<leader>e", function() Snacks.explorer() end, desc = "File Explorer" },
         -- find
-        { "<c-b>", function() Snacks.picker.buffers() end, desc = "Buffers" },
+        { "<leader>fb", function() Snacks.picker.buffers() end, desc = "Buffers" },
         -- { "<leader>ff", function() Snacks.picker.files() end, desc = "Find Files" },
         { "<c-p>", function() Snacks.picker.git_files() end, desc = "Find Git Files" },
         { "<leader>fh", function() Snacks.picker.help() end, desc = "Search help files" },
@@ -1009,6 +1009,7 @@ vim.cmd("command! -nargs=1 -complete=shellcmd MakePrg noautocmd lua vim.opt.make
 vim.cmd("command! -nargs=+ -complete=shellcmd Call noautocmd cexpr! system(\"<args>\") | redraw! | copen")
 vim.keymap.set("n", "<leader>bb", function() vim.cmd [[make]] end)
 vim.keymap.set("n", "<f5>", function() vim.cmd [[make]] end)
+vim.keymap.set("n", "<c-b>", function() vim.cmd [[make]] end)
 
 local terminal_toggle = function()
   vim.cmd.new()
