@@ -49,13 +49,88 @@ config.font = wezterm.font {
 config.freetype_load_target = "HorizontalLcd"
 
 -- tab
-config.use_fancy_tab_bar = true
+config.use_fancy_tab_bar = false
 config.enable_tab_bar = true
-config.hide_tab_bar_if_only_one_tab = false
-config.tab_bar_at_bottom = false
+config.hide_tab_bar_if_only_one_tab = true
+config.tab_bar_at_bottom = true
+config.show_tab_index_in_tab_bar = false
+config.tab_max_width = 32
+
+local c233 = '#121212'
+local c241 = '#626262'
+local c245 = '#8a8a8a'
+local c220 = '#ffd700'
+
+config.colors = {
+  tab_bar = {
+    background = '#000000',
+    active_tab = {
+      bg_color = '#000000',
+      fg_color = '#ffffff',
+      intensity = 'Normal',
+      underline = 'None',
+      italic = false,
+      strikethrough = false,
+    },
+    inactive_tab = {
+      bg_color = '#000000',
+      fg_color = '#585858',
+    },
+    inactive_tab_hover = {
+      bg_color = '#000000',
+      fg_color = '#888888',
+    },
+    new_tab = {
+      bg_color = '#000000',
+      fg_color = '#585858',
+    },
+    new_tab_hover = {
+      bg_color = '#000000',
+      fg_color = '#ffffff',
+    },
+  },
+}
+
+wezterm.on('format-tab-title', function(tab, tabs, panes, cfg, hover, max_width)
+  local pane = tab.active_pane
+  local cwd_uri = pane.current_working_dir
+  local title = '~'
+
+  if cwd_uri and cwd_uri.file_path then
+    title = cwd_uri.file_path -- cwd_uri.file_path:match("([^/\\]+)[/\\]?$") or cwd_uri.file_path
+  end
+
+  return ' ' .. tab.tab_index  + 1 .. ':' .. title .. ' '
+end)
+
+wezterm.on('update-right-status', function(window, pane)
+  local date = wezterm.strftime '%d/%m'
+  local time = wezterm.strftime '%H:%M'
+
+  -- Prefer shell integration hostname if present, otherwise local hostname.
+  local user_vars = pane:get_user_vars()
+  local host = user_vars.WEZTERM_HOST or wezterm.hostname()
+
+  window:set_right_status(wezterm.format({
+    { Foreground = { Color = c233 } },
+    { Background = { Color = c241 } },
+    { Attribute = { Intensity = 'Bold' } },
+    { Text = ' ' .. date .. ' ' },
+
+    { Foreground = { Color = c233 } },
+    { Background = { Color = c245 } },
+    { Attribute = { Intensity = 'Bold' } },
+    { Text = ' ' .. time .. ' ' },
+
+    { Foreground = { Color = c220 } },
+    { Background = { Color = c241 } },
+    { Attribute = { Intensity = 'Bold' } },
+    { Text = ' ' .. host .. ' ' },
+  }))
+end)
 
 -- windows
-config.window_decorations = "RESIZE | INTEGRATED_BUTTONS"
+config.window_decorations = "RESIZE | TITLE" -- | INTEGRATED_BUTTONS"
 config.window_padding = {
     left = 0,
     right = 0,
@@ -67,7 +142,6 @@ config.window_padding = {
 -- config.color_scheme = 'Solarized Dark Higher Contrast (Gogh)'
 config.warn_about_missing_glyphs = false
 config.window_close_confirmation = 'NeverPrompt'
-
 config.enable_wayland = false
 
 -- Use the defaults as a base
