@@ -51,9 +51,9 @@ config.freetype_load_target = "HorizontalLcd"
 -- tab
 config.use_fancy_tab_bar = false
 config.enable_tab_bar = true
-config.hide_tab_bar_if_only_one_tab = true
-config.tab_bar_at_bottom = true
-config.show_tab_index_in_tab_bar = false
+config.hide_tab_bar_if_only_one_tab = false
+config.tab_bar_at_bottom = false
+-- config.show_tab_index_in_tab_bar = false
 config.tab_max_width = 32
 
 local c240 = '#585858'
@@ -103,40 +103,40 @@ wezterm.on('format-tab-title', function(tab, tabs, panes, cfg, hover, max_width)
   local title = '~'
 
   if cwd_uri and cwd_uri.file_path then
-    title = cwd_uri.file_path -- cwd_uri.file_path:match("([^/\\]+)[/\\]?$") or cwd_uri.file_path
+    title = cwd_uri.file_path:match("([^/\\]+)[/\\]?$") or cwd_uri.file_path
   end
 
   return ' ' .. tab.tab_index + 1 .. ':' .. title .. ' '
 end)
 
-wezterm.on('update-right-status', function(window, pane)
-  local date = wezterm.strftime '%d/%m'
-  local time = wezterm.strftime '%H:%M'
-
-  -- Prefer shell integration hostname if present, otherwise local hostname.
-  local user_vars = pane:get_user_vars()
-  local host = user_vars.WEZTERM_HOST or wezterm.hostname()
-
-  window:set_right_status(wezterm.format({
-    { Foreground = { Color = c233 } },
-    { Background = { Color = c241 } },
-    { Attribute = { Intensity = 'Bold' } },
-    { Text = ' ' .. date .. ' ' },
-
-    { Foreground = { Color = c233 } },
-    { Background = { Color = c245 } },
-    { Attribute = { Intensity = 'Bold' } },
-    { Text = ' ' .. time .. ' ' },
-
-    { Foreground = { Color = c220 } },
-    { Background = { Color = c241 } },
-    { Attribute = { Intensity = 'Bold' } },
-    { Text = ' ' .. host .. ' ' },
-  }))
-end)
+-- wezterm.on('update-right-status', function(window, pane)
+--   local date = wezterm.strftime '%d/%m'
+--   local time = wezterm.strftime '%H:%M'
+--
+--   -- Prefer shell integration hostname if present, otherwise local hostname.
+--   local user_vars = pane:get_user_vars()
+--   local host = user_vars.WEZTERM_HOST or wezterm.hostname()
+--
+--   window:set_right_status(wezterm.format({
+--     { Foreground = { Color = c233 } },
+--     { Background = { Color = c241 } },
+--     { Attribute = { Intensity = 'Bold' } },
+--     { Text = ' ' .. date .. ' ' },
+--
+--     { Foreground = { Color = c233 } },
+--     { Background = { Color = c245 } },
+--     { Attribute = { Intensity = 'Bold' } },
+--     { Text = ' ' .. time .. ' ' },
+--
+--     { Foreground = { Color = c220 } },
+--     { Background = { Color = c241 } },
+--     { Attribute = { Intensity = 'Bold' } },
+--     { Text = ' ' .. host .. ' ' },
+--   }))
+-- end)
 
 -- windows
-config.window_decorations = "RESIZE | TITLE" -- | INTEGRATED_BUTTONS"
+config.window_decorations = "RESIZE | TITLE | INTEGRATED_BUTTONS"
 config.window_padding = {
     left = 0,
     right = 0,
