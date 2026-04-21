@@ -56,16 +56,21 @@ config.tab_bar_at_bottom = true
 config.show_tab_index_in_tab_bar = false
 config.tab_max_width = 32
 
+local c240 = '#585858'
 local c233 = '#121212'
 local c241 = '#626262'
 local c245 = '#8a8a8a'
 local c220 = '#ffd700'
+local c050 = '#00ffd7'
+local c208 = '#ff8700'
+local white = '#ffffff'
+local default_bg = 'none'
 
 config.colors = {
   tab_bar = {
-    background = '#000000',
+    background = '#1a1a1a',
     active_tab = {
-      bg_color = '#000000',
+      bg_color = '#1a1a1a',
       fg_color = '#ffffff',
       intensity = 'Normal',
       underline = 'None',
@@ -73,23 +78,24 @@ config.colors = {
       strikethrough = false,
     },
     inactive_tab = {
-      bg_color = '#000000',
+      bg_color = '#1a1a1a',
       fg_color = '#585858',
     },
     inactive_tab_hover = {
-      bg_color = '#000000',
+      bg_color = '#1a1a1a',
       fg_color = '#888888',
     },
     new_tab = {
-      bg_color = '#000000',
+      bg_color = '#1a1a1a',
       fg_color = '#585858',
     },
     new_tab_hover = {
-      bg_color = '#000000',
+      bg_color = '#1a1a1a',
       fg_color = '#ffffff',
     },
   },
 }
+
 
 wezterm.on('format-tab-title', function(tab, tabs, panes, cfg, hover, max_width)
   local pane = tab.active_pane
@@ -100,7 +106,7 @@ wezterm.on('format-tab-title', function(tab, tabs, panes, cfg, hover, max_width)
     title = cwd_uri.file_path -- cwd_uri.file_path:match("([^/\\]+)[/\\]?$") or cwd_uri.file_path
   end
 
-  return ' ' .. tab.tab_index  + 1 .. ':' .. title .. ' '
+  return ' ' .. tab.tab_index + 1 .. ':' .. title .. ' '
 end)
 
 wezterm.on('update-right-status', function(window, pane)
