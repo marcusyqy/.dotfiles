@@ -84,6 +84,7 @@ if wezterm.target_triple == "x86_64-apple-darwin" or
      { mods = "CMD", key = "Backspace", action = action.SendKey({ mods = "CTRL", key = "u" }) },
      -- { key = '\\', mods = 'CTRL', action = wezterm.action.SendString('\x1c') }, -- Sending ASCII code for Ctrl+\
      -- { key = '`', mods = 'CTRL', action = wezterm.action.SendString('\x60') }, -- Sending ASCII code for Ctrl+`
+    { mods = 'CMD|SHIFT', key = 'Enter', action = wezterm.action.ToggleFullScreen, },
    }
 elseif wezterm.target_triple == "x86_64-unknown-linux-gnu" then
   config.keys = {
@@ -112,6 +113,7 @@ table.insert(config.keys, { mods="ALT", key = "9", action = action.ActivateTab(8
 table.insert(config.keys, { mods="ALT", key = "0", action = action.ActivateTab(9) })
 table.insert(config.keys, { mods="ALT", key = "w", action = action.CloseCurrentTab{confirm=true} })
 table.insert(config.keys, { mods="ALT", key = "t", action = action.SpawnTab("CurrentPaneDomain") })
+table.insert(config.keys, { mods = '', key = 'F11', action = wezterm.action.ToggleFullScreen, })
 
 
 -- Notification when the configuration is reloaded
