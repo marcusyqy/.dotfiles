@@ -15,11 +15,6 @@ config.color_scheme = 'Apple System Colors'
 -- config.color_scheme = 'Builtin Dark'
 -- config.color_scheme = 'Gruvbox Dark (Gogh)'
 
-config.colors = {}
--- config.colors.background = '#1d1d1d'
--- config.colors.background = '#000000' -- for paramount
--- config.colors.cursor_bg = '#52ad70'
-config.colors.foreground = '#ffffff'
 config.default_cursor_style = "BlinkingBlock"
 config.cursor_blink_ease_in = "Constant"
 config.cursor_blink_ease_out = "Constant"
@@ -67,6 +62,8 @@ local white = '#ffffff'
 local default_bg = 'none'
 
 config.colors = {
+  background = "#000000",
+  foreground = "#ffffff",
   tab_bar = {
     background = '#1a1a1a',
     active_tab = {
