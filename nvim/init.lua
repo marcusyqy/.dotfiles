@@ -1190,21 +1190,8 @@ if vim.g.neovide then
   vim.keymap.set({ "n", "v", "i", "c", "t"}, '<D-CR>', ":let g:neovide_fullscreen = !g:neovide_fullscreen<CR>")
   -- vim.keymap.set({ "n", "v", "i", "c", "t"}, '<M-CR>', ":let g:neovide_fullscreen = !g:neovide_fullscreen<CR>")
 
-  vim.g.neovide_progress_bar_enabled = true
-  vim.g.neovide_progress_bar_height = 5.0
-  vim.g.neovide_progress_bar_animation_speed = 200.0
-  vim.g.neovide_progress_bar_hide_delay = 0.2
+  local battery_saver = true
 
-  vim.g.neovide_hide_mouse_when_typing = true
-  vim.g.neovide_scroll_animation_length = 0.1
-  vim.g.neovide_floating_shadow = true
-  vim.g.neovide_floating_z_height = 10
-  vim.g.neovide_light_angle_degrees = 45
-  vim.g.neovide_light_radius = 5
-
-  vim.g.neovide_cursor_short_animation_length = 0.02
-  vim.g.neovide_cursor_animation_length = 0.05
-  vim.g.neovide_cursor_trail_size  = 0.05
   -- Lower frame rate when not focused
   vim.api.nvim_create_autocmd("FocusLost", {
     callback = function()
@@ -1215,11 +1202,14 @@ if vim.g.neovide then
   -- Restore frame rate when focused
   vim.api.nvim_create_autocmd("FocusGained", {
     callback = function()
-      vim.g.neovide_refresh_rate = 60
+      if battery_saver then
+        vim.g.neovide_refresh_rate = 30
+      else
+        vim.g.neovide_refresh_rate = 60
+      end
     end,
   })
 
-  local battery_saver = true
 
   local function neovide_defaults()
     vim.g.neovide_progress_bar_enabled = true
@@ -1242,10 +1232,10 @@ if vim.g.neovide then
 
   function neovide_toggle_battery_saver()
     battery_saver = not battery_saver
+    print("turning " ..  (battery_saver and "on" or "off") .. " battery saver")
     if battery_saver then
-      print("turning on battery saver")
       vim.g.neovide_progress_bar_enabled = false
-      vim.g.neovide_hide_mouse_when_typing = true
+      vim.g.neovide_hide_mouse_when_typing = false
       vim.g.neovide_scroll_animation_length = 0.0
       vim.g.neovide_floating_shadow = false
       vim.g.neovide_floating_z_height = 10
@@ -1257,7 +1247,6 @@ if vim.g.neovide then
       vim.g.neovide_cursor_animation_length = 0.00
       vim.g.neovide_cursor_trail_size  = 0.00
     else
-      print("turning off battery saver")
       neovide_defaults()
     end
   end
