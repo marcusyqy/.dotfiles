@@ -1156,8 +1156,7 @@ vim.cmd("colorscheme gruvbox-material")
 -- vim.api.nvim_set_hl(0, "VertSplit", { bg = "NONE" })
 
 if vim.g.neovide then
-    -- Put anything you want to happen only in Neovide here
-    -- vim.o.guifont = "Source Code Pro:h14"
+  -- @TODO: Let's fix the problem with battery consumption by adding a function.
   vim.keymap.set("i", "<c-s-v>", "<c-r>+")
   vim.keymap.set("n", "<c-s-v>", "\"+p")
   vim.keymap.set("v", "<c-s-v>", "\"+p")
@@ -1206,5 +1205,62 @@ if vim.g.neovide then
   vim.g.neovide_cursor_short_animation_length = 0.02
   vim.g.neovide_cursor_animation_length = 0.05
   vim.g.neovide_cursor_trail_size  = 0.05
+  -- Lower frame rate when not focused
+  vim.api.nvim_create_autocmd("FocusLost", {
+    callback = function()
+      vim.g.neovide_refresh_rate = 5
+    end,
+  })
+
+  -- Restore frame rate when focused
+  vim.api.nvim_create_autocmd("FocusGained", {
+    callback = function()
+      vim.g.neovide_refresh_rate = 60
+    end,
+  })
+
+  local battery_saver = true
+
+  local function neovide_defaults()
+    vim.g.neovide_progress_bar_enabled = true
+    vim.g.neovide_progress_bar_height = 5.0
+    vim.g.neovide_progress_bar_animation_speed = 200.0
+    vim.g.neovide_progress_bar_hide_delay = 0.2
+    vim.g.neovide_refresh_rate = 60
+
+    vim.g.neovide_hide_mouse_when_typing = true
+    vim.g.neovide_scroll_animation_length = 0.1
+    vim.g.neovide_floating_shadow = true
+    vim.g.neovide_floating_z_height = 10
+    vim.g.neovide_light_angle_degrees = 45
+    vim.g.neovide_light_radius = 5
+
+    vim.g.neovide_cursor_short_animation_length = 0.02
+    vim.g.neovide_cursor_animation_length = 0.05
+    vim.g.neovide_cursor_trail_size  = 0.05
+  end
+
+  function neovide_toggle_battery_saver()
+    battery_saver = not battery_saver
+    if battery_saver then
+      print("turning on battery saver")
+      vim.g.neovide_progress_bar_enabled = false
+      vim.g.neovide_hide_mouse_when_typing = true
+      vim.g.neovide_scroll_animation_length = 0.0
+      vim.g.neovide_floating_shadow = false
+      vim.g.neovide_floating_z_height = 10
+      vim.g.neovide_light_angle_degrees = 0
+      vim.g.neovide_light_radius = 0
+      vim.g.neovide_refresh_rate = 30
+
+      vim.g.neovide_cursor_short_animation_length = 0.00
+      vim.g.neovide_cursor_animation_length = 0.00
+      vim.g.neovide_cursor_trail_size  = 0.00
+    else
+      print("turning off battery saver")
+      neovide_defaults()
+    end
+  end
+  neovide_defaults()
 end
 
