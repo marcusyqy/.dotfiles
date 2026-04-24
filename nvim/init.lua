@@ -1190,7 +1190,7 @@ if vim.g.neovide then
   vim.keymap.set({ "n", "v", "i", "c", "t"}, '<D-CR>', ":let g:neovide_fullscreen = !g:neovide_fullscreen<CR>")
   -- vim.keymap.set({ "n", "v", "i", "c", "t"}, '<M-CR>', ":let g:neovide_fullscreen = !g:neovide_fullscreen<CR>")
 
-  local battery_saver = true
+  local battery_saver = false
 
   -- Lower frame rate when not focused
   vim.api.nvim_create_autocmd("FocusLost", {
