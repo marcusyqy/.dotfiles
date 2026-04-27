@@ -37,11 +37,13 @@ config.font = wezterm.font {
     -- family = "Iosevka Nerd Font Mono", -- Or the font you prefer
     family = "Comic Code", -- Or the font you prefer
     -- family = "JetBrains Mono", -- Or the font you prefer
+    weight = "Medium", -- try this out.
     -- weight = "DemiBold", -- Optional: Adjust weight
     harfbuzz_features = { "calt=0", "clig=0", "liga=0" }, -- Disable ligatures
 }
 
 config.freetype_load_target = "HorizontalLcd"
+-- config.freetype_load_target = "Normal"
 
 -- tab
 config.use_fancy_tab_bar = false
