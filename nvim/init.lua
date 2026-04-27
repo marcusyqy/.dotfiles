@@ -935,6 +935,7 @@ require("lazy").setup({
 
 
 -- keybinds
+-- vim.keymap.set({"n", "v", "c"}, "<C-;>", "<esc>", { desc = "Escape", noremap = true, silent = true })
 vim.keymap.set("n", "<c-,>", "<c-w>w", { desc = "Swap panes" })
 vim.keymap.set("n", "<c-n>", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 vim.keymap.set("i", "<s-tab>", "<C-D>", { desc = "Backward when s-tab in insert mode." })
