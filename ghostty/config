@@ -4,11 +4,8 @@ font-feature = -calt
 font-family = "Comic Code"
 font-size = 13.0
 # font-thicken = true
-# adjust-cell-height=-10%
-# adjust-cell-width=-5%
-# theme = "Raycast Light"
-# theme = "Kitty Default"
-theme = "dark:Kitty Default,light:Raycast Light"
+theme = "Kitty Default"
+# theme = "Gruvbox Dark Hard"
 
 # background = 000000
 # background = 1d1d1d
