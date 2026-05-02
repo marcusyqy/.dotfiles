@@ -1,5 +1,3 @@
--- @TODO: hello world
-
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
@@ -15,6 +13,31 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
     os.exit(1)
   end
 end
+
+
+
+local function border_fn(hl_name)
+  return {
+    { "┌", hl_name },
+    { "─", hl_name },
+    { "┐", hl_name },
+    { "│", hl_name },
+    { "┘", hl_name },
+    { "─", hl_name },
+    { "└", hl_name },
+    { "│", hl_name },
+  }
+end
+
+
+-- Add border to the diagnostic popup window
+-- vim.diagnostic.config({
+--   virtual_text = {
+--     prefix = '■ ', -- Could be '●', '▎', 'x', '■', , 
+--   },
+--   float = { border = border },
+-- })
+
 
 vim.opt.rtp:prepend(lazypath)
 
@@ -814,6 +837,14 @@ require("lazy").setup({
             { name = 'buffer',  keyword_length = 4 },
           },
           window = {
+            completion = {
+              border = border_fn("CmpMenuBorder"),
+              -- winhighlight = "Normal:CmpMenu,CursorLine:CmpMenuSel,Search:None",
+            },
+            documentation = {
+              border = border_fn("CmpDocBorder"),
+              -- winhighlight = "Normal:CmpDoc",
+            },
             -- completion = cmp.config.window.bordered(),
             -- documentation = cmp.config.window.bordered(),
           },
@@ -836,7 +867,7 @@ require("lazy").setup({
           },
           experimental = {
             -- native_menu = false,
-            ghost_text = true,
+            ghost_text = false,
           },
           sorting = {
             comparators = {
@@ -882,12 +913,33 @@ require("lazy").setup({
     "neovim/nvim-lspconfig",
     dependencies = {
       "mason.nvim",
-      {"mason-org/mason-lspconfig.nvim", opts = {}},
+      {"mason-org/mason-lspconfig.nvim", opts = { }},
       { "hrsh7th/nvim-cmp" },
     },
     config = function()
+      local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
+      -- Specify how the border looks like
+      local border = {
+        { '┌', 'FloatBorder' },
+        { '─', 'FloatBorder' },
+        { '┐', 'FloatBorder' },
+        { '│', 'FloatBorder' },
+        { '┘', 'FloatBorder' },
+        { '─', 'FloatBorder' },
+        { '└', 'FloatBorder' },
+        { '│', 'FloatBorder' },
+      }
+      -- Add the border on hover and on signature help popup window
+      local handlers = {
+        ['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, { border = border }),
+        ['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border }),
+      }
       vim.lsp.set_log_level("error")
+
       vim.lsp.config("pylsp", {
+        capabilities = capabilities,
+        handlers = handlers,
         settings = {
           pylsp = {
             plugins = {
@@ -900,13 +952,19 @@ require("lazy").setup({
           },
         }
       })
+      vim.lsp.config("*", {
+        capabilities = capabilities,
+        handlers = handlers,
+      })
       vim.lsp.config("clangd", {
+        handlers = handlers,
         -- "--header-insertion-decorators",
         -- "--function-arg-placeholders",
         -- "--completion-style=detailed",
         -- "--clang-tidy=false",
         -- "--query-driver=**"
         -- "--compile-commands-dir=${workspaceFolder}/",
+        capabilities = capabilities,
         cmd = {
           "clangd",
           "--header-insertion=never",
