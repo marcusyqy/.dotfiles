@@ -859,7 +859,7 @@ require("lazy").setup({
             { name = 'buffer' }
           },
           view = {
-            entries = {name = 'wildmenu', separator = '|' }
+            entries = {name = 'wildmenu', separator = ' | ' }
           },
         })
 
@@ -873,7 +873,7 @@ require("lazy").setup({
           ),
           matching = { disallow_symbol_nonprefix_matching = false },
           view = {
-            entries = {name = 'wildmenu', separator = '|' }
+            entries = {name = 'wildmenu', separator = ' | ' }
           },
         })
       end,
