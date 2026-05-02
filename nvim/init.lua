@@ -24,9 +24,9 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
 vim.cmd([[
-    syntax on
-    " filetype off "required
-    syntax enable
+syntax on
+" filetype off "required
+syntax enable
 ]])
 
 -- language
@@ -379,7 +379,7 @@ require("lazy").setup({
       'nvim-mini/mini.align',
       version = false,
       opts = {
-         mappings = {
+        mappings = {
           start = 'ga',
           start_with_preview = 'gA',
         },
@@ -388,73 +388,73 @@ require("lazy").setup({
     {
       "folke/todo-comments.nvim",
       dependencies = { "nvim-lua/plenary.nvim" },
-      -- opts = {
-      --   -- your configuration comes here
-      --   -- or leave it empty to use the default settings
-      --   -- refer to the configuration section below
-      --   signs = true, -- show icons in the signs column
-      --   sign_priority = 8, -- sign priority
-      --   -- keywords recognized as todo comments
-      --   keywords = {
-      --     FIX = {
-      --       icon = " ", -- icon used for the sign, and in search results
-      --       color = "error", -- can be a hex color, or a named color (see below)
-      --       alt = { "FIXME", "BUG", "FIXIT", "ISSUE" }, -- a set of other keywords that all map to this FIX keywords
-      --       -- signs = false, -- configure signs for some keywords individually
-      --     },
-      --     TODO = { icon = " ", color = "info" },
-      --     HACK = { icon = " ", color = "warning" },
-      --     WARN = { icon = " ", color = "warning", alt = { "WARNING", "XXX" } },
-      --     PERF = { icon = " ", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
-      --     NOTE = { icon = " ", color = "hint", alt = { "INFO" } },
-      --     TEST = { icon = "⏲ ", color = "test", alt = { "TESTING", "PASSED", "FAILED" } },
-      --   },
-      --   gui_style = {
-      --     fg = "NONE", -- The gui style to use for the fg highlight group.
-      --     bg = "BOLD", -- The gui style to use for the bg highlight group.
-      --   },
-      --   merge_keywords = true, -- when true, custom keywords will be merged with the defaults
-      --   -- highlighting of the line containing the todo comment
-      --   -- * before: highlights before the keyword (typically comment characters)
-      --   -- * keyword: highlights of the keyword
-      --   -- * after: highlights after the keyword (todo text)
-      --   highlight = {
-      --     multiline = true, -- enable multine todo comments
-      --     multiline_pattern = "^.", -- lua pattern to match the next multiline from the start of the matched keyword
-      --     multiline_context = 10, -- extra lines that will be re-evaluated when changing a line
-      --     before = "", -- "fg" or "bg" or empty
-      --     keyword = "wide", -- "fg", "bg", "wide", "wide_bg", "wide_fg" or empty. (wide and wide_bg is the same as bg, but will also highlight surrounding characters, wide_fg acts accordingly but with fg)
-      --     after = "fg", -- "fg" or "bg" or empty
-      --     pattern = [[.*<(KEYWORDS)\s*:]], -- pattern or table of patterns, used for highlighting (vim regex)
-      --     comments_only = true, -- uses treesitter to match keywords in comments only
-      --     max_line_len = 400, -- ignore lines longer than this
-      --     exclude = {}, -- list of file types to exclude highlighting
-      --   },
-      --   -- list of named colors where we try to extract the guifg from the
-      --   -- list of highlight groups or use the hex color if hl not found as a fallback
-      --   colors = {
-      --     error = { "DiagnosticError", "ErrorMsg", "#DC2626" },
-      --     warning = { "DiagnosticWarn", "WarningMsg", "#FBBF24" },
-      --     info = { "DiagnosticInfo", "#2563EB" },
-      --     hint = { "DiagnosticHint", "#10B981" },
-      --     default = { "Identifier", "#7C3AED" },
-      --     test = { "Identifier", "#FF00FF" }
-      --   },
-      --   search = {
-      --     command = "rg",
-      --     args = {
-      --       "--color=never",
-      --       "--no-heading",
-      --       "--with-filename",
-      --       "--line-number",
-      --       "--column",
-      --     },
-      --     -- regex that will be used to match keywords.
-      --     -- don't replace the (KEYWORDS) placeholder
-      --     pattern = [[\b(KEYWORDS):]], -- ripgrep regex
-      --     -- pattern = [[\b(KEYWORDS)\b]], -- match without the extra colon. You'll likely get false positives
-      --   },
-      -- }
+      opts = {
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+        signs = true, -- show icons in the signs column
+        sign_priority = 8, -- sign priority
+        -- keywords recognized as todo comments
+        keywords = {
+          FIX = {
+            icon = " ", -- icon used for the sign, and in search results
+            color = "error", -- can be a hex color, or a named color (see below)
+            alt = { "FIXME", "BUG", "FIXIT", "ISSUE" }, -- a set of other keywords that all map to this FIX keywords
+            -- signs = false, -- configure signs for some keywords individually
+          },
+          TODO = { icon = " ", color = "info" },
+          HACK = { icon = " ", color = "warning" },
+          WARN = { icon = " ", color = "warning", alt = { "WARNING", "XXX" } },
+          PERF = { icon = " ", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
+          NOTE = { icon = " ", color = "hint", alt = { "INFO" } },
+          TEST = { icon = "⏲ ", color = "test", alt = { "TESTING", "PASSED", "FAILED" } },
+        },
+        gui_style = {
+          fg = "NONE", -- The gui style to use for the fg highlight group.
+          bg = "BOLD", -- The gui style to use for the bg highlight group.
+        },
+        merge_keywords = true, -- when true, custom keywords will be merged with the defaults
+        -- highlighting of the line containing the todo comment
+        -- * before: highlights before the keyword (typically comment characters)
+        -- * keyword: highlights of the keyword
+        -- * after: highlights after the keyword (todo text)
+        highlight = {
+          multiline = true, -- enable multine todo comments
+          multiline_pattern = "^.", -- lua pattern to match the next multiline from the start of the matched keyword
+          multiline_context = 10, -- extra lines that will be re-evaluated when changing a line
+          before = "", -- "fg" or "bg" or empty
+          keyword = "wide", -- "fg", "bg", "wide", "wide_bg", "wide_fg" or empty. (wide and wide_bg is the same as bg, but will also highlight surrounding characters, wide_fg acts accordingly but with fg)
+          after = "fg", -- "fg" or "bg" or empty
+          pattern = [[.*<(KEYWORDS)\s*:]], -- pattern or table of patterns, used for highlighting (vim regex)
+          comments_only = true, -- uses treesitter to match keywords in comments only
+          max_line_len = 400, -- ignore lines longer than this
+          exclude = {}, -- list of file types to exclude highlighting
+        },
+        -- list of named colors where we try to extract the guifg from the
+        -- list of highlight groups or use the hex color if hl not found as a fallback
+        colors = {
+          error = { "DiagnosticError", "ErrorMsg", "#DC2626" },
+          warning = { "DiagnosticWarn", "WarningMsg", "#FBBF24" },
+          info = { "DiagnosticInfo", "#2563EB" },
+          hint = { "DiagnosticHint", "#10B981" },
+          default = { "Identifier", "#7C3AED" },
+          test = { "Identifier", "#FF00FF" }
+        },
+        search = {
+          command = "rg",
+          args = {
+            "--color=never",
+            "--no-heading",
+            "--with-filename",
+            "--line-number",
+            "--column",
+          },
+          -- regex that will be used to match keywords.
+          -- don't replace the (KEYWORDS) placeholder
+          pattern = [[\b(KEYWORDS):]], -- ripgrep regex
+          -- pattern = [[\b(KEYWORDS)\b]], -- match without the extra colon. You'll likely get false positives
+        },
+      }
     },
     {
       "stevearc/oil.nvim", opts = {
@@ -689,310 +689,265 @@ require("lazy").setup({
     { "nvim-lua/plenary.nvim" },
     { "tpope/vim-fugitive" },
     { "hrsh7th/nvim-cmp",
-      dependencies = {
-        { "hrsh7th/cmp-nvim-lua" },
-        { "hrsh7th/cmp-nvim-lsp" },
-        { "hrsh7th/cmp-buffer" },
-        { "hrsh7th/cmp-path" },
-        { "L3MON4D3/LuaSnip" },
-        { "saadparwaiz1/cmp_luasnip" },
-        { "onsails/lspkind-nvim" },
-      },
-      opts = function()
-        local cmp = require("cmp")
-        local luasnip = require('luasnip')
-        local lspkind = require('lspkind')
-        return {
-          snippet = {
-            expand = function(args)
-              -- For `vsnip` user.
-              -- vim.fn["vsnip#anonymous"](args.body)
+    dependencies = {
+      { "hrsh7th/cmp-nvim-lua" },
+      { "hrsh7th/cmp-nvim-lsp" },
+      { "hrsh7th/cmp-buffer" },
+      { "hrsh7th/cmp-path" },
+      { "L3MON4D3/LuaSnip" },
+      { "saadparwaiz1/cmp_luasnip" },
+      { "onsails/lspkind-nvim" },
+    },
+    opts = function()
+      local cmp = require("cmp")
+      local luasnip = require('luasnip')
+      local lspkind = require('lspkind')
+      return {
+        snippet = {
+          expand = function(args)
+            -- For `vsnip` user.
+            -- vim.fn["vsnip#anonymous"](args.body)
 
-              -- For `luasnip` user.
-              luasnip.lsp_expand(args.body)
+            -- For `luasnip` user.
+            luasnip.lsp_expand(args.body)
 
-              -- For `ultisnips` user.
-              -- vim.fn["UltiSnips#Anon"](args.body)
-            end,
-          },
-          mapping = {
-            ['<C-u>'] = cmp.mapping.scroll_docs(-4),
-            ['<C-d>'] = cmp.mapping.scroll_docs(4),
-            ['<C-,>'] = cmp.mapping.complete(),
-            ['<Tab>'] = function(fallback)
-              if cmp.visible() then
-                cmp.select_next_item()
-              elseif luasnip.expand_or_jumpable() then
-                luasnip.expand_or_jump()
-              else
-                fallback()
-              end
-            end,
-            ['<S-Tab>'] = function(fallback)
-              if cmp.visible() then
-                cmp.select_prev_item()
-              elseif luasnip.jumpable(-1) then
-                luasnip.jump(-1)
-              else
-                fallback()
-              end
-            end,
-            ['<down>'] = function(fallback)
-              if cmp.visible() then
-                cmp.select_next_item()
-              elseif luasnip.expand_or_jumpable() then
-                luasnip.expand_or_jump()
-              else
-                fallback()
-              end
-            end,
-            ['<up>'] = function(fallback)
-              if cmp.visible() then
-                cmp.select_prev_item()
-              elseif luasnip.jumpable(-1) then
-                luasnip.jump(-1)
-              else
-                fallback()
-              end
-            end,
-            ['<c-n>'] = function(fallback)
-              if cmp.visible() then
-                cmp.select_next_item()
-              elseif luasnip.expand_or_jumpable() then
-                luasnip.expand_or_jump()
-              else
-                fallback()
-              end
-            end,
-            ['<c-p>'] = function(fallback)
-              if cmp.visible() then
-                cmp.select_prev_item()
-              elseif luasnip.jumpable(-1) then
-                luasnip.jump(-1)
-              else
-                fallback()
-              end
-            end,
-            ['<CR>'] = cmp.mapping.confirm { behavior = cmp.ConfirmBehavior.Replace, select = true, },
-          },
-          sources = {
-            { name = 'nvim_lsp' },
+            -- For `ultisnips` user.
+            -- vim.fn["UltiSnips#Anon"](args.body)
+          end,
+        },
+        mapping = {
+          ['<C-u>'] = cmp.mapping.scroll_docs(-4),
+          ['<C-d>'] = cmp.mapping.scroll_docs(4),
+          ['<C-,>'] = cmp.mapping.complete(),
+          ['<Tab>'] = function(fallback)
+            if cmp.visible() then
+              cmp.select_next_item()
+            elseif luasnip.expand_or_jumpable() then
+              luasnip.expand_or_jump()
+            else
+              fallback()
+            end
+          end,
+          ['<S-Tab>'] = function(fallback)
+            if cmp.visible() then
+              cmp.select_prev_item()
+            elseif luasnip.jumpable(-1) then
+              luasnip.jump(-1)
+            else
+              fallback()
+            end
+          end,
+          ['<down>'] = function(fallback)
+            if cmp.visible() then
+              cmp.select_next_item()
+            elseif luasnip.expand_or_jumpable() then
+              luasnip.expand_or_jump()
+            else
+              fallback()
+            end
+          end,
+          ['<up>'] = function(fallback)
+            if cmp.visible() then
+              cmp.select_prev_item()
+            elseif luasnip.jumpable(-1) then
+              luasnip.jump(-1)
+            else
+              fallback()
+            end
+          end,
+          ['<c-n>'] = function(fallback)
+            if cmp.visible() then
+              cmp.select_next_item()
+            elseif luasnip.expand_or_jumpable() then
+              luasnip.expand_or_jump()
+            else
+              fallback()
+            end
+          end,
+          ['<c-p>'] = function(fallback)
+            if cmp.visible() then
+              cmp.select_prev_item()
+            elseif luasnip.jumpable(-1) then
+              luasnip.jump(-1)
+            else
+              fallback()
+            end
+          end,
+          ['<CR>'] = cmp.mapping.confirm { behavior = cmp.ConfirmBehavior.Replace, select = true, },
+        },
+        sources = {
+          { name = 'nvim_lsp' },
 
-            -- For vsnip user.
-            -- { name = 'vsnip' },
-            { name = 'nvim_lua' },
+          -- For vsnip user.
+          -- { name = 'vsnip' },
+          { name = 'nvim_lua' },
 
-            -- For luasnip user.
-            { name = 'luasnip' },
+          -- For luasnip user.
+          { name = 'luasnip' },
 
-            -- for paths
-            { name = 'path' },
+          -- for paths
+          { name = 'path' },
 
-            -- For ultisnips user.
-            -- { name = 'ultisnips' },
-            { name = 'buffer',  keyword_length = 4 },
-          },
-          window = {
-            -- completion = cmp.config.window.bordered(),
-            -- documentation = cmp.config.window.bordered(),
-          },
-          formatting = {
-            format = lspkind.cmp_format({
-              with_text = true,
-              mode = "symbol",
-              maxwidth = 50,         -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
-              ellipsis_char = '...', -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
-              -- The function below will be called before any actual modifications from lspkind
-              -- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
-              menu = ({
-                buffer = "[buffer]",
-                nvim_lsp = "[LSP]",
-                nvim_lua = "[api]",
-                luasnip = "[snippets]",
-                path = "[path]"
-              })
+          -- For ultisnips user.
+          -- { name = 'ultisnips' },
+          { name = 'buffer',  keyword_length = 4 },
+        },
+        window = {
+          -- completion = cmp.config.window.bordered(),
+          -- documentation = cmp.config.window.bordered(),
+        },
+        formatting = {
+          format = lspkind.cmp_format({
+            with_text = true,
+            mode = "symbol",
+            maxwidth = 50,         -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+            ellipsis_char = '...', -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
+            -- The function below will be called before any actual modifications from lspkind
+            -- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
+            menu = ({
+              buffer = "[buffer]",
+              nvim_lsp = "[LSP]",
+              nvim_lua = "[api]",
+              luasnip = "[snippets]",
+              path = "[path]"
             })
+          })
+        },
+        experimental = {
+          native_menu = false,
+          ghost_text = false,
+        },
+        sorting = {
+          comparators = {
+            cmp.config.compare.offset,
+            cmp.config.compare.exact,
+            cmp.config.compare.recently_used,
+            cmp.config.compare.kind,
+            cmp.config.compare.sort_text,
+            cmp.config.compare.length,
+            cmp.config.compare.order,
           },
-          experimental = {
-            native_menu = false,
-            ghost_text = false,
-          },
-          sorting = {
-            comparators = {
-              cmp.config.compare.offset,
-              cmp.config.compare.exact,
-              cmp.config.compare.recently_used,
-              cmp.config.compare.kind,
-              cmp.config.compare.sort_text,
-              cmp.config.compare.length,
-              cmp.config.compare.order,
+        },
+      }
+    end,
+  },
+  {
+    "neovim/nvim-lspconfig",
+    dependencies = {
+      "mason.nvim",
+      {"mason-org/mason-lspconfig.nvim", opts = {}},
+      { "hrsh7th/nvim-cmp" },
+    },
+    config = function()
+      vim.lsp.set_log_level("error")
+      vim.lsp.config("pylsp", {
+        settings = {
+          pylsp = {
+            plugins = {
+              pyflakes = { enabled = false },
+              pycodestyle = { enabled = false },
+              pydocstyle = { enabled = false },
+              pylint = { enabled = false },
+              mccabe = { enabled = false },
             },
           },
         }
-      end,
+      })
+      vim.lsp.config("clangd", {
+        -- "--header-insertion-decorators",
+        -- "--function-arg-placeholders",
+        -- "--completion-style=detailed",
+        -- "--clang-tidy=false",
+        -- "--query-driver=**"
+        cmd = {
+          "clangd",
+          "--header-insertion=never",
+          "--j=4",
+          "--pch-storage=memory",
+          "--compile-commands-dir=${workspaceFolder}/",
+          "--background-index",
+          "--suggest-missing-includes",
+          "--clang-tidy",
+          "--all-scopes-completion",
+          "--query-driver=/**/*"
+        }
+      })
+      vim.lsp.enable('clangd')
+    end,
+  },
+  {
+    "mason-org/mason.nvim",
+    cmd = "Mason",
+    build = ":MasonUpdate",
+    opts = {},
+  },
+  { "peterhoeg/vim-qml" },
+  { "bfrg/vim-cpp-modern" },
+  { "evanleck/vim-svelte" },
+  { "martinda/Jenkinsfile-vim-syntax" },
+  { "kalvinpearce/ShaderHighlight" },
+  {
+    "nvim-lualine/lualine.nvim",
+    dependencies = {
+      'nvim-tree/nvim-web-devicons' ,
+      'arkav/lualine-lsp-progress'
     },
-    {
-      "neovim/nvim-lspconfig",
-      dependencies = {
-        "mason.nvim",
-        -- {"mason-org/mason-lspconfig.nvim", opts = { ensure_installed = { "clangd", "lua_ls"} } },
-        {"mason-org/mason-lspconfig.nvim", opts = {}},
-        { "hrsh7th/nvim-cmp" },
-      },
-      config = function()
-        vim.lsp.set_log_level("error")
-        vim.lsp.config("pylsp", {
-            settings = {
-                pylsp = {
-                    plugins = {
-                        pyflakes = { enabled = false },
-                        pycodestyle = { enabled = false },
-                        pydocstyle = { enabled = false },
-                        pylint = { enabled = false },
-                        mccabe = { enabled = false },
-                    },
-                },
-            }
-        })
-        vim.lsp.config("clangd", {
-            -- "--header-insertion-decorators",
-            -- "--function-arg-placeholders",
-            -- "--completion-style=detailed",
-            -- "--clang-tidy=false",
-            -- "--query-driver=**"
-          cmd = {
-            "clangd",
-            "--header-insertion=never",
-            "--j=4",
-            "--pch-storage=memory",
-            "--compile-commands-dir=${workspaceFolder}/",
-            "--background-index",
-            "--suggest-missing-includes",
-            "--clang-tidy",
-            "--all-scopes-completion",
-            "--query-driver=/**/*"
-          }
-        })
-        vim.lsp.enable('clangd')
-      end,
-    },
-    {
-      "mason-org/mason.nvim",
-      cmd = "Mason",
-      build = ":MasonUpdate",
-      opts = {},
-    },
-    -- {
-    --   "nvim-treesitter/nvim-treesitter",
-    --   opts = {
-    --     -- A list of parser names, or "all" (the listed parsers MUST always be installed)
-    --     ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline", "javascript", "typescript" },
-    --
-    --     -- Install parsers synchronously (only applied to `ensure_installed`)
-    --     sync_install = false,
-    --
-    --     -- Automatically install missing parsers when entering buffer
-    --     -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
-    --     auto_install = true,
-    --
-    --     -- List of parsers to ignore installing (or "all")
-    --     ignore_install = {},
-    --
-    --     ---- If you need to change the installation directory of the parsers (see -> Advanced Setup)
-    --     -- parser_install_dir = "/some/path/to/store/parsers", -- Remember to run vim.opt.runtimepath:append("/some/path/to/store/parsers")!
-    --
-    --     highlight = {
-    --       enable = true,
-    --
-    --       -- NOTE: these are the names of the parsers and not the filetype. (for example if you want to
-    --       -- disable highlighting for the `tex` filetype, you need to include `latex` in this list as this is
-    --       -- the name of the parser)
-    --       -- list of language that will be disabled
-    --       -- disable = { "c", "rust" },
-    --       -- Or use a function for more flexibility, e.g. to disable slow treesitter highlight for large files
-    --       disable = function(lang, buf)
-    --         local max_filesize = 100 * 1024 -- 100 KB
-    --         local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
-    --         if ok and stats and stats.size > max_filesize then
-    --           return true
-    --         end
-    --       end,
-    --
-    --       -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-    --       -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
-    --       -- Using this option may slow down your editor, and you may see some duplicate highlights.
-    --       -- Instead of true it can also be a list of languages
-    --       additional_vim_regex_highlighting = true,
-    --     },
-    --   }
-    -- },
-    { "peterhoeg/vim-qml" },
-    { "bfrg/vim-cpp-modern" },
-    { "evanleck/vim-svelte" },
-    { "martinda/Jenkinsfile-vim-syntax" },
-    { "kalvinpearce/ShaderHighlight" },
-    {
-      "nvim-lualine/lualine.nvim",
-      dependencies = {
-        'nvim-tree/nvim-web-devicons' ,
-        'arkav/lualine-lsp-progress'
-      },
-      opts = {
-          options = {
-            icons_enabled = true,
-            theme = 'auto',
-            component_separators = { left = '', right = ''},
-            section_separators = { left = '', right = ''},
-            disabled_filetypes = {
-              statusline = {},
-              winbar = {},
-            },
-            ignore_focus = {},
-            always_divide_middle = true,
-            always_show_tabline = false,
-            globalstatus = true,
-            refresh = {
-              statusline = 1000,
-              tabline = 1000,
-              winbar = 1000,
-              refresh_time = 16, -- ~60fps
-              events = {
-                'WinEnter',
-                'BufEnter',
-                'BufWritePost',
-                'SessionLoadPost',
-                'FileChangedShellPost',
-                'VimResized',
-                'Filetype',
-                'CursorMoved',
-                'CursorMovedI',
-                'ModeChanged',
-              },
-            }
-          },
-          sections = {
-            lualine_a = {'mode'}, --  {{'mode', fmt = function(res) return res:sub(1,1) end }},
-            lualine_b = {'branch', 'diff', 'diagnostics'},
-            lualine_c = {'filename', 'lsp_progress' },
-            lualine_x = {'encoding', 'fileformat', 'filetype'},
-            lualine_y = {'progress'},
-            lualine_z = {'location'}
-          },
-          inactive_sections = {
-            lualine_a = {},
-            lualine_b = {},
-            lualine_c = {'filename'},
-            lualine_x = {'location'},
-            lualine_y = {},
-            lualine_z = {}
-          },
-          tabline = {
-          },
+    opts = {
+      options = {
+        icons_enabled = true,
+        theme = 'auto',
+        component_separators = { left = '', right = ''},
+        section_separators = { left = '', right = ''},
+        disabled_filetypes = {
+          statusline = {},
           winbar = {},
-          inactive_winbar = {},
-          extensions = {}
+        },
+        ignore_focus = {},
+        always_divide_middle = true,
+        always_show_tabline = false,
+        globalstatus = true,
+        refresh = {
+          statusline = 1000,
+          tabline = 1000,
+          winbar = 1000,
+          refresh_time = 16, -- ~60fps
+          events = {
+            'WinEnter',
+            'BufEnter',
+            'BufWritePost',
+            'SessionLoadPost',
+            'FileChangedShellPost',
+            'VimResized',
+            'Filetype',
+            'CursorMoved',
+            'CursorMovedI',
+            'ModeChanged',
+          },
         }
-    },
+      },
+      sections = {
+        lualine_a = {'mode'}, --  {{'mode', fmt = function(res) return res:sub(1,1) end }},
+        lualine_b = {'branch', 'diff', 'diagnostics'},
+        lualine_c = {'filename', 'lsp_progress' },
+        lualine_x = {'encoding', 'fileformat', 'filetype'},
+        lualine_y = {'progress'},
+        lualine_z = {'location'}
+      },
+      inactive_sections = {
+        lualine_a = {},
+        lualine_b = {},
+        lualine_c = {'filename'},
+        lualine_x = {'location'},
+        lualine_y = {},
+        lualine_z = {}
+      },
+      tabline = {
+      },
+      winbar = {},
+      inactive_winbar = {},
+      extensions = {}
+    }
+  },
   },
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.
@@ -1101,30 +1056,30 @@ local marcusyqy_qf_l = 0
 local marcusyqy_qf_g = 0
 
 local ToggleQFList = function(globs)
-    if globs then
-        if marcusyqy_qf_g == 1 then
-            marcusyqy_qf_g = 0
-            vim.cmd("cclose")
-        else
-            marcusyqy_qf_g = 1
-            vim.cmd("copen")
-        end
+  if globs then
+    if marcusyqy_qf_g == 1 then
+      marcusyqy_qf_g = 0
+      vim.cmd("cclose")
     else
-        if marcusyqy_qf_l == 1 then
-            marcusyqy_qf_l = 0
-            vim.cmd("lclose")
-        else
-            marcusyqy_qf_l = 1
-            vim.cmd("lopen")
-        end
+      marcusyqy_qf_g = 1
+      vim.cmd("copen")
     end
+  else
+    if marcusyqy_qf_l == 1 then
+      marcusyqy_qf_l = 0
+      vim.cmd("lclose")
+    else
+      marcusyqy_qf_l = 1
+      vim.cmd("lopen")
+    end
+  end
 end
 
 vim.keymap.set("n", "<C-q>", function() ToggleQFList(true) end, { desc = "Open Global QF List" })
 
 vim.cmd([[
-  cnoreabbrev g Git
-  cnoreabbrev gopen GBrowse
+cnoreabbrev g Git
+cnoreabbrev gopen GBrowse
 ]])
 
 local augroup = vim.api.nvim_create_augroup
@@ -1134,21 +1089,21 @@ local autocmd = vim.api.nvim_create_autocmd
 local yank_group = augroup('HighlightYank', {})
 
 autocmd('TextYankPost', {
-    group = yank_group,
-    pattern = '*',
-    callback = function()
-        vim.highlight.on_yank({
-            higroup = 'IncSearch',
-            timeout = 40,
-        })
-    end,
+  group = yank_group,
+  pattern = '*',
+  callback = function()
+    vim.highlight.on_yank({
+      higroup = 'IncSearch',
+      timeout = 40,
+    })
+  end,
 })
 
 -- remove white spaces
 autocmd({ "BufWritePre" }, {
-    group = MarcusYqyGroup,
-    pattern = "*",
-    command = "%s/\\s\\+$//e",
+  group = MarcusYqyGroup,
+  pattern = "*",
+  command = "%s/\\s\\+$//e",
 })
 
 
