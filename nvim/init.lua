@@ -298,9 +298,9 @@ require("lazy").setup({
         -- { "<leader>fof", function() Snacks.picker.smart() end, desc = "Smart Find Files" },
         { "<leader>,", function() Snacks.picker.buffers() end, desc = "Buffers" },
         { "<leader>/", function() Snacks.picker.grep() end, desc = "Grep" },
-        { "<leader>fg", function() Snacks.picker.grep() end, desc = "Grep" },
+        -- { "<leader>fg", function() Snacks.picker.grep() end, desc = "Grep" },
         { "<leader>:", function() Snacks.picker.command_history() end, desc = "Command History" },
-        { "<leader>ff", function() Snacks.picker.files() end, desc = "Find files" },
+        -- { "<leader>ff", function() Snacks.picker.files() end, desc = "Find files" },
         -- { "<leader>n", function() Snacks.picker.notifications() end, desc = "Notification History" },
         -- { "<leader>e", function() Snacks.explorer() end, desc = "File Explorer" },
         -- find
@@ -1063,6 +1063,34 @@ require("lazy").setup({
       inactive_winbar = {},
       extensions = {}
     }
+  },
+  {
+    'dmtrKovalenko/fff.nvim',
+    build = function()
+      -- downloads a prebuilt binary or falls back to cargo build
+      require("fff.download").download_or_build_binary()
+    end,
+    -- for nixos:
+    -- build = "nix run .#release",
+    opts = {
+      debug = {
+        enabled = false,
+        show_scores = false,
+      },
+    },
+    lazy = false, -- the plugin lazy-initialises itself
+    keys = {
+      { "<leader>ff", function() require('fff').find_files() end, desc = 'FFFind files' },
+      { "<leader>fg", function() require('fff').live_grep() end, desc = 'LiFFFe grep' },
+      { "<leader>fz",
+      function() require('fff').live_grep({ grep = { modes = { 'fuzzy', 'plain' } } }) end,
+      desc = 'Live fffuzy grep',
+    },
+    { "fc",
+    function() require('fff').live_grep({ query = vim.fn.expand("<cword>") }) end,
+    desc = 'Search current word',
+  },
+},
   },
   },
   -- Configure any other settings here. See the documentation for more details.
