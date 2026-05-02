@@ -16,19 +16,18 @@ end
 
 
 
-local function border_fn(hl_name)
-  return {
-    { "┌", hl_name },
-    { "─", hl_name },
-    { "┐", hl_name },
-    { "│", hl_name },
-    { "┘", hl_name },
-    { "─", hl_name },
-    { "└", hl_name },
-    { "│", hl_name },
-  }
-end
-
+-- local function border_fn(hl_name)
+--   return {
+--     { "┌", hl_name },
+--     { "─", hl_name },
+--     { "┐", hl_name },
+--     { "│", hl_name },
+--     { "┘", hl_name },
+--     { "─", hl_name },
+--     { "└", hl_name },
+--     { "│", hl_name },
+--   }
+-- end
 
 -- Add border to the diagnostic popup window
 -- vim.diagnostic.config({
@@ -841,16 +840,16 @@ require("lazy").setup({
             { name = 'buffer',  keyword_length = 4 },
           },
           window = {
-            completion = {
-              border = border_fn("CmpMenuBorder"),
-              -- winhighlight = "Normal:CmpMenu,CursorLine:CmpMenuSel,Search:None",
-            },
-            documentation = {
-              border = border_fn("CmpDocBorder"),
-              -- winhighlight = "Normal:CmpDoc",
-            },
-            -- completion = cmp.config.window.bordered(),
-            -- documentation = cmp.config.window.bordered(),
+            -- completion = {
+            --   border = border_fn("CmpMenuBorder"),
+            --   -- winhighlight = "Normal:CmpMenu,CursorLine:CmpMenuSel,Search:None",
+            -- },
+            -- documentation = {
+            --   border = border_fn("CmpDocBorder"),
+            --   -- winhighlight = "Normal:CmpDoc",
+            -- },
+            completion = cmp.config.window.bordered(),
+            documentation = cmp.config.window.bordered(),
           },
           formatting = {
             format = lspkind.cmp_format({
@@ -932,26 +931,26 @@ require("lazy").setup({
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
       -- Specify how the border looks like
-      local border = {
-        { '┌', 'FloatBorder' },
-        { '─', 'FloatBorder' },
-        { '┐', 'FloatBorder' },
-        { '│', 'FloatBorder' },
-        { '┘', 'FloatBorder' },
-        { '─', 'FloatBorder' },
-        { '└', 'FloatBorder' },
-        { '│', 'FloatBorder' },
-      }
-      -- Add the border on hover and on signature help popup window
-      local handlers = {
-        ['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, { border = border }),
-        ['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border }),
-      }
+      -- local border = {
+      --   { '┌', 'FloatBorder' },
+      --   { '─', 'FloatBorder' },
+      --   { '┐', 'FloatBorder' },
+      --   { '│', 'FloatBorder' },
+      --   { '┘', 'FloatBorder' },
+      --   { '─', 'FloatBorder' },
+      --   { '└', 'FloatBorder' },
+      --   { '│', 'FloatBorder' },
+      -- }
+      -- -- Add the border on hover and on signature help popup window
+      -- local handlers = {
+      --   ['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, { border = border }),
+      --   ['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border }),
+      -- }
       vim.lsp.set_log_level("error")
 
       vim.lsp.config("pylsp", {
         capabilities = capabilities,
-        handlers = handlers,
+        -- handlers = handlers,
         settings = {
           pylsp = {
             plugins = {
@@ -966,10 +965,10 @@ require("lazy").setup({
       })
       vim.lsp.config("*", {
         capabilities = capabilities,
-        handlers = handlers,
+        -- handlers = handlers,
       })
       vim.lsp.config("clangd", {
-        handlers = handlers,
+        -- handlers = handlers,
         -- "--header-insertion-decorators",
         -- "--function-arg-placeholders",
         -- "--completion-style=detailed",
