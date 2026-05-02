@@ -23,11 +23,13 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
-vim.cmd([[
-syntax on
-" filetype off "required
-syntax enable
-]])
+-- vim.cmd([[
+-- syntax on
+-- " filetype off "required
+-- syntax enable
+-- ]])
+vim.cmd("filetype plugin indent on")
+vim.cmd("syntax enable")
 
 -- language
 vim.g.python_recommended_style = 0
@@ -154,6 +156,7 @@ require("lazy").setup({
         vim.g.gruvbox_material_visual = 'grey background' -- 'reverse'
         vim.g.gruvbox_material_cursor = "auto"
         vim.g.gruvbox_material_better_performance = true
+        vim.cmd("colorscheme gruvbox-material")
       end,
     },
     {
@@ -388,6 +391,7 @@ require("lazy").setup({
     {
       "folke/todo-comments.nvim",
       dependencies = { "nvim-lua/plenary.nvim" },
+      lazy = false,
       opts = {
         -- your configuration comes here
         -- or leave it empty to use the default settings
@@ -426,7 +430,7 @@ require("lazy").setup({
           keyword = "wide", -- "fg", "bg", "wide", "wide_bg", "wide_fg" or empty. (wide and wide_bg is the same as bg, but will also highlight surrounding characters, wide_fg acts accordingly but with fg)
           after = "fg", -- "fg" or "bg" or empty
           pattern = [[.*<(KEYWORDS)\s*:]], -- pattern or table of patterns, used for highlighting (vim regex)
-          comments_only = true, -- uses treesitter to match keywords in comments only
+          comments_only = false, -- uses treesitter to match keywords in comments only
           max_line_len = 400, -- ignore lines longer than this
           exclude = {}, -- list of file types to exclude highlighting
         },
@@ -454,7 +458,7 @@ require("lazy").setup({
           pattern = [[\b(KEYWORDS):]], -- ripgrep regex
           -- pattern = [[\b(KEYWORDS)\b]], -- match without the extra colon. You'll likely get false positives
         },
-      }
+      },
     },
     {
       "stevearc/oil.nvim", opts = {
@@ -859,12 +863,12 @@ require("lazy").setup({
         -- "--completion-style=detailed",
         -- "--clang-tidy=false",
         -- "--query-driver=**"
+        -- "--compile-commands-dir=${workspaceFolder}/",
         cmd = {
           "clangd",
           "--header-insertion=never",
           "--j=4",
           "--pch-storage=memory",
-          "--compile-commands-dir=${workspaceFolder}/",
           "--background-index",
           "--suggest-missing-includes",
           "--clang-tidy",
@@ -1173,7 +1177,6 @@ vim.api.nvim_create_autocmd("TermOpen", {
 --   highlight NormalNC guibg=NONE
 -- ]])
 
-vim.cmd("colorscheme gruvbox-material")
 
 -- vim.api.nvim_set_hl(0, "Cursor", { bg = "#7c7c7c", fg = "NONE" })
 -- vim.api.nvim_set_hl(0, "PMenu", { bg = "NONE" })
@@ -1276,4 +1279,3 @@ if vim.g.neovide then
   end
   neovide_defaults()
 end
-
