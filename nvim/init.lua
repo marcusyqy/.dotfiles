@@ -229,14 +229,14 @@ require("lazy").setup({
                 ["<C-c>"] = { "cancel", mode = "i" },
                 ["<C-w>"] = { "<c-s-w>", mode = { "i" }, expr = true, desc = "delete word" },
                 ["<CR>"] = { "confirm", mode = { "n", "i" } },
-                ["<Down>"] = { "list_down", mode = { "i", "n" } },
+                -- ["<Down>"] = { "list_down", mode = { "i", "n" } },
                 ["<Esc>"] = "cancel",
                 ["<C-a>"]= { "<Home>", mode = "i", expr = true },
                 ["<C-e>"]= { "<End>", mode = "i", expr = true },
                 ["<S-CR>"] = { { "pick_win", "jump" }, mode = { "n", "i" } },
                 ["<S-Tab>"] = { "select_and_prev", mode = { "i", "n" } },
                 ["<Tab>"] = { "select_and_next", mode = { "i", "n" } },
-                ["<Up>"] = { "list_up", mode = { "i", "n" } },
+                -- ["<Up>"] = { "list_up", mode = { "i", "n" } },
                 ["<a-d>"] = { "inspect", mode = { "n", "i" } },
                 ["<a-f>"] = { "toggle_follow", mode = { "i", "n" } },
                 ["<a-h>"] = { "toggle_hidden", mode = { "i", "n" } },
@@ -783,24 +783,24 @@ require("lazy").setup({
                 fallback()
               end
             end,
-            ['<down>'] = function(fallback)
-              if cmp.visible() then
-                cmp.select_next_item()
-              elseif luasnip.expand_or_jumpable() then
-                luasnip.expand_or_jump()
-              else
-                fallback()
-              end
-            end,
-            ['<up>'] = function(fallback)
-              if cmp.visible() then
-                cmp.select_prev_item()
-              elseif luasnip.jumpable(-1) then
-                luasnip.jump(-1)
-              else
-                fallback()
-              end
-            end,
+            -- ['<down>'] = function(fallback)
+            --   if cmp.visible() then
+            --     cmp.select_next_item()
+            --   elseif luasnip.expand_or_jumpable() then
+            --     luasnip.expand_or_jump()
+            --   else
+            --     fallback()
+            --   end
+            -- end,
+            -- ['<up>'] = function(fallback)
+            --   if cmp.visible() then
+            --     cmp.select_prev_item()
+            --   elseif luasnip.jumpable(-1) then
+            --     luasnip.jump(-1)
+            --   else
+            --     fallback()
+            --   end
+            -- end,
             ['<c-n>'] = function(fallback)
               if cmp.visible() then
                 cmp.select_next_item()
