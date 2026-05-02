@@ -734,9 +734,11 @@ require("lazy").setup({
         { "hrsh7th/cmp-nvim-lua" },
         { "hrsh7th/cmp-nvim-lsp" },
         { "hrsh7th/cmp-buffer" },
+        { "petertriho/cmp-git" },
         { "hrsh7th/cmp-path" },
         { "hrsh7th/cmp-cmdline" },
         { "hrsh7th/cmp-calc" },
+        { "hrsh7th/cmp-git" },
         { "L3MON4D3/LuaSnip" },
         { "saadparwaiz1/cmp_luasnip" },
         { "onsails/lspkind-nvim" },
@@ -761,7 +763,9 @@ require("lazy").setup({
           mapping = {
             ['<C-u>'] = cmp.mapping.scroll_docs(-4),
             ['<C-d>'] = cmp.mapping.scroll_docs(4),
+            ['<C-Space>'] = cmp.mapping.complete(),
             ['<C-,>'] = cmp.mapping.complete(),
+            ['<C-e>'] = cmp.mapping.abort(),
             ['<Tab>'] = function(fallback)
               if cmp.visible() then
                 cmp.select_next_item()
@@ -883,6 +887,14 @@ require("lazy").setup({
         }
         local cmp = require("cmp")
         cmp.setup(opts)
+        cmp.setup.filetype('gitcommit', {
+          sources = cmp.config.sources({
+            { name = 'git' },
+          }, {
+            { name = 'buffer' },
+          })
+        })
+        require("cmp_git").setup()
         -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
         cmp.setup.cmdline({ '/', '?' }, {
           mapping = cmp.mapping.preset.cmdline(),
