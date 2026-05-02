@@ -1,3 +1,4 @@
+-- @TODO: hello world
 
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -430,7 +431,7 @@ require("lazy").setup({
           keyword = "wide", -- "fg", "bg", "wide", "wide_bg", "wide_fg" or empty. (wide and wide_bg is the same as bg, but will also highlight surrounding characters, wide_fg acts accordingly but with fg)
           after = "fg", -- "fg" or "bg" or empty
           pattern = [[.*<(KEYWORDS)\s*:]], -- pattern or table of patterns, used for highlighting (vim regex)
-          comments_only = false, -- uses treesitter to match keywords in comments only
+          comments_only = true, -- uses treesitter to match keywords in comments only
           max_line_len = 400, -- ignore lines longer than this
           exclude = {}, -- list of file types to exclude highlighting
         },
@@ -459,6 +460,18 @@ require("lazy").setup({
           -- pattern = [[\b(KEYWORDS)\b]], -- match without the extra colon. You'll likely get false positives
         },
       },
+    },
+    {
+      "nvim-treesitter/nvim-treesitter",
+      build = ":TSUpdate",
+      branch = "master",
+      lazy = false,
+      config = function()
+        require("nvim-treesitter.configs").setup({
+          ensure_installed = { "c", "cpp", "lua" },
+          highlight = { enable = true },
+        })
+      end,
     },
     {
       "stevearc/oil.nvim", opts = {
@@ -885,10 +898,10 @@ require("lazy").setup({
     build = ":MasonUpdate",
     opts = {},
   },
-  { "peterhoeg/vim-qml" },
-  { "bfrg/vim-cpp-modern" },
-  { "evanleck/vim-svelte" },
-  { "martinda/Jenkinsfile-vim-syntax" },
+  -- { "peterhoeg/vim-qml" },
+  -- { "bfrg/vim-cpp-modern" },
+  -- { "evanleck/vim-svelte" },
+  -- { "martinda/Jenkinsfile-vim-syntax" },
   { "kalvinpearce/ShaderHighlight" },
   {
     "nvim-lualine/lualine.nvim",
@@ -1118,6 +1131,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     if not client then
       return
     end
+
     local opts = { noremap = true, silent = true, buffer = bufnr }
 
     -- See `:help vim.lsp.*` for documentation on any of the below functions
