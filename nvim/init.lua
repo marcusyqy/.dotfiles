@@ -1082,8 +1082,7 @@ require("lazy").setup({
     keys = {
       { "<leader>ff", function() require('fff').find_files() end, desc = 'FFFind files' },
       { "<leader>fg", function() require('fff').live_grep() end, desc = 'LiFFFe grep' },
-      { "<leader>fz",
-      function() require('fff').live_grep({ grep = { modes = { 'fuzzy', 'plain' } } }) end,
+      { "<leader>fz", function() require('fff').live_grep({ grep = { modes = { 'fuzzy', 'plain' } } }) end,
       desc = 'Live fffuzy grep',
     },
     { "fc",
