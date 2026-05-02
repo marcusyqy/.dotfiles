@@ -705,148 +705,178 @@ require("lazy").setup({
     { "nvim-lua/popup.nvim" },
     { "nvim-lua/plenary.nvim" },
     { "tpope/vim-fugitive" },
-    { "hrsh7th/nvim-cmp",
-    dependencies = {
-      { "hrsh7th/cmp-nvim-lua" },
-      { "hrsh7th/cmp-nvim-lsp" },
-      { "hrsh7th/cmp-buffer" },
-      { "hrsh7th/cmp-path" },
-      { "L3MON4D3/LuaSnip" },
-      { "saadparwaiz1/cmp_luasnip" },
-      { "onsails/lspkind-nvim" },
-    },
-    opts = function()
-      local cmp = require("cmp")
-      local luasnip = require('luasnip')
-      local lspkind = require('lspkind')
-      return {
-        snippet = {
-          expand = function(args)
-            -- For `vsnip` user.
-            -- vim.fn["vsnip#anonymous"](args.body)
+    {
+      "hrsh7th/nvim-cmp",
+      dependencies = {
+        { "hrsh7th/cmp-nvim-lua" },
+        { "hrsh7th/cmp-nvim-lsp" },
+        { "hrsh7th/cmp-buffer" },
+        { "hrsh7th/cmp-path" },
+        { "hrsh7th/cmp-cmdline" },
+        { "hrsh7th/cmp-calc" },
+        { "L3MON4D3/LuaSnip" },
+        { "saadparwaiz1/cmp_luasnip" },
+        { "onsails/lspkind-nvim" },
+      },
+      config = function()
+        local cmp = require("cmp")
+        local luasnip = require('luasnip')
+        local lspkind = require('lspkind')
+        local opts = {
+          snippet = {
+            expand = function(args)
+              -- For `vsnip` user.
+              -- vim.fn["vsnip#anonymous"](args.body)
 
-            -- For `luasnip` user.
-            luasnip.lsp_expand(args.body)
+              -- For `luasnip` user.
+              luasnip.lsp_expand(args.body)
 
-            -- For `ultisnips` user.
-            -- vim.fn["UltiSnips#Anon"](args.body)
-          end,
-        },
-        mapping = {
-          ['<C-u>'] = cmp.mapping.scroll_docs(-4),
-          ['<C-d>'] = cmp.mapping.scroll_docs(4),
-          ['<C-,>'] = cmp.mapping.complete(),
-          ['<Tab>'] = function(fallback)
-            if cmp.visible() then
-              cmp.select_next_item()
-            elseif luasnip.expand_or_jumpable() then
-              luasnip.expand_or_jump()
-            else
-              fallback()
-            end
-          end,
-          ['<S-Tab>'] = function(fallback)
-            if cmp.visible() then
-              cmp.select_prev_item()
-            elseif luasnip.jumpable(-1) then
-              luasnip.jump(-1)
-            else
-              fallback()
-            end
-          end,
-          ['<down>'] = function(fallback)
-            if cmp.visible() then
-              cmp.select_next_item()
-            elseif luasnip.expand_or_jumpable() then
-              luasnip.expand_or_jump()
-            else
-              fallback()
-            end
-          end,
-          ['<up>'] = function(fallback)
-            if cmp.visible() then
-              cmp.select_prev_item()
-            elseif luasnip.jumpable(-1) then
-              luasnip.jump(-1)
-            else
-              fallback()
-            end
-          end,
-          ['<c-n>'] = function(fallback)
-            if cmp.visible() then
-              cmp.select_next_item()
-            elseif luasnip.expand_or_jumpable() then
-              luasnip.expand_or_jump()
-            else
-              fallback()
-            end
-          end,
-          ['<c-p>'] = function(fallback)
-            if cmp.visible() then
-              cmp.select_prev_item()
-            elseif luasnip.jumpable(-1) then
-              luasnip.jump(-1)
-            else
-              fallback()
-            end
-          end,
-          ['<CR>'] = cmp.mapping.confirm { behavior = cmp.ConfirmBehavior.Replace, select = true, },
-        },
-        sources = {
-          { name = 'nvim_lsp' },
-
-          -- For vsnip user.
-          -- { name = 'vsnip' },
-          { name = 'nvim_lua' },
-
-          -- For luasnip user.
-          { name = 'luasnip' },
-
-          -- for paths
-          { name = 'path' },
-
-          -- For ultisnips user.
-          -- { name = 'ultisnips' },
-          { name = 'buffer',  keyword_length = 4 },
-        },
-        window = {
-          -- completion = cmp.config.window.bordered(),
-          -- documentation = cmp.config.window.bordered(),
-        },
-        formatting = {
-          format = lspkind.cmp_format({
-            with_text = true,
-            mode = "symbol",
-            maxwidth = 50,         -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
-            ellipsis_char = '...', -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
-            -- The function below will be called before any actual modifications from lspkind
-            -- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
-            menu = ({
-              buffer = "[buffer]",
-              nvim_lsp = "[LSP]",
-              nvim_lua = "[api]",
-              luasnip = "[snippets]",
-              path = "[path]"
-            })
-          })
-        },
-        experimental = {
-          native_menu = false,
-          ghost_text = false,
-        },
-        sorting = {
-          comparators = {
-            cmp.config.compare.offset,
-            cmp.config.compare.exact,
-            cmp.config.compare.recently_used,
-            cmp.config.compare.kind,
-            cmp.config.compare.sort_text,
-            cmp.config.compare.length,
-            cmp.config.compare.order,
+              -- For `ultisnips` user.
+              -- vim.fn["UltiSnips#Anon"](args.body)
+            end,
           },
-        },
-      }
-    end,
+          mapping = {
+            ['<C-u>'] = cmp.mapping.scroll_docs(-4),
+            ['<C-d>'] = cmp.mapping.scroll_docs(4),
+            ['<C-,>'] = cmp.mapping.complete(),
+            ['<Tab>'] = function(fallback)
+              if cmp.visible() then
+                cmp.select_next_item()
+              elseif luasnip.expand_or_jumpable() then
+                luasnip.expand_or_jump()
+              else
+                fallback()
+              end
+            end,
+            ['<S-Tab>'] = function(fallback)
+              if cmp.visible() then
+                cmp.select_prev_item()
+              elseif luasnip.jumpable(-1) then
+                luasnip.jump(-1)
+              else
+                fallback()
+              end
+            end,
+            ['<down>'] = function(fallback)
+              if cmp.visible() then
+                cmp.select_next_item()
+              elseif luasnip.expand_or_jumpable() then
+                luasnip.expand_or_jump()
+              else
+                fallback()
+              end
+            end,
+            ['<up>'] = function(fallback)
+              if cmp.visible() then
+                cmp.select_prev_item()
+              elseif luasnip.jumpable(-1) then
+                luasnip.jump(-1)
+              else
+                fallback()
+              end
+            end,
+            ['<c-n>'] = function(fallback)
+              if cmp.visible() then
+                cmp.select_next_item()
+              elseif luasnip.expand_or_jumpable() then
+                luasnip.expand_or_jump()
+              else
+                fallback()
+              end
+            end,
+            ['<c-p>'] = function(fallback)
+              if cmp.visible() then
+                cmp.select_prev_item()
+              elseif luasnip.jumpable(-1) then
+                luasnip.jump(-1)
+              else
+                fallback()
+              end
+            end,
+            ['<CR>'] = cmp.mapping.confirm { behavior = cmp.ConfirmBehavior.Replace, select = true, },
+          },
+          sources = {
+            { name = 'nvim_lsp' },
+
+            -- For vsnip user.
+            -- { name = 'vsnip' },
+            { name = 'nvim_lua' },
+
+            -- For luasnip user.
+            { name = 'luasnip' },
+
+            -- for paths
+            { name = 'path' },
+
+            { name = 'calc' },
+            -- For ultisnips user.
+            -- { name = 'ultisnips' },
+            { name = 'buffer',  keyword_length = 4 },
+          },
+          window = {
+            -- completion = cmp.config.window.bordered(),
+            -- documentation = cmp.config.window.bordered(),
+          },
+          formatting = {
+            format = lspkind.cmp_format({
+              with_text = true,
+              mode = "symbol",
+              maxwidth = 50,         -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+              ellipsis_char = '...', -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
+              -- The function below will be called before any actual modifications from lspkind
+              -- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
+              menu = ({
+                buffer = "[buffer]",
+                nvim_lsp = "[LSP]",
+                nvim_lua = "[api]",
+                luasnip = "[snippets]",
+                path = "[path]"
+              })
+            })
+          },
+          experimental = {
+            -- native_menu = false,
+            ghost_text = true,
+          },
+          sorting = {
+            comparators = {
+              cmp.config.compare.offset,
+              cmp.config.compare.exact,
+              cmp.config.compare.recently_used,
+              cmp.config.compare.kind,
+              cmp.config.compare.sort_text,
+              cmp.config.compare.length,
+              cmp.config.compare.order,
+            },
+          },
+        }
+        local cmp = require("cmp")
+        cmp.setup(opts)
+        -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
+        cmp.setup.cmdline({ '/', '?' }, {
+          mapping = cmp.mapping.preset.cmdline(),
+          sources = {
+            { name = 'buffer' }
+          },
+          view = {
+            entries = {name = 'wildmenu', separator = '|' }
+          },
+        })
+
+        -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+        cmp.setup.cmdline(':', {
+          mapping = cmp.mapping.preset.cmdline(),
+          sources = cmp.config.sources(
+            { { name = 'path' } },
+            { { name = 'cmdline' }},
+            { { name = 'calc' }}
+          ),
+          matching = { disallow_symbol_nonprefix_matching = false },
+          view = {
+            entries = {name = 'wildmenu', separator = '|' }
+          },
+        })
+      end,
   },
   {
     "neovim/nvim-lspconfig",
