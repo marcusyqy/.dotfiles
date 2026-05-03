@@ -1190,10 +1190,23 @@ end
 vim.keymap.set("n", "<leader>ts", terminal_toggle);
 
 -- quick fix list
-vim.keymap.set("n", "<c-j>", ":cnext<CR>zz", { desc =  "Quick fix list next" })
-vim.keymap.set("n", "<c-k>", ":cprev<CR>zz", { desc = "Quick fix list prev" })
+-- vim.keymap.set("n", "<c-j>", ":cnext<CR>zz", { desc =  "Quick fix list next" })
+-- vim.keymap.set("n", "<c-k>", ":cprev<CR>zz", { desc = "Quick fix list prev" })
+vim.keymap.set("n", "gj", ":cnext<CR>zz", { desc =  "Quick fix list next" })
+vim.keymap.set("n", "gk", ":cprev<CR>zz", { desc = "Quick fix list prev" })
 -- vim.keymap.set("n", "gj", ":lnext<CR>zz", { desc = "Local Quick fix list next" })
 -- vim.keymap.set("n", "gk", ":lprev<CR>zz", { desc = "Local Quick fix list prev" })
+
+-- window management
+vim.keymap.set("n", "<c-h>", "<c-w>h", { desc =  "Window right" })
+vim.keymap.set("n", "<c-l>", "<c-w>l", { desc =  "Window left" })
+vim.keymap.set("n", "<c-j>", "<c-w>j", { desc = "Window down" })
+vim.keymap.set("n", "<c-k>", "<c-w>k", { desc = "Window up" })
+
+vim.keymap.set("n", "<m-h>", "10<C-w>>")
+vim.keymap.set("n", "<m-l>", "10<C-w><")
+vim.keymap.set("n", "<m-j>", "10<C-w>-")
+vim.keymap.set("n", "<m-k>", "10<C-w>+")
 
 local marcusyqy_qf_l = 0
 local marcusyqy_qf_g = 0
