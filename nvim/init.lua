@@ -206,7 +206,7 @@ require("lazy").setup({
         bigfile = { enabled = true },
         dashboard = { enabled = false },
         explorer = { enabled = false },
-        image = { enabled = true },
+        image = { enabled = false },
         indent = { enabled = false, animate = { enabled = false } },
         input = { enabled = false },
         notifier = {
