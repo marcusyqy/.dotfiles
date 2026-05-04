@@ -16,3 +16,4 @@ cursor-style-blink = true
 shell-integration-features = no-cursor
 keybind = cmd+enter=unbind
 macos-titlebar-style=tabs
+shell-integration-features = ssh-terminfo
