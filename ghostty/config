@@ -4,7 +4,7 @@ font-feature = -calt
 font-family = "Comic Code"
 font-size = 13.0
 font-thicken = true
-theme = "Kitty Default"
+theme = "dark:Kitty Default, light:Apple System Colors Light"
 # theme = "Gruvbox Dark Hard"
 
 # background = 000000
