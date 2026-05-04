@@ -747,7 +747,11 @@ require("lazy").setup({
         { "hrsh7th/cmp-nvim-lsp" },
         { "hrsh7th/cmp-buffer" },
         { "petertriho/cmp-git" },
-        { "hrsh7th/cmp-path" },
+        { "marcusyqy/cmp-path" },
+        -- {
+        --   dir = "~/nerd/cmp-path",
+        --   name = "cmp_path",
+        -- },
         { "hrsh7th/cmp-cmdline" },
         { "hrsh7th/cmp-calc" },
         { "hrsh7th/cmp-git" },
