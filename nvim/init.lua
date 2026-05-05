@@ -747,7 +747,7 @@ require("lazy").setup({
         { "hrsh7th/cmp-nvim-lsp" },
         { "hrsh7th/cmp-buffer" },
         { "petertriho/cmp-git" },
-        { "marcusyqy/cmp-path" },
+        -- { "marcusyqy/cmp-path" },
         -- {
         --   dir = "~/nerd/cmp-path",
         --   name = "cmp_path",
@@ -912,29 +912,29 @@ require("lazy").setup({
         })
         require("cmp_git").setup()
         -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
-        cmp.setup.cmdline({ '/', '?' }, {
-          mapping = cmp.mapping.preset.cmdline(),
-          sources = {
-            { name = 'buffer' }
-          },
-          view = {
-            entries = {name = 'wildmenu', separator = ' | ' }
-          },
-        })
+        -- cmp.setup.cmdline({ '/', '?' }, {
+        --   mapping = cmp.mapping.preset.cmdline(),
+        --   sources = {
+        --     { name = 'buffer' }
+        --   },
+        --   view = {
+        --     entries = {name = 'wildmenu', separator = ' | ' }
+        --   },
+        -- })
 
         -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
-        cmp.setup.cmdline(':', {
-          mapping = cmp.mapping.preset.cmdline(),
-          sources = cmp.config.sources(
-            { { name = 'path' } },
-            { { name = 'cmdline' }},
-            { { name = 'calc' }}
-          ),
-          matching = { disallow_symbol_nonprefix_matching = false },
-          view = {
-            entries = {name = 'wildmenu', separator = ' | ' }
-          },
-        })
+        -- cmp.setup.cmdline(':', {
+        --   mapping = cmp.mapping.preset.cmdline(),
+        --   sources = cmp.config.sources(
+        --     { { name = 'path' } },
+        --     { { name = 'cmdline' }},
+        --     { { name = 'calc' }}
+        --   ),
+        --   matching = { disallow_symbol_nonprefix_matching = false },
+        --   view = {
+        --     entries = {name = 'wildmenu', separator = ' | ' }
+        --   },
+        -- })
       end,
   },
   {
