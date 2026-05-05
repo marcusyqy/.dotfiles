@@ -48,7 +48,7 @@ config.freetype_load_target = "HorizontalLcd"
 -- tab
 config.use_fancy_tab_bar = false
 config.enable_tab_bar = true
-config.hide_tab_bar_if_only_one_tab = false
+config.hide_tab_bar_if_only_one_tab = true
 config.tab_bar_at_bottom = false
 -- config.show_tab_index_in_tab_bar = false
 config.tab_max_width = 32
@@ -135,7 +135,7 @@ end)
 -- end)
 
 -- windows
-config.window_decorations = "RESIZE | TITLE | INTEGRATED_BUTTONS"
+config.window_decorations = "RESIZE | TITLE" -- | INTEGRATED_BUTTONS"
 config.window_padding = {
     left = 0,
     right = 0,
