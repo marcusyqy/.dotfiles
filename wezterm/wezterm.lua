@@ -63,50 +63,50 @@ local c208 = '#ff8700'
 local white = '#ffffff'
 local default_bg = 'none'
 
-config.colors = {
-  background = "#000000",
-  foreground = "#ffffff",
-  tab_bar = {
-    background = '#1a1a1a',
-    active_tab = {
-      bg_color = '#1a1a1a',
-      fg_color = '#ffffff',
-      intensity = 'Normal',
-      underline = 'None',
-      italic = false,
-      strikethrough = false,
-    },
-    inactive_tab = {
-      bg_color = '#1a1a1a',
-      fg_color = '#585858',
-    },
-    inactive_tab_hover = {
-      bg_color = '#1a1a1a',
-      fg_color = '#888888',
-    },
-    new_tab = {
-      bg_color = '#1a1a1a',
-      fg_color = '#585858',
-    },
-    new_tab_hover = {
-      bg_color = '#1a1a1a',
-      fg_color = '#ffffff',
-    },
-  },
-}
-
-
-wezterm.on('format-tab-title', function(tab, tabs, panes, cfg, hover, max_width)
-  local pane = tab.active_pane
-  local cwd_uri = pane.current_working_dir
-  local title = '~'
-
-  if cwd_uri and cwd_uri.file_path then
-    title = cwd_uri.file_path:match("([^/\\]+)[/\\]?$") or cwd_uri.file_path
-  end
-
-  return ' ' .. tab.tab_index + 1 .. ':' .. title .. ' '
-end)
+-- config.colors = {
+--   background = "#000000",
+--   foreground = "#ffffff",
+--   tab_bar = {
+--     background = '#1a1a1a',
+--     active_tab = {
+--       bg_color = '#1a1a1a',
+--       fg_color = '#ffffff',
+--       intensity = 'Normal',
+--       underline = 'None',
+--       italic = false,
+--       strikethrough = false,
+--     },
+--     inactive_tab = {
+--       bg_color = '#1a1a1a',
+--       fg_color = '#585858',
+--     },
+--     inactive_tab_hover = {
+--       bg_color = '#1a1a1a',
+--       fg_color = '#888888',
+--     },
+--     new_tab = {
+--       bg_color = '#1a1a1a',
+--       fg_color = '#585858',
+--     },
+--     new_tab_hover = {
+--       bg_color = '#1a1a1a',
+--       fg_color = '#ffffff',
+--     },
+--   },
+-- }
+--
+--
+-- wezterm.on('format-tab-title', function(tab, tabs, panes, cfg, hover, max_width)
+--   local pane = tab.active_pane
+--   local cwd_uri = pane.current_working_dir
+--   local title = '~'
+--
+--   if cwd_uri and cwd_uri.file_path then
+--     title = cwd_uri.file_path:match("([^/\\]+)[/\\]?$") or cwd_uri.file_path
+--   end
+--
+--   return ' ' .. tab.tab_index + 1 .. ':' .. title .. ' '
+-- end)
 
 -- wezterm.on('update-right-status', function(window, pane)
 --   local date = wezterm.strftime '%d/%m'
