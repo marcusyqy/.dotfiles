@@ -1465,7 +1465,7 @@ vim.api.nvim_create_autocmd("TermOpen", {
 })
 
 
-vim.cmd.colorscheme("vesper")
+vim.cmd.colorscheme("no-clown-fiesta")
 
 -- vim.cmd([[
 -- colorscheme default
