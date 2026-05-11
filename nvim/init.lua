@@ -165,6 +165,94 @@ end
 require("lazy").setup({
   spec = {
     {
+      "shaunsingh/nord.nvim",
+      priority = 1000,
+      lazy = false,
+      config = function()
+        -- Example config in lua
+        vim.g.nord_contrast = true
+        vim.g.nord_borders = false
+        vim.g.nord_disable_background = false
+        vim.g.nord_italic = false
+        vim.g.nord_uniform_diff_background = true
+        vim.g.nord_bold = false
+
+        -- Load the colorscheme
+        -- vim.cmd.colorscheme('nord')
+      end
+    },
+    {
+      "AlexvZyl/nordic.nvim",
+      priority = 1000,
+      lazy = false,
+      config = function()
+        require('nordic').setup({
+          -- This callback can be used to override the colors used in the base palette.
+          -- on_palette = function(palette) end,
+          -- This callback can be used to override the colors used in the extended palette.
+          -- after_palette = function(palette) end,
+          -- This callback can be used to override highlights before they are applied.
+          -- on_highlight = function(highlights, palette) end,
+          -- Enable bold keywords.
+          bold_keywords = false,
+          -- Enable italic comments.
+          italic_comments = true,
+          -- Enable editor background transparency.
+          transparent = {
+            -- Enable transparent background.
+            bg = false,
+            -- Enable transparent background for floating windows.
+            float = false,
+          },
+          -- Enable brighter float border.
+          bright_border = true,
+          -- Reduce the overall amount of blue in the theme (diverges from base Nord).
+          reduced_blue = false,
+          -- Swap the dark background with the normal one.
+          swap_backgrounds = false,
+          -- Cursorline options.
+          cursorline = {
+            -- Bold font in cursorline.
+            bold = true,
+            -- Bold cursorline number.
+            bold_number = true,
+            -- Available styles: 'dark', 'light'.
+            theme = 'dark',
+            -- Blending the cursorline bg with the buffer bg.
+            blend = 0.85,
+          },
+          -- Visual selection options.
+          visual = {
+            -- Bold font in visual selection.
+            bold = true,
+            -- Bold visual selection number.
+            bold_number = true,
+            -- Available styles: 'dark', 'light'.
+            theme = 'dark',
+            -- Blending the visual selection bg with the buffer bg.
+            blend = 0.85,
+          },
+          noice = {
+            -- Available styles: `classic`, `flat`.
+            style = 'classic',
+          },
+          telescope = {
+            -- Available styles: `classic`, `flat`.
+            style = 'flat',
+          },
+          leap = {
+            -- Dims the backdrop when using leap.
+            dim_backdrop = false,
+          },
+          ts_context = {
+            -- Enables dark background for treesitter-context window
+            dark_background = true,
+          }
+        })
+        vim.cmd.colorscheme('nordic')
+      end
+    },
+    {
       "sainnhe/everforest",
       priority = 1000,
       lazy = false,
@@ -178,7 +266,7 @@ require("lazy").setup({
         vim.g.everforest_visual = 'grey background' -- 'reverse'
         vim.g.everforest_cursor = "auto"
         vim.g.everforest_better_performance = true
-        vim.cmd("colorscheme everforest")
+        -- vim.cmd("colorscheme everforest")
       end,
 
     },
@@ -191,10 +279,10 @@ require("lazy").setup({
         vim.g.gruvbox_material_foreground = "mixed" -- "original"
         vim.g.gruvbox_material_ui_contrast = "high"
         vim.g.gruvbox_material_statusline_style= "mixed" -- "original"
-        vim.g.gruvbox_material_background = "hard"
+        vim.g.gruvbox_material_background = "medium"
         vim.g.gruvbox_material_transparent_background = false
         vim.g.gruvbox_material_dim_inactive_windows = false
-        vim.g.gruvbox_material_visual = 'grey background' -- 'reverse'
+        -- vim.g.gruvbox_material_visual = 'grey background' -- 'reverse'
         vim.g.gruvbox_material_cursor = "auto"
         vim.g.gruvbox_material_better_performance = true
         -- vim.cmd("colorscheme gruvbox-material")
