@@ -165,6 +165,46 @@ end
 require("lazy").setup({
   spec = {
     {
+      "aktersnurra/no-clown-fiesta.nvim",
+      priority = 1000,
+      lazy = false,
+      config = function()
+        local opts = {
+          theme = "dark",
+          styles = {
+            type = { bold = true },
+            lsp = { underline = false },
+            match_paren = { underline = true },
+          },
+        }
+
+        local plugin = require "no-clown-fiesta"
+        plugin.load(opts)
+     end
+
+
+    },
+    {
+      "datsfilipe/vesper.nvim",
+      priority = 1000,
+      lazy = false,
+      config = function()
+        require('vesper').setup({
+          transparent = false, -- Boolean: Sets the background to transparent
+          italics = {
+            comments = true, -- Boolean: Italicizes comments
+            keywords = false, -- Boolean: Italicizes keywords
+            functions = false, -- Boolean: Italicizes functions
+            strings = false, -- Boolean: Italicizes strings
+            variables = false, -- Boolean: Italicizes variables
+          },
+          overrides = {}, -- A dictionary of group names, can be a function returning a dictionary or a table.
+          palette_overrides = {}
+        })
+     end
+
+    },
+    {
       "shaunsingh/nord.nvim",
       priority = 1000,
       lazy = false,
@@ -176,9 +216,6 @@ require("lazy").setup({
         vim.g.nord_italic = false
         vim.g.nord_uniform_diff_background = true
         vim.g.nord_bold = false
-
-        -- Load the colorscheme
-        -- vim.cmd.colorscheme('nord')
       end
     },
     {
@@ -249,7 +286,6 @@ require("lazy").setup({
             dark_background = true,
           }
         })
-        vim.cmd.colorscheme('nordic')
       end
     },
     {
@@ -266,7 +302,6 @@ require("lazy").setup({
         vim.g.everforest_visual = 'grey background' -- 'reverse'
         vim.g.everforest_cursor = "auto"
         vim.g.everforest_better_performance = true
-        -- vim.cmd("colorscheme everforest")
       end,
 
     },
@@ -285,7 +320,6 @@ require("lazy").setup({
         -- vim.g.gruvbox_material_visual = 'grey background' -- 'reverse'
         vim.g.gruvbox_material_cursor = "auto"
         vim.g.gruvbox_material_better_performance = true
-        -- vim.cmd("colorscheme gruvbox-material")
       end,
     },
     {
@@ -1431,6 +1465,7 @@ vim.api.nvim_create_autocmd("TermOpen", {
 })
 
 
+vim.cmd.colorscheme("vesper")
 
 -- vim.cmd([[
 -- colorscheme default
