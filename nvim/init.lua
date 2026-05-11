@@ -165,6 +165,24 @@ end
 require("lazy").setup({
   spec = {
     {
+      "sainnhe/everforest",
+      priority = 1000,
+      lazy = false,
+      config = function()
+        vim.g.everforest_background = "medium"
+        vim.g.everforest_enable_italic = false
+        vim.g.everforest_transparent_background = false
+        vim.g.everforest_ui_contrast = "high"
+
+        vim.g.everforest_dim_inactive_windows = false
+        vim.g.everforest_visual = 'grey background' -- 'reverse'
+        vim.g.everforest_cursor = "auto"
+        vim.g.everforest_better_performance = true
+        vim.cmd("colorscheme everforest")
+      end,
+
+    },
+    {
       "marcusyqy/gruvbox-material",
       priority = 1000,
       lazy = false,
@@ -179,7 +197,7 @@ require("lazy").setup({
         vim.g.gruvbox_material_visual = 'grey background' -- 'reverse'
         vim.g.gruvbox_material_cursor = "auto"
         vim.g.gruvbox_material_better_performance = true
-        vim.cmd("colorscheme gruvbox-material")
+        -- vim.cmd("colorscheme gruvbox-material")
       end,
     },
     {
@@ -188,14 +206,6 @@ require("lazy").setup({
       dependencies = { "rktjmp/lush.nvim" },
       priority = 1000,
       lazy = false,
-    },
-    {
-      "srcery-colors/srcery-vim",
-      priority = 1000,
-      lazy = false,
-      config = function()
-        vim.g.srcery_italic_types = 0
-      end
     },
     {
       "folke/snacks.nvim",
