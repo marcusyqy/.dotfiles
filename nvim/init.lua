@@ -1191,7 +1191,7 @@ require("lazy").setup({
         }
       },
       sections = {
-        lualine_a = {'mode'}, --  {{'mode', fmt = function(res) return res:sub(1,1) end }},
+        lualine_a = {{'mode', fmt = function(res) if RESIZE_MODE then return res .. "(R)" end return res end }},
         lualine_b = {'branch', 'diff', 'diagnostics'},
         lualine_c = {'filename', 'lsp_progress' },
         lualine_x = {'encoding', 'fileformat', 'filetype'},
@@ -1244,7 +1244,6 @@ require("lazy").setup({
 
 -- keybinds
 -- vim.keymap.set({"n", "v", "c"}, "<C-;>", "<esc>", { desc = "Escape", noremap = true, silent = true })
-vim.keymap.set("n", "<c-,>", "<c-w>w", { desc = "Swap panes" })
 vim.keymap.set("n", "<c-n>", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 vim.keymap.set("i", "<s-tab>", "<C-D>", { desc = "Backward when s-tab in insert mode." })
 vim.keymap.set("i", "<s-tab>", "<C-D>", { desc = "Backward when s-tab in insert mode." })
@@ -1340,17 +1339,39 @@ vim.keymap.set("n", "gk", ":cprev<CR>zz", { desc = "Quick fix list prev" })
 -- vim.keymap.set("n", "gk", ":lprev<CR>zz", { desc = "Local Quick fix list prev" })
 vim.keymap.set("n", "ga", ":caddexpr expand(\"%\") .. \":\" .. line(\".\") ..  \":\" .. getline(\".\")<CR>")
 
+-- global
+RESIZE_MODE = false
+local function toggle_resize_mode()
+  RESIZE_MODE = not RESIZE_MODE
+  if RESIZE_MODE then
+    print("resize mode on")
+    vim.keymap.set("n", "<c-h>", "10<C-w>>")
+    vim.keymap.set("n", "<c-l>", "10<C-w><")
+    vim.keymap.set("n", "<c-j>", "10<C-w>-")
+    vim.keymap.set("n", "<c-k>", "10<C-w>+")
+  else
+    print("resize mode off")
+    vim.keymap.set("n", "<c-h>", "<c-w>h", { desc =  "Window right" })
+    vim.keymap.set("n", "<c-l>", "<c-w>l", { desc =  "Window left" })
+    vim.keymap.set("n", "<c-j>", "<c-w>j", { desc = "Window down" })
+    vim.keymap.set("n", "<c-k>", "<c-w>k", { desc = "Window up" })
+  end
+end
+
 -- window management
+vim.keymap.set("n", "<leader>mr", toggle_resize_mode, { desc =  "Window right" })
+
+
 vim.keymap.set("n", "<c-h>", "<c-w>h", { desc =  "Window right" })
 vim.keymap.set("n", "<c-l>", "<c-w>l", { desc =  "Window left" })
 vim.keymap.set("n", "<c-j>", "<c-w>j", { desc = "Window down" })
 vim.keymap.set("n", "<c-k>", "<c-w>k", { desc = "Window up" })
 
-vim.keymap.set("n", "<m-h>", "10<C-w>>")
-vim.keymap.set("n", "<m-l>", "10<C-w><")
-vim.keymap.set("n", "<m-j>", "10<C-w>-")
-vim.keymap.set("n", "<m-k>", "10<C-w>+")
-
+-- vim.keymap.set("n", "<m-h>", "10<C-w>>")
+-- vim.keymap.set("n", "<m-l>", "10<C-w><")
+-- vim.keymap.set("n", "<m-j>", "10<C-w>-")
+-- vim.keymap.set("n", "<m-k>", "10<C-w>+")
+--
 local marcusyqy_qf_l = 0
 local marcusyqy_qf_g = 0
 
