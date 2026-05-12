@@ -1345,8 +1345,8 @@ local function default_key_bind_c_hjkl()
   vim.keymap.set("n", "<c-h>", ":tabfirst<CR>", { desc =  "tab first" })
   vim.keymap.set("n", "<c-l>", ":tablast<CR>", { desc =  "tab last" })
 
-  vim.keymap.set("n", "<c-j>", "gT", { desc = "tab right" })
-  vim.keymap.set("n", "<c-k>", "gt", { desc = "tab left" })
+  vim.keymap.set("n", "<c-j>", "gt", { desc = "tab left" })
+  vim.keymap.set("n", "<c-k>", "gT", { desc = "tab right" })
 end
 
 local function toggle_resize_mode()
