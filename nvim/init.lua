@@ -1315,6 +1315,7 @@ end
 
 vim.cmd("command! -nargs=1 -complete=shellcmd MakePrg noautocmd lua vim.opt.makeprg=\"<args>\"")
 vim.cmd("command! -nargs=+ -complete=shellcmd Call noautocmd cexpr! system(\"<args>\") | redraw! | copen")
+
 vim.keymap.set("n", "<leader>bb", function() vim.cmd [[make]] end)
 vim.keymap.set("n", "<f5>", function() vim.cmd [[make]] end)
 vim.keymap.set("n", "<c-b>", function() vim.cmd [[make]] end)
@@ -1335,38 +1336,37 @@ vim.keymap.set("n", "<leader>ts", terminal_toggle);
 -- vim.keymap.set("n", "<c-k>", ":cprev<CR>zz", { desc = "Quick fix list prev" })
 vim.keymap.set("n", "gj", ":cnext<CR>zz", { desc =  "Quick fix list next" })
 vim.keymap.set("n", "gk", ":cprev<CR>zz", { desc = "Quick fix list prev" })
--- vim.keymap.set("n", "gj", ":lnext<CR>zz", { desc = "Local Quick fix list next" })
--- vim.keymap.set("n", "gk", ":lprev<CR>zz", { desc = "Local Quick fix list prev" })
 vim.keymap.set("n", "ga", ":caddexpr expand(\"%\") .. \":\" .. line(\".\") ..  \":\" .. getline(\".\")<CR>")
 
 -- global
 RESIZE_MODE = false
+
+local function default_key_bind_c_hjkl()
+  vim.keymap.set("n", "<c-h>", ":tabfirst<CR>", { desc =  "tab left" })
+  vim.keymap.set("n", "<c-l>", ":tablast<CR>", { desc =  "tab right" })
+
+  vim.keymap.set("n", "<c-j>", "gt", { desc =  "Quick fix list next" })
+  vim.keymap.set("n", "<c-k>", "gT", { desc = "Quick fix list prev" })
+end
+
 local function toggle_resize_mode()
   RESIZE_MODE = not RESIZE_MODE
   if RESIZE_MODE then
-    print("resize mode on")
+    print("resize mode on[tabs off]")
     vim.keymap.set("n", "<c-h>", "10<C-w>>")
     vim.keymap.set("n", "<c-l>", "10<C-w><")
     vim.keymap.set("n", "<c-j>", "10<C-w>-")
     vim.keymap.set("n", "<c-k>", "10<C-w>+")
   else
-    print("resize mode off")
-    vim.keymap.set("n", "<c-h>", "<c-w>h", { desc =  "Window right" })
-    vim.keymap.set("n", "<c-l>", "<c-w>l", { desc =  "Window left" })
-    vim.keymap.set("n", "<c-j>", "<c-w>j", { desc = "Window down" })
-    vim.keymap.set("n", "<c-k>", "<c-w>k", { desc = "Window up" })
+    print("resize mode off[tabs on]")
+    default_key_bind_c_hjkl()
   end
 end
 
 -- window management
 vim.keymap.set("n", "<leader>mr", toggle_resize_mode, { desc =  "Window right" })
 
-
-vim.keymap.set("n", "<c-h>", "<c-w>h", { desc =  "Window right" })
-vim.keymap.set("n", "<c-l>", "<c-w>l", { desc =  "Window left" })
-vim.keymap.set("n", "<c-j>", "<c-w>j", { desc = "Window down" })
-vim.keymap.set("n", "<c-k>", "<c-w>k", { desc = "Window up" })
-
+default_key_bind_c_hjkl()
 -- vim.keymap.set("n", "<m-h>", "10<C-w>>")
 -- vim.keymap.set("n", "<m-l>", "10<C-w><")
 -- vim.keymap.set("n", "<m-j>", "10<C-w>-")
