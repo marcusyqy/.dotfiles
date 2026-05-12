@@ -1342,11 +1342,11 @@ vim.keymap.set("n", "ga", ":caddexpr expand(\"%\") .. \":\" .. line(\".\") ..  \
 RESIZE_MODE = false
 
 local function default_key_bind_c_hjkl()
-  vim.keymap.set("n", "<c-h>", ":tabfirst<CR>", { desc =  "tab left" })
-  vim.keymap.set("n", "<c-l>", ":tablast<CR>", { desc =  "tab right" })
+  vim.keymap.set("n", "<c-h>", ":tabfirst<CR>", { desc =  "tab first" })
+  vim.keymap.set("n", "<c-l>", ":tablast<CR>", { desc =  "tab last" })
 
-  vim.keymap.set("n", "<c-j>", "gt", { desc =  "Quick fix list next" })
-  vim.keymap.set("n", "<c-k>", "gT", { desc = "Quick fix list prev" })
+  vim.keymap.set("n", "<c-j>", "gT", { desc = "tab right" })
+  vim.keymap.set("n", "<c-k>", "gt", { desc = "tab left" })
 end
 
 local function toggle_resize_mode()
