@@ -1,6 +1,6 @@
 [font]
 normal = ["Comic Code"]
-size = 14
+size = 15
 
 [font.features]
 "FiraCode Nerd Font" = ["-calt"]
