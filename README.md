@@ -105,3 +105,5 @@ https://wiki.archlinux.org/title/Cursor_themes#Configuration
 fc-match NameOfFont -s
 
 
+# remove input source popup macos.
+defaults write kCFPreferencesAnyApplication TSMLanguageIndicatorEnabled 0
