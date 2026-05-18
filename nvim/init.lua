@@ -183,56 +183,6 @@ require("lazy").setup({
      end
     },
     {
-      "craftzdog/solarized-osaka.nvim",
-      lazy = false,
-      priority = 1000,
-      opts = {
-        -- your configuration comes here
-        -- or leave it empty to use the default settings
-        transparent = false, -- Enable this to disable setting the background color
-        terminal_colors = true, -- Configure the colors used when opening a `:terminal` in [Neovim](https://github.com/neovim/neovim)
-        styles = {
-          -- Style to be applied to different syntax groups
-          -- Value is any valid attr-list value for `:help nvim_set_hl`
-          comments = { italic = true },
-          keywords = { italic = false },
-          functions = {},
-          variables = {},
-          -- Background styles. Can be "dark", "transparent" or "normal"
-          sidebars = "dark", -- style for sidebars, see below
-          floats = "dark", -- style for floating windows
-        },
-        sidebars = { "qf", "help" }, -- Set a darker background on sidebar-like windows. For example: `["qf", "vista_kind", "terminal", "packer"]`
-        day_brightness = 0.3, -- Adjusts the brightness of the colors of the **Day** style. Number between 0 and 1, from dull to vibrant colors
-        hide_inactive_statusline = false, -- Enabling this option, will hide inactive statuslines and replace them with a thin border instead. Should work with the standard **StatusLine** and **LuaLine**.
-        dim_inactive = false, -- dims inactive windows
-        lualine_bold = true, -- When `true`, section headers in the lualine theme will be bold
-      },
-    },
-    {
-      "folke/tokyonight.nvim",
-      lazy = false,
-      priority = 1000,
-      opts = {
-        style = "night",
-        transparent = false,
-        terminal_colors = true,
-        styles = {
-          -- Style to be applied to different syntax groups
-          -- Value is any valid attr-list value for `:help nvim_set_hl`
-          comments = { italic = true },
-          keywords = { italic = false },
-          functions = {},
-          variables = {},
-          -- Background styles. Can be "dark", "transparent" or "normal"
-          sidebars = "dark", -- style for sidebars, see below
-          floats = "dark", -- style for floating windows
-        },
-        cache = true,
-        lualine_bold = true,
-      },
-    },
-    {
       "datsfilipe/vesper.nvim",
       priority = 1000,
       lazy = false,
@@ -253,90 +203,6 @@ require("lazy").setup({
 
     },
     {
-      "shaunsingh/nord.nvim",
-      priority = 1000,
-      lazy = false,
-      config = function()
-        -- Example config in lua
-        vim.g.nord_contrast = true
-        vim.g.nord_borders = false
-        vim.g.nord_disable_background = false
-        vim.g.nord_italic = false
-        vim.g.nord_uniform_diff_background = true
-        vim.g.nord_bold = false
-      end
-    },
-    {
-      "AlexvZyl/nordic.nvim",
-      priority = 1000,
-      lazy = false,
-      config = function()
-        require('nordic').setup({
-          -- This callback can be used to override the colors used in the base palette.
-          -- on_palette = function(palette) end,
-          -- This callback can be used to override the colors used in the extended palette.
-          -- after_palette = function(palette) end,
-          -- This callback can be used to override highlights before they are applied.
-          -- on_highlight = function(highlights, palette) end,
-          -- Enable bold keywords.
-          bold_keywords = false,
-          -- Enable italic comments.
-          italic_comments = true,
-          -- Enable editor background transparency.
-          transparent = {
-            -- Enable transparent background.
-            bg = false,
-            -- Enable transparent background for floating windows.
-            float = false,
-          },
-          -- Enable brighter float border.
-          bright_border = true,
-          -- Reduce the overall amount of blue in the theme (diverges from base Nord).
-          reduced_blue = false,
-          -- Swap the dark background with the normal one.
-          swap_backgrounds = false,
-          -- Cursorline options.
-          cursorline = {
-            -- Bold font in cursorline.
-            bold = true,
-            -- Bold cursorline number.
-            bold_number = true,
-            -- Available styles: 'dark', 'light'.
-            theme = 'dark',
-            -- Blending the cursorline bg with the buffer bg.
-            blend = 0.85,
-          },
-          -- Visual selection options.
-          visual = {
-            -- Bold font in visual selection.
-            bold = true,
-            -- Bold visual selection number.
-            bold_number = true,
-            -- Available styles: 'dark', 'light'.
-            theme = 'dark',
-            -- Blending the visual selection bg with the buffer bg.
-            blend = 0.85,
-          },
-          noice = {
-            -- Available styles: `classic`, `flat`.
-            style = 'classic',
-          },
-          telescope = {
-            -- Available styles: `classic`, `flat`.
-            style = 'flat',
-          },
-          leap = {
-            -- Dims the backdrop when using leap.
-            dim_backdrop = false,
-          },
-          ts_context = {
-            -- Enables dark background for treesitter-context window
-            dark_background = true,
-          }
-        })
-      end
-    },
-    {
       "vague-theme/vague.nvim",
       priority = 1000,
       lazy = false,
@@ -347,12 +213,16 @@ require("lazy").setup({
       },
     },
     {
+      'RostislavArts/naysayer.nvim',
+      priority = 1000,
+      lazy = false,
+    },
+    {
       "sainnhe/everforest",
       priority = 1000,
       lazy = false,
       config = function()
         vim.g.everforest_background = "medium"
-        vim.g.everforest_enable_italic = false
         vim.g.everforest_transparent_background = false
         vim.g.everforest_ui_contrast = "high"
 
@@ -361,7 +231,6 @@ require("lazy").setup({
         vim.g.everforest_cursor = "auto"
         vim.g.everforest_better_performance = true
       end,
-
     },
     {
       "marcusyqy/gruvbox-material",
@@ -1547,7 +1416,7 @@ vim.api.nvim_create_autocmd("TermOpen", {
 })
 
 
-vim.cmd.colorscheme("vague")
+vim.cmd.colorscheme("everforest")
 
 -- vim.cmd([[
 -- colorscheme default
