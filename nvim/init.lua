@@ -181,8 +181,29 @@ require("lazy").setup({
         local plugin = require "no-clown-fiesta"
         plugin.load(opts)
      end
-
-
+    },
+    {
+      "folke/tokyonight.nvim",
+      lazy = false,
+      priority = 1000,
+      opts = {
+        style = "storm",
+        transparent = false,
+        terminal_colors = true,
+        styles = {
+          -- Style to be applied to different syntax groups
+          -- Value is any valid attr-list value for `:help nvim_set_hl`
+          comments = { italic = true },
+          keywords = {},
+          functions = {},
+          variables = {},
+          -- Background styles. Can be "dark", "transparent" or "normal"
+          sidebars = "dark", -- style for sidebars, see below
+          floats = "dark", -- style for floating windows
+        },
+        cache = true,
+        lualine_bold = true,
+      },
     },
     {
       "datsfilipe/vesper.nvim",
@@ -1489,7 +1510,7 @@ vim.api.nvim_create_autocmd("TermOpen", {
 })
 
 
-vim.cmd.colorscheme("everforest")
+vim.cmd.colorscheme("tokyonight")
 
 -- vim.cmd([[
 -- colorscheme default
