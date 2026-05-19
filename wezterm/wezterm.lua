@@ -218,6 +218,7 @@ table.insert(config.hyperlink_rules, {
 })
 
 config.window_close_confirmation = "AlwaysPrompt"
+config.audible_bell = "Disabled"
 
 -- and finally, return the configuration to wezterm
 return config
