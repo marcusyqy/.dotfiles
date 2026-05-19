@@ -1416,7 +1416,7 @@ vim.api.nvim_create_autocmd("TermOpen", {
 })
 
 
-vim.cmd.colorscheme("default")
+vim.cmd.colorscheme("vague")
 
 -- vim.cmd([[
 -- colorscheme default
