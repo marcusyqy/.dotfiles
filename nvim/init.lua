@@ -209,7 +209,7 @@ require("lazy").setup({
       opts = {
         transparent = false, -- If true, background is not set
         bold = true, -- Disable bold globally
-        italic = true, -- Disable italic globally
+        italic = false, -- Disable italic globally
       },
     },
     {
@@ -1416,7 +1416,7 @@ vim.api.nvim_create_autocmd("TermOpen", {
 })
 
 
-vim.cmd.colorscheme("everforest")
+vim.cmd.colorscheme("default")
 
 -- vim.cmd([[
 -- colorscheme default
