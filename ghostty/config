@@ -1,8 +1,8 @@
-font-feature = -calt
+# font-feature = -calt
 # font-family = "menlo monospace"
 # font-family = monospace
 font-family = "Comic Code"
-font-size = 13.0
+# font-size = 13.0
 font-thicken = true
 # theme = "dark:Kitty Default, light:3024 Day"
 # theme = "Gruvbox Dark Hard"
@@ -11,9 +11,9 @@ font-thicken = true
 # background = 1d1d1d
 # foreground = ffffff
 
-cursor-style = block
-cursor-style-blink = true
-shell-integration-features = no-cursor
+# cursor-style = block
+# cursor-style-blink = true
+# shell-integration-features = no-cursor
 keybind = cmd+enter=unbind
 # macos-titlebar-style=native #tabs
 shell-integration-features = ssh-terminfo
