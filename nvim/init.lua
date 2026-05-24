@@ -233,6 +233,11 @@ require("lazy").setup({
       end,
     },
     {
+      "srcery-colors/srcery-vim",
+      lazy = false,
+      priority = 1000,
+    },
+    {
       "MarcoKorinth/onehalf.nvim",
       lazy = false,
       priority = 1000,
