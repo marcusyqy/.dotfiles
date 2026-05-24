@@ -233,10 +233,15 @@ require("lazy").setup({
       end,
     },
     {
-      'clearaspect/onehalf',
+      "MarcoKorinth/onehalf.nvim",
       lazy = false,
       priority = 1000,
     },
+    -- {
+    --   'clearaspect/onehalf',
+    --   lazy = false,
+    --   priority = 1000,
+    -- },
     {
       "navarasu/onedark.nvim",
       priority = 1000,
