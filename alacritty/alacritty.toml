@@ -1,0 +1,6 @@
+[general]
+working_directory="C:\\Users\\marcu"
+[font]
+normal = { family = "Comic Code", style = "Regular" }
+[terminal]
+shell="cmd"

@@ -10,3 +10,6 @@ mklink %userprofile%\.vimrc %userprofile%\.dotfiles\.vimrc
 
 rd /s /q %userprofile%\AppData\Roaming\neovide
 mklink /d %userprofile%\AppData\Roaming\neovide %userprofile%\.dotfiles\neovide
+
+rd /s /q %userprofile%\AppData\Roaming\alacritty
+mklink /d %userprofile%\AppData\Roaming\alacritty %userprofile%\.dotfiles\alacritty
