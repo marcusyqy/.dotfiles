@@ -10,16 +10,12 @@ if wezterm.config_builder then
     config = wezterm.config_builder()
 end
 
--- config.color_scheme = 'iTerm2 Default'
-config.color_scheme = 'Apple System Colors'
--- config.color_scheme = 'Builtin Dark'
--- config.color_scheme = 'Gruvbox Dark (Gogh)'
+-- config.color_scheme = 'One Dark (Gogh)'
 
 config.default_cursor_style = "BlinkingBlock"
 config.cursor_blink_ease_in = "Constant"
 config.cursor_blink_ease_out = "Constant"
 config.cursor_blink_rate = 500
--- config.color_scheme = "Gruvbox (Gogh)"
 
 -- config.prefer_egl = true
 
@@ -31,7 +27,7 @@ config.cursor_blink_rate = 500
 --   end
 -- end
 
-config.font_size = 10.0
+-- config.font_size = 10.0
 config.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' } -- no ligatures for me please!
 config.font = wezterm.font {
     -- family = "Iosevka Nerd Font Mono", -- Or the font you prefer
@@ -65,8 +61,34 @@ local white = '#ffffff'
 local default_bg = 'none'
 
 config.colors = {
-  background = "#000000",
-  foreground = "#ffffff",
+  foreground = '#d8d8d8',
+  background = '#181818',
+  cursor_bg = '#d8d8d8',
+  cursor_fg = '#181818',
+  selection_bg = '#d8d8d8',
+  selection_fg = '#181818',
+
+  ansi = {
+    '#181818', -- black
+    '#ab4642', -- red
+    '#a1b56c', -- green
+    '#f7ca88', -- yellow
+    '#7cafc2', -- blue
+    '#ba8baf', -- magenta
+    '#86c1b9', -- cyan
+    '#d8d8d8', -- white
+  },
+  brights = {
+    '#585858', -- bright black
+    '#ab4642', -- bright red
+    '#a1b56c', -- bright green
+    '#f7ca88', -- bright yellow
+    '#7cafc2', -- bright blue
+    '#ba8baf', -- bright magenta
+    '#86c1b9', -- bright cyan
+    '#f8f8f8', -- bright white
+  },  -- background = "#000000",
+  -- foreground = "#ffffff",
   tab_bar = {
     background = '#1a1a1a',
     active_tab = {

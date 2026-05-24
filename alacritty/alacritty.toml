@@ -4,3 +4,10 @@ working_directory="C:\\Users\\marcu"
 normal = { family = "Comic Code", style = "Regular" }
 [terminal]
 shell="cmd"
+[keyboard]
+bindings = [
+    # Creates a new window within the same Alacritty process
+    { key = "N", mods = "Control|Shift", action = "CreateNewWindow" },
+    # Spawns a completely new process/instance
+    { key = "Return", mods = "Control|Shift", action = "SpawnNewInstance" }
+]
