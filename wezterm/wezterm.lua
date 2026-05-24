@@ -50,16 +50,6 @@ config.tab_bar_at_bottom = false
 -- config.show_tab_index_in_tab_bar = false
 config.tab_max_width = 32
 
-local c240 = '#585858'
-local c233 = '#121212'
-local c241 = '#626262'
-local c245 = '#8a8a8a'
-local c220 = '#ffd700'
-local c050 = '#00ffd7'
-local c208 = '#ff8700'
-local white = '#ffffff'
-local default_bg = 'none'
-
 config.colors = {
   foreground = '#d8d8d8',
   background = '#181818',
@@ -117,6 +107,7 @@ config.colors = {
     },
   },
 }
+
 --
 --
 -- wezterm.on('format-tab-title', function(tab, tabs, panes, cfg, hover, max_width)
