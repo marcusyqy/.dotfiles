@@ -238,15 +238,52 @@ require("lazy").setup({
       priority = 1000,
     },
     {
-      "MarcoKorinth/onehalf.nvim",
+      "ClearAspect/onehalf",
       lazy = false,
       priority = 1000,
+      config = function()
+        require('onehalf').setup({
+          transparency = false, -- Enable this to disable background color
+          terminal_colors = true, -- Apply the theme to neovim terminal windows
+          -- Color dimming/darkening configuration
+          dimming = {
+            enable = false,         -- Enable color dimming
+            dim_level = 0.2,        -- Dimming intensity (0.0-1.0)
+            preserve_accents = true -- Maintain accent color vibrancy
+          },
+          -- Style to be applied to different syntax groups
+          -- Value is any valid attr-list value for `:help nvim_set_hl`
+          styles = {
+            comments = { italic = true },
+            conditionals = {},
+            loops = {},
+            functions = {},
+            keywords = {},
+            strings = {},
+            variables = {},
+            numbers = {},
+            booleans = {},
+            properties = {},
+            types = {},
+            operators = {},
+          },
+          -- Configure which integrations should be applied
+          -- True enables the integration, false disables it
+          integrations = {
+            cmp = true,
+            blink_cmp = true,
+            diffview = true,
+            fzf = true,
+            gitsigns = true,
+            semantic_tokens = true,
+            telescope = true,
+            treesitter_context = true,
+            treesitter = true,
+            whichkey = true,
+          }
+        })
+      end,
     },
-    -- {
-    --   'clearaspect/onehalf',
-    --   lazy = false,
-    --   priority = 1000,
-    -- },
     {
       "navarasu/onedark.nvim",
       priority = 1000,
