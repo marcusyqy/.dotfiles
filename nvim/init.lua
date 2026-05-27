@@ -1515,7 +1515,7 @@ vim.api.nvim_create_autocmd("TermOpen", {
 })
 
 
-vim.cmd.colorscheme("onehalf")
+vim.cmd.colorscheme("onehalfdark")
 
 -- vim.cmd([[
 -- colorscheme default
