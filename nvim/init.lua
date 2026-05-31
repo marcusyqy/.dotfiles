@@ -1317,6 +1317,14 @@ vim.keymap.set("n", "<m-down>", "10<C-w>-")
 vim.keymap.set("n", "<leader>o", ":t.<cr>")
 vim.keymap.set("n", "<leader>O", ":t.-1<cr>")
 
+vim.keymap.set({ "n", "v" }, "<PageDown>", "<c-d>", { desc = "scroll down" })
+vim.keymap.set({ "n", "v" }, "<PageUp>", "<c-u>", { desc= "scroll up" })
+vim.keymap.set({ "n", "v" }, "<Home>", "^", { desc = "start of line" })
+vim.keymap.set({ "n", "v" }, "<End>", "$", { desc= "end of line" })
+
+-- for mac
+vim.keymap.set({ "n", "v" }, "<Find>", "^", { desc = "start of line" })
+vim.keymap.set({ "n", "v" }, "<Select>", "$", { desc= "end of line" })
 
 -- terminal
 -- double tap
