@@ -381,7 +381,7 @@ require("lazy").setup({
       config = function ()
         require("cyberdream").setup({
           -- Set light or dark variant
-          variant = "default", -- use "light" for the light variant. Also accepts "auto" to set dark or light colors based on the current value of `vim.o.background`
+          variant = "dark", -- use "light" for the light variant. Also accepts "auto" to set dark or light colors based on the current value of `vim.o.background`
 
           -- Enable transparent background
           transparent = false,
@@ -403,64 +403,6 @@ require("lazy").setup({
 
           -- Improve start up time by caching highlights. Generate cache with :CyberdreamBuildCache and clear with :CyberdreamClearCache
           cache = false,
-
-          -- Override highlight groups with your own colour values
-          highlights = {
-            -- Highlight groups to override, adding new groups is also possible
-            -- See `:h highlight-groups` for a list of highlight groups or run `:hi` to see all groups and their current values
-
-            -- Example:
-            -- Comment = { fg = "#696969", bg = "NONE", italic = true },
-
-            -- More examples can be found in `lua/cyberdream/extensions/*.lua`
-          },
-
-          -- Override a highlight group entirely using the built-in colour palette
-          -- overrides = function(colors) -- NOTE: This function nullifies the `highlights` option
-          --   -- Example:
-          --   return {
-          --     Comment = { fg = colors.green, bg = "NONE", italic = true },
-          --     ["@property"] = { fg = colors.magenta, bold = true },
-          --   }
-          -- end,
-
-          -- Override colors
-          -- colors = {
-          --   -- For a list of colors see `lua/cyberdream/colours.lua`
-          --
-          --   -- Override colors for both light and dark variants
-          --   bg = "#000000",
-          --   green = "#00ff00",
-          --
-          --   -- If you want to override colors for light or dark variants only, use the following format:
-          --   dark = {
-          --     magenta = "#ff00ff",
-          --     fg = "#eeeeee",
-          --   },
-          --   light = {
-          --     red = "#ff5c57",
-          --     cyan = "#5ef1ff",
-          --   },
-          -- },
-
-          -- Disable or enable colorscheme extensions
-          extensions = {
-            telescope = true,
-            notify = true,
-            mini = true,
-          },
-
-          -- Alternatively, you can use 'default' to set all extensions at once
-          -- cache = true, -- Use cache for fastest loads
-          -- extensions = {
-          --     default = false, -- Disable all by default
-          --     base = true, -- Enable all built-in hl groups (you probably want this)
-          --
-          --     -- Now enable only what you want to use
-          --     telescope = true,
-          --     cmp = true,
-          --     gitsigns = true,
-          -- },
         })
       end
     },
@@ -477,7 +419,7 @@ require("lazy").setup({
           -- Style to be applied to different syntax groups
           -- Value is any valid attr-list value for `:help nvim_set_hl`
           comments = { italic = true },
-          keywords = { italic = true },
+          keywords = { italic = false },
           functions = {},
           variables = {},
           -- Background styles. Can be "dark", "transparent" or "normal"
@@ -485,7 +427,7 @@ require("lazy").setup({
           floats = "dark", -- style for floating windows
         },
         day_brightness = 0.3, -- Adjusts the brightness of the colors of the **Day** style. Number between 0 and 1, from dull to vibrant colors
-        dim_inactive = false, -- dims inactive windows
+        dim_inactive = true, -- dims inactive windows
         lualine_bold = false, -- When `true`, section headers in the lualine theme will be bold
 
         --- You can override specific color groups to use other groups or a hex color
@@ -533,11 +475,11 @@ require("lazy").setup({
           transparent_background = false, -- disables setting the background color.
           float = {
             transparent = false, -- enable transparent floating windows
-            solid = false, -- use solid styling for floating windows, see |winborder|
+            solid = true, -- use solid styling for floating windows, see |winborder|
           },
           term_colors = false, -- sets terminal colors (e.g. `g:terminal_color_0`)
           dim_inactive = {
-            enabled = false, -- dims the background color of inactive window
+            enabled = true, -- dims the background color of inactive window
             shade = "dark",
             percentage = 0.15, -- percentage of the shade to apply to the inactive window
           },
@@ -546,7 +488,7 @@ require("lazy").setup({
           no_underline = false, -- Force no underline
           styles = { -- Handles the styles of general hi groups (see `:h highlight-args`):
             comments = { "italic" }, -- Change the style of comments
-            conditionals = { "italic" },
+            conditionals = {},
             loops = {},
             functions = {},
             keywords = {},
@@ -585,12 +527,7 @@ require("lazy").setup({
           integrations = {
             cmp = true,
             gitsigns = true,
-            nvimtree = true,
-            notify = false,
-            mini = {
-              enabled = true,
-              indentscope_color = "",
-            },
+            snacks = true,
           },
         })
       end
