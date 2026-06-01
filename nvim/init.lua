@@ -1647,21 +1647,6 @@ vim.api.nvim_create_autocmd("TermOpen", {
   end,
 })
 
-
-vim.cmd.colorscheme("tokyonight")
-
--- vim.cmd([[
--- colorscheme default
---   highlight Normal guibg=NONE
---   highlight NormalFloat guibg=NONE
---   highlight NormalNC guibg=NONE
--- ]])
-
-
--- vim.api.nvim_set_hl(0, "Cursor", { bg = "#7c7c7c", fg = "NONE" })
--- vim.api.nvim_set_hl(0, "PMenu", { bg = "NONE" })
--- vim.api.nvim_set_hl(0, "VertSplit", { bg = "NONE" })
-
 if vim.g.neovide then
   -- @TODO: Let's fix the problem with battery consumption by adding a function.
   vim.keymap.set("i", "<c-s-v>", "<c-r>+")
@@ -1761,3 +1746,16 @@ if vim.g.neovide then
   neovide_defaults()
 end
 
+vim.cmd.colorscheme("cyberdream")
+
+-- vim.cmd([[
+-- colorscheme default
+--   highlight Normal guibg=NONE
+--   highlight NormalFloat guibg=NONE
+--   highlight NormalNC guibg=NONE
+-- ]])
+
+
+-- vim.api.nvim_set_hl(0, "Cursor", { bg = "#7c7c7c", fg = "NONE" })
+-- vim.api.nvim_set_hl(0, "PMenu", { bg = "NONE" })
+-- vim.api.nvim_set_hl(0, "VertSplit", { bg = "NONE" })
