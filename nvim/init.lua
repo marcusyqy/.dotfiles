@@ -497,7 +497,9 @@ require("lazy").setup({
         --- function will be called with a Highlights and ColorScheme table
         ---@param highlights tokyonight.Highlights
         ---@param colors ColorScheme
-        on_highlights = function(highlights, colors) end,
+        on_highlights = function(highlights, colors)
+          highlights.SnacksPickerBorder = { bg = colors.bg_dark, fg = colors.bg_dark }
+        end,
 
         cache = true, -- When set to true, the theme will be cached for better performance
 
@@ -589,7 +591,6 @@ require("lazy").setup({
               enabled = true,
               indentscope_color = "",
             },
-            -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
           },
         })
       end
@@ -1710,7 +1711,7 @@ vim.api.nvim_create_autocmd("TermOpen", {
 })
 
 
-vim.cmd.colorscheme("cyberdream")
+vim.cmd.colorscheme("tokyonight")
 
 -- vim.cmd([[
 -- colorscheme default

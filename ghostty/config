@@ -6,6 +6,7 @@ font-family = "Comic Code"
 font-thicken = true
 # theme = "dark:Kitty Default, light:3024 Day"
 theme = "Kitty Default"
+# theme = "Tokyonight Night"
 # theme = Srcery
 # theme = 0x96f
 # background = 000000
