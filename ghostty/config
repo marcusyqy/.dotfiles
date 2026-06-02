@@ -1,7 +1,7 @@
-# font-feature = -calt
+font-feature = -calt
 # font-family = "menlo monospace"
 # font-family = monospace
-font-family = "Comic Code Ligatures"
+font-family = "Comic Code"
 # font-size = 13.0
 font-thicken = true
 # theme = "dark:Kitty Default, light:3024 Day"
