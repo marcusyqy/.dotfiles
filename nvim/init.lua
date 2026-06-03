@@ -180,7 +180,7 @@ require("lazy").setup({
 
         local plugin = require "no-clown-fiesta"
         plugin.load(opts)
-     end
+      end
     },
     {
       "datsfilipe/vesper.nvim",
@@ -199,7 +199,7 @@ require("lazy").setup({
           overrides = {}, -- A dictionary of group names, can be a function returning a dictionary or a table.
           palette_overrides = {}
         })
-     end
+      end
 
     },
     {
@@ -1194,8 +1194,8 @@ require("lazy").setup({
           sources = cmp.config.sources({
             { name = 'git' },
           }, {
-            { name = 'buffer' },
-          })
+              { name = 'buffer' },
+            })
         })
         require("cmp_git").setup()
         -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
@@ -1223,156 +1223,156 @@ require("lazy").setup({
         --   },
         -- })
       end,
-  },
-  {
-    "neovim/nvim-lspconfig",
-    dependencies = {
-      "mason.nvim",
-      {"mason-org/mason-lspconfig.nvim", opts = { }},
-      { "hrsh7th/nvim-cmp" },
     },
-    config = function()
-      local capabilities = require('cmp_nvim_lsp').default_capabilities()
+    {
+      "neovim/nvim-lspconfig",
+      dependencies = {
+        "mason.nvim",
+        {"mason-org/mason-lspconfig.nvim", opts = { }},
+        { "hrsh7th/nvim-cmp" },
+      },
+      config = function()
+        local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-      -- Specify how the border looks like
-      -- local border = {
-      --   { '┌', 'FloatBorder' },
-      --   { '─', 'FloatBorder' },
-      --   { '┐', 'FloatBorder' },
-      --   { '│', 'FloatBorder' },
-      --   { '┘', 'FloatBorder' },
-      --   { '─', 'FloatBorder' },
-      --   { '└', 'FloatBorder' },
-      --   { '│', 'FloatBorder' },
-      -- }
-      -- -- Add the border on hover and on signature help popup window
-      -- local handlers = {
-      --   ['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, { border = border }),
-      --   ['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border }),
-      -- }
-      vim.lsp.set_log_level("error")
+        -- Specify how the border looks like
+        -- local border = {
+        --   { '┌', 'FloatBorder' },
+        --   { '─', 'FloatBorder' },
+        --   { '┐', 'FloatBorder' },
+        --   { '│', 'FloatBorder' },
+        --   { '┘', 'FloatBorder' },
+        --   { '─', 'FloatBorder' },
+        --   { '└', 'FloatBorder' },
+        --   { '│', 'FloatBorder' },
+        -- }
+        -- -- Add the border on hover and on signature help popup window
+        -- local handlers = {
+        --   ['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, { border = border }),
+        --   ['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border }),
+        -- }
+        vim.lsp.set_log_level("error")
 
-      vim.lsp.config("pylsp", {
-        capabilities = capabilities,
-        -- handlers = handlers,
-        settings = {
-          pylsp = {
-            plugins = {
-              pyflakes = { enabled = false },
-              pycodestyle = { enabled = false },
-              pydocstyle = { enabled = false },
-              pylint = { enabled = false },
-              mccabe = { enabled = false },
+        vim.lsp.config("pylsp", {
+          capabilities = capabilities,
+          -- handlers = handlers,
+          settings = {
+            pylsp = {
+              plugins = {
+                pyflakes = { enabled = false },
+                pycodestyle = { enabled = false },
+                pydocstyle = { enabled = false },
+                pylint = { enabled = false },
+                mccabe = { enabled = false },
+              },
             },
-          },
-        }
-      })
-      vim.lsp.config("*", {
-        capabilities = capabilities,
-        -- handlers = handlers,
-      })
-      vim.lsp.config("clangd", {
-        -- handlers = handlers,
-        -- "--header-insertion-decorators",
-        -- "--function-arg-placeholders",
-        -- "--completion-style=detailed",
-        -- "--clang-tidy=false",
-        -- "--query-driver=**"
-        -- "--compile-commands-dir=${workspaceFolder}/",
-        capabilities = capabilities,
-        cmd = {
-          "clangd",
-          "--header-insertion=never",
-          "--j=4",
-          "--pch-storage=memory",
-          "--background-index",
-          "--suggest-missing-includes",
-          "--clang-tidy",
-          "--all-scopes-completion",
-          "--query-driver=/**/*"
-        }
-      })
-      vim.lsp.enable('clangd')
-    end,
-  },
-  {
-    "mason-org/mason.nvim",
-    cmd = "Mason",
-    build = ":MasonUpdate",
-    opts = {},
-  },
-  -- { "peterhoeg/vim-qml" },
-  -- { "bfrg/vim-cpp-modern" },
-  -- { "evanleck/vim-svelte" },
-  -- { "martinda/Jenkinsfile-vim-syntax" },
-  { "kalvinpearce/ShaderHighlight" },
-  {
-    "nvim-lualine/lualine.nvim",
-    dependencies = {
-      'nvim-tree/nvim-web-devicons' ,
-      'arkav/lualine-lsp-progress'
+          }
+        })
+        vim.lsp.config("*", {
+          capabilities = capabilities,
+          -- handlers = handlers,
+        })
+        vim.lsp.config("clangd", {
+          -- handlers = handlers,
+          -- "--header-insertion-decorators",
+          -- "--function-arg-placeholders",
+          -- "--completion-style=detailed",
+          -- "--clang-tidy=false",
+          -- "--query-driver=**"
+          -- "--compile-commands-dir=${workspaceFolder}/",
+          capabilities = capabilities,
+          cmd = {
+            "clangd",
+            "--header-insertion=never",
+            "--j=4",
+            "--pch-storage=memory",
+            "--background-index",
+            "--suggest-missing-includes",
+            "--clang-tidy",
+            "--all-scopes-completion",
+            "--query-driver=/**/*"
+          }
+        })
+        vim.lsp.enable('clangd')
+      end,
     },
-    opts = {
-      options = {
-        icons_enabled = true,
-        theme = 'auto',
-        component_separators = { left = '', right = ''},
-        section_separators = { left = '', right = ''},
-        disabled_filetypes = {
-          statusline = {},
-          winbar = {},
-        },
-        ignore_focus = {},
-        always_divide_middle = true,
-        always_show_tabline = false,
-        globalstatus = true,
-        refresh = {
-          statusline = 1000,
-          tabline = 1000,
-          winbar = 1000,
-          refresh_time = 16, -- ~60fps
-          events = {
-            'WinEnter',
-            'BufEnter',
-            'BufWritePost',
-            'SessionLoadPost',
-            'FileChangedShellPost',
-            'VimResized',
-            'Filetype',
-            'CursorMoved',
-            'CursorMovedI',
-            'ModeChanged',
+    {
+      "mason-org/mason.nvim",
+      cmd = "Mason",
+      build = ":MasonUpdate",
+      opts = {},
+    },
+    -- { "peterhoeg/vim-qml" },
+    -- { "bfrg/vim-cpp-modern" },
+    -- { "evanleck/vim-svelte" },
+    -- { "martinda/Jenkinsfile-vim-syntax" },
+    { "kalvinpearce/ShaderHighlight" },
+    {
+      "nvim-lualine/lualine.nvim",
+      dependencies = {
+        'nvim-tree/nvim-web-devicons' ,
+        'arkav/lualine-lsp-progress'
+      },
+      opts = {
+        options = {
+          icons_enabled = true,
+          theme = 'auto',
+          component_separators = { left = '', right = ''},
+          section_separators = { left = '', right = ''},
+          disabled_filetypes = {
+            statusline = {},
+            winbar = {},
           },
-        }
-      },
-      sections = {
-        lualine_a = {{'mode', fmt = function(res) if RESIZE_MODE then return res .. "(R)" end return res end }},
-        lualine_b = {'branch', 'diff', 'diagnostics'},
-        lualine_c = {'filename', 'lsp_progress' },
-        lualine_x = {'encoding', 'fileformat', 'filetype'},
-        lualine_y = {'progress'},
-        lualine_z = {'location'}
-      },
-      inactive_sections = {
-        lualine_a = {},
-        lualine_b = {},
-        lualine_c = {'filename'},
-        lualine_x = {'location'},
-        lualine_y = {},
-        lualine_z = {}
-      },
-      tabline = {
-      },
-      winbar = {},
-      inactive_winbar = {},
-      extensions = {}
-    }
-  },
-  {
-    "ThePrimeagen/harpoon",
-    branch = "harpoon2",
-    dependencies = { "nvim-lua/plenary.nvim" },
-    config = function()
+          ignore_focus = {},
+          always_divide_middle = true,
+          always_show_tabline = false,
+          globalstatus = true,
+          refresh = {
+            statusline = 1000,
+            tabline = 1000,
+            winbar = 1000,
+            refresh_time = 16, -- ~60fps
+            events = {
+              'WinEnter',
+              'BufEnter',
+              'BufWritePost',
+              'SessionLoadPost',
+              'FileChangedShellPost',
+              'VimResized',
+              'Filetype',
+              'CursorMoved',
+              'CursorMovedI',
+              'ModeChanged',
+            },
+          }
+        },
+        sections = {
+          lualine_a = {{'mode', fmt = function(res) if RESIZE_MODE then return res .. "(R)" end return res end }},
+          lualine_b = {'branch', 'diff', 'diagnostics'},
+          lualine_c = {'filename', 'lsp_progress' },
+          lualine_x = {'encoding', 'fileformat', 'filetype'},
+          lualine_y = {'progress'},
+          lualine_z = {'location'}
+        },
+        inactive_sections = {
+          lualine_a = {},
+          lualine_b = {},
+          lualine_c = {'filename'},
+          lualine_x = {'location'},
+          lualine_y = {},
+          lualine_z = {}
+        },
+        tabline = {
+        },
+        winbar = {},
+        inactive_winbar = {},
+        extensions = {}
+      }
+    },
+    {
+      "ThePrimeagen/harpoon",
+      branch = "harpoon2",
+      dependencies = { "nvim-lua/plenary.nvim" },
+      config = function()
         local harpoon = require("harpoon")
         harpoon:setup()
         vim.keymap.set("n", "<leader>ha", function() harpoon:list():add() end)
@@ -1387,7 +1387,7 @@ require("lazy").setup({
         vim.keymap.set("n", "gi", function() harpoon:list():prev() end)
         vim.keymap.set("n", "go", function() harpoon:list():next() end)
       end
-  }
+    }
   },
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.
@@ -1619,11 +1619,11 @@ vim.api.nvim_create_autocmd("LspAttach", {
     vim.keymap.set('n', '<leader>vk', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
     vim.keymap.set('n', '<leader>vj', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
     vim.keymap.set('n', '<leader>k', '<cmd>lua vim.diagnostic.goto_prev({ severity = vim.diagnostic.severity.ERROR})<CR>'
-    ,
-    opts)
+      ,
+      opts)
     vim.keymap.set('n', '<leader>j', '<cmd>lua vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.ERROR})<CR>'
-    ,
-    opts)
+      ,
+      opts)
     vim.keymap.set('n', '<leader>vq', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
     -- vim.keymap.set("n", "<leader>ff", "<cmd>lua vim.lsp.buf.format()<CR>", opts)
     -- vim.keymap.set("n", "<leader>vf", "<cmd>lua vim.lsp.buf.format()<CR>", opts)
@@ -1755,6 +1755,9 @@ vim.cmd.colorscheme("cyberdream")
 --   highlight NormalNC guibg=NONE
 -- ]])
 
+vim.diagnostic.config({
+  virtual_text = true, -- Enables inline diagnostics
+})
 
 -- vim.api.nvim_set_hl(0, "Cursor", { bg = "#7c7c7c", fg = "NONE" })
 -- vim.api.nvim_set_hl(0, "PMenu", { bg = "NONE" })
