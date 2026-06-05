@@ -657,9 +657,9 @@ require("lazy").setup({
         -- { "<leader>fof", function() Snacks.picker.smart() end, desc = "Smart Find Files" },
         { "<leader>,", function() Snacks.picker.buffers() end, desc = "Buffers" },
         { "<leader>/", function() Snacks.picker.grep() end, desc = "Grep" },
-        { "<leader>fg", function() Snacks.picker.grep() end, desc = "Grep" },
+        -- { "<leader>fg", function() Snacks.picker.grep() end, desc = "Grep" },
         { "<leader>:", function() Snacks.picker.command_history() end, desc = "Command History" },
-        { "<leader>ff", function() Snacks.picker.files() end, desc = "Find files" },
+        -- { "<leader>ff", function() Snacks.picker.files() end, desc = "Find files" },
         -- { "<leader>n", function() Snacks.picker.notifications() end, desc = "Notification History" },
         -- { "<leader>e", function() Snacks.explorer() end, desc = "File Explorer" },
         -- find
@@ -1367,6 +1367,66 @@ require("lazy").setup({
         inactive_winbar = {},
         extensions = {}
       }
+    },
+    {
+      'dmtrKovalenko/fff.nvim',
+      build = function()
+        -- downloads a prebuilt binary or falls back to cargo build
+        require("fff.download").download_or_build_binary()
+      end,
+      -- for nixos:
+      -- build = "nix run .#release",
+      opts = {
+        prompt = "   ",
+        debug = {
+          enabled = false,
+          show_scores = false,
+        },
+        layout = {
+          height = 0.8,
+          width = 0.8,
+          prompt_position = 'top',   -- or 'top'
+          preview_position = 'right',   -- 'left' | 'right' | 'top' | 'bottom'
+          preview_size = 0.5,
+          flex = { size = 130, wrap = 'top' },
+          min_list_height = 10, --  do not display anything except the list below this threshold
+          show_scrollbar = true,
+          path_shorten_strategy = 'middle_number', -- 'middle_number' | 'middle' | 'end' | 'start'
+          anchor = 'center',
+        },
+        keymaps = {
+          close = '<Esc>',
+          select = '<CR>',
+          select_split = '<C-s>',
+          select_vsplit = '<C-v>',
+          select_tab = '<C-t>',
+          move_up = { '<Up>', '<C-p>' },
+          move_down = { '<Down>', '<C-n>' },
+          preview_scroll_up = '<C-u>',
+          preview_scroll_down = '<C-d>',
+          toggle_debug = '<F2>',
+          cycle_grep_modes = '<S-Tab>',
+          cycle_previous_query = '<C-Up>',
+          toggle_select = '<Tab>',
+          send_to_quickfix = '<C-q>',
+          focus_list = '<leader>l',
+          focus_preview = '<leader>p',
+        },
+
+      },
+      lazy = false, -- the plugin lazy-initialises itself
+      keys = {
+        { "<leader>ff", function() require('fff').find_files() end, desc = 'FFFind files' },
+        { "<leader>fg", function() require('fff').live_grep() end, desc = 'LiFFFe grep' },
+        { "<leader>fz",
+          function() require('fff').live_grep({ grep = { modes = { 'fuzzy', 'plain' } } }) end,
+          desc = 'Live fffuzy grep',
+        },
+        { "<leader>fc",
+          function() require('fff').live_grep({ query = vim.fn.expand("<cword>") }) end,
+          desc = 'Search current word',
+        },
+      },
     },
     {
       "ThePrimeagen/harpoon",
