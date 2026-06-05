@@ -403,6 +403,14 @@ require("lazy").setup({
 
           -- Improve start up time by caching highlights. Generate cache with :CyberdreamBuildCache and clear with :CyberdreamClearCache
           cache = false,
+
+          -- Override a highlight group entirely using the built-in colour palette
+          overrides = function(colors) -- NOTE: This function nullifies the `highlights` option
+              -- Example:
+              return {
+                  Search = { bg = colors.green,  fg="#1e2124" },
+              }
+          end,
         })
       end
     },
