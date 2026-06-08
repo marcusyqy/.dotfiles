@@ -33,7 +33,7 @@ config.font = wezterm.font {
     -- family = "Iosevka Nerd Font Mono", -- Or the font you prefer
     family = "Comic Code", -- Or the font you prefer
     -- family = "JetBrains Mono", -- Or the font you prefer
-    weight = "Medium", -- try this out.
+    -- weight = "Medium", -- try this out.
     -- weight = "DemiBold", -- Optional: Adjust weight
     -- weight = "Regular",
     -- harfbuzz_features = { "calt=0", "clig=0", "liga=0" }, -- Disable ligatures
