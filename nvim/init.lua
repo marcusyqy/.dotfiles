@@ -487,11 +487,12 @@ require("lazy").setup({
 
           -- Improve start up time by caching highlights. Generate cache with :CyberdreamBuildCache and clear with :CyberdreamClearCache
           cache = false,
-
           -- Override a highlight group entirely using the built-in colour palette
           overrides = function(colors) -- NOTE: This function nullifies the `highlights` option
               -- Example:
               return {
+                  -- it's hard to know which split you are on man.
+                  -- NormalNC = { bg = "#1a1a1a", fg = "#8A99A8" },
                   Search = { bg = colors.green,  fg="#1e2124" },
               }
           end,
@@ -950,7 +951,8 @@ require("lazy").setup({
           ["g?"] = "actions.show_help",
           ["<CR>"] = "actions.select",
           -- ["<C-e>"] = "actions.select",
-          -- ["<C-e>"] = "actions.select_vsplit",
+          ["\\"] = "actions.select_vsplit",
+          ["<C-f>"] = "actions.select_vsplit",
           ["<C-s>"] = "actions.select_split",
           ["<C-t>"] = "actions.select_tab",
           ["<C-c>"] = "actions.close",
@@ -1541,7 +1543,7 @@ require("lazy").setup({
         vim.keymap.set("n", "gi", function() harpoon:list():prev() end)
         vim.keymap.set("n", "go", function() harpoon:list():next() end)
       end
-    }
+    },
   },
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.
@@ -1636,6 +1638,8 @@ vim.cmd("command! -nargs=+ -complete=shellcmd Call noautocmd cexpr! system(\"<ar
 vim.keymap.set("n", "<leader>bb", function() vim.cmd [[make]] end)
 vim.keymap.set("n", "<f5>", function() vim.cmd [[make]] end)
 vim.keymap.set("n", "<c-b>", function() vim.cmd [[make]] end)
+vim.keymap.set("n", "<c-f>", "<c-w>_")
+
 
 local terminal_toggle = function()
   vim.cmd.new()
