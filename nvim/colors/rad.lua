@@ -5,7 +5,7 @@ if vim.fn.exists("syntax_on") == 1 then
 end
 
 vim.o.background = "dark"
-vim.g.colors_name = "fleury"
+vim.g.colors_name = "rad"
 
 local defaults = {
   transparent = false,
@@ -31,7 +31,8 @@ local defaults = {
     cursor = "#18e000",
     keyword = "#aa8428",
     string = "#7d9740",
-    constant = "#9f812d",
+    -- constant = "#9f812d",
+    constant = "#35736d",
     builtin = "#9f3f3f",
     type = "#b08a21",
     func = "#35736d",
@@ -122,9 +123,11 @@ hi("Comment", style("comments", { fg = c.comment }))
 hi("Constant", { fg = c.constant })
 hi("String", { fg = c.string })
 hi("Character", { fg = c.string })
-hi("Number", { fg = c.constant })
+hi("Number", { fg = c.string })
+-- hi("Number", { fg = c.constant })
 hi("Boolean", { fg = c.constant })
-hi("Float", { fg = c.constant })
+-- hi("Float", { fg = c.constant })
+hi("Float", { fg = c.string })
 hi("Identifier", { fg = c.fg })
 hi("Function", style("functions", { fg = c.func }))
 hi("Statement", style("keywords", { fg = c.keyword }))
@@ -138,6 +141,7 @@ hi("PreProc", { fg = c.green })
 hi("Include", { fg = c.green })
 hi("Define", { fg = c.green })
 hi("Macro", { fg = c.green })
+-- hi("Macro", style("functions", { fg = c.func }))
 hi("PreCondit", { fg = c.green })
 hi("Type", style("types", { fg = c.type }))
 hi("StorageClass", style("types", { fg = c.type }))

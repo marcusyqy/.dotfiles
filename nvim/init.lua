@@ -1932,7 +1932,7 @@ if vim.g.neovide then
   neovide_defaults()
 end
 
-vim.cmd.colorscheme("coolbeans")
+vim.cmd.colorscheme("rad")
 
 -- vim.cmd([[
 -- colorscheme default
