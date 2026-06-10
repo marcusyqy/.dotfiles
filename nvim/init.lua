@@ -1559,8 +1559,8 @@ vim.keymap.set("n", "<c-n>", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 vim.keymap.set("i", "<s-tab>", "<C-D>", { desc = "Backward when s-tab in insert mode." })
 vim.keymap.set("i", "<s-tab>", "<C-D>", { desc = "Backward when s-tab in insert mode." })
 
-vim.keymap.set("i", "<C-d>", "<del>", { desc = "Del backwards" })
 vim.keymap.set("i", "<C-k>", "<c-o>D", { desc = "Del behind the line" })
+vim.keymap.set("i", "<C-d>", "<c-o>vT_d", { desc = "Del to underline" })
 
 vim.keymap.set("v", "<tab>", ">gv", { desc = "Indent block forward" })
 vim.keymap.set("v", "<s-tab>", "<gv", { desc = "Indent block backward" })
