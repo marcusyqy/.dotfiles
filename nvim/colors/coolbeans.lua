@@ -213,9 +213,14 @@ hi("CmpItemKind", { fg = c.blue })
 hi("CmpItemMenu", { fg = c.comment })
 
 hi("SnacksPicker", { fg = c.fg, bg = c.bg_alt })
-hi("SnacksPickerBorder", { fg = c.border, bg = c.bg_alt })
+hi("SnacksPickerBorder", { fg = c.bg_alt, bg = c.bg_alt })
 hi("SnacksPickerMatch", style("headings", { fg = c.yellow }))
 hi("SnacksPickerPrompt", { fg = c.cyan })
+
+-- hi("SnacksPicker", { fg = c.fg, bg = c.bg_alt })
+-- hi("SnacksPickerBorder", { fg = c.border, bg = c.bg_alt })
+-- hi("SnacksPickerMatch", style("headings", { fg = c.yellow }))
+-- hi("SnacksPickerPrompt", { fg = c.cyan })
 
 for group, highlight in pairs(opts.highlights) do
   hi(group, highlight)
