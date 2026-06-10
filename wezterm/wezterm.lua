@@ -50,82 +50,82 @@ config.tab_bar_at_bottom = false
 -- config.show_tab_index_in_tab_bar = false
 config.tab_max_width = 32
 
--- config.colors = {
---   foreground = '#d8d8d8',
---   background = '#181818',
---   cursor_bg = '#d8d8d8',
---   cursor_fg = '#181818',
---   selection_bg = '#d8d8d8',
---   selection_fg = '#181818',
---
---   ansi = {
---     '#181818', -- black
---     '#ab4642', -- red
---     '#a1b56c', -- green
---     '#f7ca88', -- yellow
---     '#7cafc2', -- blue
---     '#ba8baf', -- magenta
---     '#86c1b9', -- cyan
---     '#d8d8d8', -- white
---   },
---   brights = {
---     '#585858', -- bright black
---     '#ab4642', -- bright red
---     '#a1b56c', -- bright green
---     '#f7ca88', -- bright yellow
---     '#7cafc2', -- bright blue
---     '#ba8baf', -- bright magenta
---     '#86c1b9', -- bright cyan
---     '#f8f8f8', -- bright white
---   },  -- background = "#000000",
---   -- foreground = "#ffffff",
---   tab_bar = {
---     background = '#1a1a1a',
---     active_tab = {
---       bg_color = '#1a1a1a',
---       fg_color = '#ffffff',
---       intensity = 'Normal',
---       underline = 'None',
---       italic = false,
---       strikethrough = false,
---     },
---     inactive_tab = {
---       bg_color = '#1a1a1a',
---       fg_color = '#585858',
---     },
---     inactive_tab_hover = {
---       bg_color = '#1a1a1a',
---       fg_color = '#888888',
---     },
---     new_tab = {
---       bg_color = '#1a1a1a',
---       fg_color = '#585858',
---     },
---     new_tab_hover = {
---       bg_color = '#1a1a1a',
---       fg_color = '#ffffff',
---     },
---   },
--- }
-
 config.colors = {
-  foreground = "#ffffff",
-  background = "#16181a",
+  foreground = '#d8d8d8',
+  background = '#181818',
+  cursor_bg = '#d8d8d8',
+  cursor_fg = '#181818',
+  selection_bg = '#d8d8d8',
+  selection_fg = '#181818',
 
-  cursor_bg = "#ffffff",
-  cursor_fg = "#16181a",
-  cursor_border = "#ffffff",
-
-  selection_fg = "#ffffff",
-  selection_bg = "#3c4048",
-
-  scrollbar_thumb = "#16181a",
-  split = "#16181a",
-
-  ansi = { "#16181a", "#ff6e5e", "#5eff6c", "#f1ff5e", "#5ea1ff", "#bd5eff", "#5ef1ff", "#ffffff" },
-  brights = { "#3c4048", "#ff6e5e", "#5eff6c", "#f1ff5e", "#5ea1ff", "#bd5eff", "#5ef1ff", "#ffffff" },
-  indexed = { [16] = "#ffbd5e", [17] = "#ff6e5e" },
+  ansi = {
+    '#181818', -- black
+    '#ab4642', -- red
+    '#a1b56c', -- green
+    '#f7ca88', -- yellow
+    '#7cafc2', -- blue
+    '#ba8baf', -- magenta
+    '#86c1b9', -- cyan
+    '#d8d8d8', -- white
+  },
+  brights = {
+    '#585858', -- bright black
+    '#ab4642', -- bright red
+    '#a1b56c', -- bright green
+    '#f7ca88', -- bright yellow
+    '#7cafc2', -- bright blue
+    '#ba8baf', -- bright magenta
+    '#86c1b9', -- bright cyan
+    '#f8f8f8', -- bright white
+  },  -- background = "#000000",
+  -- foreground = "#ffffff",
+  tab_bar = {
+    background = '#1a1a1a',
+    active_tab = {
+      bg_color = '#1a1a1a',
+      fg_color = '#ffffff',
+      intensity = 'Normal',
+      underline = 'None',
+      italic = false,
+      strikethrough = false,
+    },
+    inactive_tab = {
+      bg_color = '#1a1a1a',
+      fg_color = '#585858',
+    },
+    inactive_tab_hover = {
+      bg_color = '#1a1a1a',
+      fg_color = '#888888',
+    },
+    new_tab = {
+      bg_color = '#1a1a1a',
+      fg_color = '#585858',
+    },
+    new_tab_hover = {
+      bg_color = '#1a1a1a',
+      fg_color = '#ffffff',
+    },
+  },
 }
+
+-- config.colors = {
+--   foreground = "#ffffff",
+--   background = "#16181a",
+--
+--   cursor_bg = "#ffffff",
+--   cursor_fg = "#16181a",
+--   cursor_border = "#ffffff",
+--
+--   selection_fg = "#ffffff",
+--   selection_bg = "#3c4048",
+--
+--   scrollbar_thumb = "#16181a",
+--   split = "#16181a",
+--
+--   ansi = { "#16181a", "#ff6e5e", "#5eff6c", "#f1ff5e", "#5ea1ff", "#bd5eff", "#5ef1ff", "#ffffff" },
+--   brights = { "#3c4048", "#ff6e5e", "#5eff6c", "#f1ff5e", "#5ea1ff", "#bd5eff", "#5ef1ff", "#ffffff" },
+--   indexed = { [16] = "#ffbd5e", [17] = "#ff6e5e" },
+-- }
 --
 --
 -- wezterm.on('format-tab-title', function(tab, tabs, panes, cfg, hover, max_width)
