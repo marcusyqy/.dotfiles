@@ -51,10 +51,8 @@ config.tab_bar_at_bottom = false
 config.tab_max_width = 32
 
 config.colors = {
-  -- foreground = '#d8d8d8',
-  -- background = '#181818',
-  background = "#050606",
-  foreground = "#8f7c5c",
+  foreground = '#d8d8d8',
+  background = '#181818',
   cursor_bg = '#d8d8d8',
   cursor_fg = '#181818',
   selection_bg = '#d8d8d8',
