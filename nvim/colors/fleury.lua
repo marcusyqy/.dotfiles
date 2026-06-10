@@ -223,7 +223,8 @@ hi("CmpItemKind", { fg = c.type })
 hi("CmpItemMenu", { fg = c.comment })
 
 hi("SnacksPicker", { fg = c.fg, bg = bg(c.bg) })
-hi("SnacksPickerBorder", { fg = c.border, bg = bg(c.bg) })
+hi("SnacksPickerBorder", { fg = bg(c.bg), bg = bg(c.bg) })
+-- hi("SnacksPickerBorder", { fg = c.border, bg = bg(c.bg) })
 hi("SnacksPickerMatch", style("headings", { fg = c.search }))
 hi("SnacksPickerPrompt", style("headings", { fg = c.keyword }))
 
