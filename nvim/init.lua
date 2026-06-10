@@ -459,6 +459,34 @@ require("lazy").setup({
       end
     },
     {
+      "ellisonleao/gruvbox.nvim",
+      priority = 1000 , config = true,
+      lazy = false,
+      opts = {
+        terminal_colors = true, -- add neovim terminal colors
+        undercurl = true,
+        underline = true,
+        bold = true,
+        italic = {
+          strings = true,
+          emphasis = true,
+          comments = true,
+          operators = false,
+          folds = false,
+        },
+        strikethrough = true,
+        invert_selection = false,
+        invert_signs = false,
+        invert_tabline = false,
+        inverse = true, -- invert background for search, diffs, statuslines and errors
+        contrast = "", -- can be "hard", "soft" or empty string
+        palette_overrides = {},
+        overrides = {},
+        dim_inactive = false,
+        transparent_mode = false,
+      },
+    },
+    {
       "scottmckendry/cyberdream.nvim",
       lazy = false,
       priority = 1000,
@@ -1904,7 +1932,7 @@ if vim.g.neovide then
   neovide_defaults()
 end
 
-vim.cmd.colorscheme("cyberdream")
+vim.cmd.colorscheme("coolbeans")
 
 -- vim.cmd([[
 -- colorscheme default
