@@ -1601,9 +1601,73 @@ local function delete_to_previous_case_boundary()
   vim.api.nvim_win_set_cursor(0, { row, delete_from - 1 })
 end
 
+local function delete_to_next_case_boundary()
+  local row, col = unpack(vim.api.nvim_win_get_cursor(0))
+  local line = vim.api.nvim_get_current_line()
+  local delete_from = col + 1
+
+  if delete_from > #line then
+    return
+  end
+
+  local function char_at(index)
+    return line:sub(index, index)
+  end
+
+  local function is_alnum(c)
+    return c:match("%w") ~= nil
+  end
+
+  local function is_upper(c)
+    return c:match("%u") ~= nil
+  end
+
+  local function is_lower(c)
+    return c:match("%l") ~= nil
+  end
+
+  local delete_to = delete_from
+  local first = char_at(delete_from)
+
+  if is_alnum(first) then
+    for i = delete_from, #line do
+      if i == #line then
+        delete_to = #line
+        break
+      end
+
+      local curr = char_at(i)
+      local next = char_at(i + 1)
+      local after_next = char_at(i + 2)
+
+      if not is_alnum(next) then
+        delete_to = i
+        break
+      end
+
+      if is_lower(curr) and is_upper(next) then
+        delete_to = i
+        break
+      end
+
+      if is_upper(curr) and is_upper(next) and is_lower(after_next) then
+        delete_to = i
+        break
+      end
+
+      delete_to = i + 1
+    end
+  end
+
+  vim.api.nvim_set_current_line(line:sub(1, delete_from - 1) .. line:sub(delete_to + 1))
+  vim.api.nvim_win_set_cursor(0, { row, delete_from - 1 })
+end
+
 -- vim.keymap.set("i", "<C-BS>", delete_to_previous_case_boundary, { desc = "Delete previous case word" })
 vim.keymap.set("i", "<C-h>", delete_to_previous_case_boundary, { desc = "Delete previous case word" })
 vim.keymap.set("n", "<leader>db", delete_to_previous_case_boundary, { desc = "Delete previous case word" })
+vim.keymap.set("i", "<c-y>", delete_to_next_case_boundary, { desc = "Delete next case word" })
+vim.keymap.set("n", "<leader>dw", delete_to_next_case_boundary, { desc = "Delete next case word" })
 
 vim.keymap.set("i", "<C-k>", "<c-o>D", { desc = "Del behind the line" })
 vim.keymap.set("i", "<C-d>", "<del>", { desc = "Del to underline" })
