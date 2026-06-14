@@ -161,6 +161,35 @@ for type, icon in pairs(signs) do
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
 
+local function snacks_grep_visual_selection()
+  vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "x", false)
+
+  vim.schedule(function()
+    local start_pos = vim.fn.getpos("'<")
+    local end_pos = vim.fn.getpos("'>")
+    local start_row, start_col = start_pos[2], start_pos[3]
+    local end_row, end_col = end_pos[2], end_pos[3]
+
+    if start_row > end_row or (start_row == end_row and start_col > end_col) then
+      start_row, end_row = end_row, start_row
+      start_col, end_col = end_col, start_col
+    end
+
+    local lines = vim.api.nvim_buf_get_lines(0, start_row - 1, end_row, false)
+    if #lines == 0 then
+      return
+    end
+
+    lines[#lines] = lines[#lines]:sub(1, end_col)
+    lines[1] = lines[1]:sub(start_col)
+
+    local selection = vim.trim(table.concat(lines, " "))
+    if selection ~= "" then
+      Snacks.picker.grep({ search = selection, regex = false })
+    end
+  end)
+end
+
 -- Open picker.select to search for a directory to search in
 
 -- Setup lazy.nvim
@@ -697,6 +726,7 @@ require("lazy").setup({
         { "<leader>,", function() Snacks.picker.buffers() end, desc = "Buffers" },
         { "<leader>fg", function() Snacks.picker.grep() end, desc = "Grep" },
         { "<c-f>", function() Snacks.picker.grep() end, desc = "Grep" },
+        { "<c-f>", snacks_grep_visual_selection, desc = "Grep visual selection", mode = "x" },
         { "<leader>:", function() Snacks.picker.command_history() end, desc = "Command History" },
         { "<leader>ff", function() Snacks.picker.files() end, desc = "Find files" },
         -- { "<leader>n", function() Snacks.picker.notifications() end, desc = "Notification History" },
