@@ -1504,12 +1504,19 @@ vim.keymap.set("i", "<s-tab>", "<C-D>", { desc = "Backward when s-tab in insert 
 
 local function delete_to_previous_case_boundary()
   local row, col = unpack(vim.api.nvim_win_get_cursor(0))
+  local line = vim.api.nvim_get_current_line()
+  local delete_to = col
 
-  if col == 0 then
+  if vim.api.nvim_get_mode().mode:sub(1, 1) ~= "i" then
+    delete_to = col + 1
+  end
+
+  if delete_to == 0 then
     return
   end
 
-  local line = vim.api.nvim_get_current_line()
+  delete_to = math.min(delete_to, #line)
+
   local function char_at(index)
     return line:sub(index, index)
   end
@@ -1526,11 +1533,11 @@ local function delete_to_previous_case_boundary()
     return c:match("%l") ~= nil
   end
 
-  local delete_from = col
-  local first = char_at(col)
+  local delete_from = delete_to
+  local first = char_at(delete_to)
 
   if is_alnum(first) then
-    for i = col, 1, -1 do
+    for i = delete_to, 1, -1 do
       if i == 1 then
         delete_from = 1
         break
@@ -1559,7 +1566,7 @@ local function delete_to_previous_case_boundary()
     end
   end
 
-  vim.api.nvim_set_current_line(line:sub(1, delete_from - 1) .. line:sub(col + 1))
+  vim.api.nvim_set_current_line(line:sub(1, delete_from - 1) .. line:sub(delete_to + 1))
   vim.api.nvim_win_set_cursor(0, { row, delete_from - 1 })
 end
 
