@@ -1133,11 +1133,9 @@ require("lazy").setup({
             end,
           },
           mapping = {
-            ['<C-u>'] = cmp.mapping.scroll_docs(-4),
-            ['<C-d>'] = cmp.mapping.scroll_docs(4),
-            ['<C-Space>'] = cmp.mapping.complete(),
+            ['<C-y>'] = cmp.mapping.complete(),
             ['<C-,>'] = cmp.mapping.complete(),
-            ['<C-e>'] = cmp.mapping.abort(),
+            ['<c-g>'] = cmp.mapping.abort(),
             ['<Tab>'] = function(fallback)
               if cmp.visible() then
                 cmp.select_next_item()
@@ -1666,8 +1664,11 @@ end
 -- vim.keymap.set("i", "<C-BS>", delete_to_previous_case_boundary, { desc = "Delete previous case word" })
 vim.keymap.set("i", "<C-h>", delete_to_previous_case_boundary, { desc = "Delete previous case word" })
 vim.keymap.set("n", "<leader>db", delete_to_previous_case_boundary, { desc = "Delete previous case word" })
-vim.keymap.set("i", "<c-y>", delete_to_next_case_boundary, { desc = "Delete next case word" })
+vim.keymap.set("n", "dh", delete_to_previous_case_boundary, { desc = "Delete previous case word" })
+vim.keymap.set("i", "<c-l>", delete_to_next_case_boundary, { desc = "Delete next case word" })
 vim.keymap.set("n", "<leader>dw", delete_to_next_case_boundary, { desc = "Delete next case word" })
+vim.keymap.set("n", "dl", delete_to_next_case_boundary, { desc = "Delete next case word" })
+
 
 vim.keymap.set("i", "<C-k>", "<c-o>D", { desc = "Del behind the line" })
 vim.keymap.set("i", "<C-d>", "<del>", { desc = "Del to underline" })
@@ -1880,7 +1881,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     vim.keymap.set('n', '<leader>R', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
     vim.keymap.set('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
     vim.keymap.set('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-    vim.keymap.set('i', '<c-l>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+    vim.keymap.set('i', '<c-s>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
     vim.keymap.set('n', '<leader>gh', '<cmd>lua vim.diagnostic.open_float(0, { scope = "line", border = "rounded" })<CR>', opts)
     vim.keymap.set('n', '<leader>vk', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
     vim.keymap.set('n', '<leader>vj', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
@@ -1893,7 +1894,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
     vim.keymap.set('n', '<leader>vq', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
     -- vim.keymap.set("n", "<leader>ff", "<cmd>lua vim.lsp.buf.format()<CR>", opts)
     -- vim.keymap.set("n", "<leader>vf", "<cmd>lua vim.lsp.buf.format()<CR>", opts)
-    -- vim.keymap.set("n", "<c-s>", "<cmd>lua vim.lsp.buf.format()<CR><cmd>lua vim.cmd([[w]])<CR>", opts);
 
     if client.name == "clangd" then
       vim.keymap.set("n", "<leader>sh", "<cmd>LspClangdShowSymbolInfo<CR>", opts)
