@@ -724,6 +724,7 @@ require("lazy").setup({
         -- Top Pickers & Explorer
         -- { "<leader>fof", function() Snacks.picker.smart() end, desc = "Smart Find Files" },
         { "<leader>,", function() Snacks.picker.buffers() end, desc = "Buffers" },
+        { "<c-b>", function() Snacks.picker.buffers() end, desc = "Buffers" },
         { "<leader>fg", function() Snacks.picker.grep() end, desc = "Grep" },
         { "<c-f>", function() Snacks.picker.grep() end, desc = "Grep" },
         { "<c-f>", snacks_grep_visual_selection, desc = "Grep visual selection", mode = "x" },
@@ -1682,7 +1683,6 @@ end
 
 vim.keymap.set("n", "<leader>bb", function() vim.cmd [[make]] end)
 vim.keymap.set("n", "<f5>", function() vim.cmd [[make]] end)
-vim.keymap.set("n", "<c-b>", function() vim.cmd [[make]] end)
 
 
 local terminal_toggle = function()
