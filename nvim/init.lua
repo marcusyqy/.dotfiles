@@ -1531,6 +1531,22 @@ vim.keymap.set("n", "<c-n>", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 vim.keymap.set("i", "<s-tab>", "<C-D>", { desc = "Backward when s-tab in insert mode." })
 vim.keymap.set("i", "<s-tab>", "<C-D>", { desc = "Backward when s-tab in insert mode." })
 
+local function char_at(line, index)
+  return line:sub(index, index)
+end
+
+local function is_alnum(c)
+  return c:match("%w") ~= nil
+end
+
+local function is_upper(c)
+  return c:match("%u") ~= nil
+end
+
+local function is_lower(c)
+  return c:match("%l") ~= nil
+end
+
 local function delete_to_previous_case_boundary()
   local row, col = unpack(vim.api.nvim_win_get_cursor(0))
   local line = vim.api.nvim_get_current_line()
@@ -1546,24 +1562,8 @@ local function delete_to_previous_case_boundary()
 
   delete_to = math.min(delete_to, #line)
 
-  local function char_at(index)
-    return line:sub(index, index)
-  end
-
-  local function is_alnum(c)
-    return c:match("%w") ~= nil
-  end
-
-  local function is_upper(c)
-    return c:match("%u") ~= nil
-  end
-
-  local function is_lower(c)
-    return c:match("%l") ~= nil
-  end
-
   local delete_from = delete_to
-  local first = char_at(delete_to)
+  local first = char_at(line, delete_to)
 
   if is_alnum(first) then
     for i = delete_to, 1, -1 do
@@ -1572,9 +1572,9 @@ local function delete_to_previous_case_boundary()
         break
       end
 
-      local prev = char_at(i - 1)
-      local curr = char_at(i)
-      local next = char_at(i + 1)
+      local prev = char_at(line, i - 1)
+      local curr = char_at(line, i)
+      local next = char_at(line, i + 1)
 
       if not is_alnum(prev) then
         delete_from = i
@@ -1608,24 +1608,8 @@ local function delete_to_next_case_boundary()
     return
   end
 
-  local function char_at(index)
-    return line:sub(index, index)
-  end
-
-  local function is_alnum(c)
-    return c:match("%w") ~= nil
-  end
-
-  local function is_upper(c)
-    return c:match("%u") ~= nil
-  end
-
-  local function is_lower(c)
-    return c:match("%l") ~= nil
-  end
-
   local delete_to = delete_from
-  local first = char_at(delete_from)
+  local first = char_at(line, delete_from)
 
   if is_alnum(first) then
     for i = delete_from, #line do
@@ -1634,9 +1618,9 @@ local function delete_to_next_case_boundary()
         break
       end
 
-      local curr = char_at(i)
-      local next = char_at(i + 1)
-      local after_next = char_at(i + 2)
+      local curr = char_at(line, i)
+      local next = char_at(line, i + 1)
+      local after_next = char_at(line, i + 2)
 
       if not is_alnum(next) then
         delete_to = i
@@ -1661,7 +1645,6 @@ local function delete_to_next_case_boundary()
   vim.api.nvim_win_set_cursor(0, { row, delete_from - 1 })
 end
 
--- vim.keymap.set("i", "<C-BS>", delete_to_previous_case_boundary, { desc = "Delete previous case word" })
 vim.keymap.set("i", "<C-h>", delete_to_previous_case_boundary, { desc = "Delete previous case word" })
 vim.keymap.set("n", "<leader>db", delete_to_previous_case_boundary, { desc = "Delete previous case word" })
 vim.keymap.set("n", "dh", delete_to_previous_case_boundary, { desc = "Delete previous case word" })
