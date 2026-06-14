@@ -42,9 +42,15 @@ link_neovide() {
     ln -s $DOTFILES/neovide $HOME/.config/neovide
 }
 
+link_emacs() {
+    rm -rf $HOME/.config/emacs
+    ln -s $DOTFILES/emacs $HOME/.config/emacs
+}
+
 link_nvim
 link_tmux
 link_wezterm
 link_ghostty
 link_vimrc
 link_neovide
+link_emacs
