@@ -1995,7 +1995,7 @@ if vim.g.neovide then
   neovide_defaults()
 end
 
-vim.cmd.colorscheme("rad-high-contrast")
+vim.cmd.colorscheme("coolbeans")
 
 -- vim.cmd([[
 -- colorscheme default

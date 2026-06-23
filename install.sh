@@ -26,9 +26,9 @@ link_wezterm() {
 }
 
 link_ghostty() {
-    ghostty="$HOME/.config/ghostty"
-    rm -rf $ghostty
-    ln -s $DOTFILES/ghostty $ghostty
+    ghosttyconfig="$HOME/.config/ghostty"
+    rm -rf $ghosttyconfig
+    ln -s $DOTFILES/ghostty $ghosttyconfig
 }
 
 link_vimrc() {
@@ -42,9 +42,14 @@ link_neovide() {
     ln -s $DOTFILES/neovide $HOME/.config/neovide
 }
 
-link_emacs() {
-    rm -rf $HOME/.config/emacs
-    ln -s $DOTFILES/emacs $HOME/.config/emacs
+link_zshrc() {
+    rm $HOME/.zshrc
+    ln -s $DOTFILES/.zshrc $HOME/.zshrc
+}
+
+link_bashrc() {
+    rm $HOME/.bashrc
+    ln -s $DOTFILES/.bashrc $HOME/.bashrc
 }
 
 link_nvim
@@ -53,4 +58,6 @@ link_wezterm
 link_ghostty
 link_vimrc
 link_neovide
-link_emacs
+link_zshrc
+link_bashrc
+
