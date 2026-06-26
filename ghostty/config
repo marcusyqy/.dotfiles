@@ -1,9 +1,9 @@
 font-feature = -calt
 # font-family = "menlo monospace"
 # font-family = monospace
-font-family = "Comic Code"
+# font-family = "Comic Code"
 # font-size = 13.0
-font-thicken = true
+# font-thicken = true
 # theme = "dark:Kitty Default, light:3024 Day"
 theme = "Kitty Default"
 # theme = "Tokyonight Night"
