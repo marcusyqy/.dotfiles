@@ -15,29 +15,6 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 
 
-
--- local function border_fn(hl_name)
---   return {
---     { "┌", hl_name },
---     { "─", hl_name },
---     { "┐", hl_name },
---     { "│", hl_name },
---     { "┘", hl_name },
---     { "─", hl_name },
---     { "└", hl_name },
---     { "│", hl_name },
---   }
--- end
-
--- Add border to the diagnostic popup window
--- vim.diagnostic.config({
---   virtual_text = {
---     prefix = '■ ', -- Could be '●', '▎', 'x', '■', , 
---   },
---   float = { border = border },
--- })
-
-
 vim.opt.rtp:prepend(lazypath)
 
 -- Make sure to setup `mapleader` and `maplocalleader` before
@@ -196,44 +173,6 @@ end
 require("lazy").setup({
   spec = {
     {
-      "aktersnurra/no-clown-fiesta.nvim",
-      priority = 1000,
-      lazy = false,
-      config = function()
-        local opts = {
-          theme = "dark",
-          styles = {
-            type = { bold = true },
-            lsp = { underline = false },
-            match_paren = { underline = true },
-          },
-        }
-
-        local plugin = require "no-clown-fiesta"
-        plugin.load(opts)
-      end
-    },
-    {
-      "datsfilipe/vesper.nvim",
-      priority = 1000,
-      lazy = false,
-      config = function()
-        require('vesper').setup({
-          transparent = false, -- Boolean: Sets the background to transparent
-          italics = {
-            comments = true, -- Boolean: Italicizes comments
-            keywords = false, -- Boolean: Italicizes keywords
-            functions = false, -- Boolean: Italicizes functions
-            strings = false, -- Boolean: Italicizes strings
-            variables = false, -- Boolean: Italicizes variables
-          },
-          overrides = {}, -- A dictionary of group names, can be a function returning a dictionary or a table.
-          palette_overrides = {}
-        })
-      end
-
-    },
-    {
       "vague-theme/vague.nvim",
       priority = 1000,
       lazy = false,
@@ -242,11 +181,6 @@ require("lazy").setup({
         bold = true, -- Disable bold globally
         italic = false, -- Disable italic globally
       },
-    },
-    {
-      'RostislavArts/naysayer.nvim',
-      priority = 1000,
-      lazy = false,
     },
     {
       "sainnhe/everforest",
@@ -262,148 +196,6 @@ require("lazy").setup({
         vim.g.everforest_cursor = "auto"
         vim.g.everforest_better_performance = true
       end,
-    },
-    {
-      "rebelot/kanagawa.nvim",
-      lazy = false,
-      priority = 1000,
-      config = function()
-        -- Default options:
-        require('kanagawa').setup({
-          compile = false,             -- enable compiling the colorscheme
-          undercurl = true,            -- enable undercurls
-          commentStyle = { italic = true },
-          functionStyle = {},
-          keywordStyle = { italic = false, bold = false },
-          statementStyle = { bold = false },
-          typeStyle = {},
-          transparent = false,         -- do not set background color
-          dimInactive = false,         -- dim inactive window `:h hl-NormalNC`
-          terminalColors = true,       -- define vim.g.terminal_color_{0,17}
-          colors = {                   -- add/modify theme and palette colors
-            palette = {},
-            theme = { wave = {}, lotus = {}, dragon = {}, all = {} },
-          },
-          overrides = function(colors) -- add/modify highlights
-            return {}
-          end,
-          theme = "dragon",              -- Load "wave" theme
-          background = {               -- map the value of 'background' option to a theme
-            dark = "wave",           -- try "dragon" !
-            light = "lotus"
-          },
-        })
-
-      end
-    },
-    {
-      "srcery-colors/srcery-vim",
-      lazy = false,
-      priority = 1000,
-      config = function()
-      end
-    },
-    {
-      "0x96f-org/0x96f.nvim",
-      lazy = false,
-      priority = 1000,
-      config = function()
-        require("0x96f").setup()
-      end
-    },
-    {
-      "ClearAspect/onehalf",
-      lazy = false,
-      priority = 1000,
-      config = function()
-        require('onehalf').setup({
-          transparency = false, -- Enable this to disable background color
-          terminal_colors = true, -- Apply the theme to neovim terminal windows
-          -- Color dimming/darkening configuration
-          dimming = {
-            enable = false,         -- Enable color dimming
-            dim_level = 0.2,        -- Dimming intensity (0.0-1.0)
-            preserve_accents = true -- Maintain accent color vibrancy
-          },
-          -- Style to be applied to different syntax groups
-          -- Value is any valid attr-list value for `:help nvim_set_hl`
-          styles = {
-            comments = { italic = true },
-            conditionals = {},
-            loops = {},
-            functions = {},
-            keywords = {},
-            strings = {},
-            variables = {},
-            numbers = {},
-            booleans = {},
-            properties = {},
-            types = {},
-            operators = {},
-          },
-          -- Configure which integrations should be applied
-          -- True enables the integration, false disables it
-          integrations = {
-            cmp = true,
-            blink_cmp = true,
-            diffview = true,
-            fzf = true,
-            gitsigns = true,
-            semantic_tokens = true,
-            telescope = true,
-            treesitter_context = true,
-            treesitter = true,
-            whichkey = true,
-          }
-        })
-      end,
-    },
-    {
-      "navarasu/onedark.nvim",
-      priority = 1000,
-      config = function()
-        require('onedark').setup {
-          -- style = 'darker'
-          -- Lua
-          -- Main options --
-          style = 'darker', -- Default theme style. Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
-          transparent = false,  -- Show/hide background
-          term_colors = true, -- Change terminal color as per the selected theme style
-          ending_tildes = false, -- Show the end-of-buffer tildes. By default they are hidden
-          cmp_itemkind_reverse = false, -- reverse item kind highlights in cmp menu
-
-          -- toggle theme style ---
-          toggle_style_key = "<leader>tc", -- keybind to toggle theme style. Leave it nil to disable it, or set it to a string, for example "<leader>ts"
-          toggle_style_list = {'dark', 'darker', 'cool', 'deep', 'warm', 'warmer', 'light'}, -- List of styles to toggle between
-
-          -- Change code style ---
-          -- Options are italic, bold, underline, none
-          -- You can configure multiple style with comma separated, For e.g., keywords = 'italic,bold'
-          code_style = {
-            comments = 'italic',
-            keywords = 'none',
-            functions = 'none',
-            strings = 'none',
-            variables = 'none'
-          },
-
-          -- Lualine options --
-          lualine = {
-            transparent = false, -- lualine center bar transparency
-          },
-
-          -- Custom Highlights --
-          colors = {}, -- Override default colors
-          highlights = {}, -- Override highlight groups
-
-          -- Plugins Config --
-          diagnostics = {
-            darker = true, -- darker colors for diagnostic
-            undercurl = true,   -- use undercurl instead of underline for diagnostics
-            background = true,    -- use background color for virtual text
-          },
-        }
-      end
     },
     {
       "ellisonleao/gruvbox.nvim",
@@ -432,47 +224,6 @@ require("lazy").setup({
         dim_inactive = false,
         transparent_mode = false,
       },
-    },
-    {
-      "scottmckendry/cyberdream.nvim",
-      lazy = false,
-      priority = 1000,
-      config = function ()
-        require("cyberdream").setup({
-          -- Set light or dark variant
-          variant = "dark", -- use "light" for the light variant. Also accepts "auto" to set dark or light colors based on the current value of `vim.o.background`
-
-          -- Enable transparent background
-          transparent = false,
-
-          -- Reduce the overall saturation of colours for a more muted look
-          saturation = 1, -- accepts a value between 0 and 1. 0 will be fully desaturated (greyscale) and 1 will be the full color (default)
-
-          -- Enable italics comments
-          italic_comments = true,
-
-          -- Replace all fillchars with ' ' for the ultimate clean look
-          hide_fillchars = false,
-
-          -- Apply a modern borderless look to pickers like Telescope, Snacks Picker & Fzf-Lua
-          borderless_pickers = true,
-
-          -- Set terminal colors used in `:terminal`
-          terminal_colors = true,
-
-          -- Improve start up time by caching highlights. Generate cache with :CyberdreamBuildCache and clear with :CyberdreamClearCache
-          cache = false,
-          -- Override a highlight group entirely using the built-in colour palette
-          overrides = function(colors) -- NOTE: This function nullifies the `highlights` option
-              -- Example:
-              return {
-                  -- it's hard to know which split you are on man.
-                  -- NormalNC = { bg = "#1a1a1a", fg = "#8A99A8" },
-                  Search = { bg = colors.green,  fg="#1e2124" },
-              }
-          end,
-        })
-      end
     },
     {
       "folke/tokyonight.nvim",
@@ -527,102 +278,6 @@ require("lazy").setup({
           -- telescope = true,
         },
       },
-    },
-    {
-      "catppuccin/nvim",
-      priority = 1000,
-      name = "catppuccin",
-      lazy = false,
-      config = function()
-        require("catppuccin").setup({
-          flavour = "auto", -- latte, frappe, macchiato, mocha
-          background = { -- :h background
-            light = "latte",
-            dark = "mocha",
-          },
-          transparent_background = false, -- disables setting the background color.
-          float = {
-            transparent = false, -- enable transparent floating windows
-            solid = true, -- use solid styling for floating windows, see |winborder|
-          },
-          term_colors = false, -- sets terminal colors (e.g. `g:terminal_color_0`)
-          dim_inactive = {
-            enabled = true, -- dims the background color of inactive window
-            shade = "dark",
-            percentage = 0.15, -- percentage of the shade to apply to the inactive window
-          },
-          no_italic = false, -- Force no italic
-          no_bold = false, -- Force no bold
-          no_underline = false, -- Force no underline
-          styles = { -- Handles the styles of general hi groups (see `:h highlight-args`):
-            comments = { "italic" }, -- Change the style of comments
-            conditionals = {},
-            loops = {},
-            functions = {},
-            keywords = {},
-            strings = {},
-            variables = {},
-            numbers = {},
-            booleans = {},
-            properties = {},
-            types = {},
-            operators = {},
-            -- miscs = {}, -- Uncomment to turn off hard-coded styles
-          },
-          lsp_styles = { -- Handles the style of specific lsp hl groups (see `:h lsp-highlight`).
-            virtual_text = {
-              errors = { "italic" },
-              hints = { "italic" },
-              warnings = { "italic" },
-              information = { "italic" },
-              ok = { "italic" },
-            },
-            underlines = {
-              errors = { "underline" },
-              hints = { "underline" },
-              warnings = { "underline" },
-              information = { "underline" },
-              ok = { "underline" },
-            },
-            inlay_hints = {
-              background = true,
-            },
-          },
-          color_overrides = {},
-          custom_highlights = {},
-          default_integrations = true,
-          auto_integrations = false,
-          integrations = {
-            cmp = true,
-            gitsigns = true,
-            snacks = true,
-          },
-        })
-      end
-    },
-    {
-      "marcusyqy/gruvbox-material",
-      priority = 1000,
-      lazy = false,
-      config = function()
-        vim.g.gruvbox_material_enable_italic = false
-        vim.g.gruvbox_material_foreground = "mixed" -- "original"
-        vim.g.gruvbox_material_ui_contrast = "high"
-        vim.g.gruvbox_material_statusline_style= "mixed" -- "original"
-        vim.g.gruvbox_material_background = "medium"
-        vim.g.gruvbox_material_transparent_background = false
-        vim.g.gruvbox_material_dim_inactive_windows = false
-        -- vim.g.gruvbox_material_visual = 'grey background' -- 'reverse'
-        vim.g.gruvbox_material_cursor = "auto"
-        vim.g.gruvbox_material_better_performance = true
-      end,
-    },
-    {
-      "marcusyqy/arctic.nvim",
-      branch = "v2",
-      dependencies = { "rktjmp/lush.nvim" },
-      priority = 1000,
-      lazy = false,
     },
     {
       "folke/snacks.nvim",
@@ -1368,10 +1023,6 @@ require("lazy").setup({
       build = ":MasonUpdate",
       opts = {},
     },
-    -- { "peterhoeg/vim-qml" },
-    -- { "bfrg/vim-cpp-modern" },
-    -- { "evanleck/vim-svelte" },
-    -- { "martinda/Jenkinsfile-vim-syntax" },
     { "kalvinpearce/ShaderHighlight" },
     {
       "nvim-lualine/lualine.nvim",
@@ -1434,67 +1085,6 @@ require("lazy").setup({
         inactive_winbar = {},
         extensions = {}
       }
-    },
-    {
-      'dmtrKovalenko/fff.nvim',
-      enabled = false,
-      build = function()
-        -- downloads a prebuilt binary or falls back to cargo build
-        require("fff.download").download_or_build_binary()
-      end,
-      -- for nixos:
-      -- build = "nix run .#release",
-      opts = {
-        prompt = "   ",
-        debug = {
-          enabled = false,
-          show_scores = false,
-        },
-        layout = {
-          height = 0.8,
-          width = 0.8,
-          prompt_position = 'top',   -- or 'top'
-          preview_position = 'right',   -- 'left' | 'right' | 'top' | 'bottom'
-          preview_size = 0.5,
-          flex = { size = 130, wrap = 'top' },
-          min_list_height = 10, --  do not display anything except the list below this threshold
-          show_scrollbar = true,
-          path_shorten_strategy = 'middle_number', -- 'middle_number' | 'middle' | 'end' | 'start'
-          anchor = 'center',
-        },
-        keymaps = {
-          close = '<Esc>',
-          select = '<CR>',
-          select_split = '<C-s>',
-          select_vsplit = '<C-v>',
-          select_tab = '<C-t>',
-          move_up = { '<Up>', '<C-p>' },
-          move_down = { '<Down>', '<C-n>' },
-          preview_scroll_up = '<C-u>',
-          preview_scroll_down = '<C-d>',
-          toggle_debug = '<F2>',
-          cycle_grep_modes = '<S-Tab>',
-          cycle_previous_query = '<C-Up>',
-          toggle_select = '<Tab>',
-          send_to_quickfix = '<C-q>',
-          focus_list = '<leader>l',
-          focus_preview = '<leader>p',
-        },
-
-      },
-      lazy = false, -- the plugin lazy-initialises itself
-      keys = {
-        { "<leader>ff", function() require('fff').find_files() end, desc = 'FFFind files' },
-        { "<leader>fg", function() require('fff').live_grep() end, desc = 'LiFFFe grep' },
-        { "<leader>fz",
-          function() require('fff').live_grep({ grep = { modes = { 'fuzzy', 'plain' } } }) end,
-          desc = 'Live fffuzy grep',
-        },
-        { "<leader>fc",
-          function() require('fff').live_grep({ query = vim.fn.expand("<cword>") }) end,
-          desc = 'Search current word',
-        },
-      },
     },
     {
       "ThePrimeagen/harpoon",
