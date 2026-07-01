@@ -1,4 +1,4 @@
-# font-feature = -calt
+font-feature = -calt
 # font-family = "menlo monospace"
 # font-family = monospace
 # font-family = "Comic Code"
