@@ -31,6 +31,12 @@ link_ghostty() {
     ln -s $DOTFILES/ghostty $ghosttyconfig
 }
 
+link_kitty() {
+    kittyconfig="$HOME/.config/kitty"
+    rm -rf $kittyconfig
+    ln -s $DOTFILES/kitty $kittyconfig
+}
+
 link_vimrc() {
     rm $HOME/.vimrc
     ln -s $DOTFILES/.vimrc $HOME/.vimrc
@@ -56,6 +62,7 @@ link_nvim
 link_tmux
 link_wezterm
 link_ghostty
+link_kitty
 link_vimrc
 link_neovide
 link_zshrc
