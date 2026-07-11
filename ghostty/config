@@ -1,11 +1,8 @@
 font-feature = -calt
 font-family = "Comic Code"
 # font-size = 13.0
-# font-thicken = true
+font-thicken = true
 theme = "Kitty Default"
-# theme = "Tokyonight Night"
-# theme = Srcery
-# theme = 0x96f
 # background = 000000
 # background = 1d1d1d
 # foreground = ffffff
