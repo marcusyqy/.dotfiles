@@ -1235,243 +1235,131 @@ local function delete_to_next_case_boundary()
   vim.api.nvim_win_set_cursor(0, { row, delete_from - 1 })
 end
 
-local function jump_to_previous_case_boundary()
+local function is_case_boundary(line, index)
+  local curr = char_at(line, index)
+  local next = char_at(line, index + 1)
+  local after_next = char_at(line, index + 2)
+
+  if not is_alnum(curr) or not is_alnum(next) then
+    return true
+  end
+
+  if is_lower(curr) and is_upper(next) then
+    return true
+  end
+
+  return is_upper(curr) and is_upper(next) and is_lower(after_next)
+end
+
+local function case_chunks(line)
+  local chunks = {}
+  local i = 1
+
+  while i <= #line do
+    while i <= #line and not is_alnum(char_at(line, i)) do
+      i = i + 1
+    end
+
+    if i > #line then
+      break
+    end
+
+    local start = i
+
+    while i < #line and not is_case_boundary(line, i) do
+      i = i + 1
+    end
+
+    table.insert(chunks, { start = start, finish = i })
+    i = i + 1
+  end
+
+  return chunks
+end
+
+local function current_or_previous_chunk(chunks, pos)
+  local previous
+
+  for index, chunk in ipairs(chunks) do
+    if pos < chunk.start then
+      return previous, index - 1
+    end
+
+    if pos <= chunk.finish then
+      return chunk, index
+    end
+
+    previous = chunk
+  end
+
+  return previous, #chunks
+end
+
+local function current_or_next_chunk(chunks, pos)
+  for index, chunk in ipairs(chunks) do
+    if pos <= chunk.finish then
+      return chunk, index
+    end
+  end
+end
+
+local function jump_to_case_chunk(direction, side)
   local row, col = unpack(vim.api.nvim_win_get_cursor(0))
   local line = vim.api.nvim_get_current_line()
-  local jump_from = math.min(col, #line)
+  local chunks = case_chunks(line)
+  local pos = col + 1
+  local target
 
-  if jump_from == 0 then
-    return
-  end
+  if direction == "next" then
+    local chunk, index = current_or_next_chunk(chunks, pos)
 
-  while jump_from > 1 and not is_alnum(char_at(line, jump_from)) do
-    jump_from = jump_from - 1
-  end
+    if not chunk then
+      return
+    end
 
-  local jump_to = jump_from
-  local first = char_at(line, jump_from)
+    if pos < chunk.start then
+      target = chunk
+    else
+      target = chunks[index + 1]
+    end
+  else
+    local chunk, index = current_or_previous_chunk(chunks, pos)
 
-  if is_alnum(first) then
-    for i = jump_from, 1, -1 do
-      if i == 1 then
-        jump_to = 1
-        break
-      end
+    if not chunk then
+      return
+    end
 
-      local prev = char_at(line, i - 1)
-      local curr = char_at(line, i)
-      local next = char_at(line, i + 1)
-
-      if not is_alnum(prev) then
-        jump_to = i
-        break
-      end
-
-      if is_lower(prev) and is_upper(curr) then
-        jump_to = i
-        break
-      end
-
-      if is_upper(prev) and is_upper(curr) and is_lower(next) then
-        jump_to = i
-        break
-      end
-
-      jump_to = i - 1
+    if pos > chunk.finish then
+      target = chunk
+    elseif pos > chunk.start and side == "start" then
+      target = chunk
+    else
+      target = chunks[index - 1]
     end
   end
 
-  vim.api.nvim_win_set_cursor(0, { row, jump_to - 1 })
+  if not target then
+    return
+  end
+
+  local target_pos = side == "start" and target.start or target.finish
+  vim.api.nvim_win_set_cursor(0, { row, target_pos - 1 })
+end
+
+local function jump_to_previous_case_boundary()
+  jump_to_case_chunk("previous", "finish")
 end
 
 local function jump_to_next_case_boundary()
-  local row, col = unpack(vim.api.nvim_win_get_cursor(0))
-  local line = vim.api.nvim_get_current_line()
-  local jump_from = col + 1
-
-  if jump_from > #line then
-    return
-  end
-
-  if not is_alnum(char_at(line, jump_from)) then
-    while jump_from < #line and not is_alnum(char_at(line, jump_from)) do
-      jump_from = jump_from + 1
-    end
-
-    vim.api.nvim_win_set_cursor(0, { row, jump_from - 1 })
-    return
-  end
-
-  local jump_to = jump_from
-  local first = char_at(line, jump_from)
-
-  if is_alnum(first) then
-    for i = jump_from, #line do
-      if i == #line then
-        jump_to = #line + 1
-        break
-      end
-
-      local curr = char_at(line, i)
-      local next = char_at(line, i + 1)
-      local after_next = char_at(line, i + 2)
-
-      if not is_alnum(next) then
-        jump_to = i + 2
-        while jump_to <= #line and not is_alnum(char_at(line, jump_to)) do
-          jump_to = jump_to + 1
-        end
-
-        jump_to = math.min(jump_to - 1, #line)
-        break
-      end
-
-      if is_lower(curr) and is_upper(next) then
-        jump_to = i
-        break
-      end
-
-      if is_upper(curr) and is_upper(next) and is_lower(after_next) then
-        jump_to = i
-        break
-      end
-
-      jump_to = i + 1
-    end
-  end
-
-  vim.api.nvim_win_set_cursor(0, { row, jump_to })
-end
-
-local function next_case_chunk_start(line, start)
-  for i = start, #line - 1 do
-    local curr = char_at(line, i)
-    local next = char_at(line, i + 1)
-    local after_next = char_at(line, i + 2)
-
-    if is_alnum(curr) and not is_alnum(next) then
-      local next_start = i + 2
-      while next_start <= #line and not is_alnum(char_at(line, next_start)) do
-        next_start = next_start + 1
-      end
-
-      if next_start <= #line then
-        return next_start
-      end
-    end
-
-    if is_lower(curr) and is_upper(next) then
-      return i + 1
-    end
-
-    if is_upper(curr) and is_upper(next) and is_lower(after_next) then
-      return i + 1
-    end
-  end
-end
-
-local function case_chunk_start(line, start)
-  local chunk_start = start
-
-  for i = start, 2, -1 do
-    local prev = char_at(line, i - 1)
-    local curr = char_at(line, i)
-    local next = char_at(line, i + 1)
-
-    if not is_alnum(prev) then
-      chunk_start = i
-      break
-    end
-
-    if is_lower(prev) and is_upper(curr) then
-      chunk_start = i
-      break
-    end
-
-    if is_upper(prev) and is_upper(curr) and is_lower(next) then
-      chunk_start = i
-      break
-    end
-
-    chunk_start = i - 1
-  end
-
-  return chunk_start
-end
-
-local function case_chunk_end(line, start)
-  local chunk_end = start
-
-  for i = start, #line do
-    if i == #line then
-      return #line
-    end
-
-    local curr = char_at(line, i)
-    local next = char_at(line, i + 1)
-    local after_next = char_at(line, i + 2)
-
-    if not is_alnum(next) then
-      return i
-    end
-
-    if is_lower(curr) and is_upper(next) then
-      return i
-    end
-
-    if is_upper(curr) and is_upper(next) and is_lower(after_next) then
-      return i
-    end
-
-    chunk_end = i + 1
-  end
-
-  return chunk_end
+  jump_to_case_chunk("next", "start")
 end
 
 local function jump_to_previous_case_chunk_start()
-  local row, col = unpack(vim.api.nvim_win_get_cursor(0))
-  local line = vim.api.nvim_get_current_line()
-  local jump_from = math.min(col + 1, #line)
-
-  if jump_from == 0 then
-    return
-  end
-
-  while jump_from > 1 and not is_alnum(char_at(line, jump_from)) do
-    jump_from = jump_from - 1
-  end
-
-  local current_start = case_chunk_start(line, jump_from)
-  local previous_end = current_start - 1
-
-  while previous_end > 1 and not is_alnum(char_at(line, previous_end)) do
-    previous_end = previous_end - 1
-  end
-
-  if previous_end < 1 or not is_alnum(char_at(line, previous_end)) then
-    return
-  end
-
-  vim.api.nvim_win_set_cursor(0, { row, case_chunk_start(line, previous_end) - 1 })
+  jump_to_case_chunk("previous", "start")
 end
 
 local function jump_to_next_case_chunk_end()
-  local row, col = unpack(vim.api.nvim_win_get_cursor(0))
-  local line = vim.api.nvim_get_current_line()
-  local jump_from = col + 1
-
-  if jump_from > #line then
-    return
-  end
-
-  local next_start = next_case_chunk_start(line, jump_from)
-
-  if not next_start then
-    return
-  end
-
-  vim.api.nvim_win_set_cursor(0, { row, case_chunk_end(line, next_start) - 1 })
+  jump_to_case_chunk("next", "finish")
 end
 
 vim.keymap.set("i", "<C-h>", delete_to_previous_case_boundary, { desc = "Delete previous case word" })
