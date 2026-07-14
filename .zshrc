@@ -12,7 +12,8 @@ alias python='python3'
 bindkey "^[OF" end-of-line
 bindkey "^[OH" beginning-of-line
 bindkey "^[[3~" delete-char
-
+bindkey '^[[1;3C' forward-word
+bindkey '^[[1;3D' backward-word
 
 alias vim='nvim'
 alias vi='nvim'
