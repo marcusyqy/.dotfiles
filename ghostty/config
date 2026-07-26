@@ -1,6 +1,6 @@
 # font-feature = -calt
 # font-family = "Comic Code"
-font-family = "Berkeley Mono"
+font-family = "Berkeley Mono SemiCondensed"
 # font-size = 13.0
 # font-thicken = true
 theme = "Kitty Default"
