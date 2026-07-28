@@ -237,7 +237,7 @@ require("lazy").setup({
           hide_fillchars = false,
 
           -- Apply a modern borderless look to pickers like Telescope, Snacks Picker & Fzf-Lua
-          borderless_pickers = true,
+          borderless_pickers = false,
 
           -- Set terminal colors used in `:terminal`
           terminal_colors = true,
@@ -340,7 +340,7 @@ require("lazy").setup({
         ---@param highlights tokyonight.Highlights
         ---@param colors ColorScheme
         on_highlights = function(highlights, colors)
-          highlights.SnacksPickerBorder = { bg = colors.bg_dark, fg = colors.bg_dark }
+          -- highlights.SnacksPickerBorder = { bg = colors.bg_dark, fg = colors.bg_dark }
         end,
 
         cache = true, -- When set to true, the theme will be cached for better performance

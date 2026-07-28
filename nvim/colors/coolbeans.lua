@@ -10,6 +10,7 @@ vim.g.colors_name = "coolbeans"
 local defaults = {
   transparent = false,
   terminal_colors = true,
+  borderless = true,
   styles = {
     comments = { italic = true },
     functions = {},
@@ -213,15 +214,17 @@ hi("CmpItemAbbrMatchFuzzy", { fg = c.yellow })
 hi("CmpItemKind", { fg = c.blue })
 hi("CmpItemMenu", { fg = c.comment })
 
-hi("SnacksPicker", { fg = c.fg, bg = c.bg_alt })
-hi("SnacksPickerBorder", { fg = c.bg_alt, bg = c.bg_alt })
-hi("SnacksPickerMatch", style("headings", { fg = c.yellow }))
-hi("SnacksPickerPrompt", { fg = c.cyan })
-
--- hi("SnacksPicker", { fg = c.fg, bg = c.bg_alt })
--- hi("SnacksPickerBorder", { fg = c.border, bg = c.bg_alt })
--- hi("SnacksPickerMatch", style("headings", { fg = c.yellow }))
--- hi("SnacksPickerPrompt", { fg = c.cyan })
+if opts.borderless then
+  hi("SnacksPicker", { fg = c.fg, bg = c.bg_alt })
+  hi("SnacksPickerBorder", { fg = c.bg_alt, bg = c.bg_alt })
+  hi("SnacksPickerMatch", style("headings", { fg = c.yellow }))
+  hi("SnacksPickerPrompt", { fg = c.cyan })
+else
+  hi("SnacksPicker", { fg = c.fg, bg = c.bg_alt })
+  hi("SnacksPickerBorder", { fg = c.border, bg = c.bg_alt })
+  hi("SnacksPickerMatch", style("headings", { fg = c.yellow }))
+  hi("SnacksPickerPrompt", { fg = c.cyan })
+end
 
 for group, highlight in pairs(opts.highlights) do
   hi(group, highlight)
