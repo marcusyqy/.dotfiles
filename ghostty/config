@@ -1,9 +1,10 @@
 # font-feature = -calt
 # font-family = "Comic Code"
 font-family = "Berkeley Mono SemiCondensed"
-# font-size = 13.0
+font-size = 16.0
 # font-thicken = true
-theme = "Kitty Default"
+# theme = "Kitty Default"
+theme = "Tokyonight Night"
 # background = 000000
 # background = 1d1d1d
 # foreground = ffffff

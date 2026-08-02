@@ -79,7 +79,8 @@ vim.opt.splitbelow = true
 vim.opt.laststatus = 1
 vim.opt.showmode = true
 
-vim.opt.cursorline = false
+vim.opt.cursorline=true
+vim.opt.cursorlineopt="both" -- "number"
 
 -- display chars for tabs and trailing spaces
 -- vim.opt.listchars="eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:·"
