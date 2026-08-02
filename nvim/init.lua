@@ -1811,6 +1811,14 @@ vim.diagnostic.config({
   virtual_text = true, -- Enables inline diagnostics
 })
 
+vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
+  pattern = {"*.go", "Makefile" },
+  callback = function()
+    vim.opt_local.expandtab = false
+  end,
+})
+
+
 -- vim.api.nvim_set_hl(0, "Cursor", { bg = "#7c7c7c", fg = "NONE" })
 -- vim.api.nvim_set_hl(0, "PMenu", { bg = "NONE" })
 -- vim.api.nvim_set_hl(0, "VertSplit", { bg = "NONE" })
