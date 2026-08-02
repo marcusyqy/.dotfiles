@@ -342,6 +342,7 @@ require("lazy").setup({
         ---@param colors ColorScheme
         on_highlights = function(highlights, colors)
           -- highlights.SnacksPickerBorder = { bg = colors.bg_dark, fg = colors.bg_dark }
+          highlights.WinSeparator = { fg = colors.orange }
         end,
 
         cache = true, -- When set to true, the theme will be cached for better performance
