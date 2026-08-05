@@ -1,7 +1,7 @@
 # font-feature = -calt
 # font-family = "Comic Code"
 font-family = "Berkeley Mono SemiCondensed"
-font-size = 16.0
+font-size = 13.0
 # font-thicken = true
 # theme = "Kitty Default"
 theme = "Tokyonight Night"
@@ -13,7 +13,8 @@ theme = "Tokyonight Night"
 # cursor-style-blink = true
 # shell-integration-features = no-cursor
 keybind = cmd+enter=unbind
-# macos-titlebar-style=native #tabs
+macos-titlebar-style=tabs
+#tabs
 shell-integration-features = ssh-terminfo
 
 # cyberdream theme for ghostty
