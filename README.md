@@ -107,3 +107,4 @@ fc-match NameOfFont -s
 
 # remove input source popup macos.
 defaults write kCFPreferencesAnyApplication TSMLanguageIndicatorEnabled 0
+defaults write -g NSWindowShouldDragOnGesture -bool true
