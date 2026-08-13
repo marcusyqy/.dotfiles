@@ -10,7 +10,7 @@ vim.g.colors_name = "coolbeans"
 local defaults = {
   transparent = false,
   terminal_colors = true,
-  borderless = true,
+  borderless = false,
   styles = {
     comments = { italic = true },
     functions = {},
