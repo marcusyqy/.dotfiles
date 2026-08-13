@@ -472,7 +472,7 @@ require("lazy").setup({
         -- { "<leader>e", function() Snacks.explorer() end, desc = "File Explorer" },
         -- find
         -- { "<leader>fb", function() Snacks.picker.buffers() end, desc = "Buffers" },
-        { "<c-p>", function() Snacks.picker.git_files() end, desc = "Find Git Files" },
+        { "<c-p>", function() Snacks.picker.files() end, desc = "Find Git Files" },
         -- { "<leader>fp", function() Snacks.picker.projects() end, desc = "Projects" },
         -- { "<leader>fr", function() Snacks.picker.recent() end, desc = "Recent" },
         -- git
@@ -1039,6 +1039,62 @@ require("lazy").setup({
       config = function()
         local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
+        -- clangd only auto-discovers a `compile_commands.json` at or above a
+        -- source file's directory. Blade/CMake projects here keep it in a nested
+        -- build dir (e.g. `build64_release/`), and multi-repo workspaces have
+        -- many `.git` roots with one top-level build dir, so files elsewhere in
+        -- the tree get a flagless fallback parse where every #include fails.
+        -- These helpers (1) anchor clangd's root at the workspace top that owns
+        -- the nested compile DB and (2) point clangd at that build dir via
+        -- `--compile-commands-dir`. Version-agnostic; not a 0.10 workaround.
+        local uv = vim.uv or vim.loop
+        local function file_exists(p)
+          return p ~= nil and uv.fs_stat(p) ~= nil
+        end
+
+        local clangd_build_names = {
+          "compile_commands.json",
+          "build64_release/compile_commands.json",
+          "build64_debug/compile_commands.json",
+          "build/compile_commands.json",
+          "cmake-build-debug/compile_commands.json",
+          "cmake-build-release/compile_commands.json",
+        }
+
+        -- Highest ancestor of `fname` that directly contains a compile DB.
+        local function clangd_root(fname)
+          local best = nil
+          local dir = vim.fs.dirname(fname)
+          while dir and dir ~= "/" do
+            for _, rel in ipairs(clangd_build_names) do
+              if file_exists(dir .. "/" .. rel) then best = dir break end
+            end
+            local parent = vim.fs.dirname(dir)
+            if parent == dir then break end
+            dir = parent
+          end
+          if best then return best end
+          return vim.fs.root(fname, {
+            '.clangd', '.clang-tidy', '.clang-format',
+            'compile_commands.json', 'compile_flags.txt',
+            'configure.ac', '.git',
+          })
+        end
+
+        -- Directory (under `root`) that holds the compile DB, for
+        -- `--compile-commands-dir`.
+        local function clangd_ccdb_dir(root)
+          if not root then return nil end
+          for _, rel in ipairs(clangd_build_names) do
+            local db = root .. "/" .. rel
+            if file_exists(db) then return vim.fs.dirname(db) end
+          end
+          local found = vim.fs.find("compile_commands.json",
+            { path = root, type = "file", limit = 1 })
+          if found[1] then return vim.fs.dirname(found[1]) end
+          return nil
+        end
+
         -- Specify how the border looks like
         -- local border = {
         --   { '┌', 'FloatBorder' },
@@ -1083,19 +1139,33 @@ require("lazy").setup({
           -- "--completion-style=detailed",
           -- "--clang-tidy=false",
           -- "--query-driver=**"
-          -- "--compile-commands-dir=${workspaceFolder}/",
           capabilities = capabilities,
-          cmd = {
-            "clangd",
-            "--header-insertion=never",
-            "--j=4",
-            "--pch-storage=memory",
-            "--background-index",
-            "--suggest-missing-includes",
-            "--clang-tidy",
-            "--all-scopes-completion",
-            "--query-driver=/**/*"
-          }
+          -- Anchor at the workspace top that owns the (possibly nested) compile
+          -- DB, instead of the nearest .git (wrong level in multi-repo trees).
+          root_dir = function(bufnr, on_dir)
+            local fname = vim.api.nvim_buf_get_name(bufnr)
+            on_dir(clangd_root(fname))
+          end,
+          -- Append --compile-commands-dir=<build dir> so clangd uses real
+          -- compile flags for every file in the tree, not just those near the
+          -- build dir. `cmd` as a function receives the resolved config.
+          cmd = function(dispatchers, config)
+            local base = {
+              "clangd",
+              "--header-insertion=never",
+              "--j=4",
+              "--pch-storage=memory",
+              "--background-index",
+              "--clang-tidy",
+              "--all-scopes-completion",
+              "--query-driver=/**/*",
+            }
+            local ccd = clangd_ccdb_dir(config.root_dir)
+            if ccd then
+              table.insert(base, "--compile-commands-dir=" .. ccd)
+            end
+            return vim.lsp.rpc.start(base, dispatchers)
+          end,
         })
         vim.lsp.enable('clangd')
       end,
@@ -1808,7 +1878,7 @@ vim.cmd.colorscheme("coolbeans")
 -- ]])
 
 vim.diagnostic.config({
-  virtual_text = true, -- Enables inline diagnostics
+  virtual_text = false, -- Enables inline diagnostics
 })
 
 vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
