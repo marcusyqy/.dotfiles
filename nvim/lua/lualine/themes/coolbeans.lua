@@ -14,34 +14,40 @@ local c = {
   green = "#95b47b",
 }
 
+local defaults = {
+  bold = false
+}
+local opts = vim.tbl_deep_extend("force", defaults, vim.g.coolbeans_lualine or {})
+local bold_string_opt = opts.bold and "bold" or ""
+
 return {
   normal = {
-    a = { fg = c.bg, bg = c.yellow, gui = "bold" },
+    a = { fg = c.bg, bg = c.yellow, gui = bold_string_opt },
     b = { fg = c.yellow, bg = c.bg_high },
     c = { fg = c.fg, bg = c.bg_soft },
   },
   insert = {
-    a = { fg = c.bg, bg = c.cyan, gui = "bold" },
+    a = { fg = c.bg, bg = c.cyan, gui = bold_string_opt },
     b = { fg = c.cyan, bg = c.bg_high },
     c = { fg = c.fg, bg = c.bg_soft },
   },
   visual = {
-    a = { fg = c.bg, bg = c.magenta, gui = "bold" },
+    a = { fg = c.bg, bg = c.magenta, gui = bool_string_opt },
     b = { fg = c.magenta, bg = c.bg_high },
     c = { fg = c.fg, bg = c.bg_soft },
   },
   replace = {
-    a = { fg = c.bg, bg = c.red, gui = "bold" },
+    a = { fg = c.bg, bg = c.red, gui = bool_string_opt },
     b = { fg = c.red, bg = c.bg_high },
     c = { fg = c.fg, bg = c.bg_soft },
   },
   command = {
-    a = { fg = c.bg, bg = c.orange, gui = "bold" },
+    a = { fg = c.bg, bg = c.orange, gui = bool_string_opt },
     b = { fg = c.orange, bg = c.bg_high },
     c = { fg = c.fg, bg = c.bg_soft },
   },
   terminal = {
-    a = { fg = c.bg, bg = c.green, gui = "bold" },
+    a = { fg = c.bg, bg = c.green, gui = bool_string_opt },
     b = { fg = c.green, bg = c.bg_high },
     c = { fg = c.fg, bg = c.bg_soft },
   },
