@@ -858,6 +858,9 @@ require("lazy").setup({
         local luasnip = require('luasnip')
         local lspkind = require('lspkind')
         local opts = {
+          completion = {
+            autocomplete = false,
+          },
           snippet = {
             expand = function(args)
               -- For `vsnip` user.
