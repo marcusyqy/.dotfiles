@@ -27,7 +27,11 @@ hl.config({
     numlock_by_default = true,
 
     -- Increase sensitivity for mouse/trackpad (default: 0).
-    sensitivity = 0.1,
+    sensitivity = 0.2,
+    scroll_factor = 1.0,
+
+    -- Focus windows only when clicked, not when the pointer moves over them.
+    follow_mouse = 0,
 
     -- Turn off mouse acceleration (default: adaptive).
     accel_profile = "flat",

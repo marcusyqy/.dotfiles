@@ -1,0 +1,15 @@
+#!/bin/bash
+
+set -u
+
+omarchy_path=$1
+shift
+
+for identity in "$@"; do
+  [[ -n "$identity" ]] || continue
+  if "$omarchy_path/bin/omarchy-hyprland-focus-app" "$identity"; then
+    exit 0
+  fi
+done
+
+exit 1

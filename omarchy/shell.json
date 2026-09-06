@@ -6,7 +6,7 @@
   },
   "bar": {
     "position": "top",
-    "transparent": false,
+    "transparent": true,
     "centerAnchor": "omarchy.clock",
     "layout": {
       "left": [
@@ -16,11 +16,11 @@
       ],
       "center": [
         {
-          "id": "omarchy.indicators"
+          "id": "marcus.indicators"
         },
         {
           "id": "omarchy.clock",
-          "format": "dddd HH:mm",
+          "format": "dddd h:mm AP",
           "formatAlt": "d MMMM 'W'ww yyyy",
           "verticalFormat": "HH\n—\nmm"
         },
@@ -73,5 +73,15 @@
       ]
     }
   },
-  "plugins": []
+  "plugins": [
+    {
+      "id": "marcus.notifications"
+    }
+  ],
+  "disabledPlugins": [
+    "omarchy.notifications"
+  ],
+  "cloneSourceRestores": [
+    "marcus.notifications"
+  ]
 }
