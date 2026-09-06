@@ -3,11 +3,18 @@
 
 -- Keyboard layout and options.
 -- See https://wiki.hypr.land/Configuring/Basics/Variables/#input
+local swap_state_file = io.open(os.getenv("HOME") .. "/.config/hypr/alt-super-swap.state", "r")
+local swap_alt_super = swap_state_file and swap_state_file:read("*l") == "1"
+if swap_state_file then swap_state_file:close() end
+
+local kb_options = "ctrl:nocaps,compose:caps,shift:both_capslock_cancel,grp:alts_toggle"
+if swap_alt_super then kb_options = kb_options .. ",altwin:swap_alt_win" end
+
 hl.config({
   input = {
     -- Use multiple keyboard layouts and switch between them with Left Alt + Right Alt.
     kb_layout = "us",
-    kb_options = "ctrl:nocaps,compose:caps,shift:both_capslock_cancel,grp:alts_toggle",
+    kb_options = kb_options,
 
     -- Use a specific keyboard variant if needed (e.g. intl for international keyboards).
     -- kb_variant = "intl",
@@ -33,10 +40,10 @@ hl.config({
       clickfinger_behavior = true,
 
       -- Control the speed of your scrolling.
-      scroll_factor = 0.4,
+      scroll_factor = 0.3,
 
       -- Enable the touchpad while typing.
-      disable_while_typing = false,
+      disable_while_typing = true,
 
       -- Left-click-and-drag with three fingers.
       drag_3fg = 1,

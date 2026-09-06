@@ -129,8 +129,8 @@ for index = 1, 5 do
   o.bind("SUPER + ALT + code:" .. tostring(index + 9), "Switch to group window " .. index, hl.dsp.group.active({ index = index }))
 end
 
--- o.bind("SUPER + SLASH", "Monitor scaling up", "omarchy-hyprland-monitor-scaling up")
--- o.bind("SUPER + ALT + SLASH", "Monitor scaling down", "omarchy-hyprland-monitor-scaling down")
+o.bind("SUPER + EQUAL", "Monitor scaling up", "omarchy-hyprland-monitor-scaling up")
+o.bind("SUPER + MINUS", "Monitor scaling down", "omarchy-hyprland-monitor-scaling down")
 
 -- Send with explicit mods to the focused surface by omitting the window target,
 -- so universal clipboard shortcuts reach both normal windows and focused
@@ -193,7 +193,8 @@ o.bind("XF86PowerOff", "Power menu", "omarchy-menu toggle system", { locked = tr
 o.bind("SUPER + SLASH", "Keybindings", "omarchy-menu-keybindings")
 -- o.bind("SUPER + ALT + K", "Tmux keybindings", "omarchy-menu-tmux-keybindings")
 -- o.bind("SUPER + CTRL + K", "Herdr keybindings", "omarchy-menu-herdr-keybindings")
-o.bind("SUPER + CTRL + Q", "Calculator", "omacalc")
+-- o.bind("SUPER + CTRL + Q", "Calculator", "omacalc")
+o.bind("SUPER + CTRL + Q", "Lock system", "omarchy-system-lock")
 o.bind("XF86Calculator", "Calculator", "omacalc")
 
 o.bind_toggle("SUPER + SHIFT + SPACE", "Toggle top bar", "bar")
@@ -212,8 +213,9 @@ o.bind("SUPER + SHIFT + ALT + comma", "Open notification history", "omarchy-shel
 
 o.bind_toggle("SUPER + CTRL + I", "Toggle locking on idle", "idle")
 o.bind_toggle("SUPER + CTRL + N", "Toggle nightlight", "nightlight")
-o.bind("SUPER + CTRL + Delete", "Toggle laptop display", "omarchy-hyprland-monitor-internal toggle")
+o.bind("SUPER + T", "Toggle laptop display", "omarchy-hyprland-monitor-internal toggle")
 o.bind("SUPER + ALT + T", "Toggle Alt/Super key swap", "~/.config/hypr/toggle-alt-super.sh")
+o.bind("SUPER + CTRL + Delete", "Toggle laptop display", "omarchy-hyprland-monitor-internal toggle")
 o.bind("SUPER + CTRL + ALT + Delete", "Toggle laptop display mirroring", "omarchy-hyprland-monitor-internal-mirror toggle")
 o.bind("switch:on:Lid Switch", nil, "omarchy-system-lid-close", { locked = true })
 o.bind("switch:off:Lid Switch", nil, "omarchy-hyprland-monitor-clamshell", { locked = true })

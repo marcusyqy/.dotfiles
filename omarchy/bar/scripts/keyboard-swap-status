@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+options=$(hyprctl getoption input:kb_options -j | jq -r '.str')
+
+if [[ ",$options," == *,altwin:swap_alt_win,* ]]; then
+  jq -cn '{text: "⇄", tooltip: "Alt/Super keys swapped", class: "active"}'
+else
+  jq -cn '{text: "⇄", tooltip: "Alt/Super keys normal", class: "inactive"}'
+fi
