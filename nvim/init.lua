@@ -189,32 +189,22 @@ require("lazy").setup({
       end,
     },
     {
-      "ellisonleao/gruvbox.nvim",
-      priority = 1000 , config = true,
+      "sainnhe/gruvbox-material",
+      priority = 1000,
       lazy = false,
-      opts = {
-        terminal_colors = true, -- add neovim terminal colors
-        undercurl = true,
-        underline = true,
-        bold = true,
-        italic = {
-          strings = true,
-          emphasis = true,
-          comments = true,
-          operators = false,
-          folds = false,
-        },
-        strikethrough = true,
-        invert_selection = false,
-        invert_signs = false,
-        invert_tabline = false,
-        inverse = true, -- invert background for search, diffs, statuslines and errors
-        contrast = "hard", -- can be "hard", "soft" or empty string
-        palette_overrides = {},
-        overrides = {},
-        dim_inactive = false,
-        transparent_mode = false,
-      },
+      config = function()
+        vim.g.gruvbox_material_background = "hard"
+        vim.g.gruvbox_material_transparent_background = false
+        vim.g.gruvbox_material_ui_contrast = "high"
+        vim.g.gruvbox_material_enable_italic = false
+        vim.g.gruvbox_material_dim_inactive_windows = false
+        vim.g.gruvbox_material_statusline_style= "original"
+        vim.g.gruvbox_material_float_style= "blend"
+        vim.g.gruvbox_material_foreground = "original"
+        vim.g.gruvbox_material_visual = 'grey background' -- 'reverse'
+        vim.g.gruvbox_material_cursor = "auto"
+        vim.g.gruvbox_material_better_performance = true
+      end,
     },
     {
       "scottmckendry/cyberdream.nvim",
