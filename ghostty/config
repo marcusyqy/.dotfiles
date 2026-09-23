@@ -14,7 +14,7 @@ font-family = "Berkeley Mono SemiCondensed"
 # cursor-style-blink = true
 # shell-integration-features = no-cursor
 keybind = cmd+enter=unbind
-macos-titlebar-style=tabs
+# macos-titlebar-style=tabs
 #tabs
 shell-integration-features = ssh-terminfo
 
