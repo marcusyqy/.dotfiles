@@ -47,7 +47,7 @@ vim.opt.guicursor='n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait700-b
 vim.opt.hidden = true
 vim.opt.relativenumber = true
 vim.opt.number = true
-vim.opt.wrap = false
+vim.opt.wrap = true
 vim.opt.hlsearch = true
 vim.opt.ruler = true
 
@@ -864,8 +864,11 @@ require("lazy").setup({
             end,
           },
           mapping = {
+            ['<C-q>'] = cmp.mapping.complete(),
             ['<C-y>'] = cmp.mapping.complete(),
             ['<C-,>'] = cmp.mapping.complete(),
+            ['<C-.>'] = cmp.mapping.complete(),
+            ['<C-space>'] = cmp.mapping.complete(),
             ['<c-g>'] = cmp.mapping.abort(),
             ['<Tab>'] = function(fallback)
               if cmp.visible() then
