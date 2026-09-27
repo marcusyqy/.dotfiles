@@ -864,7 +864,6 @@ require("lazy").setup({
             end,
           },
           mapping = {
-            ['<C-q>'] = cmp.mapping.complete(),
             ['<C-y>'] = cmp.mapping.complete(),
             ['<C-,>'] = cmp.mapping.complete(),
             ['<C-.>'] = cmp.mapping.complete(),
@@ -888,24 +887,6 @@ require("lazy").setup({
                 fallback()
               end
             end,
-            -- ['<down>'] = function(fallback)
-            --   if cmp.visible() then
-            --     cmp.select_next_item()
-            --   elseif luasnip.expand_or_jumpable() then
-            --     luasnip.expand_or_jump()
-            --   else
-            --     fallback()
-            --   end
-            -- end,
-            -- ['<up>'] = function(fallback)
-            --   if cmp.visible() then
-            --     cmp.select_prev_item()
-            --   elseif luasnip.jumpable(-1) then
-            --     luasnip.jump(-1)
-            --   else
-            --     fallback()
-            --   end
-            -- end,
             ['<c-n>'] = function(fallback)
               if cmp.visible() then
                 cmp.select_next_item()
@@ -1979,7 +1960,7 @@ if vim.g.neovide then
   neovide_defaults()
 end
 
-vim.cmd.colorscheme("coolbeans")
+vim.cmd.colorscheme("rad-high-contrast")
 
 -- vim.cmd([[
 -- colorscheme default
