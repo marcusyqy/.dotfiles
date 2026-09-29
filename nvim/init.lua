@@ -1715,6 +1715,17 @@ end
 -- Open a terminal at the bottom of the screen with a fixed height.
 vim.keymap.set("n", "<leader>ts", terminal_toggle);
 
+function clear_mcursor()
+  local mc_ns = vim.api.nvim_create_namespace('nvim.multicursor')
+  vim.api.nvim_buf_clear_namespace(0, mc_ns, 0, -1)
+end
+
+-- vim.keymap.set("c", "clear_mcursor", clear_mcursor);
+vim.keymap.set("n", "<leader>qq", clear_mcursor);
+vim.keymap.set("n", "<leader>qk", clear_mcursor);
+vim.keymap.set({"n","v"}, "K", "Q");
+
+
 -- quick fix list
 -- vim.keymap.set("n", "<c-j>", ":cnext<CR>zz", { desc =  "Quick fix list next" })
 -- vim.keymap.set("n", "<c-k>", ":cprev<CR>zz", { desc = "Quick fix list prev" })
@@ -1817,7 +1828,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     -- See `:help vim.lsp.*` for documentation on any of the below functions
     vim.keymap.set('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
     vim.keymap.set('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
-    vim.keymap.set('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
+    -- vim.keymap.set('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
     vim.keymap.set('n', '<leader>rr', '<Cmd>lua vim.lsp.buf.references()<CR>', opts)
     vim.keymap.set('n', '<leader>rr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
     vim.keymap.set('n', '<leader>gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
