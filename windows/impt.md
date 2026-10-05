@@ -1,6 +1,6 @@
 
 add macros
-`reg add "HKCU\Software\Microsoft\Command Processor" /v AutoRun /t REG_SZ /d "doskey /macrofile=\"C:\Users\marcu\macros.txt\"" /f`
+`reg add "HKCU\Software\Microsoft\Command Processor" /v AutoRun /t REG_SZ /d "doskey /macrofile=\"%USERPROFILE%\macros.txt\"" /f`
 
 
 add to %userprofile%\macros.txt
