@@ -1,0 +1,41 @@
+# Warm ivory companion to the Neovim and Ghostty Coolbeans light themes.
+[metadata]
+name = "coolbeans_light"
+
+[colors]
+background = "#f5f1e8"
+foreground = "#343b3b"
+cursor_bg = "#655127"
+cursor_fg = "#f5f1e8"
+cursor_border = "#655127"
+selection_bg = "#d6e1e3"
+selection_fg = "#343b3b"
+scrollbar_thumb = "#b8b5a8"
+split = "#b8b5a8"
+ansi = ["#f5f1e8", "#a0473f", "#536e35", "#806018", "#386888", "#89527e", "#336e71", "#343b3b"]
+brights = ["#85877b", "#a0473f", "#536e35", "#806018", "#386888", "#89527e", "#336e71", "#252c2c"]
+
+[colors.tab_bar]
+background = "#ece7dc"
+inactive_tab_edge = "#b8b5a8"
+
+[colors.tab_bar.active_tab]
+bg_color = "#d8d0c1"
+fg_color = "#343b3b"
+intensity = "Bold"
+
+[colors.tab_bar.inactive_tab]
+bg_color = "#ece7dc"
+fg_color = "#646052"
+
+[colors.tab_bar.inactive_tab_hover]
+bg_color = "#e5dfd2"
+fg_color = "#343b3b"
+
+[colors.tab_bar.new_tab]
+bg_color = "#ece7dc"
+fg_color = "#646052"
+
+[colors.tab_bar.new_tab_hover]
+bg_color = "#e5dfd2"
+fg_color = "#343b3b"

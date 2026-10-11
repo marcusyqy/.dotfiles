@@ -2020,9 +2020,7 @@ if vim.g.neovide then
   neovide_defaults()
 end
 
-vim.cmd.colorscheme("coolbeans_light")
---override the top
-vim.o.background='light'
+vim.cmd.colorscheme("coolbeans")
 
 -- vim.cmd([[
 -- colorscheme default
@@ -2041,7 +2039,6 @@ vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
     vim.opt_local.expandtab = false
   end,
 })
-
 
 -- vim.api.nvim_set_hl(0, "Cursor", { bg = "#7c7c7c", fg = "NONE" })
 -- vim.api.nvim_set_hl(0, "PMenu", { bg = "NONE" })

@@ -5,7 +5,9 @@ font-family = "Berkeley Mono SemiCondensed"
 # font-thicken = true
 # theme = "Raycast Dark"
 # theme = "Kitty Default"
-theme = coolbeans_light
+# theme = coolbeans_light
+theme = coolbeans
+
 
 # background = 000000
 # background = 1d1d1d

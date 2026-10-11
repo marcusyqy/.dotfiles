@@ -1,0 +1,41 @@
+# Original dark Coolbeans palette, matching Neovim and Ghostty.
+[metadata]
+name = "coolbeans"
+
+[colors]
+background = "#0f1418"
+foreground = "#d7d0bf"
+cursor_bg = "#e6d2a2"
+cursor_fg = "#0f1418"
+cursor_border = "#e6d2a2"
+selection_bg = "#253746"
+selection_fg = "#d7d0bf"
+scrollbar_thumb = "#303b44"
+split = "#303b44"
+ansi = ["#0f1418", "#d37a70", "#95b47b", "#d9b46f", "#7ca7c7", "#c486b7", "#8fbfc0", "#d7d0bf"]
+brights = ["#48545d", "#d37a70", "#95b47b", "#d9b46f", "#7ca7c7", "#c486b7", "#8fbfc0", "#f0e7d0"]
+
+[colors.tab_bar]
+background = "#141b20"
+inactive_tab_edge = "#303b44"
+
+[colors.tab_bar.active_tab]
+bg_color = "#263039"
+fg_color = "#d7d0bf"
+intensity = "Bold"
+
+[colors.tab_bar.inactive_tab]
+bg_color = "#141b20"
+fg_color = "#938b7a"
+
+[colors.tab_bar.inactive_tab_hover]
+bg_color = "#1b2329"
+fg_color = "#d7d0bf"
+
+[colors.tab_bar.new_tab]
+bg_color = "#141b20"
+fg_color = "#938b7a"
+
+[colors.tab_bar.new_tab_hover]
+bg_color = "#1b2329"
+fg_color = "#d7d0bf"
