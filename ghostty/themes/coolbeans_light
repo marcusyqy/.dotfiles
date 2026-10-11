@@ -1,0 +1,24 @@
+# Warm ivory companion to the Neovim Coolbeans light theme.
+background = #f5f1e8
+foreground = #343b3b
+cursor-color = #655127
+cursor-text = #f5f1e8
+selection-background = #d6e1e3
+selection-foreground = #343b3b
+
+palette = 0=#f5f1e8
+palette = 1=#a0473f
+palette = 2=#536e35
+palette = 3=#806018
+palette = 4=#386888
+palette = 5=#89527e
+palette = 6=#336e71
+palette = 7=#343b3b
+palette = 8=#85877b
+palette = 9=#a0473f
+palette = 10=#536e35
+palette = 11=#806018
+palette = 12=#386888
+palette = 13=#89527e
+palette = 14=#336e71
+palette = 15=#252c2c
