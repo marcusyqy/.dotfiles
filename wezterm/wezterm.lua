@@ -174,6 +174,15 @@ table.insert(config.keys, { mods="ALT", key = "w", action = action.CloseCurrentT
 table.insert(config.keys, { mods="ALT", key = "t", action = action.SpawnTab("CurrentPaneDomain") })
 table.insert(config.keys, { mods = '', key = 'F11', action = wezterm.action.ToggleFullScreen, })
 
+table.insert(config.keys, { mods="ALT|CTRL", key = "d", action = action.SplitPane({ direction = "Right", size = { Percent = 50 } }) })
+table.insert(config.keys, { mods="ALT|CTRL", key = "x", action = action.CloseCurrentPane{ confirm = false } })
+table.insert(config.keys, { mods="ALT|CTRL", key = "s", action = action.SplitPane({ direction = "Down", size = { Percent = 50 } }) })
+table.insert(config.keys, { mods="ALT|CTRL", key = "h", action = action.ActivatePaneDirection("Left") })
+table.insert(config.keys, { mods="ALT|CTRL", key = "j", action = action.ActivatePaneDirection("Down") })
+table.insert(config.keys, { mods="ALT|CTRL", key = "k", action = action.ActivatePaneDirection("Up") })
+table.insert(config.keys, { mods="ALT|CTRL", key = "l", action = action.ActivatePaneDirection("Right") })
+
+
 
 -- Notification when the configuration is reloaded
 -- local function toast(window, message)
