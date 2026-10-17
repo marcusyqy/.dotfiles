@@ -144,6 +144,13 @@ if wezterm.target_triple == "x86_64-apple-darwin" or
      -- { key = '\\', mods = 'CTRL', action = wezterm.action.SendString('\x1c') }, -- Sending ASCII code for Ctrl+\
      -- { key = '`', mods = 'CTRL', action = wezterm.action.SendString('\x60') }, -- Sending ASCII code for Ctrl+`
     { mods = 'CMD|SHIFT', key = 'Enter', action = wezterm.action.ToggleFullScreen, },
+    { mods="CMD|CTRL", key = "x", action = action.CloseCurrentPane{ confirm = false } },
+    { mods="CMD|CTRL", key = "e", action = action.SplitPane({ direction = "Right", size = { Percent = 50 } }) },
+    { mods="CMD|CTRL", key = "s", action = action.SplitPane({ direction = "Down", size = { Percent = 50 } }) },
+    { mods="CMD|CTRL", key = "h", action = action.ActivatePaneDirection("Left") },
+    { mods="CMD|CTRL", key = "j", action = action.ActivatePaneDirection("Down") },
+    { mods="CMD|CTRL", key = "k", action = action.ActivatePaneDirection("Up") },
+    { mods="CMD|CTRL", key = "l", action = action.ActivatePaneDirection("Right") }
    }
 elseif wezterm.target_triple == "x86_64-unknown-linux-gnu" then
   config.keys = {
@@ -174,7 +181,7 @@ table.insert(config.keys, { mods="ALT", key = "w", action = action.CloseCurrentT
 table.insert(config.keys, { mods="ALT", key = "t", action = action.SpawnTab("CurrentPaneDomain") })
 table.insert(config.keys, { mods = '', key = 'F11', action = wezterm.action.ToggleFullScreen, })
 
-table.insert(config.keys, { mods="ALT|CTRL", key = "d", action = action.SplitPane({ direction = "Right", size = { Percent = 50 } }) })
+table.insert(config.keys, { mods="ALT|CTRL", key = "e", action = action.SplitPane({ direction = "Right", size = { Percent = 50 } }) })
 table.insert(config.keys, { mods="ALT|CTRL", key = "x", action = action.CloseCurrentPane{ confirm = false } })
 table.insert(config.keys, { mods="ALT|CTRL", key = "s", action = action.SplitPane({ direction = "Down", size = { Percent = 50 } }) })
 table.insert(config.keys, { mods="ALT|CTRL", key = "h", action = action.ActivatePaneDirection("Left") })
