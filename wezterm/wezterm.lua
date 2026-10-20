@@ -176,12 +176,14 @@ table.insert(config.keys, { mods="ALT", key = "6", action = action.ActivateTab(5
 table.insert(config.keys, { mods="ALT", key = "7", action = action.ActivateTab(6) })
 table.insert(config.keys, { mods="ALT", key = "8", action = action.ActivateTab(7) })
 table.insert(config.keys, { mods="ALT", key = "9", action = action.ActivateTab(8) })
-table.insert(config.keys, { mods="ALT", key = "0", action = action.ActivateTab(9) })
+table.insert(config.keys, { mods="ALT", key = "0", action = action.ActivateTab(-1) })
+
 table.insert(config.keys, { mods="ALT", key = "w", action = action.CloseCurrentTab{confirm=true} })
 table.insert(config.keys, { mods="ALT", key = "t", action = action.SpawnTab("CurrentPaneDomain") })
 table.insert(config.keys, { mods = '', key = 'F11', action = wezterm.action.ToggleFullScreen, })
 
 table.insert(config.keys, { mods="ALT|CTRL", key = "x", action = action.CloseCurrentPane{ confirm = false } })
+table.insert(config.keys, { mods="ALT", key = "x", action = action.CloseCurrentPane{ confirm = false } })
 
 table.insert(config.keys, { mods="ALT|CTRL", key = "h", action = action.SplitPane({ direction = "Left", size = { Percent = 50 } }) })
 table.insert(config.keys, { mods="ALT|CTRL", key = "j", action = action.SplitPane({ direction = "Down", size = { Percent = 50 } }) })
