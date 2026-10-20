@@ -175,8 +175,8 @@ table.insert(config.keys, { mods="ALT", key = "5", action = action.ActivateTab(4
 table.insert(config.keys, { mods="ALT", key = "6", action = action.ActivateTab(5) })
 table.insert(config.keys, { mods="ALT", key = "7", action = action.ActivateTab(6) })
 table.insert(config.keys, { mods="ALT", key = "8", action = action.ActivateTab(7) })
-table.insert(config.keys, { mods="ALT", key = "9", action = action.ActivateTab(8) })
-table.insert(config.keys, { mods="ALT", key = "0", action = action.ActivateTab(-1) })
+table.insert(config.keys, { mods="ALT", key = "9", action = action.ActivateTab(-1) })
+table.insert(config.keys, { mods="ALT", key = "0", action = action.ActivateLastTab })
 
 table.insert(config.keys, { mods="ALT", key = "w", action = action.CloseCurrentTab{confirm=true} })
 table.insert(config.keys, { mods="ALT", key = "t", action = action.SpawnTab("CurrentPaneDomain") })
