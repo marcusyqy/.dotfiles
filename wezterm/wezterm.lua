@@ -181,13 +181,28 @@ table.insert(config.keys, { mods="ALT", key = "w", action = action.CloseCurrentT
 table.insert(config.keys, { mods="ALT", key = "t", action = action.SpawnTab("CurrentPaneDomain") })
 table.insert(config.keys, { mods = '', key = 'F11', action = wezterm.action.ToggleFullScreen, })
 
-table.insert(config.keys, { mods="ALT|CTRL", key = "e", action = action.SplitPane({ direction = "Right", size = { Percent = 50 } }) })
 table.insert(config.keys, { mods="ALT|CTRL", key = "x", action = action.CloseCurrentPane{ confirm = false } })
-table.insert(config.keys, { mods="ALT|CTRL", key = "s", action = action.SplitPane({ direction = "Down", size = { Percent = 50 } }) })
-table.insert(config.keys, { mods="ALT|CTRL", key = "h", action = action.ActivatePaneDirection("Left") })
-table.insert(config.keys, { mods="ALT|CTRL", key = "j", action = action.ActivatePaneDirection("Down") })
-table.insert(config.keys, { mods="ALT|CTRL", key = "k", action = action.ActivatePaneDirection("Up") })
-table.insert(config.keys, { mods="ALT|CTRL", key = "l", action = action.ActivatePaneDirection("Right") })
+
+table.insert(config.keys, { mods="ALT|CTRL", key = "h", action = action.SplitPane({ direction = "Left", size = { Percent = 50 } }) })
+table.insert(config.keys, { mods="ALT|CTRL", key = "j", action = action.SplitPane({ direction = "Down", size = { Percent = 50 } }) })
+table.insert(config.keys, { mods="ALT|CTRL", key = "k", action = action.SplitPane({ direction = "Up", size = { Percent = 50 } }) })
+table.insert(config.keys, { mods="ALT|CTRL", key = "l", action = action.SplitPane({ direction = "Right", size = { Percent = 50 } }) })
+
+-- table.insert(config.keys, { mods="ALT|CTRL", key = "h", action = action.ActivatePaneDirection("Left") })
+-- table.insert(config.keys, { mods="ALT|CTRL", key = "j", action = action.ActivatePaneDirection("Down") })
+-- table.insert(config.keys, { mods="ALT|CTRL", key = "k", action = action.ActivatePaneDirection("Up") })
+-- table.insert(config.keys, { mods="ALT|CTRL", key = "l", action = action.ActivatePaneDirection("Right") })
+
+table.insert(config.keys, { mods="ALT", key = "h", action = action.ActivatePaneDirection("Left") })
+table.insert(config.keys, { mods="ALT", key = "j", action = action.ActivatePaneDirection("Down") })
+table.insert(config.keys, { mods="ALT", key = "k", action = action.ActivatePaneDirection("Up") })
+table.insert(config.keys, { mods="ALT", key = "l", action = action.ActivatePaneDirection("Right") })
+
+table.insert(config.keys, { mods="ALT", key = "n", action = action.ActivateTabRelative( 1) })
+table.insert(config.keys, { mods="ALT", key = "p", action = action.ActivateTabRelative(-1) })
+table.insert(config.keys, { mods="ALT", key = "`", action = action.ActivateLastTab })
+table.insert(config.keys, { mods="ALT", key = "o", action = action.ActivateLastTab })
+
 
 
 
