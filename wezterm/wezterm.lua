@@ -19,6 +19,7 @@ config.cursor_blink_rate = 500
 
 -- config.prefer_egl = true
 
+config.allow_win32_input_mode = false
 -- gpus
 -- for _, gpu in ipairs(wezterm.gui.enumerate_gpus()) do
 --   if gpu.backend == 'Vulkan' and gpu.device_type == 'DiscreteGpu' then
@@ -144,6 +145,7 @@ if wezterm.target_triple == "x86_64-apple-darwin" or
      -- { key = '\\', mods = 'CTRL', action = wezterm.action.SendString('\x1c') }, -- Sending ASCII code for Ctrl+\
      -- { key = '`', mods = 'CTRL', action = wezterm.action.SendString('\x60') }, -- Sending ASCII code for Ctrl+`
     { mods = 'CMD|SHIFT', key = 'Enter', action = wezterm.action.ToggleFullScreen, },
+
     { mods="CMD|CTRL", key = "x", action = action.CloseCurrentPane{ confirm = false } },
     { mods="CMD|CTRL", key = "e", action = action.SplitPane({ direction = "Right", size = { Percent = 50 } }) },
     { mods="CMD|CTRL", key = "s", action = action.SplitPane({ direction = "Down", size = { Percent = 50 } }) },
@@ -204,6 +206,9 @@ table.insert(config.keys, { mods="ALT", key = "n", action = action.ActivateTabRe
 table.insert(config.keys, { mods="ALT", key = "p", action = action.ActivateTabRelative(-1) })
 table.insert(config.keys, { mods="ALT", key = "`", action = action.ActivateLastTab })
 table.insert(config.keys, { mods="ALT", key = "o", action = action.ActivateLastTab })
+table.insert(config.keys, { mods="ALT", key = "r", action = action.RotatePanes "Clockwise" })
+table.insert(config.keys, { mods="ALT|CTRL", key = "r", action = action.RotatePanes "CounterClockwise" })
+table.insert(config.keys, { mods="ALT", key = "\\", action = action.ActivateCommandPalette })
 
 
 
@@ -218,16 +223,26 @@ table.insert(config.keys, { mods="ALT", key = "o", action = action.ActivateLastT
 -- end)
 
 -- Make IP addresses with port clickable (e.g., 127.0.0.1:5053)
-table.insert(config.hyperlink_rules, {
-  regex = [[\b(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}):(\d+)\b]],
-  format = 'http://$1:$2',
-})
+-- table.insert(config.hyperlink_rules, {
+--   regex = [[\b(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}):(\d+)\b]],
+--   format = 'http://$1:$2',
+-- })
 
 -- Match local file paths ending in .html
-table.insert(config.hyperlink_rules, {
- regex = [[\b(?:[a-zA-Z0-9_-]+(?:/[a-zA-Z0-9_-]+)*)+\.html\b]],
- format = 'file://$0',
-})
+-- table.insert(config.hyperlink_rules, {
+--  regex = [[\b(?:[a-zA-Z0-9_-]+(?:/[a-zA-Z0-9_-]+)*)+\.html\b]],
+--  format = 'file://$0',
+-- })
+
+
+config.mouse_bindings = {
+  -- Ctrl-click will open the link under the mouse cursor
+  {
+    event = { Up = { streak = 1, button = 'Left' } },
+    mods = 'CTRL',
+    action = wezterm.action.OpenLinkAtMouseCursor,
+  },
+}
 
 config.window_close_confirmation = "AlwaysPrompt"
 config.audible_bell = "Disabled"
