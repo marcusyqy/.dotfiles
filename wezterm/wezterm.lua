@@ -210,6 +210,14 @@ table.insert(config.keys, { mods="ALT", key = "r", action = action.RotatePanes "
 table.insert(config.keys, { mods="ALT|CTRL", key = "r", action = action.RotatePanes "CounterClockwise" })
 table.insert(config.keys, { mods="ALT", key = "\\", action = action.ActivateCommandPalette })
 
+-- table.insert(config.keys, { mods="ALT|CTRL", key = "LeftArrow", action = action.SplitPane({ direction = "Left", size = { Percent = 50 } }) })
+-- table.insert(config.keys, { mods="ALT|CTRL", key = "DownArrow", action = action.SplitPane({ direction = "Down", size = { Percent = 50 } }) })
+-- table.insert(config.keys, { mods="ALT|CTRL", key = "UpArrow", action = action.SplitPane({ direction = "Up", size = { Percent = 50 } }) })
+-- table.insert(config.keys, { mods="ALT|CTRL", key = "RightArrow", action = action.SplitPane({ direction = "Right", size = { Percent = 50 } }) })
+table.insert(config.keys, { mods="ALT", key = "LeftArrow", action = action.ActivatePaneDirection("Left") })
+table.insert(config.keys, { mods="ALT", key = "DownArrow", action = action.ActivatePaneDirection("Down") })
+table.insert(config.keys, { mods="ALT", key = "UpArrow", action = action.ActivatePaneDirection("Up") })
+table.insert(config.keys, { mods="ALT", key = "RightArrow", action = action.ActivatePaneDirection("Right") })
 
 
 
