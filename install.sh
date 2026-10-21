@@ -19,7 +19,7 @@ link_wezterm() {
     ln -s $DOTFILES/wezterm $weztermconfig
 }
 
-link_wezterm() {
+link_pip() {
     pipconfig="$HOME/.config/pip"
     rm -rf $pipconfig
     ln -s $DOTFILES/pip $pipconfig
@@ -58,13 +58,27 @@ link_bashrc() {
     ln -s $DOTFILES/.bashrc $HOME/.bashrc
 }
 
+link_claude() {
+    mkdir -p $HOME/.claude
+
+    rm -rf $HOME/.claude/rules
+    rm $HOME/.claude/keybindings.json
+    rm $HOME/.claude/settings.json
+
+    ln -s $DOTFILES/claude/rules $HOME/.claude/rules
+    ln -s $DOTFILES/claude/settings.json $HOME/.claude/settings.json
+    ln -s $DOTFILES/claude/keybindings.json $HOME/.claude/keybindings.json
+
+}
+
 link_nvim
 link_tmux
 link_wezterm
+link_pip
 link_ghostty
 link_kitty
 link_vimrc
 link_neovide
 link_zshrc
 link_bashrc
-
+link_claude

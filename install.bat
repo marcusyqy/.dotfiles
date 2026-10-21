@@ -19,3 +19,8 @@ mklink /d "%appdata%\.emacs.d" "%userprofile%\.dotfiles\emacs"
 
 rd /s /q "%userprofile%\.emacs.d"
 mklink /d "%userprofile%\.emacs.d" "%userprofile%\.dotfiles\emacs"
+
+mkdir "%userprofile%\.claude"
+mklink /d "%userprofile%\.claude\rules" "%userprofile%\.dotfiles\claude\rules"
+mklink "%userprofile%\.claude\keybindings.json" "%userprofile%\.dotfiles\claude\keybindings.json"
+mklink "%userprofile%\.claude\settings.json" "%userprofile%\.dotfiles\claude\settings.json"

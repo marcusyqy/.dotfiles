@@ -1,0 +1,16 @@
+{
+  "extraKnownMarketplaces": {
+    "cursor-plugins": {
+      "source": {
+        "source": "git",
+        "url": "git@github.com:cursor/plugins.git"
+      }
+    }
+  },
+  "autoUpdatesChannel": "latest",
+  "tui": "default",
+  "theme": "auto",
+  "enabledPlugins": {
+    "pstack@cursor-plugins": true
+  }
+}
