@@ -19,6 +19,7 @@ config.cursor_blink_rate = 500
 
 -- config.prefer_egl = true
 
+config.front_end = "Software"
 config.allow_win32_input_mode = false
 -- gpus
 -- for _, gpu in ipairs(wezterm.gui.enumerate_gpus()) do
@@ -29,16 +30,11 @@ config.allow_win32_input_mode = false
 -- end
 
 -- config.font_size = 10.0
--- config.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' } -- no ligatures for me please!
+config.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' } -- no ligatures for me please!
 config.font = wezterm.font {
---     -- family = "Iosevka Nerd Font Mono", -- Or the font you prefer
-    family = "Berkeley Mono SemiCondensed", -- Or the font you prefer
---    family = "Berkeley Mono", -- Or the font you prefer
+    -- family = "Berkeley Mono SemiCondensed", -- Or the font you prefer
     -- family = "Comic Code", -- Or the font you prefer
-    -- family = "JetBrains Mono", -- Or the font you prefer
-    -- weight = "Medium", -- try this out.
-    -- weight = "DemiBold", -- Optional: Adjust weight
-    -- weight = "Regular",
+    family = "JetBrains Mono", -- Or the font you prefer
     harfbuzz_features = { "calt=0", "clig=0", "liga=0" }, -- Disable ligatures
 }
 
@@ -191,12 +187,6 @@ table.insert(config.keys, { mods="ALT|CTRL", key = "h", action = action.SplitPan
 table.insert(config.keys, { mods="ALT|CTRL", key = "j", action = action.SplitPane({ direction = "Down", size = { Percent = 50 } }) })
 table.insert(config.keys, { mods="ALT|CTRL", key = "k", action = action.SplitPane({ direction = "Up", size = { Percent = 50 } }) })
 table.insert(config.keys, { mods="ALT|CTRL", key = "l", action = action.SplitPane({ direction = "Right", size = { Percent = 50 } }) })
-
--- table.insert(config.keys, { mods="ALT|CTRL", key = "h", action = action.ActivatePaneDirection("Left") })
--- table.insert(config.keys, { mods="ALT|CTRL", key = "j", action = action.ActivatePaneDirection("Down") })
--- table.insert(config.keys, { mods="ALT|CTRL", key = "k", action = action.ActivatePaneDirection("Up") })
--- table.insert(config.keys, { mods="ALT|CTRL", key = "l", action = action.ActivatePaneDirection("Right") })
-
 table.insert(config.keys, { mods="ALT", key = "h", action = action.ActivatePaneDirection("Left") })
 table.insert(config.keys, { mods="ALT", key = "j", action = action.ActivatePaneDirection("Down") })
 table.insert(config.keys, { mods="ALT", key = "k", action = action.ActivatePaneDirection("Up") })

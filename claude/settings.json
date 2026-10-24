@@ -1,4 +1,10 @@
 {
+  "permissions": {
+    "defaultMode": "auto"
+  },
+  "enabledPlugins": {
+    "pstack@cursor-plugins": true
+  },
   "extraKnownMarketplaces": {
     "cursor-plugins": {
       "source": {
@@ -10,7 +16,5 @@
   "autoUpdatesChannel": "latest",
   "tui": "default",
   "theme": "auto",
-  "enabledPlugins": {
-    "pstack@cursor-plugins": true
-  }
+  "editorMode": "normal"
 }
