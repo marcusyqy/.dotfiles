@@ -242,6 +242,17 @@ config.mouse_bindings = {
     mods = 'CTRL',
     action = wezterm.action.OpenLinkAtMouseCursor,
   },
+  -- want to remove the copy on select shit because that is nasty
+  {
+    event = { Up = { streak = 1, button = 'Left' } },
+    mods = 'NONE',
+    action = wezterm.action.Nop,
+  },
+  {
+    event = { Up = { streak = 2, button = 'Left' } },
+    mods = 'NONE',
+    action = wezterm.action.Nop,
+  }
 }
 
 config.window_close_confirmation = "AlwaysPrompt"
