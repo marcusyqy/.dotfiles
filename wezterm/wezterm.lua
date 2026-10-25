@@ -196,7 +196,6 @@ table.insert(config.keys, { mods="ALT", key = "n", action = action.ActivateTabRe
 table.insert(config.keys, { mods="ALT", key = "p", action = action.ActivateTabRelative(-1) })
 table.insert(config.keys, { mods="ALT", key = "`", action = action.ActivateLastTab })
 table.insert(config.keys, { mods="ALT", key = "o", action = action.ActivateLastTab })
-table.insert(config.keys, { mods="ALT", key = "r", action = action.SendKey({ key = "F8" }) })
 table.insert(config.keys, { mods="ALT|CTRL", key = "r", action = action.RotatePanes "Clockwise" })
 table.insert(config.keys, { mods="ALT", key = "\\", action = action.ActivateCommandPalette })
 
@@ -209,6 +208,9 @@ table.insert(config.keys, { mods="ALT", key = "DownArrow", action = action.Activ
 table.insert(config.keys, { mods="ALT", key = "UpArrow", action = action.ActivatePaneDirection("Up") })
 table.insert(config.keys, { mods="ALT", key = "RightArrow", action = action.ActivatePaneDirection("Right") })
 
+table.insert(config.keys, { mods="ALT", key = "r", action = action.SendKey({ key = "F8" }) })
+table.insert(config.keys, { mods="ALT", key = "a", action = action.SendKey({ key = "Home" }) })
+table.insert(config.keys, { mods="ALT", key = "e", action = action.SendKey({ key = "End" }) })
 
 
 -- Notification when the configuration is reloaded
