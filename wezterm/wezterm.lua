@@ -196,8 +196,8 @@ table.insert(config.keys, { mods="ALT", key = "n", action = action.ActivateTabRe
 table.insert(config.keys, { mods="ALT", key = "p", action = action.ActivateTabRelative(-1) })
 table.insert(config.keys, { mods="ALT", key = "`", action = action.ActivateLastTab })
 table.insert(config.keys, { mods="ALT", key = "o", action = action.ActivateLastTab })
-table.insert(config.keys, { mods="ALT", key = "r", action = action.RotatePanes "Clockwise" })
-table.insert(config.keys, { mods="ALT|CTRL", key = "r", action = action.RotatePanes "CounterClockwise" })
+table.insert(config.keys, { mods="ALT", key = "r", action = action.SendKey({ key = "F8" }) })
+table.insert(config.keys, { mods="ALT|CTRL", key = "r", action = action.RotatePanes "Clockwise" })
 table.insert(config.keys, { mods="ALT", key = "\\", action = action.ActivateCommandPalette })
 
 -- table.insert(config.keys, { mods="ALT|CTRL", key = "LeftArrow", action = action.SplitPane({ direction = "Left", size = { Percent = 50 } }) })
