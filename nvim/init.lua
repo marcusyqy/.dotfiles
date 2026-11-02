@@ -640,13 +640,13 @@ require("lazy").setup({
         require('nvim-treesitter').install(parsersToInstall)
       end,
     },
-    {
-      'nvim-java/nvim-java',
-      config = function()
-        require('java').setup()
-        vim.lsp.enable('jdtls')
-      end,
-    },
+    -- {
+    --   'nvim-java/nvim-java',
+    --   config = function()
+    --     require('java').setup()
+    --     vim.lsp.enable('jdtls')
+    --   end,
+    -- },
     {
       "stevearc/oil.nvim", opts = {
         -- Oil will take over directory buffers (e.g. `vim .` or `:e src/`)

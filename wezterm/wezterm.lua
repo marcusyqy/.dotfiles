@@ -19,7 +19,7 @@ config.cursor_blink_rate = 500
 
 -- config.prefer_egl = true
 
-config.front_end = "Software"
+-- config.front_end = "Software"
 config.allow_win32_input_mode = false
 -- gpus
 -- for _, gpu in ipairs(wezterm.gui.enumerate_gpus()) do
@@ -42,7 +42,7 @@ config.freetype_load_target = "HorizontalLcd"
 -- config.freetype_load_target = "Normal"
 
 -- tab
-config.use_fancy_tab_bar = false
+config.use_fancy_tab_bar = true
 config.enable_tab_bar = true
 config.hide_tab_bar_if_only_one_tab = true
 config.tab_bar_at_bottom = false
@@ -212,6 +212,8 @@ table.insert(config.keys, { mods="ALT", key = "r", action = action.SendKey({ key
 table.insert(config.keys, { mods="ALT", key = "a", action = action.SendKey({ key = "Home" }) })
 table.insert(config.keys, { mods="ALT", key = "e", action = action.SendKey({ key = "End" }) })
 
+table.insert(config.keys, { mods="ALT|CTRL", key = "[", action = wezterm.action.MoveTabRelative(-1) })
+table.insert(config.keys, { mods="ALT|CTRL", key = "]", action = wezterm.action.MoveTabRelative(1) })
 
 -- Notification when the configuration is reloaded
 -- local function toast(window, message)
