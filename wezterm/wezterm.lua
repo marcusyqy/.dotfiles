@@ -165,6 +165,7 @@ else
 end
 
 -- for windows.
+table.insert(config.keys, { mods="ALT", key = "Enter", action = action.Nop })
 table.insert(config.keys, { mods="ALT", key = "1", action = action.ActivateTab(0) })
 table.insert(config.keys, { mods="ALT", key = "2", action = action.ActivateTab(1) })
 table.insert(config.keys, { mods="ALT", key = "3", action = action.ActivateTab(2) })
