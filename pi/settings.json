@@ -1,0 +1,28 @@
+{
+  "lastChangelogVersion": "1.5.2",
+  "defaultProvider": "anthropic",
+  "defaultModel": "claude-opus-5-5",
+  "images": {
+    "blockImages": false
+  },
+  "warnings": {
+    "anthropicExtraUsage": false
+  },
+  "packages": [
+    "npm:pi-deltabox",
+    "npm:pi-memory",
+    "npm:pi-simplify",
+    "npm:pi-mcp-adapter",
+    "npm:pi-web-access"
+  ],
+  "extensionChangelogVersions": {
+    "{\"source\":\"npm:pi-memory\",\"scope\":\"user\"}": "0.4.2",
+    "{\"source\":\"npm:pi-mcp-adapter\",\"scope\":\"user\"}": "7.0.1",
+    "{\"source\":\"npm:pi-web-access\",\"scope\":\"user\"}": "0.48.0"
+  },
+  "extensions": [
+    "-builtin:mcp"
+  ],
+  "quietStartup": true,
+  "hideThinkingBlock": true
+}

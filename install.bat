@@ -24,3 +24,7 @@ mkdir "%userprofile%\.claude"
 mklink /d "%userprofile%\.claude\rules" "%userprofile%\.dotfiles\claude\rules"
 mklink "%userprofile%\.claude\keybindings.json" "%userprofile%\.dotfiles\claude\keybindings.json"
 mklink "%userprofile%\.claude\settings.json" "%userprofile%\.dotfiles\claude\settings.json"
+
+mkdir "%userprofile%\.pi\agent"
+mklink "%userprofile%\.pi\agent\keybindings.json" "%userprofile%\.dotfiles\pi\keybindings.json"
+mklink "%userprofile%\.pi\agent\settings.json" "%userprofile%\.dotfiles\pi\settings.json"

@@ -70,7 +70,14 @@ link_claude() {
     ln -s $DOTFILES/claude/rules $HOME/.claude/rules
     ln -s $DOTFILES/claude/settings.json $HOME/.claude/settings.json
     ln -s $DOTFILES/claude/keybindings.json $HOME/.claude/keybindings.json
+}
 
+link_pi() {
+    mkdir -p $HOME/.pi/agent
+    rm $HOME/.pi/agent/keybindings.json
+    rm $HOME/.pi/agent/settings.json
+    ln -s $DOTFILES/pi/keybindings.json $HOME/.pi/agent/keybindings.json
+    ln -s $DOTFILES/pi/settings.json $HOME/.pi/agent/settings.json
 }
 
 link_nvim
@@ -84,3 +91,4 @@ link_neovide
 link_zshrc
 link_bashrc
 link_claude
+link_pi
