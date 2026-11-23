@@ -6,7 +6,7 @@
 #   ./setup/setup_server.sh            # install everything
 #   ./setup/setup_server.sh nvim cargo # install only the named steps
 #
-# Steps: pi claude nvim cargo cargo_tools
+# Steps: nvm pi claude nvim cargo cargo_tools
 #
 # Re-running is safe: already-installed tools are skipped, except nvim
 # nightly, which is always re-downloaded to pick up the latest build.
@@ -32,6 +32,34 @@ check_prereqs() {
     # Make tools installed earlier in this run visible to later steps.
     PATH="$LOCAL_BIN:$CARGO_BIN:$PATH"
     export PATH
+}
+
+NVM_VERSION="v0.41.0"
+
+install_nvm() {
+    NVM_DIR="$HOME/.nvm"
+    export NVM_DIR
+    mkdir -p "$NVM_DIR"
+
+    if [ -s "$NVM_DIR/nvm.sh" ]; then
+        log "nvm already installed, skipping download"
+    else
+        log "installing nvm $NVM_VERSION"
+        # PROFILE=/dev/null: .bashrc (tracked in dotfiles) already loads nvm,
+        # so don't let the installer append to it.
+        curl -fsSL "https://raw.githubusercontent.com/nvm-sh/nvm/$NVM_VERSION/install.sh" |
+            PROFILE=/dev/null bash
+    fi
+
+    # nvm.sh isn't safe under `set -eu`, so relax it while nvm runs.
+    set +eu
+    . "$NVM_DIR/nvm.sh"
+    nvm install --lts
+    nvm use --lts
+    nvm alias default 'lts/*' # so new shells pick up the LTS too
+    set -eu
+
+    node --version
 }
 
 install_pi() {
@@ -111,12 +139,13 @@ install_cargo_tools() {
 
 run_step() {
     case "$1" in
+        nvm) install_nvm ;;
         pi) install_pi ;;
         claude) install_claude ;;
         nvim) install_nvim ;;
         cargo) install_cargo ;;
         cargo_tools) install_cargo_tools ;;
-        *) die "unknown step: $1 (expected: pi claude nvim cargo cargo_tools)" ;;
+        *) die "unknown step: $1 (expected: nvm pi claude nvim cargo cargo_tools)" ;;
     esac
 }
 
@@ -124,7 +153,7 @@ main() {
     check_prereqs
 
     if [ "$#" -eq 0 ]; then
-        set -- pi claude nvim cargo cargo_tools
+        set -- nvm pi claude nvim cargo cargo_tools
     fi
 
     for step in "$@"; do
