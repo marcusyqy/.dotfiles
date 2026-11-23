@@ -1,3 +1,5 @@
 {
-  "tui.altScreen.search": "alt+f"
+  "tui.altScreen.search": "alt+f",
+  "tui.altScreen.searchPrevious": ["shift+enter", "ctrl+p"],
+  "tui.altScreen.searchNext": ["enter", "ctrl+n"]
 }

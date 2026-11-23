@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "1.5.2",
+  "lastChangelogVersion": "1.6.0",
   "defaultProvider": "anthropic",
   "defaultModel": "claude-opus-5-5",
   "images": {
@@ -24,5 +24,10 @@
     "-builtin:mcp"
   ],
   "quietStartup": true,
-  "hideThinkingBlock": true
+  "hideThinkingBlock": false,
+  "showHardwareCursor": true,
+  "terminal": {
+    "showTerminalProgress": true
+  },
+  "theme": "3forge"
 }

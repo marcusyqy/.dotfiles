@@ -18,3 +18,5 @@ bindkey '^[[1;3D' backward-word
 alias vim='nvim'
 alias vi='nvim'
 export EDITOR='nvim'
+
+. "$HOME/.local/share/../bin/env"

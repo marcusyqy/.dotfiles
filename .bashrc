@@ -128,10 +128,12 @@ export NVM_DIR="$HOME/.nvm"
 export PATH=$HOME/.local/bin:$PATH
 export PATH=$HOME/opencode/bin:$PATH
 export PATH=/usr/local/bin:$PATH
-
+export PATH=$HOME/.cargo/bin:$PATH
 
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 export XDG_CACHE_HOME="$HOME/.cache"
 
+
+. "$HOME/.local/share/../bin/env"
