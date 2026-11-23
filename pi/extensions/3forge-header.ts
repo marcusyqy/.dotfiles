@@ -7,7 +7,8 @@
 
 import type { ExtensionAPI, Theme } from "@earendil-works/pi-coding-agent";
 import { VERSION } from "@earendil-works/pi-coding-agent";
-import { truncateToWidth } from "@earendil-works/pi-tui";
+import type { Component } from "@earendil-works/pi-tui";
+import { Text, truncateToWidth } from "@earendil-works/pi-tui";
 
 type RGB = [number, number, number];
 const ORANGE: RGB = [241, 105, 0];
@@ -90,7 +91,78 @@ function header(theme: Theme, width: number): string[] {
 	return ["", ...art, "", tag, meta, ""].map((l) => truncateToWidth(l, width));
 }
 
+// Prompts: the theme makes userMessageBg transparent; instead frame each prompt
+// with full-width 3forge-teal rules above and below.
+const promptRule = (width: number) => `${fg(TEAL)}${"─".repeat(Math.max(1, width))}\x1b[39m`;
+
+// Agent tool calls: the theme makes the tool backgrounds transparent; instead draw
+// a rule above the call and below the result, coloured by state.
+class Framed implements Component {
+	constructor(
+		readonly inner: Component,
+		private readonly top?: (width: number) => string,
+		private readonly bottom?: (width: number) => string,
+	) {}
+	render(width: number): string[] {
+		const lines = [...this.inner.render(width)];
+		if (this.top) lines.unshift(this.top(width));
+		if (this.bottom) lines.push(this.bottom(width));
+		return lines;
+	}
+	invalidate() {
+		this.inner.invalidate();
+	}
+}
+
+type Renderers = NonNullable<ReturnType<Parameters<ExtensionAPI["registerToolRenderer"]>[0]>>;
+
+const toolRule = (theme: Theme, ctx: { isPartial: boolean; isError: boolean }) => (width: number) =>
+	theme.fg(ctx.isError ? "error" : ctx.isPartial ? "borderMuted" : "border", "─".repeat(Math.max(1, width)));
+
+const unwrap = (c: unknown) => (c instanceof Framed ? c.inner : c) as Component | undefined;
+
+function frameTool(toolName: string, base: Renderers | undefined): Renderers | undefined {
+	// Tools that draw their own shell keep it.
+	if (base?.renderShell === "self") return base;
+	return {
+		...base,
+		renderCall(args, theme, context) {
+			const inner = base?.renderCall
+				? base.renderCall(args, theme, { ...context, lastComponent: unwrap(context.lastComponent) })
+				: new Text(`${theme.fg("toolTitle", theme.bold(toolName))} ${theme.fg("dim", JSON.stringify(args))}`, 0, 0);
+			return new Framed(inner, toolRule(theme, context));
+		},
+		renderResult(result, options, theme, context) {
+			let inner: Component;
+			if (base?.renderResult) {
+				inner = base.renderResult(result, options, theme, { ...context, lastComponent: unwrap(context.lastComponent) });
+			} else {
+				const text = result.content
+					.map((c) => (c.type === "text" ? c.text : `[${c.type}]`))
+					.join("\n")
+					.trimEnd();
+				const lines = text ? text.split("\n") : [];
+				const shown = options.expanded ? lines : lines.slice(0, 10);
+				let out = shown.map((l) => theme.fg("toolOutput", l)).join("\n");
+				if (shown.length < lines.length) out += theme.fg("muted", `\n... (${lines.length - shown.length} more lines)`);
+				inner = new Text(out, 0, 0);
+			}
+			return new Framed(inner, undefined, toolRule(theme, context));
+		},
+	};
+}
+
 export default function (pi: ExtensionAPI) {
+	pi.registerMarkdownTransformer(
+		(markdown, { availableWidth }) => {
+			const rule = promptRule(availableWidth);
+			return `${rule}\n\n${markdown}\n\n${rule}`;
+		},
+		{ messageTypes: ["user"] },
+	);
+
+	pi.registerToolRenderer((toolName, next) => frameTool(toolName, next()));
+
 	pi.on("session_start", async (_event, ctx) => {
 		if (ctx.mode !== "tui") return;
 		ctx.ui.setHeader((_tui, theme) => ({

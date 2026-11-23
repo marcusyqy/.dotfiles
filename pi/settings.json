@@ -13,12 +13,14 @@
     "npm:pi-memory",
     "npm:pi-simplify",
     "npm:pi-mcp-adapter",
-    "npm:pi-web-access"
+    "npm:pi-web-access",
+    "npm:awesome-pi-themes"
   ],
   "extensionChangelogVersions": {
     "{\"source\":\"npm:pi-memory\",\"scope\":\"user\"}": "0.4.2",
     "{\"source\":\"npm:pi-mcp-adapter\",\"scope\":\"user\"}": "7.0.1",
-    "{\"source\":\"npm:pi-web-access\",\"scope\":\"user\"}": "0.48.0"
+    "{\"source\":\"npm:pi-web-access\",\"scope\":\"user\"}": "0.48.0",
+    "{\"source\":\"npm:awesome-pi-themes\",\"scope\":\"user\"}": "1.2.19"
   },
   "extensions": [
     "-builtin:mcp"
