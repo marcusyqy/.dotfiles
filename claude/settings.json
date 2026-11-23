@@ -1,4 +1,8 @@
 {
+  "attribution": {
+    "commit": "",
+    "pr": ""
+  },
   "permissions": {
     "defaultMode": "auto"
   },
@@ -12,10 +16,6 @@
         "url": "git@github.com:cursor/plugins.git"
       }
     }
-  },
-  "attribution": {
-    "commit":"",
-    "pr":""
   },
   "autoUpdatesChannel": "latest",
   "tui": "default",

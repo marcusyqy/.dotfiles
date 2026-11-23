@@ -39,6 +39,8 @@ link_kitty() {
 
 link_vimrc() {
     rm $HOME/.vimrc
+    mkdir -p $HOME/.vim/tmp
+    mkdir -p $HOME/.vim/undodir
     ln -s $DOTFILES/.vimrc $HOME/.vimrc
 }
 
