@@ -6,7 +6,7 @@
 #   ./setup/setup_server.sh            # install everything
 #   ./setup/setup_server.sh nvim cargo # install only the named steps
 #
-# Steps: nvm pi claude nvim cargo cargo_tools
+# Steps: nvm claude nvim cargo cargo_tools pi
 #
 # Re-running is safe: already-installed tools are skipped, except nvim
 # nightly, which is always re-downloaded to pick up the latest build.
@@ -145,7 +145,7 @@ run_step() {
         nvim) install_nvim ;;
         cargo) install_cargo ;;
         cargo_tools) install_cargo_tools ;;
-        *) die "unknown step: $1 (expected: nvm pi claude nvim cargo cargo_tools)" ;;
+        *) die "unknown step: $1 (expected: nvm claude nvim cargo cargo_tools pi)" ;;
     esac
 }
 
@@ -153,7 +153,7 @@ main() {
     check_prereqs
 
     if [ "$#" -eq 0 ]; then
-        set -- nvm pi claude nvim cargo cargo_tools
+        set -- nvm claude nvim cargo cargo_tools pi
     fi
 
     for step in "$@"; do
