@@ -42,10 +42,10 @@ config.freetype_load_target = "HorizontalLcd"
 -- config.freetype_load_target = "Normal"
 
 -- tab
-config.use_fancy_tab_bar = true
+config.use_fancy_tab_bar = false
 config.enable_tab_bar = true
 config.hide_tab_bar_if_only_one_tab = false
-config.tab_bar_at_bottom = false
+config.tab_bar_at_bottom = true
 -- config.show_tab_index_in_tab_bar = false
 config.tab_max_width = 32
 
@@ -112,7 +112,7 @@ config.color_scheme = 'coolbeans'
 -- end)
 
 -- windows
-config.window_decorations = "RESIZE | TITLE | INTEGRATED_BUTTONS"
+config.window_decorations = "RESIZE | TITLE" --  | INTEGRATED_BUTTONS"
 config.window_padding = {
     left = 0,
     right = 0,
@@ -213,6 +213,7 @@ table.insert(config.keys, { mods="ALT", key = "r", action = action.SendKey({ key
 table.insert(config.keys, { mods="ALT", key = "a", action = action.SendKey({ key = "Home" }) })
 table.insert(config.keys, { mods="ALT", key = "e", action = action.SendKey({ key = "End" }) })
 
+-- table.insert(config.keys, { mods="CTRL|SHIFT", key = "f", action = action.SendKey({ mods="CTRL|SHIFT", key = "f" }) })
 table.insert(config.keys, { mods="ALT|CTRL", key = "[", action = wezterm.action.MoveTabRelative(-1) })
 table.insert(config.keys, { mods="ALT|CTRL", key = "]", action = wezterm.action.MoveTabRelative(1) })
 
