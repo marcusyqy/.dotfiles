@@ -16,7 +16,8 @@ ansi = ["#0f1418", "#d37a70", "#95b47b", "#d9b46f", "#7ca7c7", "#c486b7", "#8fbf
 brights = ["#48545d", "#d37a70", "#95b47b", "#d9b46f", "#7ca7c7", "#c486b7", "#8fbfc0", "#f0e7d0"]
 
 [colors.tab_bar]
-background = "#141b20"
+# background = "#141b20"
+background = "#0f1418"
 inactive_tab_edge = "#303b44"
 
 [colors.tab_bar.active_tab]
@@ -25,7 +26,8 @@ bg_color = "#d7d0bf"
 intensity = "Bold"
 
 [colors.tab_bar.inactive_tab]
-bg_color = "#141b20"
+bg_color = "#0f1418"
+# bg_color = "#141b20"
 fg_color = "#938b7a"
 
 [colors.tab_bar.inactive_tab_hover]
